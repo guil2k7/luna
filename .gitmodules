@@ -1,0 +1,3 @@
+[submodule "libluna"]
+	url = https://github.com/guil2k7/libluna.git
+	path = libluna
