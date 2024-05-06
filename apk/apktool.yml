@@ -1,0 +1,47 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: original.apk
+compressionType: false
+doNotCompress:
+- png
+- res/raw/long_ramp_down_light.hapt
+- res/raw/double_click_light.hapt
+- res/raw/short_ramp_down.hapt
+- res/raw/fast_pulse.hapt
+- res/raw/slow_pulse.hapt
+- res/raw/pop.hapt
+- res/raw/short_ramp_up.hapt
+- res/raw/long_explosion.hapt
+- res/raw/tick.hapt
+- res/raw/short_ramp_up_light.hapt
+- res/raw/bump_light.hapt
+- res/raw/short_ramp_down_light.hapt
+- res/raw/triple_click.hapt
+- res/raw/long_ramp_down.hapt
+- res/raw/pop_light.hapt
+- res/raw/triple_click_light.hapt
+- res/raw/long_ramp_up_light.hapt
+- res/raw/double_click.hapt
+- res/raw/tick_light.hapt
+- res/raw/long_ramp_up.hapt
+- res/raw/short_explosion.hapt
+- res/raw/bounce.hapt
+- res/raw/bounce_light.hapt
+- res/raw/bump.hapt
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '24'
+  targetSdkVersion: '26'
+sharedLibrary: false
+sparseResources: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.7.0-dirty
+versionInfo:
+  versionCode: '26'
+  versionName: '2.00'
