@@ -21,11 +21,14 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
-.field final abo:Ljava/lang/String;
+.field private final zzg:Ljava/lang/String;
 
-.field final abp:Ljava/util/Set;
+.field final zzh:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set",
@@ -45,58 +48,56 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->abo:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->zzg:Ljava/lang/String;
 
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->abp:Ljava/util/Set;
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/google/android/gms/plus/Plus$1;)V
-    .locals 0
-    .param p1, "x0"    # Lcom/google/android/gms/plus/Plus$1;
-
-    .prologue
-    invoke-direct {p0}, Lcom/google/android/gms/plus/Plus$PlusOptions;-><init>()V
+    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->zzh:Ljava/util/Set;
 
     return-void
 .end method
 
 .method private constructor <init>(Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;)V
     .locals 1
-    .param p1, "builder"    # Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iget-object v0, p1, Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;->abo:Ljava/lang/String;
+    iget-object v0, p1, Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;->zzg:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->abo:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->zzg:Ljava/lang/String;
 
-    iget-object v0, p1, Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;->abp:Ljava/util/Set;
+    iget-object v0, p1, Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;->zzh:Ljava/util/Set;
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->abp:Ljava/util/Set;
+    iput-object v0, p0, Lcom/google/android/gms/plus/Plus$PlusOptions;->zzh:Ljava/util/Set;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;Lcom/google/android/gms/plus/Plus$1;)V
+.method synthetic constructor <init>(Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;Lcom/google/android/gms/plus/zzc;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;
-    .param p2, "x1"    # Lcom/google/android/gms/plus/Plus$1;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/plus/Plus$PlusOptions;-><init>(Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;)V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/google/android/gms/plus/zzc;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/gms/plus/Plus$PlusOptions;-><init>()V
 
     return-void
 .end method
 
 .method public static builder()Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;
     .locals 1
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     new-instance v0, Lcom/google/android/gms/plus/Plus$PlusOptions$Builder;
 

@@ -530,7 +530,6 @@
 
     add-int/2addr v1, v2
 
-    .line 172
     goto :goto_0
 
     .line 177

@@ -6,18 +6,23 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/widget/TextViewCompat$Api23TextViewCompatImpl;,
-        Landroid/support/v4/widget/TextViewCompat$JbMr2TextViewCompatImpl;,
-        Landroid/support/v4/widget/TextViewCompat$JbMr1TextViewCompatImpl;,
-        Landroid/support/v4/widget/TextViewCompat$JbTextViewCompatImpl;,
-        Landroid/support/v4/widget/TextViewCompat$BaseTextViewCompatImpl;,
-        Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+        Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi26Impl;,
+        Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi23Impl;,
+        Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi18Impl;,
+        Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi17Impl;,
+        Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi16Impl;,
+        Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;,
+        Landroid/support/v4/widget/TextViewCompat$AutoSizeTextType;
     }
 .end annotation
 
 
 # static fields
-.field static final IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+.field public static final AUTO_SIZE_TEXT_TYPE_NONE:I = 0x0
+
+.field public static final AUTO_SIZE_TEXT_TYPE_UNIFORM:I = 0x1
+
+.field static final IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
 
 # direct methods
@@ -25,78 +30,99 @@
     .locals 2
 
     .prologue
-    .line 163
+    .line 369
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 164
-    .local v0, "version":I
-    const/16 v1, 0x17
+    const/16 v1, 0x1a
 
     if-lt v0, v1, :cond_0
 
-    .line 165
-    new-instance v1, Landroid/support/v4/widget/TextViewCompat$Api23TextViewCompatImpl;
+    .line 370
+    new-instance v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi26Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/TextViewCompat$Api23TextViewCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi26Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    sput-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
-    .line 175
+    .line 382
     :goto_0
     return-void
 
-    .line 166
+    .line 371
     :cond_0
-    const/16 v1, 0x12
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x17
 
     if-lt v0, v1, :cond_1
 
-    .line 167
-    new-instance v1, Landroid/support/v4/widget/TextViewCompat$JbMr2TextViewCompatImpl;
+    .line 372
+    new-instance v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi23Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/TextViewCompat$JbMr2TextViewCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi23Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    sput-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
     goto :goto_0
 
-    .line 168
+    .line 373
     :cond_1
-    const/16 v1, 0x11
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x12
 
     if-lt v0, v1, :cond_2
 
-    .line 169
-    new-instance v1, Landroid/support/v4/widget/TextViewCompat$JbMr1TextViewCompatImpl;
+    .line 374
+    new-instance v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi18Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/TextViewCompat$JbMr1TextViewCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi18Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    sput-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
     goto :goto_0
 
-    .line 170
+    .line 375
     :cond_2
-    const/16 v1, 0x10
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x11
 
     if-lt v0, v1, :cond_3
 
-    .line 171
-    new-instance v1, Landroid/support/v4/widget/TextViewCompat$JbTextViewCompatImpl;
+    .line 376
+    new-instance v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi17Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/TextViewCompat$JbTextViewCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi17Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    sput-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
     goto :goto_0
 
-    .line 173
+    .line 377
     :cond_3
-    new-instance v1, Landroid/support/v4/widget/TextViewCompat$BaseTextViewCompatImpl;
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-direct {v1}, Landroid/support/v4/widget/TextViewCompat$BaseTextViewCompatImpl;-><init>()V
+    const/16 v1, 0x10
 
-    sput-object v1, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    if-lt v0, v1, :cond_4
+
+    .line 378
+    new-instance v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi16Impl;
+
+    invoke-direct {v0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi16Impl;-><init>()V
+
+    sput-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    goto :goto_0
+
+    .line 380
+    :cond_4
+    new-instance v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-direct {v0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;-><init>()V
+
+    sput-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
     goto :goto_0
 .end method
@@ -105,10 +131,103 @@
     .locals 0
 
     .prologue
-    .line 35
+    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method public static getAutoSizeMaxTextSize(Landroid/widget/TextView;)I
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+
+    .prologue
+    .line 588
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getAutoSizeMaxTextSize(Landroid/widget/TextView;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getAutoSizeMinTextSize(Landroid/widget/TextView;)I
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+
+    .prologue
+    .line 578
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getAutoSizeMinTextSize(Landroid/widget/TextView;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getAutoSizeStepGranularity(Landroid/widget/TextView;)I
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+
+    .prologue
+    .line 568
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getAutoSizeStepGranularity(Landroid/widget/TextView;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getAutoSizeTextAvailableSizes(Landroid/widget/TextView;)[I
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+
+    .prologue
+    .line 597
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getAutoSizeTextAvailableSizes(Landroid/widget/TextView;)[I
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getAutoSizeTextType(Landroid/widget/TextView;)I
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+
+    .prologue
+    .line 559
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getAutoSizeTextType(Landroid/widget/TextView;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getCompoundDrawablesRelative(Landroid/widget/TextView;)[Landroid/graphics/drawable/Drawable;
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 482
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getCompoundDrawablesRelative(Landroid/widget/TextView;)[Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public static getMaxLines(Landroid/widget/TextView;)I
@@ -119,10 +238,10 @@
     .end param
 
     .prologue
-    .line 247
-    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    .line 454
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;->getMaxLines(Landroid/widget/TextView;)I
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getMaxLines(Landroid/widget/TextView;)I
 
     move-result v0
 
@@ -137,14 +256,86 @@
     .end param
 
     .prologue
-    .line 255
-    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    .line 462
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;->getMinLines(Landroid/widget/TextView;)I
+    invoke-virtual {v0, p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->getMinLines(Landroid/widget/TextView;)I
 
     move-result v0
 
     return v0
+.end method
+
+.method public static setAutoSizeTextTypeUniformWithConfiguration(Landroid/widget/TextView;IIII)V
+    .locals 6
+    .param p0, "textView"    # Landroid/widget/TextView;
+    .param p1, "autoSizeMinTextSize"    # I
+    .param p2, "autoSizeMaxTextSize"    # I
+    .param p3, "autoSizeStepGranularity"    # I
+    .param p4, "unit"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    .prologue
+    .line 526
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move v4, p3
+
+    move v5, p4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->setAutoSizeTextTypeUniformWithConfiguration(Landroid/widget/TextView;IIII)V
+
+    .line 528
+    return-void
+.end method
+
+.method public static setAutoSizeTextTypeUniformWithPresetSizes(Landroid/widget/TextView;[II)V
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+    .param p1, "presetSizes"    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2, "unit"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    .prologue
+    .line 546
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1, p2}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->setAutoSizeTextTypeUniformWithPresetSizes(Landroid/widget/TextView;[II)V
+
+    .line 547
+    return-void
+.end method
+
+.method public static setAutoSizeTextTypeWithDefaults(Landroid/widget/TextView;I)V
+    .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+    .param p1, "autoSizeTextType"    # I
+
+    .prologue
+    .line 496
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->setAutoSizeTextTypeWithDefaults(Landroid/widget/TextView;I)V
+
+    .line 497
+    return-void
 .end method
 
 .method public static setCompoundDrawablesRelative(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
@@ -171,8 +362,8 @@
     .end param
 
     .prologue
-    .line 195
-    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    .line 402
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
     move-object v1, p0
 
@@ -184,9 +375,9 @@
 
     move-object v5, p4
 
-    invoke-interface/range {v0 .. v5}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;->setCompoundDrawablesRelative(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->setCompoundDrawablesRelative(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 196
+    .line 403
     return-void
 .end method
 
@@ -214,8 +405,8 @@
     .end param
 
     .prologue
-    .line 239
-    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    .line 446
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
     move-object v1, p0
 
@@ -227,9 +418,9 @@
 
     move v5, p4
 
-    invoke-interface/range {v0 .. v5}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;IIII)V
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;IIII)V
 
-    .line 240
+    .line 447
     return-void
 .end method
 
@@ -257,8 +448,8 @@
     .end param
 
     .prologue
-    .line 215
-    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    .line 422
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
     move-object v1, p0
 
@@ -270,9 +461,9 @@
 
     move-object v5, p4
 
-    invoke-interface/range {v0 .. v5}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 216
+    .line 423
     return-void
 .end method
 
@@ -288,11 +479,11 @@
     .end param
 
     .prologue
-    .line 270
-    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;
+    .line 475
+    sget-object v0, Landroid/support/v4/widget/TextViewCompat;->IMPL:Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatImpl;->setTextAppearance(Landroid/widget/TextView;I)V
+    invoke-virtual {v0, p0, p1}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->setTextAppearance(Landroid/widget/TextView;I)V
 
-    .line 271
+    .line 476
     return-void
 .end method

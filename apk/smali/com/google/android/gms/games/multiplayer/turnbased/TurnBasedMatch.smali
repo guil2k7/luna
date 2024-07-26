@@ -8,6 +8,15 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/games/multiplayer/turnbased/TurnBasedMatch$MatchTurnStatus;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -33,6 +42,9 @@
 .field public static final MATCH_STATUS_EXPIRED:I = 0x3
 
 .field public static final MATCH_TURN_STATUS_ALL:[I
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+.end field
 
 .field public static final MATCH_TURN_STATUS_COMPLETE:I = 0x3
 
@@ -76,6 +88,8 @@
 .end method
 
 .method public abstract getAutoMatchCriteria()Landroid/os/Bundle;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract getAvailableAutoMatchSlots()I

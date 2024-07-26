@@ -481,7 +481,6 @@
     .line 107
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 108
     :cond_3
     throw v1
 .end method
@@ -622,7 +621,6 @@
     .line 507
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 504
     .end local v9    # "di":Lcom/google/android/vending/expansion/downloader/impl/DownloadInfo;
     .end local v10    # "idx":I
     .end local v12    # "retInfos":[Lcom/google/android/vending/expansion/downloader/impl/DownloadInfo;
@@ -648,7 +646,6 @@
     .line 507
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 509
     :cond_2
     throw v1
 
@@ -825,7 +822,6 @@
     .line 379
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 380
     :cond_3
     throw v2
 .end method
@@ -1351,7 +1347,6 @@
     :cond_0
     move v1, v9
 
-    .line 460
     :goto_0
     return v1
 
@@ -1365,7 +1360,6 @@
     :cond_2
     move v1, v10
 
-    .line 460
     goto :goto_0
 
     .line 462
@@ -1377,7 +1371,6 @@
     .line 463
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 465
     :cond_3
     throw v1
 .end method

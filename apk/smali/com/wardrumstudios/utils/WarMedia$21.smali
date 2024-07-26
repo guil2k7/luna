@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 2548
+    .line 2555
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,10 +41,10 @@
     .locals 12
 
     .prologue
-    .line 2550
+    .line 2557
     const/4 v11, 0x1
 
-    .line 2551
+    .line 2558
     .local v11, "clearText":Z
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -68,11 +68,11 @@
 
     if-lez v3, :cond_1
 
-    .line 2552
+    .line 2559
     :cond_0
     const/4 v11, 0x0
 
-    .line 2553
+    .line 2560
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, v3, Lcom/wardrumstudios/utils/WarMedia;->movieTextSurface:Landroid/view/SurfaceView;
@@ -81,7 +81,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/SurfaceView;->setVisibility(I)V
 
-    .line 2557
+    .line 2564
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -121,7 +121,7 @@
 
     move-result-object v1
 
-    .line 2559
+    .line 2566
     .local v1, "drawText":Ljava/lang/String;
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -131,11 +131,11 @@
 
     move-result-object v10
 
-    .line 2560
+    .line 2567
     .local v10, "canvas":Landroid/graphics/Canvas;
     if-eqz v10, :cond_1
 
-    .line 2561
+    .line 2568
     new-instance v0, Landroid/text/StaticLayout;
 
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -160,7 +160,7 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
 
-    .line 2562
+    .line 2569
     .local v0, "layoutText":Landroid/text/StaticLayout;
     new-instance v2, Landroid/text/StaticLayout;
 
@@ -188,7 +188,7 @@
 
     invoke-direct/range {v2 .. v9}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
 
-    .line 2564
+    .line 2571
     .local v2, "sLayoutText":Landroid/text/StaticLayout;
     const/4 v3, 0x0
 
@@ -196,7 +196,7 @@
 
     invoke-virtual {v10, v3, v4}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 2565
+    .line 2572
     const/high16 v3, 0x42500000    # 52.0f
 
     iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -217,27 +217,27 @@
 
     invoke-virtual {v10, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 2566
+    .line 2573
     invoke-virtual {v2, v10}, Landroid/text/StaticLayout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 2567
+    .line 2574
     const/high16 v3, -0x40000000    # -2.0f
 
     const/high16 v4, -0x40000000    # -2.0f
 
     invoke-virtual {v10, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 2568
+    .line 2575
     invoke-virtual {v0, v10}, Landroid/text/StaticLayout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 2569
+    .line 2576
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, v3, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
 
     invoke-interface {v3, v10}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
-    .line 2573
+    .line 2580
     .end local v0    # "layoutText":Landroid/text/StaticLayout;
     .end local v1    # "drawText":Ljava/lang/String;
     .end local v2    # "sLayoutText":Landroid/text/StaticLayout;
@@ -245,7 +245,7 @@
     :cond_1
     if-eqz v11, :cond_3
 
-    .line 2574
+    .line 2581
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, v3, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
@@ -254,25 +254,25 @@
 
     move-result-object v10
 
-    .line 2575
+    .line 2582
     .restart local v10    # "canvas":Landroid/graphics/Canvas;
     if-eqz v10, :cond_2
 
-    .line 2577
+    .line 2584
     const/4 v3, 0x0
 
     sget-object v4, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v10, v3, v4}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 2578
+    .line 2585
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, v3, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
 
     invoke-interface {v3, v10}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
-    .line 2580
+    .line 2587
     :cond_2
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$21;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -282,12 +282,12 @@
 
     invoke-virtual {v3, v4}, Landroid/view/SurfaceView;->setVisibility(I)V
 
-    .line 2582
+    .line 2589
     .end local v10    # "canvas":Landroid/graphics/Canvas;
     :cond_3
     return-void
 
-    .line 2557
+    .line 2564
     :cond_4
     const-string v3, ""
 

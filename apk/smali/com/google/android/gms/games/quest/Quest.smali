@@ -7,6 +7,9 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -18,11 +21,20 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final QUEST_STATE_ALL:[I
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+.end field
 
 .field public static final QUEST_STATE_NON_TERMINAL:[Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+.end field
 
 .field public static final STATE_ACCEPTED:I = 0x3
 
@@ -105,6 +117,9 @@
 .end method
 
 .method public abstract getBannerImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -128,6 +143,9 @@
 .end method
 
 .method public abstract getIconImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -153,7 +171,10 @@
 .method public abstract getType()I
 .end method
 
-.method public abstract iE()Ljava/util/List;
+.method public abstract isEndingSoon()Z
+.end method
+
+.method public abstract zzcj()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -165,8 +186,5 @@
     .end annotation
 .end method
 
-.method public abstract iF()J
-.end method
-
-.method public abstract isEndingSoon()Z
+.method public abstract zzck()J
 .end method

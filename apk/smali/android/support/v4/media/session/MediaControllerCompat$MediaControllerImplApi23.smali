@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x17
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/media/session/MediaControllerCompat;
 .end annotation
@@ -26,10 +30,10 @@
     .end annotation
 
     .prologue
-    .line 1368
+    .line 2389
     invoke-direct {p0, p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;-><init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
 
-    .line 1369
+    .line 2390
     return-void
 .end method
 
@@ -39,10 +43,10 @@
     .param p2, "session"    # Landroid/support/v4/media/session/MediaSessionCompat;
 
     .prologue
-    .line 1363
+    .line 2384
     invoke-direct {p0, p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;-><init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat;)V
 
-    .line 1364
+    .line 2385
     return-void
 .end method
 
@@ -52,14 +56,14 @@
     .locals 2
 
     .prologue
-    .line 1373
+    .line 2394
     iget-object v1, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi23;->mControllerObj:Ljava/lang/Object;
 
     invoke-static {v1}, Landroid/support/v4/media/session/MediaControllerCompatApi21;->getTransportControls(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 1374
+    .line 2395
     .local v0, "controlsObj":Ljava/lang/Object;
     if-eqz v0, :cond_0
 

@@ -3,18 +3,12 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/games/Notifications$InboxCountResult;,
-        Lcom/google/android/gms/games/Notifications$ContactSettingLoadResult;,
-        Lcom/google/android/gms/games/Notifications$GameMuteStatusLoadResult;,
-        Lcom/google/android/gms/games/Notifications$GameMuteStatusChangeResult;
-    }
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
 # static fields
-.field public static final NOTIFICATION_TYPES_ALL:I = 0x1f
+.field public static final NOTIFICATION_TYPES_ALL:I = 0x3f
 
 .field public static final NOTIFICATION_TYPES_MULTIPLAYER:I = 0x3
 

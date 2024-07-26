@@ -3,16 +3,18 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/ads/AdRequest$1;,
         Lcom/google/android/gms/ads/AdRequest$Builder;
     }
 .end annotation
 
 
 # static fields
-.field public static final DEVICE_ID_EMULATOR:Ljava/lang/String;
+.field public static final DEVICE_ID_EMULATOR:Ljava/lang/String; = "B3EEABB8EE11C2BE770B684D95219ECB"
 
 .field public static final ERROR_CODE_INTERNAL_ERROR:I = 0x0
 
@@ -32,46 +34,31 @@
 
 
 # instance fields
-.field private final kq:Lcom/google/android/gms/internal/au;
+.field private final zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/au;->DEVICE_ID_EMULATOR:Ljava/lang/String;
-
-    sput-object v0, Lcom/google/android/gms/ads/AdRequest;->DEVICE_ID_EMULATOR:Ljava/lang/String;
-
-    return-void
-.end method
-
 .method private constructor <init>(Lcom/google/android/gms/ads/AdRequest$Builder;)V
     .locals 2
-    .param p1, "builder"    # Lcom/google/android/gms/ads/AdRequest$Builder;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/google/android/gms/internal/au;
+    new-instance v0, Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-static {p1}, Lcom/google/android/gms/ads/AdRequest$Builder;->a(Lcom/google/android/gms/ads/AdRequest$Builder;)Lcom/google/android/gms/internal/au$a;
+    invoke-static {p1}, Lcom/google/android/gms/ads/AdRequest$Builder;->zza(Lcom/google/android/gms/ads/AdRequest$Builder;)Lcom/google/android/gms/internal/ads/zzlx;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/google/android/gms/internal/au;-><init>(Lcom/google/android/gms/internal/au$a;)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/internal/ads/zzlw;-><init>(Lcom/google/android/gms/internal/ads/zzlx;)V
 
-    iput-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iput-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/gms/ads/AdRequest$Builder;Lcom/google/android/gms/ads/AdRequest$1;)V
+.method synthetic constructor <init>(Lcom/google/android/gms/ads/AdRequest$Builder;Lcom/google/android/gms/ads/zza;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/android/gms/ads/AdRequest$Builder;
-    .param p2, "x1"    # Lcom/google/android/gms/ads/AdRequest$1;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/ads/AdRequest;-><init>(Lcom/google/android/gms/ads/AdRequest$Builder;)V
 
     return-void
@@ -79,39 +66,31 @@
 
 
 # virtual methods
-.method O()Lcom/google/android/gms/internal/au;
+.method public final getBirthday()Ljava/util/Date;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    return-object v0
-.end method
-
-.method public getBirthday()Ljava/util/Date;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/au;->getBirthday()Ljava/util/Date;
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzlw;->getBirthday()Ljava/util/Date;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getContentUrl()Ljava/lang/String;
+.method public final getContentUrl()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/au;->getContentUrl()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzlw;->getContentUrl()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getCustomEventExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
+.method public final getCustomEventExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -124,30 +103,28 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "adapterClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->getCustomEventExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ads/zzlw;->getCustomEventExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getGender()I
+.method public final getGender()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/au;->getGender()I
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzlw;->getGender()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public getKeywords()Ljava/util/Set;
+.method public final getKeywords()Ljava/util/Set;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -159,28 +136,28 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/au;->getKeywords()Ljava/util/Set;
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzlw;->getKeywords()Ljava/util/Set;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getLocation()Landroid/location/Location;
+.method public final getLocation()Landroid/location/Location;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/au;->getLocation()Landroid/location/Location;
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzlw;->getLocation()Landroid/location/Location;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getNetworkExtras(Ljava/lang/Class;)Lcom/google/android/gms/ads/mediation/NetworkExtras;
+.method public final getNetworkExtras(Ljava/lang/Class;)Lcom/google/android/gms/ads/mediation/NetworkExtras;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,18 +172,16 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .local p1, "networkExtrasClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->getNetworkExtras(Ljava/lang/Class;)Lcom/google/android/gms/ads/mediation/NetworkExtras;
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ads/zzlw;->getNetworkExtras(Ljava/lang/Class;)Lcom/google/android/gms/ads/mediation/NetworkExtras;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getNetworkExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
+.method public final getNetworkExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -219,27 +194,31 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "adapterClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->getNetworkExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ads/zzlw;->getNetworkExtrasBundle(Ljava/lang/Class;)Landroid/os/Bundle;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public isTestDevice(Landroid/content/Context;)Z
+.method public final isTestDevice(Landroid/content/Context;)Z
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->kq:Lcom/google/android/gms/internal/au;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->isTestDevice(Landroid/content/Context;)Z
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ads/zzlw;->isTestDevice(Landroid/content/Context;)Z
 
     move-result v0
 
     return v0
+.end method
+
+.method public final zzay()Lcom/google/android/gms/internal/ads/zzlw;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdRequest;->zzun:Lcom/google/android/gms/internal/ads/zzlw;
+
+    return-object v0
 .end method

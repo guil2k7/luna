@@ -2153,7 +2153,6 @@
     :cond_5
     move v5, v4
 
-    .line 1172
     .restart local v5    # "Result":I
     goto/16 :goto_0
 
@@ -2756,7 +2755,6 @@
     :catchall_0
     move-exception v25
 
-    .line 1226
     :try_start_7
     throw v25
     :try_end_7
@@ -2802,7 +2800,6 @@
     .line 1233
     const/16 v24, 0x0
 
-    .line 1235
     :cond_14
     throw v25
 

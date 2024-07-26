@@ -2,6 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
+.implements Lcom/google/android/gms/common/api/Releasable;
 .implements Lcom/google/android/gms/common/api/Result;
 
 
@@ -13,6 +14,9 @@
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x609
     name = "MetadataBufferResult"
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 

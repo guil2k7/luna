@@ -1,9 +1,13 @@
 .class Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;
-.super Landroid/support/v4/app/ActivityCompat21$SharedElementCallback21;
+.super Landroid/app/SharedElementCallback;
 .source "ActivityCompat.java"
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/app/ActivityCompat;
 .end annotation
@@ -15,7 +19,7 @@
 
 
 # instance fields
-.field private mCallback:Landroid/support/v4/app/SharedElementCallback;
+.field protected mCallback:Landroid/support/v4/app/SharedElementCallback;
 
 
 # direct methods
@@ -24,13 +28,13 @@
     .param p1, "callback"    # Landroid/support/v4/app/SharedElementCallback;
 
     .prologue
-    .line 382
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityCompat21$SharedElementCallback21;-><init>()V
+    .line 451
+    invoke-direct {p0}, Landroid/app/SharedElementCallback;-><init>()V
 
-    .line 383
+    .line 452
     iput-object p1, p0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;->mCallback:Landroid/support/v4/app/SharedElementCallback;
 
-    .line 384
+    .line 453
     return-void
 .end method
 
@@ -43,7 +47,7 @@
     .param p3, "screenBounds"    # Landroid/graphics/RectF;
 
     .prologue
-    .line 413
+    .line 482
     iget-object v0, p0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;->mCallback:Landroid/support/v4/app/SharedElementCallback;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/support/v4/app/SharedElementCallback;->onCaptureSharedElementSnapshot(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;)Landroid/os/Parcelable;
@@ -59,7 +63,7 @@
     .param p2, "snapshot"    # Landroid/os/Parcelable;
 
     .prologue
-    .line 419
+    .line 488
     iget-object v0, p0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;->mCallback:Landroid/support/v4/app/SharedElementCallback;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/app/SharedElementCallback;->onCreateSnapshotView(Landroid/content/Context;Landroid/os/Parcelable;)Landroid/view/View;
@@ -87,14 +91,14 @@
     .end annotation
 
     .prologue
-    .line 407
+    .line 476
     .local p1, "names":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .local p2, "sharedElements":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/view/View;>;"
     iget-object v0, p0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;->mCallback:Landroid/support/v4/app/SharedElementCallback;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/app/SharedElementCallback;->onMapSharedElements(Ljava/util/List;Ljava/util/Map;)V
 
-    .line 408
+    .line 477
     return-void
 .end method
 
@@ -111,13 +115,13 @@
     .end annotation
 
     .prologue
-    .line 402
+    .line 471
     .local p1, "rejectedSharedElements":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     iget-object v0, p0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;->mCallback:Landroid/support/v4/app/SharedElementCallback;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/app/SharedElementCallback;->onRejectSharedElements(Ljava/util/List;)V
 
-    .line 403
+    .line 472
     return-void
 .end method
 
@@ -142,7 +146,7 @@
     .end annotation
 
     .prologue
-    .line 396
+    .line 465
     .local p1, "sharedElementNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .local p2, "sharedElements":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     .local p3, "sharedElementSnapshots":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
@@ -150,7 +154,7 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/support/v4/app/SharedElementCallback;->onSharedElementEnd(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
 
-    .line 398
+    .line 467
     return-void
 .end method
 
@@ -175,7 +179,7 @@
     .end annotation
 
     .prologue
-    .line 389
+    .line 458
     .local p1, "sharedElementNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .local p2, "sharedElements":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     .local p3, "sharedElementSnapshots":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
@@ -183,6 +187,6 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/support/v4/app/SharedElementCallback;->onSharedElementStart(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
 
-    .line 391
+    .line 460
     return-void
 .end method

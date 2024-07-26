@@ -14,28 +14,6 @@
     .end annotation
 .end field
 
-.field public static final KF:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField",
-            "<",
-            "Ljava/util/Date;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public static final KG:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/drive/metadata/SearchableMetadataField",
-            "<",
-            "Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field public static final LAST_VIEWED_BY_ME:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,50 +91,72 @@
     .end annotation
 .end field
 
+.field public static final zzle:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField",
+            "<",
+            "Ljava/util/Date;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static final zzlf:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/drive/metadata/SearchableMetadataField",
+            "<",
+            "Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Ko:Lcom/google/android/gms/internal/ir$g;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzkb:Lcom/google/android/gms/internal/drive/zzhy;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->TITLE:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kh:Lcom/google/android/gms/internal/ir$c;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjs:Lcom/google/android/gms/internal/drive/zzhu;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->MIME_TYPE:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kp:Lcom/google/android/gms/internal/ir$h;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzkc:Lcom/google/android/gms/internal/drive/zzhz;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->TRASHED:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kk:Lcom/google/android/gms/internal/ir$d;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjx:Lcom/google/android/gms/drive/metadata/internal/zzo;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->PARENTS:Lcom/google/android/gms/drive/metadata/SearchableCollectionMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Kx:Lcom/google/android/gms/internal/it$e;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzkr:Lcom/google/android/gms/internal/drive/zzii;
 
-    sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->KF:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+    sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->zzle:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Km:Lcom/google/android/gms/internal/ir$f;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjz:Lcom/google/android/gms/internal/drive/zzhx;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->STARRED:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Kv:Lcom/google/android/gms/internal/it$d;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzkp:Lcom/google/android/gms/internal/drive/zzig;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->MODIFIED_DATE:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Ku:Lcom/google/android/gms/internal/it$b;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzko:Lcom/google/android/gms/internal/drive/zzie;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->LAST_VIEWED_BY_ME:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kc:Lcom/google/android/gms/internal/ir$b;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjk:Lcom/google/android/gms/internal/drive/zzht;
 
     sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->IS_PINNED:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JS:Lcom/google/android/gms/internal/ir$a;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzix:Lcom/google/android/gms/internal/drive/zzhs;
 
-    sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->KG:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
+    sput-object v0, Lcom/google/android/gms/drive/query/SearchableField;->zzlf:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
 
     return-void
 .end method

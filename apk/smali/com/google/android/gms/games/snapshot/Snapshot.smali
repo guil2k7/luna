@@ -20,20 +20,8 @@
 
 
 # virtual methods
-.method public abstract getContents()Lcom/google/android/gms/drive/Contents;
-.end method
-
 .method public abstract getMetadata()Lcom/google/android/gms/games/snapshot/SnapshotMetadata;
 .end method
 
-.method public abstract iH()V
-.end method
-
-.method public abstract modifyBytes(I[BII)Z
-.end method
-
-.method public abstract readFully()[B
-.end method
-
-.method public abstract writeBytes([B)Z
+.method public abstract getSnapshotContents()Lcom/google/android/gms/games/snapshot/SnapshotContents;
 .end method

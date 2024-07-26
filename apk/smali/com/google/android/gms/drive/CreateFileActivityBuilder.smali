@@ -2,14 +2,30 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;"
+    }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # static fields
 .field public static final EXTRA_RESPONSE_DRIVE_ID:Ljava/lang/String; = "response_drive_id"
 
 
 # instance fields
-.field private final HC:Lcom/google/android/gms/drive/internal/h;
+.field private final zzn:Lcom/google/android/gms/internal/drive/zzt;
 
-.field private HD:Lcom/google/android/gms/drive/Contents;
+.field private zzo:Lcom/google/android/gms/drive/DriveContents;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private zzp:Z
 
 
 # direct methods
@@ -18,13 +34,13 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/google/android/gms/drive/internal/h;
+    new-instance v0, Lcom/google/android/gms/internal/drive/zzt;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/google/android/gms/drive/internal/h;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/internal/drive/zzt;-><init>(I)V
 
-    iput-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HC:Lcom/google/android/gms/drive/internal/h;
+    iput-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
 
     return-void
 .end method
@@ -33,103 +49,214 @@
 # virtual methods
 .method public build(Lcom/google/android/gms/common/api/GoogleApiClient;)Landroid/content/IntentSender;
     .locals 2
-    .param p1, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HD:Lcom/google/android/gms/drive/Contents;
+    invoke-virtual {p1}, Lcom/google/android/gms/common/api/GoogleApiClient;->isConnected()Z
 
-    const-string v1, "Must provide initial contents to CreateFileActivityBuilder."
+    move-result v0
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "Client must be connected"
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HD:Lcom/google/android/gms/drive/Contents;
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    invoke-virtual {v0}, Lcom/google/android/gms/drive/Contents;->getParcelFileDescriptor()Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {p0}, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzf()V
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
 
-    invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HD:Lcom/google/android/gms/drive/Contents;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/drive/Contents;->close()V
-
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HC:Lcom/google/android/gms/drive/internal/h;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/drive/internal/h;->build(Lcom/google/android/gms/common/api/GoogleApiClient;)Landroid/content/IntentSender;
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/drive/zzt;->build(Lcom/google/android/gms/common/api/GoogleApiClient;)Landroid/content/IntentSender;
 
     move-result-object v0
 
     return-object v0
+.end method
 
-    :catch_0
-    move-exception v0
+.method final getRequestId()I
+    .locals 1
 
-    goto :goto_0
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/drive/zzt;->getRequestId()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public setActivityStartFolder(Lcom/google/android/gms/drive/DriveId;)Lcom/google/android/gms/drive/CreateFileActivityBuilder;
     .locals 1
-    .param p1, "folder"    # Lcom/google/android/gms/drive/DriveId;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HC:Lcom/google/android/gms/drive/internal/h;
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/drive/internal/h;->a(Lcom/google/android/gms/drive/DriveId;)V
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/drive/zzt;->zza(Lcom/google/android/gms/drive/DriveId;)V
 
     return-object p0
 .end method
 
 .method public setActivityTitle(Ljava/lang/String;)Lcom/google/android/gms/drive/CreateFileActivityBuilder;
     .locals 1
-    .param p1, "title"    # Ljava/lang/String;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HC:Lcom/google/android/gms/drive/internal/h;
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/drive/internal/h;->aM(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/drive/zzt;->zzc(Ljava/lang/String;)V
 
     return-object p0
 .end method
 
-.method public setInitialContents(Lcom/google/android/gms/drive/Contents;)Lcom/google/android/gms/drive/CreateFileActivityBuilder;
-    .locals 2
-    .param p1, "contents"    # Lcom/google/android/gms/drive/Contents;
+.method public setInitialDriveContents(Lcom/google/android/gms/drive/DriveContents;)Lcom/google/android/gms/drive/CreateFileActivityBuilder;
+    .locals 3
+    .param p1    # Lcom/google/android/gms/drive/DriveContents;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
-    .prologue
-    invoke-static {p1}, Lcom/google/android/gms/internal/hn;->f(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v2, 0x1
+
+    if-eqz p1, :cond_3
+
+    instance-of v0, p1, Lcom/google/android/gms/internal/drive/zzbi;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Only DriveContents obtained from the Drive API are accepted."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    invoke-interface {p1}, Lcom/google/android/gms/drive/DriveContents;->getDriveId()Lcom/google/android/gms/drive/DriveId;
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/gms/drive/Contents;
+    if-eqz v0, :cond_1
 
-    iput-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HD:Lcom/google/android/gms/drive/Contents;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HC:Lcom/google/android/gms/drive/internal/h;
+    const-string v1, "Only DriveContents obtained through DriveApi.newDriveContents are accepted for file creation."
 
-    iget-object v1, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HD:Lcom/google/android/gms/drive/Contents;
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Lcom/google/android/gms/drive/Contents;->getRequestId()I
+    throw v0
 
-    move-result v1
+    :cond_1
+    invoke-interface {p1}, Lcom/google/android/gms/drive/DriveContents;->zzj()Z
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/drive/internal/h;->aS(I)V
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "DriveContents are already closed."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_2
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    invoke-interface {p1}, Lcom/google/android/gms/drive/DriveContents;->zzh()Lcom/google/android/gms/drive/Contents;
+
+    move-result-object v1
+
+    iget v1, v1, Lcom/google/android/gms/drive/Contents;->zzj:I
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/drive/zzt;->zzd(I)V
+
+    iput-object p1, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzo:Lcom/google/android/gms/drive/DriveContents;
+
+    :goto_0
+    iput-boolean v2, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzp:Z
 
     return-object p0
+
+    :cond_3
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/internal/drive/zzt;->zzd(I)V
+
+    goto :goto_0
 .end method
 
 .method public setInitialMetadata(Lcom/google/android/gms/drive/MetadataChangeSet;)Lcom/google/android/gms/drive/CreateFileActivityBuilder;
     .locals 1
-    .param p1, "metadataChangeSet"    # Lcom/google/android/gms/drive/MetadataChangeSet;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->HC:Lcom/google/android/gms/drive/internal/h;
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/drive/internal/h;->a(Lcom/google/android/gms/drive/MetadataChangeSet;)V
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/drive/zzt;->zza(Lcom/google/android/gms/drive/MetadataChangeSet;)V
 
     return-object p0
+.end method
+
+.method final zzb()Lcom/google/android/gms/drive/MetadataChangeSet;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/drive/zzt;->zzb()Lcom/google/android/gms/drive/MetadataChangeSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method final zzc()Lcom/google/android/gms/drive/DriveId;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/drive/zzt;->zzc()Lcom/google/android/gms/drive/DriveId;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method final zzd()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/drive/zzt;->zzd()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method final zze()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method final zzf()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzp:Z
+
+    const-string v1, "Must call setInitialDriveContents."
+
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzo:Lcom/google/android/gms/drive/DriveContents;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzo:Lcom/google/android/gms/drive/DriveContents;
+
+    invoke-interface {v0}, Lcom/google/android/gms/drive/DriveContents;->zzi()V
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/drive/CreateFileActivityBuilder;->zzn:Lcom/google/android/gms/internal/drive/zzt;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/drive/zzt;->zzf()V
+
+    return-void
 .end method

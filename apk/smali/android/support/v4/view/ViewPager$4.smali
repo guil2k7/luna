@@ -26,14 +26,15 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/ViewPager;)V
     .locals 1
+    .param p1, "this$0"    # Landroid/support/v4/view/ViewPager;
 
     .prologue
-    .line 391
+    .line 422
     iput-object p1, p0, Landroid/support/v4/view/ViewPager$4;->this$0:Landroid/support/v4/view/ViewPager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 392
+    .line 423
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
@@ -51,12 +52,13 @@
     .param p2, "originalInsets"    # Landroid/support/v4/view/WindowInsetsCompat;
 
     .prologue
-    .line 398
+    .line 429
+    .line 430
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompat;->onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
 
     move-result-object v0
 
-    .line 400
+    .line 431
     .local v0, "applied":Landroid/support/v4/view/WindowInsetsCompat;
     invoke-virtual {v0}, Landroid/support/v4/view/WindowInsetsCompat;->isConsumed()Z
 
@@ -64,17 +66,17 @@
 
     if-eqz v5, :cond_0
 
-    .line 434
+    .line 465
     .end local v0    # "applied":Landroid/support/v4/view/WindowInsetsCompat;
     :goto_0
     return-object v0
 
-    .line 412
+    .line 443
     .restart local v0    # "applied":Landroid/support/v4/view/WindowInsetsCompat;
     :cond_0
     iget-object v4, p0, Landroid/support/v4/view/ViewPager$4;->mTempRect:Landroid/graphics/Rect;
 
-    .line 413
+    .line 444
     .local v4, "res":Landroid/graphics/Rect;
     invoke-virtual {v0}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetLeft()I
 
@@ -82,28 +84,28 @@
 
     iput v5, v4, Landroid/graphics/Rect;->left:I
 
-    .line 414
+    .line 445
     invoke-virtual {v0}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetTop()I
 
     move-result v5
 
     iput v5, v4, Landroid/graphics/Rect;->top:I
 
-    .line 415
+    .line 446
     invoke-virtual {v0}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetRight()I
 
     move-result v5
 
     iput v5, v4, Landroid/graphics/Rect;->right:I
 
-    .line 416
+    .line 447
     invoke-virtual {v0}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetBottom()I
 
     move-result v5
 
     iput v5, v4, Landroid/graphics/Rect;->bottom:I
 
-    .line 418
+    .line 449
     const/4 v3, 0x0
 
     .local v3, "i":I
@@ -117,9 +119,10 @@
     :goto_1
     if-ge v3, v2, :cond_1
 
-    .line 419
+    .line 450
     iget-object v5, p0, Landroid/support/v4/view/ViewPager$4;->this$0:Landroid/support/v4/view/ViewPager;
 
+    .line 451
     invoke-virtual {v5, v3}, Landroid/support/v4/view/ViewPager;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
@@ -128,7 +131,7 @@
 
     move-result-object v1
 
-    .line 423
+    .line 454
     .local v1, "childInsets":Landroid/support/v4/view/WindowInsetsCompat;
     invoke-virtual {v1}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetLeft()I
 
@@ -142,7 +145,7 @@
 
     iput v5, v4, Landroid/graphics/Rect;->left:I
 
-    .line 425
+    .line 456
     invoke-virtual {v1}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetTop()I
 
     move-result v5
@@ -155,7 +158,7 @@
 
     iput v5, v4, Landroid/graphics/Rect;->top:I
 
-    .line 427
+    .line 458
     invoke-virtual {v1}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetRight()I
 
     move-result v5
@@ -168,7 +171,7 @@
 
     iput v5, v4, Landroid/graphics/Rect;->right:I
 
-    .line 429
+    .line 460
     invoke-virtual {v1}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetBottom()I
 
     move-result v5
@@ -181,12 +184,12 @@
 
     iput v5, v4, Landroid/graphics/Rect;->bottom:I
 
-    .line 418
+    .line 449
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 434
+    .line 465
     .end local v1    # "childInsets":Landroid/support/v4/view/WindowInsetsCompat;
     :cond_1
     iget v5, v4, Landroid/graphics/Rect;->left:I

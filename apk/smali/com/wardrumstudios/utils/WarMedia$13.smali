@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 1448
+    .line 1455
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$13;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,14 +43,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1450
+    .line 1457
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$13;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
     if-nez v0, :cond_1
 
-    .line 1451
+    .line 1458
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$13;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-static {v0}, Lcom/wardrumstudios/utils/WarMedia;->access$700(Lcom/wardrumstudios/utils/WarMedia;)Z
@@ -67,12 +67,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceView;->setVisibility(I)V
 
-    .line 1454
+    .line 1461
     :cond_0
     :goto_0
     return-void
 
-    .line 1453
+    .line 1460
     :cond_1
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$13;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 

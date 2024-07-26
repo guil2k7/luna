@@ -1,133 +1,147 @@
 .class public final Lcom/google/android/gms/games/event/EventEntity;
-.super Ljava/lang/Object;
+.super Lcom/google/android/gms/games/internal/zzd;
 
 # interfaces
-.implements Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
 .implements Lcom/google/android/gms/games/event/Event;
 
 
+# annotations
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Class;
+    creator = "EventEntityCreator"
+.end annotation
+
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Reserved;
+    value = {
+        0x3e8
+    }
+.end annotation
+
+
 # static fields
-.field public static final CREATOR:Lcom/google/android/gms/games/event/EventEntityCreator;
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/Parcelable$Creator",
+            "<",
+            "Lcom/google/android/gms/games/event/EventEntity;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final Mm:Ljava/lang/String;
+.field private final description:Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getDescription"
+        id = 0x3
+    .end annotation
+.end field
 
-.field private final Mo:Landroid/net/Uri;
+.field private final name:Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getName"
+        id = 0x2
+    .end annotation
+.end field
 
-.field private final Mz:Ljava/lang/String;
+.field private final value:J
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getValue"
+        id = 0x7
+    .end annotation
+.end field
 
-.field private final Nf:Ljava/lang/String;
+.field private final zzac:Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getIconImageUrl"
+        id = 0x5
+    .end annotation
+.end field
 
-.field private final Ng:Lcom/google/android/gms/games/PlayerEntity;
+.field private final zzfh:Lcom/google/android/gms/games/PlayerEntity;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getPlayer"
+        id = 0x6
+    .end annotation
+.end field
 
-.field private final Nh:J
+.field private final zzfm:Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getEventId"
+        id = 0x1
+    .end annotation
+.end field
 
-.field private final Ni:Ljava/lang/String;
+.field private final zzfn:Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getFormattedValue"
+        id = 0x8
+    .end annotation
+.end field
 
-.field private final Nj:Z
+.field private final zzfo:Z
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "isVisible"
+        id = 0x9
+    .end annotation
+.end field
 
-.field private final mName:Ljava/lang/String;
-
-.field private final xJ:I
+.field private final zzr:Landroid/net/Uri;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getIconImageUri"
+        id = 0x4
+    .end annotation
+.end field
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/games/event/EventEntityCreator;
+    new-instance v0, Lcom/google/android/gms/games/event/zza;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/event/EventEntityCreator;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/games/event/zza;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/games/event/EventEntity;->CREATOR:Lcom/google/android/gms/games/event/EventEntityCreator;
-
-    return-void
-.end method
-
-.method constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Lcom/google/android/gms/games/Player;JLjava/lang/String;Z)V
-    .locals 2
-    .param p1, "versionCode"    # I
-    .param p2, "eventId"    # Ljava/lang/String;
-    .param p3, "name"    # Ljava/lang/String;
-    .param p4, "description"    # Ljava/lang/String;
-    .param p5, "iconImageUri"    # Landroid/net/Uri;
-    .param p6, "iconImageUrl"    # Ljava/lang/String;
-    .param p7, "player"    # Lcom/google/android/gms/games/Player;
-    .param p8, "value"    # J
-    .param p10, "formattedValue"    # Ljava/lang/String;
-    .param p11, "isVisible"    # Z
-
-    .prologue
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/google/android/gms/games/event/EventEntity;->xJ:I
-
-    iput-object p2, p0, Lcom/google/android/gms/games/event/EventEntity;->Nf:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/google/android/gms/games/event/EventEntity;->mName:Ljava/lang/String;
-
-    iput-object p4, p0, Lcom/google/android/gms/games/event/EventEntity;->Mm:Ljava/lang/String;
-
-    iput-object p5, p0, Lcom/google/android/gms/games/event/EventEntity;->Mo:Landroid/net/Uri;
-
-    iput-object p6, p0, Lcom/google/android/gms/games/event/EventEntity;->Mz:Ljava/lang/String;
-
-    new-instance v0, Lcom/google/android/gms/games/PlayerEntity;
-
-    invoke-direct {v0, p7}, Lcom/google/android/gms/games/PlayerEntity;-><init>(Lcom/google/android/gms/games/Player;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Ng:Lcom/google/android/gms/games/PlayerEntity;
-
-    iput-wide p8, p0, Lcom/google/android/gms/games/event/EventEntity;->Nh:J
-
-    iput-object p10, p0, Lcom/google/android/gms/games/event/EventEntity;->Ni:Ljava/lang/String;
-
-    iput-boolean p11, p0, Lcom/google/android/gms/games/event/EventEntity;->Nj:Z
+    sput-object v0, Lcom/google/android/gms/games/event/EventEntity;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/google/android/gms/games/event/Event;)V
     .locals 2
-    .param p1, "event"    # Lcom/google/android/gms/games/event/Event;
 
-    .prologue
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x1
-
-    iput v0, p0, Lcom/google/android/gms/games/event/EventEntity;->xJ:I
+    invoke-direct {p0}, Lcom/google/android/gms/games/internal/zzd;-><init>()V
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getEventId()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Nf:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfm:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->mName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->name:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getDescription()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Mm:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->description:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getIconImageUri()Landroid/net/Uri;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Mo:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzr:Landroid/net/Uri;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getIconImageUrl()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Mz:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzac:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getPlayer()Lcom/google/android/gms/games/Player;
 
@@ -139,30 +153,107 @@
 
     check-cast v0, Lcom/google/android/gms/games/PlayerEntity;
 
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Ng:Lcom/google/android/gms/games/PlayerEntity;
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfh:Lcom/google/android/gms/games/PlayerEntity;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getValue()J
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Nh:J
+    iput-wide v0, p0, Lcom/google/android/gms/games/event/EventEntity;->value:J
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getFormattedValue()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Ni:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfn:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->isVisible()Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Nj:Z
+    iput-boolean v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfo:Z
 
     return-void
 .end method
 
-.method static a(Lcom/google/android/gms/games/event/Event;)I
+.method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Lcom/google/android/gms/games/Player;JLjava/lang/String;Z)V
+    .locals 1
+    .param p1    # Ljava/lang/String;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x1
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x2
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/String;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x3
+        .end annotation
+    .end param
+    .param p4    # Landroid/net/Uri;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x4
+        .end annotation
+    .end param
+    .param p5    # Ljava/lang/String;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x5
+        .end annotation
+    .end param
+    .param p6    # Lcom/google/android/gms/games/Player;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x6
+        .end annotation
+    .end param
+    .param p7    # J
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x7
+        .end annotation
+    .end param
+    .param p9    # Ljava/lang/String;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x8
+        .end annotation
+    .end param
+    .param p10    # Z
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x9
+        .end annotation
+    .end param
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
+    .end annotation
+
+    invoke-direct {p0}, Lcom/google/android/gms/games/internal/zzd;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfm:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/google/android/gms/games/event/EventEntity;->name:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/google/android/gms/games/event/EventEntity;->description:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/google/android/gms/games/event/EventEntity;->zzr:Landroid/net/Uri;
+
+    iput-object p5, p0, Lcom/google/android/gms/games/event/EventEntity;->zzac:Ljava/lang/String;
+
+    new-instance v0, Lcom/google/android/gms/games/PlayerEntity;
+
+    invoke-direct {v0, p6}, Lcom/google/android/gms/games/PlayerEntity;-><init>(Lcom/google/android/gms/games/Player;)V
+
+    iput-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfh:Lcom/google/android/gms/games/PlayerEntity;
+
+    iput-wide p7, p0, Lcom/google/android/gms/games/event/EventEntity;->value:J
+
+    iput-object p9, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfn:Ljava/lang/String;
+
+    iput-boolean p10, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfo:Z
+
+    return-void
+.end method
+
+.method static zza(Lcom/google/android/gms/games/event/Event;)I
     .locals 4
 
     const/16 v0, 0x9
@@ -249,33 +340,36 @@
 
     aput-object v2, v0, v1
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/hl;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/android/gms/common/internal/Objects;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method static a(Lcom/google/android/gms/games/event/Event;Ljava/lang/Object;)Z
+.method static zza(Lcom/google/android/gms/games/event/Event;Ljava/lang/Object;)Z
     .locals 6
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     instance-of v2, p1, Lcom/google/android/gms/games/event/Event;
 
     if-nez v2, :cond_1
-
-    move v0, v1
 
     :cond_0
     :goto_0
     return v0
 
     :cond_1
-    if-eq p0, p1, :cond_0
+    if-ne p0, p1, :cond_2
 
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
     check-cast p1, Lcom/google/android/gms/games/event/Event;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getEventId()Ljava/lang/String;
@@ -286,11 +380,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getName()Ljava/lang/String;
 
@@ -300,11 +394,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getDescription()Ljava/lang/String;
 
@@ -314,11 +408,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getIconImageUri()Landroid/net/Uri;
 
@@ -328,11 +422,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getIconImageUrl()Ljava/lang/String;
 
@@ -342,11 +436,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getPlayer()Lcom/google/android/gms/games/Player;
 
@@ -356,11 +450,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getValue()J
 
@@ -378,11 +472,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->getFormattedValue()Ljava/lang/String;
 
@@ -392,11 +486,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/event/Event;->isVisible()Z
 
@@ -414,22 +508,21 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
-    :cond_2
     move v0, v1
 
     goto/16 :goto_0
 .end method
 
-.method static b(Lcom/google/android/gms/games/event/Event;)Ljava/lang/String;
+.method static zzb(Lcom/google/android/gms/games/event/Event;)Ljava/lang/String;
     .locals 4
 
-    invoke-static {p0}, Lcom/google/android/gms/internal/hl;->e(Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-static {p0}, Lcom/google/android/gms/common/internal/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -439,7 +532,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -449,7 +542,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -459,7 +552,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -469,7 +562,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -479,7 +572,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -489,7 +582,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -503,7 +596,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -513,7 +606,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -527,11 +620,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/hl$a;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -540,33 +633,23 @@
 
 
 # virtual methods
-.method public describeContents()I
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
 
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
-
-    .prologue
-    invoke-static {p0, p1}, Lcom/google/android/gms/games/event/EventEntity;->a(Lcom/google/android/gms/games/event/Event;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Lcom/google/android/gms/games/event/EventEntity;->zza(Lcom/google/android/gms/games/event/Event;Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public freeze()Lcom/google/android/gms/games/event/Event;
+.method public final freeze()Lcom/google/android/gms/games/event/Event;
     .locals 0
 
     return-object p0
 .end method
 
-.method public bridge synthetic freeze()Ljava/lang/Object;
+.method public final bridge synthetic freeze()Ljava/lang/Object;
     .locals 1
 
     invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->freeze()Lcom/google/android/gms/games/event/Event;
@@ -576,125 +659,111 @@
     return-object v0
 .end method
 
-.method public getDescription()Ljava/lang/String;
+.method public final getDescription()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Mm:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->description:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getDescription(Landroid/database/CharArrayBuffer;)V
+.method public final getDescription(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Mm:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->description:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/google/android/gms/internal/il;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-static {v0, p1}, Lcom/google/android/gms/common/util/DataUtils;->copyStringToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public getEventId()Ljava/lang/String;
+.method public final getEventId()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Nf:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfm:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getFormattedValue()Ljava/lang/String;
+.method public final getFormattedValue()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Ni:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfn:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getFormattedValue(Landroid/database/CharArrayBuffer;)V
+.method public final getFormattedValue(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Ni:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfn:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/google/android/gms/internal/il;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-static {v0, p1}, Lcom/google/android/gms/common/util/DataUtils;->copyStringToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public getIconImageUri()Landroid/net/Uri;
+.method public final getIconImageUri()Landroid/net/Uri;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Mo:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzr:Landroid/net/Uri;
 
     return-object v0
 .end method
 
-.method public getIconImageUrl()Ljava/lang/String;
+.method public final getIconImageUrl()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Mz:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzac:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getName()Ljava/lang/String;
+.method public final getName()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->mName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->name:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getName(Landroid/database/CharArrayBuffer;)V
+.method public final getName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->mName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->name:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/google/android/gms/internal/il;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-static {v0, p1}, Lcom/google/android/gms/common/util/DataUtils;->copyStringToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public getPlayer()Lcom/google/android/gms/games/Player;
+.method public final getPlayer()Lcom/google/android/gms/games/Player;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Ng:Lcom/google/android/gms/games/PlayerEntity;
+    iget-object v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfh:Lcom/google/android/gms/games/PlayerEntity;
 
     return-object v0
 .end method
 
-.method public getValue()J
+.method public final getValue()J
     .locals 2
 
-    iget-wide v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Nh:J
+    iget-wide v0, p0, Lcom/google/android/gms/games/event/EventEntity;->value:J
 
     return-wide v0
 .end method
 
-.method public getVersionCode()I
+.method public final hashCode()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/games/event/EventEntity;->xJ:I
-
-    return v0
-.end method
-
-.method public hashCode()I
-    .locals 1
-
-    invoke-static {p0}, Lcom/google/android/gms/games/event/EventEntity;->a(Lcom/google/android/gms/games/event/Event;)I
+    invoke-static {p0}, Lcom/google/android/gms/games/event/EventEntity;->zza(Lcom/google/android/gms/games/event/Event;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public isDataValid()Z
+.method public final isDataValid()Z
     .locals 1
 
     const/4 v0, 0x1
@@ -702,31 +771,106 @@
     return v0
 .end method
 
-.method public isVisible()Z
+.method public final isVisible()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/gms/games/event/EventEntity;->Nj:Z
+    iget-boolean v0, p0, Lcom/google/android/gms/games/event/EventEntity;->zzfo:Z
 
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/gms/games/event/EventEntity;->b(Lcom/google/android/gms/games/event/Event;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/google/android/gms/games/event/EventEntity;->zzb(Lcom/google/android/gms/games/event/Event;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+.method public final writeToParcel(Landroid/os/Parcel;I)V
+    .locals 5
 
-    .prologue
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/games/event/EventEntityCreator;->a(Lcom/google/android/gms/games/event/EventEntity;Landroid/os/Parcel;I)V
+    const/4 v4, 0x0
+
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getEventId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p1, v1, v2, v4}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
+
+    const/4 v1, 0x2
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p1, v1, v2, v4}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
+
+    const/4 v1, 0x3
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getDescription()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p1, v1, v2, v4}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
+
+    const/4 v1, 0x4
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getIconImageUri()Landroid/net/Uri;
+
+    move-result-object v2
+
+    invoke-static {p1, v1, v2, p2, v4}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeParcelable(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
+
+    const/4 v1, 0x5
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getIconImageUrl()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p1, v1, v2, v4}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
+
+    const/4 v1, 0x6
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getPlayer()Lcom/google/android/gms/games/Player;
+
+    move-result-object v2
+
+    invoke-static {p1, v1, v2, p2, v4}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeParcelable(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
+
+    const/4 v1, 0x7
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getValue()J
+
+    move-result-wide v2
+
+    invoke-static {p1, v1, v2, v3}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeLong(Landroid/os/Parcel;IJ)V
+
+    const/16 v1, 0x8
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->getFormattedValue()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p1, v1, v2, v4}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
+
+    const/16 v1, 0x9
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/event/EventEntity;->isVisible()Z
+
+    move-result v2
+
+    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeBoolean(Landroid/os/Parcel;IZ)V
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
 
     return-void
 .end method

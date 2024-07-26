@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/media/MediaBrowserServiceCompat;->performLoadItem(Ljava/lang/String;Landroid/support/v4/os/ResultReceiver;)V
+    value = Landroid/support/v4/media/MediaBrowserServiceCompat;->performCustomAction(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;Landroid/support/v4/os/ResultReceiver;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,7 +17,7 @@
     value = {
         "Landroid/support/v4/media/MediaBrowserServiceCompat$Result",
         "<",
-        "Landroid/support/v4/media/MediaBrowserCompat$MediaItem;",
+        "Landroid/os/Bundle;",
         ">;"
     }
 .end annotation
@@ -32,10 +32,11 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Ljava/lang/Object;Landroid/support/v4/os/ResultReceiver;)V
     .locals 0
-    .param p2, "x0"    # Ljava/lang/Object;
+    .param p1, "this$0"    # Landroid/support/v4/media/MediaBrowserServiceCompat;
+    .param p2, "debug"    # Ljava/lang/Object;
 
     .prologue
-    .line 912
+    .line 1424
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     iput-object p3, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
@@ -47,42 +48,62 @@
 
 
 # virtual methods
-.method onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;I)V
-    .locals 3
-    .param p1, "item"    # Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
-    .param p2, "flag"    # I
+.method onErrorSent(Landroid/os/Bundle;)V
+    .locals 2
+    .param p1, "data"    # Landroid/os/Bundle;
 
     .prologue
-    .line 915
-    new-instance v0, Landroid/os/Bundle;
+    .line 1437
+    iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    const/4 v1, -0x1
 
-    .line 916
-    .local v0, "bundle":Landroid/os/Bundle;
-    const-string v1, "media_item"
+    invoke-virtual {v0, v1, p1}, Landroid/support/v4/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 917
-    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2, v0}, Landroid/support/v4/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
-
-    .line 918
+    .line 1438
     return-void
 .end method
 
-.method bridge synthetic onResultSent(Ljava/lang/Object;I)V
+.method onProgressUpdateSent(Landroid/os/Bundle;)V
+    .locals 2
+    .param p1, "data"    # Landroid/os/Bundle;
+
+    .prologue
+    .line 1432
+    iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1, p1}, Landroid/support/v4/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+
+    .line 1433
+    return-void
+.end method
+
+.method onResultSent(Landroid/os/Bundle;)V
+    .locals 2
+    .param p1, "result"    # Landroid/os/Bundle;
+
+    .prologue
+    .line 1427
+    iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, p1}, Landroid/support/v4/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+
+    .line 1428
+    return-void
+.end method
+
+.method bridge synthetic onResultSent(Ljava/lang/Object;)V
     .locals 0
 
     .prologue
-    .line 912
-    check-cast p1, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
+    .line 1424
+    check-cast p1, Landroid/os/Bundle;
 
-    invoke-virtual {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;I)V
+    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$4;->onResultSent(Landroid/os/Bundle;)V
 
     return-void
 .end method

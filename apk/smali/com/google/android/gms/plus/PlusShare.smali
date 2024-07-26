@@ -9,33 +9,75 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final EXTRA_CALL_TO_ACTION:Ljava/lang/String; = "com.google.android.apps.plus.CALL_TO_ACTION"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_CONTENT_DEEP_LINK_ID:Ljava/lang/String; = "com.google.android.apps.plus.CONTENT_DEEP_LINK_ID"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_CONTENT_DEEP_LINK_METADATA:Ljava/lang/String; = "com.google.android.apps.plus.CONTENT_DEEP_LINK_METADATA"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_CONTENT_URL:Ljava/lang/String; = "com.google.android.apps.plus.CONTENT_URL"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_IS_INTERACTIVE_POST:Ljava/lang/String; = "com.google.android.apps.plus.GOOGLE_INTERACTIVE_POST"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_SENDER_ID:Ljava/lang/String; = "com.google.android.apps.plus.SENDER_ID"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final KEY_CALL_TO_ACTION_DEEP_LINK_ID:Ljava/lang/String; = "deepLinkId"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final KEY_CALL_TO_ACTION_LABEL:Ljava/lang/String; = "label"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final KEY_CALL_TO_ACTION_URL:Ljava/lang/String; = "url"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final KEY_CONTENT_DEEP_LINK_METADATA_DESCRIPTION:Ljava/lang/String; = "description"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final KEY_CONTENT_DEEP_LINK_METADATA_THUMBNAIL_URL:Ljava/lang/String; = "thumbnailUrl"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final KEY_CONTENT_DEEP_LINK_METADATA_TITLE:Ljava/lang/String; = "title"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final PARAM_CONTENT_DEEP_LINK_ID:Ljava/lang/String; = "deep_link_id"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -53,37 +95,94 @@
     throw v0
 .end method
 
-.method public static a(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)Landroid/os/Bundle;
-    .locals 3
+.method public static createPerson(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/gms/plus/model/people/Person;
+    .locals 6
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+    .end annotation
 
-    new-instance v0, Landroid/os/Bundle;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    const/4 v3, 0x0
 
-    const-string v1, "title"
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    move-result v0
 
-    const-string v1, "description"
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    if-eqz p2, :cond_0
+    const-string v1, "MinimalPerson ID must not be empty."
 
-    const-string v1, "thumbnailUrl"
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p2}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    throw v0
 
-    move-result-object v2
+    :cond_0
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Display name must not be empty."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    new-instance v0, Lcom/google/android/gms/internal/plus/zzr;
+
+    const/4 v4, 0x0
+
+    move-object v1, p1
+
+    move-object v2, p0
+
+    move-object v5, v3
+
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/internal/plus/zzr;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/plus/zzr$zzc;ILjava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getDeepLinkId(Landroid/content/Intent;)Ljava/lang/String;
+    .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v0
+
+    const-string v1, "deep_link_id"
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri;->getQueryParameter(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
 
     :cond_0
     return-object v0
 .end method
 
-.method protected static bv(Ljava/lang/String;)Z
+.method protected static zza(Ljava/lang/String;)Z
     .locals 3
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -123,86 +222,4 @@
     const/4 v0, 0x1
 
     goto :goto_0
-.end method
-
-.method public static createPerson(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/gms/plus/model/people/Person;
-    .locals 6
-    .param p0, "id"    # Ljava/lang/String;
-    .param p1, "displayName"    # Ljava/lang/String;
-
-    .prologue
-    const/4 v3, 0x0
-
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "MinimalPerson ID must not be empty."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "Display name must not be empty."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    new-instance v0, Lcom/google/android/gms/internal/kt;
-
-    const/4 v4, 0x0
-
-    move-object v1, p1
-
-    move-object v2, p0
-
-    move-object v5, v3
-
-    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/internal/kt;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/kt$c;ILjava/lang/String;)V
-
-    return-object v0
-.end method
-
-.method public static getDeepLinkId(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 2
-    .param p0, "intent"    # Landroid/content/Intent;
-
-    .prologue
-    const/4 v0, 0x0
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/Intent;->getData()Landroid/net/Uri;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/Intent;->getData()Landroid/net/Uri;
-
-    move-result-object v0
-
-    const-string v1, "deep_link_id"
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri;->getQueryParameter(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    :cond_0
-    return-object v0
 .end method

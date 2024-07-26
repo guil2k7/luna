@@ -37,7 +37,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarGameService;
 
     .prologue
-    .line 238
+    .line 484
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarGameService$3;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
     .locals 0
 
     .prologue
-    .line 238
+    .line 484
     check-cast p1, Lcom/google/android/gms/games/achievement/Achievements$LoadAchievementsResult;
 
     invoke-virtual {p0, p1}, Lcom/wardrumstudios/utils/WarGameService$3;->onResult(Lcom/google/android/gms/games/achievement/Achievements$LoadAchievementsResult;)V
@@ -68,7 +68,7 @@
 
     const/4 v11, -0x1
 
-    .line 241
+    .line 487
     invoke-interface {p1}, Lcom/google/android/gms/games/achievement/Achievements$LoadAchievementsResult;->getStatus()Lcom/google/android/gms/common/api/Status;
 
     move-result-object v8
@@ -77,13 +77,13 @@
 
     move-result v5
 
-    .line 242
+    .line 488
     .local v5, "statusCode":I
     invoke-interface {p1}, Lcom/google/android/gms/games/achievement/Achievements$LoadAchievementsResult;->getAchievements()Lcom/google/android/gms/games/achievement/AchievementBuffer;
 
     move-result-object v0
 
-    .line 244
+    .line 490
     .local v0, "buffer":Lcom/google/android/gms/games/achievement/AchievementBuffer;
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarGameService$3;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
@@ -91,43 +91,43 @@
 
     invoke-virtual {v8, v10}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 245
+    .line 491
     if-eqz v5, :cond_0
 
-    .line 248
+    .line 494
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarGameService$3;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     const-string v9, "Error while loading achievements."
 
     invoke-virtual {v8, v9}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 283
+    .line 529
     :goto_0
     return-void
 
-    .line 254
+    .line 500
     :cond_0
     invoke-virtual {v0}, Lcom/google/android/gms/games/achievement/AchievementBuffer;->getCount()I
 
     move-result v1
 
-    .line 255
+    .line 501
     .local v1, "count":I
     new-array v3, v1, [Ljava/lang/String;
 
-    .line 256
+    .line 502
     .local v3, "ids":[Ljava/lang/String;
     new-array v4, v1, [Z
 
-    .line 257
+    .line 503
     .local v4, "states":[Z
     new-array v6, v1, [I
 
-    .line 258
+    .line 504
     .local v6, "steps":[I
     new-array v7, v1, [I
 
-    .line 261
+    .line 507
     .local v7, "totalSteps":[I
     const/4 v2, 0x0
 
@@ -135,7 +135,7 @@
     :goto_1
     if-ge v2, v1, :cond_3
 
-    .line 263
+    .line 509
     invoke-virtual {v0, v2}, Lcom/google/android/gms/games/achievement/AchievementBuffer;->get(I)Lcom/google/android/gms/games/achievement/Achievement;
 
     move-result-object v8
@@ -146,7 +146,7 @@
 
     aput-object v8, v3, v2
 
-    .line 266
+    .line 512
     invoke-virtual {v0, v2}, Lcom/google/android/gms/games/achievement/AchievementBuffer;->get(I)Lcom/google/android/gms/games/achievement/Achievement;
 
     move-result-object v8
@@ -162,7 +162,7 @@
     :goto_2
     aput-boolean v8, v4, v2
 
-    .line 269
+    .line 515
     invoke-virtual {v0, v2}, Lcom/google/android/gms/games/achievement/AchievementBuffer;->get(I)Lcom/google/android/gms/games/achievement/Achievement;
 
     move-result-object v8
@@ -173,7 +173,7 @@
 
     if-ne v8, v9, :cond_2
 
-    .line 270
+    .line 516
     invoke-virtual {v0, v2}, Lcom/google/android/gms/games/achievement/AchievementBuffer;->get(I)Lcom/google/android/gms/games/achievement/Achievement;
 
     move-result-object v8
@@ -184,7 +184,7 @@
 
     aput v8, v6, v2
 
-    .line 271
+    .line 517
     invoke-virtual {v0, v2}, Lcom/google/android/gms/games/achievement/AchievementBuffer;->get(I)Lcom/google/android/gms/games/achievement/Achievement;
 
     move-result-object v8
@@ -195,28 +195,28 @@
 
     aput v8, v7, v2
 
-    .line 261
+    .line 507
     :goto_3
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 266
+    .line 512
     :cond_1
     const/4 v8, 0x0
 
     goto :goto_2
 
-    .line 273
+    .line 519
     :cond_2
     aput v11, v6, v2
 
-    .line 274
+    .line 520
     aput v11, v7, v2
 
     goto :goto_3
 
-    .line 279
+    .line 525
     :cond_3
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarGameService$3;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
@@ -224,19 +224,19 @@
 
     invoke-virtual {v8, v9}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 280
+    .line 526
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarGameService$3;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     invoke-virtual {v8, v3, v4, v6, v7}, Lcom/wardrumstudios/utils/WarGameService;->notifyAchievementsLoaded([Ljava/lang/String;[Z[I[I)V
 
-    .line 281
+    .line 527
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarGameService$3;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     const-string v9, "Done. Notifying down to native"
 
     invoke-virtual {v8, v9}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 282
+    .line 528
     invoke-virtual {v0}, Lcom/google/android/gms/games/achievement/AchievementBuffer;->close()V
 
     goto :goto_0

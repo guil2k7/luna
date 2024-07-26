@@ -35,7 +35,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 1656
+    .line 1663
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iput p2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->val$length:I
@@ -63,7 +63,7 @@
 
     const/4 v8, -0x3
 
-    .line 1660
+    .line 1667
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -90,7 +90,7 @@
 
     iput-object v3, v2, Lcom/wardrumstudios/utils/WarMedia;->movieView:Landroid/widget/LinearLayout;
 
-    .line 1662
+    .line 1669
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -103,7 +103,7 @@
 
     iput-object v3, v2, Lcom/wardrumstudios/utils/WarMedia;->movieWindowHolder:Landroid/view/SurfaceHolder;
 
-    .line 1663
+    .line 1670
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v2, v2, Lcom/wardrumstudios/utils/WarMedia;->movieWindowHolder:Landroid/view/SurfaceHolder;
@@ -114,14 +114,14 @@
 
     invoke-interface {v2, v3}, Landroid/view/SurfaceHolder;->addCallback(Landroid/view/SurfaceHolder$Callback;)V
 
-    .line 1693
+    .line 1700
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v3, "movieWindowHolder setType"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1694
+    .line 1701
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v2, v2, Lcom/wardrumstudios/utils/WarMedia;->movieWindowHolder:Landroid/view/SurfaceHolder;
@@ -130,7 +130,7 @@
 
     invoke-interface {v2, v3}, Landroid/view/SurfaceHolder;->setType(I)V
 
-    .line 1695
+    .line 1702
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v2, v2, Lcom/wardrumstudios/utils/WarMedia;->movieWindowSurface:Landroid/view/SurfaceView;
@@ -139,14 +139,14 @@
 
     invoke-virtual {v2, v3}, Landroid/view/SurfaceView;->setZOrderOnTop(Z)V
 
-    .line 1696
+    .line 1703
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v2, v2, Lcom/wardrumstudios/utils/WarMedia;->movieWindowHolder:Landroid/view/SurfaceHolder;
 
     invoke-interface {v2, v8}, Landroid/view/SurfaceHolder;->setFormat(I)V
 
-    .line 1699
+    .line 1706
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -221,18 +221,18 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1700
+    .line 1707
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v0, v9, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 1701
+    .line 1708
     .local v0, "myParams":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v2, 0x11
 
     iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 1702
+    .line 1709
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -241,7 +241,7 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/wardrumstudios/utils/WarMedia;->addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1704
+    .line 1711
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     new-instance v3, Landroid/view/SurfaceView;
@@ -254,7 +254,7 @@
 
     iput-object v3, v2, Lcom/wardrumstudios/utils/WarMedia;->movieTextSurface:Landroid/view/SurfaceView;
 
-    .line 1705
+    .line 1712
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -269,14 +269,14 @@
 
     iput-object v3, v2, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
 
-    .line 1706
+    .line 1713
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v2, v2, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
 
     invoke-interface {v2, v8}, Landroid/view/SurfaceHolder;->setFormat(I)V
 
-    .line 1707
+    .line 1714
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -289,14 +289,14 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/wardrumstudios/utils/WarMedia;->addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1714
+    .line 1721
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v3, "PlayMovieInFile for inwindow"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1715
+    .line 1722
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -305,12 +305,12 @@
 
     iput-object v3, v2, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
-    .line 1716
+    .line 1723
     new-instance v1, Lcom/wardrumstudios/utils/WarMedia$16$2;
 
     invoke-direct {v1, p0}, Lcom/wardrumstudios/utils/WarMedia$16$2;-><init>(Lcom/wardrumstudios/utils/WarMedia$16;)V
 
-    .line 1730
+    .line 1737
     .local v1, "r":Ljava/lang/Runnable;
     new-instance v2, Ljava/lang/Thread;
 
@@ -318,6 +318,6 @@
 
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
-    .line 1731
+    .line 1738
     return-void
 .end method

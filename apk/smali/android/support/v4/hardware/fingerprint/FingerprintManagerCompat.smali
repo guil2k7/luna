@@ -29,21 +29,19 @@
     .locals 2
 
     .prologue
-    .line 52
+    .line 53
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 53
-    .local v0, "version":I
     const/16 v1, 0x17
 
     if-lt v0, v1, :cond_0
 
     .line 54
-    new-instance v1, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$Api23FingerprintManagerCompatImpl;
+    new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$Api23FingerprintManagerCompatImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$Api23FingerprintManagerCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$Api23FingerprintManagerCompatImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->IMPL:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$FingerprintManagerCompatImpl;
+    sput-object v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->IMPL:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$FingerprintManagerCompatImpl;
 
     .line 58
     :goto_0
@@ -51,11 +49,11 @@
 
     .line 56
     :cond_0
-    new-instance v1, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$LegacyFingerprintManagerCompatImpl;
+    new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$LegacyFingerprintManagerCompatImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$LegacyFingerprintManagerCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$LegacyFingerprintManagerCompatImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->IMPL:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$FingerprintManagerCompatImpl;
+    sput-object v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->IMPL:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$FingerprintManagerCompatImpl;
 
     goto :goto_0
 .end method
@@ -65,13 +63,13 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 46
+    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
+    .line 48
     iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->mContext:Landroid/content/Context;
 
-    .line 48
+    .line 49
     return-void
 .end method
 
@@ -80,7 +78,7 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 43
+    .line 44
     new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;
 
     invoke-direct {v0, p0}, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;-><init>(Landroid/content/Context;)V

@@ -3,25 +3,14 @@
 .source "AccessibilityWindowInfoCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$1;,
-        Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoApi21Impl;,
-        Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoStubImpl;,
-        Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
-    }
-.end annotation
-
-
 # static fields
-.field private static final IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
-
 .field public static final TYPE_ACCESSIBILITY_OVERLAY:I = 0x4
 
 .field public static final TYPE_APPLICATION:I = 0x1
 
 .field public static final TYPE_INPUT_METHOD:I = 0x2
+
+.field public static final TYPE_SPLIT_SCREEN_DIVIDER:I = 0x5
 
 .field public static final TYPE_SYSTEM:I = 0x3
 
@@ -33,93 +22,90 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method private constructor <init>(Ljava/lang/Object;)V
+    .locals 0
+    .param p1, "info"    # Ljava/lang/Object;
 
     .prologue
-    const/4 v2, 0x0
+    .line 82
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 189
+    .line 83
+    iput-object p1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    .line 84
+    return-void
+.end method
+
+.method public static obtain()Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
+    .locals 2
+
+    .prologue
+    .line 272
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_0
 
-    .line 190
-    new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoApi21Impl;
+    .line 273
+    invoke-static {}, Landroid/view/accessibility/AccessibilityWindowInfo;->obtain()Landroid/view/accessibility/AccessibilityWindowInfo;
 
-    invoke-direct {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoApi21Impl;-><init>(Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$1;)V
+    move-result-object v0
 
-    sput-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    invoke-static {v0}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->wrapNonNullInstance(Ljava/lang/Object;)Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
 
-    .line 194
+    move-result-object v0
+
+    .line 275
     :goto_0
-    return-void
+    return-object v0
 
-    .line 192
     :cond_0
-    new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoStubImpl;
-
-    invoke-direct {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoStubImpl;-><init>(Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$1;)V
-
-    sput-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method private constructor <init>(Ljava/lang/Object;)V
-    .locals 0
-    .param p1, "info"    # Ljava/lang/Object;
-
-    .prologue
-    .line 245
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 246
-    iput-object p1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
-
-    .line 247
-    return-void
-.end method
-
-.method public static obtain()Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
-    .locals 1
-
-    .prologue
-    .line 364
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
-
-    invoke-interface {v0}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->obtain()Ljava/lang/Object;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->wrapNonNullInstance(Ljava/lang/Object;)Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public static obtain(Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;)Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
-    .locals 2
+    .locals 3
     .param p0, "info"    # Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
 
     .prologue
-    .line 376
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    const/4 v0, 0x0
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    .line 288
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->obtain(Ljava/lang/Object;)Ljava/lang/Object;
+    const/16 v2, 0x15
+
+    if-lt v1, v2, :cond_0
+
+    .line 289
+    if-nez p0, :cond_1
+
+    .line 294
+    :cond_0
+    :goto_0
+    return-object v0
+
+    .line 289
+    :cond_1
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    .line 292
+    invoke-static {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->obtain(Landroid/view/accessibility/AccessibilityWindowInfo;)Landroid/view/accessibility/AccessibilityWindowInfo;
 
     move-result-object v0
 
+    .line 291
     invoke-static {v0}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->wrapNonNullInstance(Ljava/lang/Object;)Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method private static typeToString(I)Ljava/lang/String;
@@ -127,40 +113,40 @@
     .param p0, "type"    # I
 
     .prologue
-    .line 437
+    .line 358
     packed-switch p0, :pswitch_data_0
 
-    .line 451
+    .line 372
     const-string v0, "<UNKNOWN>"
 
     :goto_0
     return-object v0
 
-    .line 439
+    .line 360
     :pswitch_0
     const-string v0, "TYPE_APPLICATION"
 
     goto :goto_0
 
-    .line 442
+    .line 363
     :pswitch_1
     const-string v0, "TYPE_INPUT_METHOD"
 
     goto :goto_0
 
-    .line 445
+    .line 366
     :pswitch_2
     const-string v0, "TYPE_SYSTEM"
 
     goto :goto_0
 
-    .line 448
+    .line 369
     :pswitch_3
     const-string v0, "TYPE_ACCESSIBILITY_OVERLAY"
 
     goto :goto_0
 
-    .line 437
+    .line 358
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -175,15 +161,15 @@
     .param p0, "object"    # Ljava/lang/Object;
 
     .prologue
-    .line 239
+    .line 76
     if-eqz p0, :cond_0
 
-    .line 240
+    .line 77
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
 
     invoke-direct {v0, p0}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;-><init>(Ljava/lang/Object;)V
 
-    .line 242
+    .line 79
     :goto_0
     return-object v0
 
@@ -204,24 +190,24 @@
 
     const/4 v2, 0x0
 
-    .line 398
+    .line 319
     if-ne p0, p1, :cond_1
 
-    .line 415
+    .line 336
     :cond_0
     :goto_0
     return v1
 
-    .line 401
+    .line 322
     :cond_1
     if-nez p1, :cond_2
 
     move v1, v2
 
-    .line 402
+    .line 323
     goto :goto_0
 
-    .line 404
+    .line 325
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -235,32 +221,32 @@
 
     move v1, v2
 
-    .line 405
+    .line 326
     goto :goto_0
 
     :cond_3
     move-object v0, p1
 
-    .line 407
+    .line 328
     check-cast v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
 
-    .line 408
+    .line 329
     .local v0, "other":Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
     iget-object v3, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
 
     if-nez v3, :cond_4
 
-    .line 409
+    .line 330
     iget-object v3, v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
 
     if-eqz v3, :cond_0
 
     move v1, v2
 
-    .line 410
+    .line 331
     goto :goto_0
 
-    .line 412
+    .line 333
     :cond_4
     iget-object v3, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
 
@@ -274,7 +260,43 @@
 
     move v1, v2
 
-    .line 413
+    .line 334
+    goto :goto_0
+.end method
+
+.method public getAnchor()Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    .locals 2
+
+    .prologue
+    .line 257
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x18
+
+    if-lt v0, v1, :cond_0
+
+    .line 258
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    .line 259
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getAnchor()Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object v0
+
+    .line 258
+    invoke-static {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->wrapNonNullInstance(Ljava/lang/Object;)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+
+    move-result-object v0
+
+    .line 261
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
     goto :goto_0
 .end method
 
@@ -283,14 +305,22 @@
     .param p1, "outBounds"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 306
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 164
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1, p1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getBoundsInScreen(Ljava/lang/Object;Landroid/graphics/Rect;)V
+    if-lt v0, v1, :cond_0
 
-    .line 307
+    .line 165
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityWindowInfo;->getBoundsInScreen(Landroid/graphics/Rect;)V
+
+    .line 167
+    :cond_0
     return-void
 .end method
 
@@ -299,12 +329,19 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 354
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 230
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1, p1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getChild(Ljava/lang/Object;I)Ljava/lang/Object;
+    if-lt v0, v1, :cond_0
+
+    .line 231
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityWindowInfo;->getChild(I)Landroid/view/accessibility/AccessibilityWindowInfo;
 
     move-result-object v0
 
@@ -312,67 +349,123 @@
 
     move-result-object v0
 
+    .line 233
+    :goto_0
     return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getChildCount()I
     .locals 2
 
     .prologue
-    .line 344
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 216
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getChildCount(Ljava/lang/Object;)I
+    if-lt v0, v1, :cond_0
+
+    .line 217
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getChildCount()I
 
     move-result v0
 
+    .line 219
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getId()I
     .locals 2
 
     .prologue
-    .line 297
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 151
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getId(Ljava/lang/Object;)I
+    if-lt v0, v1, :cond_0
+
+    .line 152
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getId()I
 
     move-result v0
 
+    .line 154
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, -0x1
+
+    goto :goto_0
 .end method
 
 .method public getLayer()I
     .locals 2
 
     .prologue
-    .line 270
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 111
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getLayer(Ljava/lang/Object;)I
+    if-lt v0, v1, :cond_0
+
+    .line 112
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getLayer()I
 
     move-result v0
 
+    .line 114
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, -0x1
+
+    goto :goto_0
 .end method
 
 .method public getParent()Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;
     .locals 2
 
     .prologue
-    .line 288
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 138
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getParent(Ljava/lang/Object;)Ljava/lang/Object;
+    if-lt v0, v1, :cond_0
+
+    .line 139
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getParent()Landroid/view/accessibility/AccessibilityWindowInfo;
 
     move-result-object v0
 
@@ -380,50 +473,117 @@
 
     move-result-object v0
 
+    .line 141
+    :goto_0
     return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getRoot()Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     .locals 2
 
     .prologue
-    .line 279
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 124
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getRoot(Ljava/lang/Object;)Ljava/lang/Object;
+    if-lt v0, v1, :cond_0
+
+    .line 125
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    .line 126
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getRoot()Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v0
 
+    .line 125
     invoke-static {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->wrapNonNullInstance(Ljava/lang/Object;)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object v0
 
+    .line 128
+    :goto_0
     return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public getTitle()Ljava/lang/CharSequence;
+    .locals 2
+
+    .prologue
+    .line 244
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x18
+
+    if-lt v0, v1, :cond_0
+
+    .line 245
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    .line 247
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getType()I
     .locals 2
 
     .prologue
-    .line 260
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 97
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->getType(Ljava/lang/Object;)I
+    if-lt v0, v1, :cond_0
+
+    .line 98
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getType()I
 
     move-result v0
 
+    .line 100
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, -0x1
+
+    goto :goto_0
 .end method
 
 .method public hashCode()I
     .locals 1
 
     .prologue
-    .line 393
+    .line 314
     iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -447,62 +607,112 @@
     .locals 2
 
     .prologue
-    .line 335
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 203
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->isAccessibilityFocused(Ljava/lang/Object;)Z
+    if-lt v0, v1, :cond_0
+
+    .line 204
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->isAccessibilityFocused()Z
 
     move-result v0
 
+    .line 206
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public isActive()Z
     .locals 2
 
     .prologue
-    .line 317
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 177
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->isActive(Ljava/lang/Object;)Z
+    if-lt v0, v1, :cond_0
+
+    .line 178
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->isActive()Z
 
     move-result v0
 
+    .line 180
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public isFocused()Z
     .locals 2
 
     .prologue
-    .line 326
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 190
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->isFocused(Ljava/lang/Object;)Z
+    if-lt v0, v1, :cond_0
+
+    .line 191
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->isFocused()Z
 
     move-result v0
 
+    .line 193
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public recycle()V
     .locals 2
 
     .prologue
-    .line 388
-    sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;
+    .line 307
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+    const/16 v1, 0x15
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat$AccessibilityWindowInfoImpl;->recycle(Ljava/lang/Object;)V
+    if-lt v0, v1, :cond_0
 
-    .line 389
+    .line 308
+    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->mInfo:Ljava/lang/Object;
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityWindowInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;->recycle()V
+
+    .line 310
+    :cond_0
     return-void
 .end method
 
@@ -514,27 +724,27 @@
 
     const/4 v4, 0x0
 
-    .line 420
+    .line 341
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 421
+    .line 342
     .local v1, "builder":Ljava/lang/StringBuilder;
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
-    .line 422
+    .line 343
     .local v0, "bounds":Landroid/graphics/Rect;
     invoke-virtual {p0, v0}, Landroid/support/v4/view/accessibility/AccessibilityWindowInfoCompat;->getBoundsInScreen(Landroid/graphics/Rect;)V
 
-    .line 423
+    .line 344
     const-string v2, "AccessibilityWindowInfo["
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 424
+    .line 345
     const-string v2, "id="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -547,7 +757,7 @@
 
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 425
+    .line 346
     const-string v2, ", type="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -564,7 +774,7 @@
 
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 426
+    .line 347
     const-string v2, ", layer="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -577,7 +787,7 @@
 
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 427
+    .line 348
     const-string v2, ", bounds="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -586,7 +796,7 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 428
+    .line 349
     const-string v2, ", focused="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -599,7 +809,7 @@
 
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 429
+    .line 350
     const-string v2, ", active="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -612,7 +822,7 @@
 
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 430
+    .line 351
     const-string v2, ", hasParent="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -630,7 +840,7 @@
     :goto_0
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 431
+    .line 352
     const-string v2, ", hasChildren="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -646,12 +856,12 @@
     :goto_1
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 432
+    .line 353
     const/16 v2, 0x5d
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 433
+    .line 354
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -661,12 +871,12 @@
     :cond_0
     move v2, v4
 
-    .line 430
+    .line 351
     goto :goto_0
 
     :cond_1
     move v3, v4
 
-    .line 431
+    .line 352
     goto :goto_1
 .end method

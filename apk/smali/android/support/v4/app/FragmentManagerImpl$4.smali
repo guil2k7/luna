@@ -1,14 +1,11 @@
 .class Landroid/support/v4/app/FragmentManagerImpl$4;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "FragmentManager.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/app/FragmentManagerImpl;->popBackStack(II)V
+    value = Landroid/support/v4/app/FragmentManagerImpl;->completeShowHideFragment(Landroid/support/v4/app/Fragment;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,53 +17,67 @@
 # instance fields
 .field final synthetic this$0:Landroid/support/v4/app/FragmentManagerImpl;
 
-.field final synthetic val$flags:I
+.field final synthetic val$animatingView:Landroid/view/View;
 
-.field final synthetic val$id:I
+.field final synthetic val$container:Landroid/view/ViewGroup;
+
+.field final synthetic val$fragment:Landroid/support/v4/app/Fragment;
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v4/app/FragmentManagerImpl;II)V
+.method constructor <init>(Landroid/support/v4/app/FragmentManagerImpl;Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/v4/app/Fragment;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/FragmentManagerImpl;
 
     .prologue
-    .line 610
+    .line 1684
     iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
 
-    iput p2, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$id:I
+    iput-object p2, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$container:Landroid/view/ViewGroup;
 
-    iput p3, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$flags:I
+    iput-object p3, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$animatingView:Landroid/view/View;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p4, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$fragment:Landroid/support/v4/app/Fragment;
+
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 5
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 612
-    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
+    .line 1687
+    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$container:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
+    iget-object v1, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$animatingView:Landroid/view/View;
 
-    iget-object v1, v1, Landroid/support/v4/app/FragmentManagerImpl;->mHost:Landroid/support/v4/app/FragmentHostCallback;
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->endViewTransition(Landroid/view/View;)V
 
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentHostCallback;->getHandler()Landroid/os/Handler;
+    .line 1688
+    invoke-virtual {p1, p0}, Landroid/animation/Animator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    move-result-object v1
+    .line 1689
+    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$fragment:Landroid/support/v4/app/Fragment;
 
-    const/4 v2, 0x0
+    iget-object v0, v0, Landroid/support/v4/app/Fragment;->mView:Landroid/view/View;
 
-    iget v3, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$id:I
+    if-eqz v0, :cond_0
 
-    iget v4, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$flags:I
+    .line 1690
+    iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$4;->val$fragment:Landroid/support/v4/app/Fragment;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/support/v4/app/FragmentManagerImpl;->popBackStackState(Landroid/os/Handler;Ljava/lang/String;II)Z
+    iget-object v0, v0, Landroid/support/v4/app/Fragment;->mView:Landroid/view/View;
 
-    .line 613
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1692
+    :cond_0
     return-void
 .end method

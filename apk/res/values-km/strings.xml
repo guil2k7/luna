@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_google_play_services_enable_button">បើក</string>
+    <string name="common_google_play_services_enable_text">%1$s នឹងមិនដំណើរការទេ លុះត្រាតែអ្នកបើកសេវាកម្ម Google Play។</string>
+    <string name="common_google_play_services_enable_title">បើកសេវាកម្ម Google Play</string>
+    <string name="common_google_play_services_install_button">ដំឡើង</string>
+    <string name="common_google_play_services_install_text">%1$s នឹងមិនដំណើរការទេ ប្រសិនបើមិនមានសេវាកម្មនានារបស់ Google Play ដែលបានបាត់ពីឧបករណ៍របស់អ្នក។</string>
+    <string name="common_google_play_services_install_title">ទាញយកសេវាកម្ម Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">លទ្ធភាព​ប្រើប្រាស់សេវាកម្ម Google Play</string>
+    <string name="common_google_play_services_notification_ticker">កំហុស​​សេវាកម្ម​ Google កម្សាន្ត</string>
+    <string name="common_google_play_services_unknown_issue">%1$s កំពុងមានបញ្ហាជាមួយសេវាកម្មរបស់ Google Play ។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។</string>
+    <string name="common_google_play_services_unsupported_text">%1$s នឹងមិនដំណើរការដោយគ្មានសេវាកម្មរបស់ Google Play ដែលឧបករណ៍របស់អ្នកមិនគាំទ្រនោះទេ។</string>
+    <string name="common_google_play_services_update_button">អាប់ដេត</string>
+    <string name="common_google_play_services_update_text">%1$s នឹងមិនដំណើរការទេ លុះត្រាតែអ្នកធ្វើបច្ចុប្បន្នភាពសេវាកម្ម Google Play។</string>
+    <string name="common_google_play_services_update_title">អាប់ដេតសេវាកម្ម Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s នឹងមិនដំណើរការទេ បើមិនមានសេវាកម្ម Google Play ដោយសារតែវាកំពុងអាប់ដេត។</string>
+    <string name="common_google_play_services_wear_update_text">តម្រូវឲ្យមានកំណែថ្មីនៃសេវាកម្ម Google Play។ វានឹងអាប់ដេតដោយខ្លួនវានៅពេលបន្តិចទៀតនេះ។</string>
+    <string name="common_open_on_phone">បើកតាមទូរស័ព្ទ</string>
+    <string name="common_signin_button_text">ចូល</string>
+    <string name="common_signin_button_text_long">ចូលដោយប្រើ Google</string>
+    <string name="fcm_fallback_notification_channel_label">ផ្សេងៗ</string>
+    <string name="s1">រក្សាទុក​រូបភាព</string>
+    <string name="s2">អនុញ្ញាត​ឲ្យ​ពាណិជ្ជកម្ម​ផ្ទុក​រូបភាព​នៅក្នុង​វិចិត្រសាល​រូបភាព​ដែរទេ?</string>
+    <string name="s3">យល់ព្រម</string>
+    <string name="s4">បដិសេធ</string>
+    <string name="s5">បង្កើត​ព្រឹត្តិការណ៍​ក្នុង​ប្រតិទិន</string>
+    <string name="s6">អនុញ្ញាត​ឲ្យ​ពាណិជ្ជកម្ម​បង្កើត​ព្រឹត្តិការណ៍​ក្នុង​ប្រតិទិន​ដែរទេ?</string>
+    <string name="s7">ពាណិជ្ជកម្ម​សាកល្បង</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

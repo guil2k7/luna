@@ -13,21 +13,38 @@
 
 .method public static varargs and(Lcom/google/android/gms/drive/query/Filter;[Lcom/google/android/gms/drive/query/Filter;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
-    .param p0, "filter"    # Lcom/google/android/gms/drive/query/Filter;
-    .param p1, "additionalFilters"    # [Lcom/google/android/gms/drive/query/Filter;
+    .param p0    # Lcom/google/android/gms/drive/query/Filter;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [Lcom/google/android/gms/drive/query/Filter;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    .prologue
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/LogicalFilter;
+    const-string v0, "Filter may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->Lc:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/LogicalFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/query/Filter;[Lcom/google/android/gms/drive/query/Filter;)V
+    const-string v0, "Additional filters may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzr;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmf:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzr;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/query/Filter;[Lcom/google/android/gms/drive/query/Filter;)V
 
     return-object v0
 .end method
 
 .method public static and(Ljava/lang/Iterable;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
+    .param p0    # Ljava/lang/Iterable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -39,20 +56,29 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "filters":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/google/android/gms/drive/query/Filter;>;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/LogicalFilter;
+    const-string v0, "Filters may not be null"
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->Lc:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0}, Lcom/google/android/gms/drive/query/internal/LogicalFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Ljava/lang/Iterable;)V
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzr;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmf:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0}, Lcom/google/android/gms/drive/query/internal/zzr;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Ljava/lang/Iterable;)V
 
     return-object v0
 .end method
 
 .method public static contains(Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/String;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
-    .param p1, "value"    # Ljava/lang/String;
+    .param p0    # Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,19 +92,73 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "field":Lcom/google/android/gms/drive/metadata/SearchableMetadataField;, "Lcom/google/android/gms/drive/metadata/SearchableMetadataField<Ljava/lang/String;>;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;
+    const-string v0, "Field may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->Lf:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
+    const-string v0, "Value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzb;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmi:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzb;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
+
+    return-object v0
+.end method
+
+.method public static eq(Lcom/google/android/gms/drive/metadata/CustomPropertyKey;Ljava/lang/String;)Lcom/google/android/gms/drive/query/Filter;
+    .locals 3
+    .param p0    # Lcom/google/android/gms/drive/metadata/CustomPropertyKey;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "Custom property key may not be null."
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "Custom property value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzn;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/SearchableField;->zzlf:Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
+
+    new-instance v2, Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties$zza;
+
+    invoke-direct {v2}, Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties$zza;-><init>()V
+
+    invoke-virtual {v2, p0, p1}, Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties$zza;->zza(Lcom/google/android/gms/drive/metadata/CustomPropertyKey;Ljava/lang/String;)Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties$zza;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties$zza;->zzat()Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Lcom/google/android/gms/drive/query/internal/zzn;-><init>(Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public static eq(Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
+    .param p0    # Lcom/google/android/gms/drive/metadata/SearchableMetadataField;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -90,20 +170,33 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "field":Lcom/google/android/gms/drive/metadata/SearchableMetadataField;, "Lcom/google/android/gms/drive/metadata/SearchableMetadataField<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;
+    const-string v0, "Field may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->KX:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
+    const-string v0, "Value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzb;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzma:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzb;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public static greaterThan(Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;Ljava/lang/Comparable;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
+    .param p0    # Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Comparable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -115,20 +208,33 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "field":Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;, "Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField<TT;>;"
-    .local p1, "value":Ljava/lang/Comparable;, "TT;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;
+    const-string v0, "Field may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->La:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
+    const-string v0, "Value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzb;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmd:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzb;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public static greaterThanEquals(Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;Ljava/lang/Comparable;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
+    .param p0    # Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Comparable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -140,20 +246,33 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "field":Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;, "Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField<TT;>;"
-    .local p1, "value":Ljava/lang/Comparable;, "TT;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;
+    const-string v0, "Field may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->Lb:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
+    const-string v0, "Value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzb;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzme:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzb;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public static in(Lcom/google/android/gms/drive/metadata/SearchableCollectionMetadataField;Ljava/lang/Object;)Lcom/google/android/gms/drive/query/Filter;
     .locals 1
+    .param p0    # Lcom/google/android/gms/drive/metadata/SearchableCollectionMetadataField;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -165,18 +284,31 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "field":Lcom/google/android/gms/drive/metadata/SearchableCollectionMetadataField;, "Lcom/google/android/gms/drive/metadata/SearchableCollectionMetadataField<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/InFilter;
+    const-string v0, "Field may not be null."
 
-    invoke-direct {v0, p0, p1}, Lcom/google/android/gms/drive/query/internal/InFilter;-><init>(Lcom/google/android/gms/drive/metadata/SearchableCollectionMetadataField;Ljava/lang/Object;)V
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "Value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzp;
+
+    invoke-direct {v0, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzp;-><init>(Lcom/google/android/gms/drive/metadata/SearchableCollectionMetadataField;Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public static lessThan(Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;Ljava/lang/Comparable;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
+    .param p0    # Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Comparable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -188,20 +320,33 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "field":Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;, "Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField<TT;>;"
-    .local p1, "value":Ljava/lang/Comparable;, "TT;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;
+    const-string v0, "Field may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->KY:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
+    const-string v0, "Value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzb;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmb:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzb;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public static lessThanEquals(Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;Ljava/lang/Comparable;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
+    .param p0    # Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Comparable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -213,47 +358,87 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "field":Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;, "Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField<TT;>;"
-    .local p1, "value":Ljava/lang/Comparable;, "TT;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;
+    const-string v0, "Field may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->KZ:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/ComparisonFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
+    const-string v0, "Value may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzb;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmc:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzb;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/metadata/SearchableMetadataField;Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method public static not(Lcom/google/android/gms/drive/query/Filter;)Lcom/google/android/gms/drive/query/Filter;
     .locals 1
-    .param p0, "toNegate"    # Lcom/google/android/gms/drive/query/Filter;
+    .param p0    # Lcom/google/android/gms/drive/query/Filter;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    .prologue
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/NotFilter;
+    const-string v0, "Filter may not be null"
 
-    invoke-direct {v0, p0}, Lcom/google/android/gms/drive/query/internal/NotFilter;-><init>(Lcom/google/android/gms/drive/query/Filter;)V
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzv;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/drive/query/internal/zzv;-><init>(Lcom/google/android/gms/drive/query/Filter;)V
+
+    return-object v0
+.end method
+
+.method public static openedByMe()Lcom/google/android/gms/drive/query/Filter;
+    .locals 2
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzd;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/SearchableField;->LAST_VIEWED_BY_ME:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+
+    invoke-direct {v0, v1}, Lcom/google/android/gms/drive/query/internal/zzd;-><init>(Lcom/google/android/gms/drive/metadata/SearchableMetadataField;)V
 
     return-object v0
 .end method
 
 .method public static varargs or(Lcom/google/android/gms/drive/query/Filter;[Lcom/google/android/gms/drive/query/Filter;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
-    .param p0, "filter"    # Lcom/google/android/gms/drive/query/Filter;
-    .param p1, "additionalFilters"    # [Lcom/google/android/gms/drive/query/Filter;
+    .param p0    # Lcom/google/android/gms/drive/query/Filter;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [Lcom/google/android/gms/drive/query/Filter;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    .prologue
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/LogicalFilter;
+    const-string v0, "Filter may not be null."
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->Ld:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/LogicalFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Lcom/google/android/gms/drive/query/Filter;[Lcom/google/android/gms/drive/query/Filter;)V
+    const-string v0, "Additional filters may not be null."
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzr;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmg:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/google/android/gms/drive/query/internal/zzr;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Lcom/google/android/gms/drive/query/Filter;[Lcom/google/android/gms/drive/query/Filter;)V
 
     return-object v0
 .end method
 
 .method public static or(Ljava/lang/Iterable;)Lcom/google/android/gms/drive/query/Filter;
     .locals 2
+    .param p0    # Ljava/lang/Iterable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -265,13 +450,25 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "filters":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/google/android/gms/drive/query/Filter;>;"
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/LogicalFilter;
+    const-string v0, "Filters may not be null"
 
-    sget-object v1, Lcom/google/android/gms/drive/query/internal/Operator;->Ld:Lcom/google/android/gms/drive/query/internal/Operator;
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, p0}, Lcom/google/android/gms/drive/query/internal/LogicalFilter;-><init>(Lcom/google/android/gms/drive/query/internal/Operator;Ljava/lang/Iterable;)V
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzr;
+
+    sget-object v1, Lcom/google/android/gms/drive/query/internal/zzx;->zzmg:Lcom/google/android/gms/drive/query/internal/zzx;
+
+    invoke-direct {v0, v1, p0}, Lcom/google/android/gms/drive/query/internal/zzr;-><init>(Lcom/google/android/gms/drive/query/internal/zzx;Ljava/lang/Iterable;)V
+
+    return-object v0
+.end method
+
+.method public static ownedByMe()Lcom/google/android/gms/drive/query/Filter;
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzz;
+
+    invoke-direct {v0}, Lcom/google/android/gms/drive/query/internal/zzz;-><init>()V
 
     return-object v0
 .end method
@@ -279,11 +476,11 @@
 .method public static sharedWithMe()Lcom/google/android/gms/drive/query/Filter;
     .locals 2
 
-    new-instance v0, Lcom/google/android/gms/drive/query/internal/FieldOnlyFilter;
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/zzd;
 
-    sget-object v1, Lcom/google/android/gms/drive/query/SearchableField;->KF:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
+    sget-object v1, Lcom/google/android/gms/drive/query/SearchableField;->zzle:Lcom/google/android/gms/drive/metadata/SearchableOrderedMetadataField;
 
-    invoke-direct {v0, v1}, Lcom/google/android/gms/drive/query/internal/FieldOnlyFilter;-><init>(Lcom/google/android/gms/drive/metadata/SearchableMetadataField;)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/drive/query/internal/zzd;-><init>(Lcom/google/android/gms/drive/metadata/SearchableMetadataField;)V
 
     return-object v0
 .end method

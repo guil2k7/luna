@@ -1,886 +1,945 @@
 Manifest-Version: 1.0
-Created-By: 1.0 (Android)
+Built-By: Generated-by-ADT
+Created-By: Android Gradle 2.3.3
 
 Name: assets/socialclub/PopUP/PopUp_Footer.png
-SHA1-Digest: dTxgFiIQcVN3rGg4+Gd03aKDowA=
-
-Name: assets/data/scriptv1.img
-SHA1-Digest: MKG24SofxYNEw9HsbrL1rzDySiU=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_focus_dark.9.png
-SHA1-Digest: 0B+XUrpD4mbTjR7KeXL0JMWud5Y=
+SHA-256-Digest: QWwIqurFczN0O8jnMxGVB/81EvanhV3jws89nKgfMdE=
 
 Name: res/raw/long_ramp_down_light.hapt
-SHA1-Digest: MNCAg+zY5MEw6uO4q/gweg77qjM=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_normal_light.9.png
-SHA1-Digest: 01pzNafurEJq5JTe+vi5pwIpZKA=
+SHA-256-Digest: 1LK3gqqTfpjpxxUxL0PY9JWduUzdI3rKRFcOk4I2AEc=
 
 Name: res/raw/double_click_light.hapt
-SHA1-Digest: ICk3ZyokEt9CtmkfCvxxhmDMiVM=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_pressed_dark.9.png
-SHA1-Digest: hX39VBAnBn0OOqTAATJpYzWWli8=
-
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_focus_light.9.png
-SHA1-Digest: g3AzwWiuuRSfsIHT0PkU1D6vRRE=
-
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_disabled_focus_light
- .9.png
-SHA1-Digest: SwiWWZpxeqk1DsQXhin//+JtmY0=
+SHA-256-Digest: hrhumfOewrbqTOXFDRueLay5/tMc5ZybAK9t9eoOiAI=
 
 Name: res/drawable-mdpi-v4/ic_plusone_medium_off_client.png
-SHA1-Digest: QLDussHJJ9tfaRh8oJfd78DzHP4=
-
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_disabled_focus_dark.
- 9.png
-SHA1-Digest: uxYSZM2IQVNIL6vKdHiiYaWTmC0=
-
-Name: res/drawable/common_signin_btn_icon_light.xml
-SHA1-Digest: 454s9gFbp0njbQMvDy/aKFxSLDI=
+SHA-256-Digest: WwTDmeMZI/3GcQVb//7bqENyOB2Mn9w8Cw4Z3pN8pFE=
 
 Name: res/drawable-xhdpi-v4/ic_plusone_medium_off_client.png
-SHA1-Digest: yqIMX0jTbgAV2ixlWJrtnh6BI/s=
+SHA-256-Digest: w/GcZcc94dtIy0Lsz6NujM0SFLvTMXpirCuKbWTWNl4=
+
+Name: res/drawable/common_google_signin_btn_icon_dark_normal.xml
+SHA-256-Digest: hfBCHz2pmZQh6VzOylW7gWPYB5Sg0n82IiSCXFDsuFM=
 
 Name: assets/socialclub/SC_SignIn_BG.png
-SHA1-Digest: 9r1LcgWIhq/JAiSXAXT1/r6pEg8=
+SHA-256-Digest: sHqGJImHJKhfsO0E9ncz1OoTGlX9+hr11h9soj+lUGU=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_disabled_light.9.pn
- g
-SHA1-Digest: nQwXg4pRqSL9rbAM1nFbky7gQ+g=
+Name: res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+SHA-256-Digest: IDQyIvn3ndVlw6IkhJTUUucIIKwcQ3Fzw4ut1F+WKv0=
+
+Name: res/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_b
+ ackground.9.png
+SHA-256-Digest: ljXasPPAsFV/NTXZZVeE9oEw21fOOSCuaMLUyrTt014=
 
 Name: assets/audio/audio_data.xml
-SHA1-Digest: /1nkoBBg/zPrkVVIcylep3JfHtk=
+SHA-256-Digest: BI3KwHRtx4sMmjd7cVv6d3ULJ7DvwTJanwdSUKOaNIk=
 
-Name: res/drawable-xhdpi-v4/powered_by_google_dark.png
-SHA1-Digest: u3S9ToOel7no1aBzbEJ12HyjRwA=
+Name: res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png
+SHA-256-Digest: LihpMwDIzV291Jy8cZcEVOnr0qo6pi7ZepfcH2iUhDw=
+
+Name: res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png
+SHA-256-Digest: mYi/TVy5IjYv2MemTCVP9/mKd8lFvkM3OgQjFfrmkho=
 
 Name: assets/socialclub/SC_Orange_Button.png
-SHA1-Digest: XE/rr0LQdzDHi4VgEojaIIpNrkI=
+SHA-256-Digest: r6kl010/aWqIbQrqJ9qDv+MYc7DrtahbMyQ9KFGBpEA=
 
 Name: res/raw/short_ramp_down.hapt
-SHA1-Digest: 48z8vgVLFn33mGtv3O09UVbCJn4=
+SHA-256-Digest: KlKj9zWVN3/7MedA54W6Sz8vuRYGMW20cojv67Ycmhg=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_disabled_focus_lig
- ht.9.png
-SHA1-Digest: hp0bUEuRPx1AeyWxqsvV5oIIrns=
+Name: res/drawable/common_google_signin_btn_text_dark_focused.xml
+SHA-256-Digest: avEKrr63hq5rywYyhtLYF5kD325efqwzCiF/gRyLcZg=
 
-Name: res/drawable-mdpi-v4/powered_by_google_light.png
-SHA1-Digest: Gof7Nwv207f9tGXhlt6m7loiuEU=
+Name: res/drawable/notification_bg_low.xml
+SHA-256-Digest: jIckzU+3mf40Y2BRfm4g3aRGmXynhtrgry+4VO7xMjw=
 
 Name: res/drawable-xxxhdpi-v4/ic_launcher.png
-SHA1-Digest: aGv8JKgnaUfbK49yj+N4Y3v4/0A=
+SHA-256-Digest: I1TIDKGqMz7hMdEvmOMJW25hawpL/rbwj99EFM93Zi4=
 
 Name: assets/data/360Default960x720.cfg
-SHA1-Digest: yPNqseJcU7+nWjHJTxvuJ8pu4Xc=
+SHA-256-Digest: FCEoplev+75Nq7wsmSxYiQy4+lFX5y2V+75QwxlAEf0=
 
 Name: assets/xml/car_data.xml
-SHA1-Digest: ZxjtsceH3ieDYmt435gCU23Qw/8=
+SHA-256-Digest: oQ9w63jrJAvfhaVJKAgrHW8d00iSNpVMq0oNLWSugSs=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_text_focus_light.9.png
-SHA1-Digest: JaXq/ok4qHz3vYCm/3x4kJWHbmY=
+Name: junit/runner/excluded.properties
+SHA-256-Digest: tQwWBgo6KQwh4DiSGZxWZtbqDBwwTUmOlhj/4f57d5w=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_disabled_light.9.png
-SHA1-Digest: JifSXGfFbvkdyHI11+pBw7KpSl8=
+Name: play-services-games.properties
+SHA-256-Digest: Jm4HeQOenBHl7WTm6EhEen6M7xIHfoGS5mJ4Z7ovdac=
 
 Name: assets/socialclub/SC_DOB_Box.png
-SHA1-Digest: HkOE0MsITCzanZC0uKdhtDTvN54=
+SHA-256-Digest: L8KfZpGaAaSY6ZtS7xQVLDJ75AvQsM1ddV9QgBDnWac=
 
 Name: assets/images/Splash.png
-SHA1-Digest: chPVMGjJar6lcLTr7qLsU3xhcxo=
+SHA-256-Digest: tpJ2C1kSA2z75hrJjVRzt2+lmbs9bNAY8vv1BiWtd70=
 
 Name: assets/Text/spanish.gxt
-SHA1-Digest: 471hvK0uLuf3T0xyjpVzVaCjo2g=
+SHA-256-Digest: Qf+Gd67isxdZfEYBEPk1zBIa5yiAznUScqn60E5wDB4=
+
+Name: res/layout/notification_template_part_chronometer.xml
+SHA-256-Digest: PxQ6+Gb7fj733VuoF/Ucs+pbTesonUithhJnuvGXVvE=
 
 Name: res/raw/engine_light.hapt
-SHA1-Digest: 1LTUVuQrSlhHYZARDEIjvCMHPQI=
+SHA-256-Digest: 0EvK81LTIi5qoR6Im2O6SHPJouoKDuZacvhjYQUkYAk=
+
+Name: play-services-nearby.properties
+SHA-256-Digest: //q5ay0lBTy80dsd+0gwXPEFm4P6MMDiZ2a5rWJOg1w=
 
 Name: assets/data/TouchDefaultPhoneWidescreen.cfg
-SHA1-Digest: RPH77mMOBUjirLIP4kQj9ZRseTE=
+SHA-256-Digest: d+h/cu2SpYJFJ5WXzRP1SUUahpPyT2cJVRDRYFduJao=
 
 Name: res/drawable-xhdpi-v4/ic_plusone_standard_off_client.png
-SHA1-Digest: G0fSJgTh3WhtiDhgqFwPVF7+OZk=
+SHA-256-Digest: d/XhX+hvqs50IlTftvxg6Uk8o97ktSAbCQa3acGXpTA=
+
+Name: firebase-analytics.properties
+SHA-256-Digest: 2vLNfOyV+6GC9UhRIRt/YsZjtiulh//Zg6orTIlRP74=
+
+Name: res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png
+SHA-256-Digest: mcFNaFW4viltWAF9N1G43IScR7bR2Aq2FP+QdQgORhs=
 
 Name: resources.arsc
-SHA1-Digest: wEsfPqVeE9YxSVs8bVpDh7XEV9g=
-
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_normal_dark.9.png
-SHA1-Digest: KCydgjqNEyLTSyFqQ8E8n93dw8Q=
+SHA-256-Digest: laACYPEtynMp75eLAtpN+I4x8W3gYwLBRDWZm5UvQ3k=
 
 Name: assets/images/728EC1.png
-SHA1-Digest: CEVXGkxfKeLDDI4+ldXvyKnVxUE=
+SHA-256-Digest: nkmtF17MV1YnzSsbFEEiaIv0nVh3J9hB4Kt/GS0OGKQ=
 
 Name: assets/socialclub/SC_Gray_LongButton.png
-SHA1-Digest: qOD7G5wyu8IACpnQt0Zzn05YyrM=
+SHA-256-Digest: k8EiJrS+MX/ambB4x2O33EAAg9TEydv8zGLah2K04TY=
 
 Name: AndroidManifest.xml
-SHA1-Digest: +88ip4sNXoKjYtZHxlLtUfrNmuI=
+SHA-256-Digest: 1/SFxtZB6Svl18OFlFizJ/UzsyBbjYuLqDENUe13PPQ=
 
 Name: assets/data/TouchDefaultPhone3x2.cfg
-SHA1-Digest: YxWU82ZXb9Jyg+UsqpPyRZjFSMw=
-
-Name: res/color/common_signin_btn_text_light.xml
-SHA1-Digest: sogkwPIuxCB8PbcNS4dvReJsVLs=
+SHA-256-Digest: Ok3ZHjyWP+aqGMCQHX2DjhI126HhvzFhN+RWqNqOiow=
 
 Name: res/drawable-mdpi-v4/ic_plusone_standard_off_client.png
-SHA1-Digest: DDk4/fP3anlEfygKXp2/rADTzlQ=
+SHA-256-Digest: pGAA9ZNWdIUnbOQt0JgFwLhlWAwmkDvMGjvvL8VHbig=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_disabled_focus_ligh
- t.9.png
-SHA1-Digest: pPdF56afV5m/I+9aFp8nXqyHm04=
+Name: res/drawable-watch-v20/common_google_signin_btn_text_light_norma
+ l.xml
+SHA-256-Digest: JncMAS6qaJkYTskcUxW3saTmoPUwBAkhHhQuFypMzf8=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_pressed_dark.9.png
-SHA1-Digest: z1C3AiJK0W2XkBN23bgza6OnG5c=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_pressed_light.9.pn
- g
-SHA1-Digest: TTNyOMPEkdWBPF74F+SobT/CwPU=
+Name: res/drawable-xhdpi-v4/googleg_standard_color_18.png
+SHA-256-Digest: kMRGdVJeKQMy99umrbl8evO4KZ5Wz1IR6JPQ4d7EFUc=
 
 Name: assets/xml/item_data.xml
-SHA1-Digest: qnW7tHj0GEVydArYaq1BU49RttM=
+SHA-256-Digest: V8aU8wLUacQ67UhGqO+upLSXYc3B3ZalnSsVHOsGIJc=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_disabled_dark.9.png
-SHA1-Digest: nQwXg4pRqSL9rbAM1nFbky7gQ+g=
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_norma
+ l_background.9.png
+SHA-256-Digest: pvinmcoFFyMA+bANZFT01OyIgNa6Xe7zuQgE7YHY1CM=
+
+Name: play-services-auth.properties
+SHA-256-Digest: q3wtW5sidSoDnJzWR//7Co6b6XgjrFn3vgdoYO6M5S0=
 
 Name: assets/socialclub/SC_SignIn_Box.png
-SHA1-Digest: LPqIH8VEW9QPKImezqMcsj2Abpg=
+SHA-256-Digest: F7RbkZrkgGVwANNoT6X0PNJOXoMhLyjtS2pL9dltlaM=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_focus_light.9.png
-SHA1-Digest: 2bPvZHgdBuKdra+IgJCbmwfRl5s=
+Name: res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png
+SHA-256-Digest: ZZim4HvYh2kJ64huu3VSm7kfqGd+DlcYrDjrKWKDPaM=
 
 Name: res/raw/bumpy_texture.hapt
-SHA1-Digest: Odhvq769PbRX7SSfeyECMR0ezQs=
+SHA-256-Digest: 9eLU1bJnkX6z+WIkBuI0Ty8iqmb9W8uxKkxRDpxv4aM=
 
-Name: lib/armeabi-v7a/libplugin_fastman92limitAdjuster_ANDROID_ARM32.s
- o
-SHA1-Digest: HYSTozOMFeDxVITrrw90YyyDt7A=
+Name: res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
+SHA-256-Digest: PgmvohxFNywDVZjAF8j7QFptZ45suE3IV1gcs7QOSC0=
 
 Name: res/raw/fast_pulse.hapt
-SHA1-Digest: BhbFlYxgC7zYXzOAaVg2pJbDitM=
+SHA-256-Digest: Ik/UJ6SbAMjAOZESQZvwk08RtCaCOydft1dLmWP6B5M=
 
 Name: assets/socialclub/SC_Logo.png
-SHA1-Digest: p6l+X+R+j8E1KXjHI9ewxZu45pw=
+SHA-256-Digest: G+AfJzMVSrzs5NI0etXv1Qnl0VTmmavBUZdOnbgSolk=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_pressed_light.9.png
-SHA1-Digest: inbYf6uocfbvF1iKQHEbwEDNEjU=
+Name: res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_
+ background.9.png
+SHA-256-Digest: nWLT6r76+J5gGNOQLMjEu4iKiJHZY53tqPtYumD+GCI=
 
 Name: res/raw/slow_pulse.hapt
-SHA1-Digest: o27YMgtctOnciTBVAk0glwu0NgU=
-
-Name: res/drawable-hdpi-v4/common_signin_btn_text_disabled_focus_dark.
- 9.png
-SHA1-Digest: 3Qb3Dqr5JAgwbEAW6M7aOf3umBE=
+SHA-256-Digest: KYdrK7Y2JIeRY8xbQMy7a7xe3fO/QK5bRxkILozMB7o=
 
 Name: assets/data/TouchDefaultTabletWidescreen.cfg
-SHA1-Digest: MwRngNnlIdMP/xKswVGaAK2X5wM=
+SHA-256-Digest: /ZDbiz+7TQMRc5UUgduuCoKlQrZphhSaN+WPYjXrlSc=
 
 Name: assets/Fonts/GTALICENSE-REGULAR.TTF
-SHA1-Digest: Mk0/ymSrcitt3QixjSWGjriJOU8=
+SHA-256-Digest: 5jMRWPvLDAtlyLEhCHOgVjUlpmws9PcB+OWsYmd5wP8=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_focus_dark.9.png
-SHA1-Digest: E/g6v20NOc0t6vszGumj2gSQEV4=
+Name: play-services-base.properties
+SHA-256-Digest: X5f3+L7zVUEt00X732BVoEW+JA/FvQOLnc+DMIYIwuM=
+
+Name: junit/swingui/icons/ok.gif
+SHA-256-Digest: vJPhtYMrLsOiywCkPawC7eJ5zLSgs4merg2fMiQ7tBE=
 
 Name: assets/json/socialClubAssets.json
-SHA1-Digest: YjhQjnnwQFjlgyrjYFQnR0aIcVQ=
+SHA-256-Digest: qB7GJS8L96G/na1ItPnsqp0qQGcOd+oLhM2NzISLom0=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_normal_dark.9.png
-SHA1-Digest: GtY310oqn4yeDRLwuIknO6VIG6M=
+Name: play-services-auth-base.properties
+SHA-256-Digest: VAZl2HBkUqb4/soZOEzBCgjsWIolrAK4CnlH6KqqUuo=
 
 Name: assets/socialclub/SC_Gray_Button_Dot.png
-SHA1-Digest: JCFHBLrjpHqKtgBJPhLtPFU9fL0=
+SHA-256-Digest: FcpfXZ9yjeSJzAibnDj8gzt4d7j6ivz2erJ0huktOmY=
+
+Name: res/layout/notification_template_lines_media.xml
+SHA-256-Digest: yI8I72HFKQka3nz0h+hNU62py7sUncUHh9mVyMBkg+A=
 
 Name: assets/Fonts/HELVETICANEUELTCOM-MD.TTF
-SHA1-Digest: HAxOg5kN+6MgC95VTkP5LKz7Bi8=
+SHA-256-Digest: eOIrCTZyibViEHRWlFYVE80/idp1mCqa1un/FVKo6CY=
 
 Name: assets/socialclub/SC_Spiner.png
-SHA1-Digest: sfohaszw9iBLldMu2HY0OCElBko=
+SHA-256-Digest: oJP4spPQCvwkiV4JaIE+EakTBSGYUxHxL9gsXztPc7s=
 
-Name: res/drawable-hdpi-v4/powered_by_google_dark.png
-SHA1-Digest: Bzu5aqxQmejXU6nj4kc85CLU6xk=
+Name: res/drawable/notification_icon_background.xml
+SHA-256-Digest: 02a1NskoZ73OWRRKIQcLcns/44039ilymAt8BsuR8rg=
+
+Name: play-services-analytics-impl.properties
+SHA-256-Digest: MNsKwIbYEVAR1EKQ8YeOBLwdVnoBORs6fyEl/VOSgys=
 
 Name: assets/Textures/fonts/JapaneseFont.png
-SHA1-Digest: jP35q4nGzbpAzKCBE6zKW39ksoQ=
+SHA-256-Digest: 4bqVeYTz7GQfA8lJfmtgHhZh6h2Gr4TfW4UaTglypQg=
 
-Name: res/drawable/common_signin_btn_text_dark.xml
-SHA1-Digest: 2AZAc63yGXbiTy3Q6YdGQvlssoM=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_disabled_dark.9.pn
- g
-SHA1-Digest: NR4VPCBhz5pblhqCam5flcyc+5U=
+Name: play-services-analytics.properties
+SHA-256-Digest: xqZeivk5taR6bfNBH4wDbXpIx0VKQXB6MqgwRxWgNZY=
 
 Name: assets/data/handling.cfg
-SHA1-Digest: E557GwwXrm0o8c8AJptk7kFrnrM=
+SHA-256-Digest: EwlWK2zG+wyZgxkDg+Yt7QPQM/Qusb+Pa4WMuTBz4i8=
 
 Name: assets/images/728EC0.png
-SHA1-Digest: Zl4qAqXLvSSbR/pkGwQpPayYGD0=
+SHA-256-Digest: eOXGp/xIMNZ21rl/0yM5RcsUbvZuia/9T2yE/XKUAwc=
+
+Name: junit/swingui/icons/failure.gif
+SHA-256-Digest: X2zARBxx/3CKea1UeksjVujei0H6p6zq1S9tcpll6io=
 
 Name: assets/Fonts/HELVETICANEUELT-MEDIUMCOND.TTF
-SHA1-Digest: KoauqN9Y92BgeFsL33Ej58Q/CmU=
+SHA-256-Digest: J7qZCXumQvKx9H6mBMb21t9gUnHCgQBV+fdOStnsYA0=
+
+Name: res/drawable/notification_bg.xml
+SHA-256-Digest: GdE3k7lNUbc7SGEDAxu/CK5+9kPLojIylPQat0L1dgg=
 
 Name: assets/xml/car_data_iPhone.xml
-SHA1-Digest: ehNFuwdJ0VnVU/BWkrr2reCKG5k=
+SHA-256-Digest: cxuNo6PftdDHFwZt/TKuClNp7/6LFOnzCjRVi9A1szY=
 
 Name: res/drawable-mdpi-v4/ic_launcher.png
-SHA1-Digest: WhRgk6K8/L+R6h5ZkTgv9/OdqC4=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_normal_light.9.png
-SHA1-Digest: c9+ayODgpxL/lgwR/VcRi87vC50=
+SHA-256-Digest: SNKJTgidMZYLQyu9eTddixDsSBDdWQYxm1as/ZoE50s=
 
 Name: res/raw/pop.hapt
-SHA1-Digest: qlgbsycpuKhKYzbNnYP5Hd536RM=
+SHA-256-Digest: jdvEGXXb3k7hWcDC3lc+ABGnbnnvBd8TexFot0h86A0=
+
+Name: play-services-tasks.properties
+SHA-256-Digest: bWdKFbcuMTuYCUsZlrWw0MXDXGOVcO59ES2Ed72A1tw=
 
 Name: res/drawable/leanbacktvlauncher.png
-SHA1-Digest: k338IrqgnPk68X0E/M7s2jM5bSU=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_disabled_dark.9.pn
- g
-SHA1-Digest: 9Dyo4W1dMa+O0AfTDk4d2pJT8eo=
-
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_normal_dark.9.png
-SHA1-Digest: b3TWWLb0MKN0byp74SRI8ueeMMU=
+SHA-256-Digest: gyuyjqSsLaHIE5NxIo2mmRQ2SYpODiJqZNLZSeJJyzs=
 
 Name: assets/images/23F3A6.png
-SHA1-Digest: DGwubA/bqHmDprLwStWSmVyGlFY=
+SHA-256-Digest: ku4oigWV9CHDzhJik0xHJs9Ay5ke8Qnhg9MUzOZ4IDc=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_disabled_light.9.p
- ng
-SHA1-Digest: NR4VPCBhz5pblhqCam5flcyc+5U=
+Name: res/drawable/common_google_signin_btn_icon_dark_focused.xml
+SHA-256-Digest: Ok6bM6787kutsktQu9a0dxsIxcVlRPc+h0wwmN0lkFo=
+
+Name: res/drawable/common_google_signin_btn_icon_light.xml
+SHA-256-Digest: VLlwEitSULd8uPDcKmdGdImVMJxwQkXJdQ4L7cr+ZFg=
+
+Name: junit/swingui/icons/hierarchy.gif
+SHA-256-Digest: 3KjVpCldFGYe8N4wfxhrbObfb4FeZq0+yXS7wQV+/b0=
 
 Name: res/drawable-hdpi-v4/ic_plusone_standard_off_client.png
-SHA1-Digest: Fe0qXsLnKmRuXr55o2I71HHO7u8=
+SHA-256-Digest: Ph4iKMHIint/E39iaCwHKVNVXIzpZITM9+2XppG1SdA=
 
 Name: res/raw/short_ramp_up.hapt
-SHA1-Digest: 6rtQgk9AqD7uUQKelxspwSCa0pI=
+SHA-256-Digest: F/ACdgmHChf1YYnzjB3u6XMohrli/N9Sv3571cpkHUM=
 
 Name: assets/Fonts/PRICEDOWNGTAVINT.TTF
-SHA1-Digest: En0SSK7DXnueaFvUlIXCRNTDtbo=
+SHA-256-Digest: oor0ESC0EeYJswCBqTh0HiXVxXBZXkTGYUJkvIk6/lE=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_pressed_dark.9.png
-SHA1-Digest: 35blka94+H90gm/k0uW+cNl6G78=
+Name: res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_
+ background.9.png
+SHA-256-Digest: RlFhnOoXJ31R5kDittFbCIXZs7Gm923NsH/jbBlb7Rk=
+
+Name: res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_b
+ ackground.9.png
+SHA-256-Digest: 1m9wYcJ0sbb4UkmTNnr5AnN935GH2wzI2RqMZK2blEo=
 
 Name: res/drawable-hdpi-v4/ic_plusone_tall_off_client.png
-SHA1-Digest: GpMPREi+BicZSyfgUuJhuK/LKYg=
+SHA-256-Digest: asdU58TmW6jxK3pgrr92yjlicdarmtatCo8VRXvSjTE=
 
 Name: lib/armeabi-v7a/libImmEmulatorJ.so
-SHA1-Digest: /8meGH6fjdX7ftLTNRp2LKMVCVo=
+SHA-256-Digest: /R4rQRsIHgK5Giyu0zHBK0CsGBoHCBh5AZ1FpDvqLmY=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_disabled_focus_light
- .9.png
-SHA1-Digest: 3Qb3Dqr5JAgwbEAW6M7aOf3umBE=
+Name: res/drawable-mdpi-v4/notification_bg_low_normal.9.png
+SHA-256-Digest: L3+9oLpuU+mkfi/A4k4yxEfGE6WAjC1ihdxlHoOgetc=
+
+Name: play-services-measurement-base.properties
+SHA-256-Digest: KSQuelY1ppzcANATzrzS15Au+DT0O0OChQNYJIcANvk=
+
+Name: firebase-analytics-impl.properties
+SHA-256-Digest: BOcFD8vrxscLCavo3idFpCIo9e+i0e+bAOpZsaHR5cg=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Edges_L.png
-SHA1-Digest: fGFQ/2CRL++VxpQd2GyoPkONxcc=
+SHA-256-Digest: vV8cYOHJRzIZhRDIGmbn1tUMu/909Zh5VgBOD/QCey4=
+
+Name: res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_
+ background.9.png
+SHA-256-Digest: mwJ9iJE4SzRQ549EGsnMcJhfd/iOX469YjsD1bpfAlw=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Corners_BL.png
-SHA1-Digest: WpFpgII99EpNq1aNfAJn29IRTTg=
+SHA-256-Digest: A/6xb94JsReuLOVNxa3iIvH86TrleZJHDt1mFJfga4g=
 
 Name: res/raw/machine_gun.hapt
-SHA1-Digest: 49hK5mbmA0vd9nq87zvjfWB0m0A=
+SHA-256-Digest: JgAb1xPILMmj0CBCLDCYHcvqoP5Szkiev/FvLkU8AZI=
+
+Name: res/layout/notification_template_part_time.xml
+SHA-256-Digest: P1w3TpyQdia4BsAvfr3cbnDi0G+lTmggke3zEzcCdwg=
 
 Name: assets/data/360Default1280x720.cfg
-SHA1-Digest: Jmpi6XnkoysHCwlhg5nvyJatisI=
+SHA-256-Digest: sm1A0oC/k9xoVmiwmcMDsqBwDdnwRgMH1WQ8utcMbKY=
+
+Name: play-services-drive.properties
+SHA-256-Digest: Q0CiJwhHh/n6QqpTEMqEJ7VGG/AnW45dUgr0ZDJy2co=
 
 Name: res/raw/long_explosion.hapt
-SHA1-Digest: J6YDVu02ySgRdNmkXj2aLIk4lfc=
+SHA-256-Digest: SV2b7FyVX/nmY7z/uFgfE3cuxAHZLMh/0piMgO03H8g=
+
+Name: res/drawable-xxhdpi-v4/googleg_standard_color_18.png
+SHA-256-Digest: 25XD3Gwqc7v9oMbwT4Q0x7BKuZ4hU0hw4uivmyvECJM=
+
+Name: res/drawable-hdpi-v4/googleg_disabled_color_18.png
+SHA-256-Digest: 9zUICQ0+a7w+Obp2jnGFWq1S7KqszaZ21DoYYAEMxVc=
 
 Name: res/raw/tick.hapt
-SHA1-Digest: 96G+qiCY4ltW8gTUARuQxde2EUs=
+SHA-256-Digest: FLsjJrXKDgqAmLRvkCRzMDVOmUbWAJGpI9GkQ11LCZQ=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_text_pressed_dark.9.png
-SHA1-Digest: ihDR97Yl/DUkuAsv/N5Xp/f0u1c=
+Name: res/drawable-xhdpi-v4/googleg_disabled_color_18.png
+SHA-256-Digest: YINSMDKrXfnmy4Lk/z1Ir3c4kAoumyPZkb6qLrp4Yuk=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_normal_dark.9.png
-SHA1-Digest: +4I0Q1BGydjvPdudgQ9zI39F3A4=
+Name: res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal
+ _background.9.png
+SHA-256-Digest: lZ1uuPy+mIkdw620KiRZEX81byNhvWslWQjRB7YFE+M=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_disabled_focus_dark
- .9.png
-SHA1-Digest: pPdF56afV5m/I+9aFp8nXqyHm04=
+Name: res/layout/notification_media_action.xml
+SHA-256-Digest: 2AXRciGvY9fHhrg1yc3V4YygKT+foEBVS8T/vD1NWgs=
 
 Name: assets/socialclub/Header_SCBox@2x.png
-SHA1-Digest: zkl3rV42mPI77vx+pNi4IEsPaag=
+SHA-256-Digest: ySJB30HER7wQ7Esm6kBCrK37lIHvYIC7X3j+rsdp71Y=
+
+Name: res/drawable-mdpi-v4/notification_bg_normal.9.png
+SHA-256-Digest: qGdqF5OsgxD/sSmGIy32bfCS0pwkKu7cK3NVbAENONw=
 
 Name: res/raw/short_ramp_up_light.hapt
-SHA1-Digest: +tkw1Q5DGsnKykCSxICaPNYW+lw=
+SHA-256-Digest: 9lqnXjj2s14Kv/qdDJXgSBvlao2lDRGYyAkM5OBks+A=
+
+Name: junit/runner/logo.gif
+SHA-256-Digest: NFteIgelJOABl3nRPw+K5RNZ+JSiMEeUZ3YTMePRyhY=
+
+Name: res/drawable-hdpi-v4/googleg_standard_color_18.png
+SHA-256-Digest: 8iH5YqYslUoRsXNOljH8hTHjS+5VdmX+qGSqQ4biXjk=
+
+Name: res/drawable/common_google_signin_btn_icon_dark.xml
+SHA-256-Digest: 10OnZ/uOahhOCHOVJFfwZ8Fsxjh+GD95istB0R4jWNo=
 
 Name: assets/socialclub/SC_Yellow_PolicesButton.png
-SHA1-Digest: /3WKqSH2KY3oQUMTQ+jGL9RhzDg=
+SHA-256-Digest: 5zijjHTkSO2166zGCizTNycj/tBI4ZQWc6DqcHO7lC8=
+
+Name: junit/swingui/icons/error.gif
+SHA-256-Digest: TzI68bltAB4MFoTri9mDvAwmevuEULWrHrrp0Jzi8EE=
 
 Name: res/drawable-mdpi-v4/ic_plusone_small_off_client.png
-SHA1-Digest: FHjG54/OyhUBHiuhksxry0HNFT8=
+SHA-256-Digest: CY0DcGsLdzbltr9Cn8FjeRxETnKT7kdXj8ULi09WBUM=
 
-Name: assets/data/mainV1.scm
-SHA1-Digest: 26vS4QVGMz7zEwg7XYCzhJRYHUQ=
-
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_disabled_light.9.png
-SHA1-Digest: Ot17Wwxj0OhDwMiGTQ4nu1DkcYo=
+Name: res/drawable-xxhdpi-v4/googleg_disabled_color_18.png
+SHA-256-Digest: XbOrTTAGO16PpjrimT+D79CvcdZSazoUaPnjv4ka9Yc=
 
 Name: assets/socialclub/ButtonUp.png
-SHA1-Digest: o9INpkn4Yix7KQ7UONFUlAn4myc=
+SHA-256-Digest: ijyaFJDwrjocMogUa0i9JtPtlIQAQ2xJVScv0rVyQLU=
 
-Name: assets/socialclub/Header_SC@2x.png
-SHA1-Digest: ZMCr/VA5BXVttqVT1BVwfKneDGc=
+Name: res/drawable-hdpi-v4/notification_bg_low_normal.9.png
+SHA-256-Digest: IfC1UoC+ELGHzv+O3vSlpwR2g+bp/PR95BCqODn0EJQ=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Corners_TL.png
-SHA1-Digest: GzuChYY+5okffzJfGZ1GCRR9BGE=
+SHA-256-Digest: GCx0Tl9X4nsO4pZjRou0ZIhL2CUTYxcI2j/xFNg0cQc=
+
+Name: assets/socialclub/Header_SC@2x.png
+SHA-256-Digest: gG8HAD4bi35gq5UnuZC1uGbG7+lLdLCKRxvvvf9aHic=
 
 Name: res/raw/bump_light.hapt
-SHA1-Digest: +lvo3+VoBBsxQDwUMPOslhDaNqo=
+SHA-256-Digest: 3T4QKcPcIAqHtJDbUYFwnAyg0rWMwuJ9lR9ZjE2vpVc=
 
 Name: assets/Text/german.gxt
-SHA1-Digest: 0/hIUJBSMFEjN8e+Pu+TgKdz9fc=
+SHA-256-Digest: lGjjsCWU6S+KOqnBC5uyzwoaGxE0Auu7cewdRrcasH8=
 
 Name: res/raw/short_ramp_down_light.hapt
-SHA1-Digest: tRiw744nEDUulvAA9rLIf6INjjY=
+SHA-256-Digest: Hh/dgiWTI2f3sQzapB79tNMFtVgHdvOYhhUkKt5b/og=
+
+Name: res/layout-v21/notification_template_custom_big.xml
+SHA-256-Digest: RieXWfC+uGi0P7eDSVmfL2dliNF+HuvefUB+DvQ3B50=
+
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal
+ _background.9.png
+SHA-256-Digest: QqG5O6OA7rqdSZWC35gaU1+HKvI0rWYAZ1//N0WTBuU=
 
 Name: res/drawable-xxhdpi-v4/ic_launcher.png
-SHA1-Digest: 0vG1GKpwCVwtVxIXoGxQ9e10IlQ=
+SHA-256-Digest: 9J/DwIUgaRCTVdJfQ7q1qH4kq4fwScDqDLqoXc3E+uA=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_pressed_dark.9.png
-SHA1-Digest: AZj9E7keEU7HJuqs3hew+mpUEp0=
+Name: firebase-measurement-connector.properties
+SHA-256-Digest: t3ES27w61+uLPokgGdjbzcU7oW2GXn5jTjDmf1hiT88=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_focus_light.9.png
-SHA1-Digest: MLIxcK6DfSph+hi+Q/HWXFY55uY=
+Name: firebase-common.properties
+SHA-256-Digest: vwLuK9GsxsqO0iCMOjlmXnr+XVIlPz+ECwa+H4WK8Hw=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_disabled_dark.9.png
-SHA1-Digest: dneJL/KvvpQbWri3U2qKm4J3xoA=
+Name: res/color/common_google_signin_btn_text_light.xml
+SHA-256-Digest: LgNji4o0UrrKoRTQg0ZLvOCijAKDLKCm+Fa4rJX7JMg=
 
 Name: assets/socialclub/SC_Circle_Box_Tick.png
-SHA1-Digest: jBiXg8IKLLiwWcv9d+cnGaAR5l4=
+SHA-256-Digest: YzsdP+whzqwvOoFP5OOCOIKZ5EoHmwg+5OTWMXvv8aU=
+
+Name: res/drawable-mdpi-v4/googleg_disabled_color_18.png
+SHA-256-Digest: fB4WKclfsmA/veq5Oo+/MLnIC+Ee9IPUl/iojo9nvWs=
 
 Name: assets/images/23F3A7.png
-SHA1-Digest: /QRJUxtmOmudJ4ZrMF54cj9DBDY=
+SHA-256-Digest: VZ2mRvh9QUB+ok6PfuyADXUdbxqW2COyV+6+EcRsrow=
+
+Name: play-services-auth-api-phone.properties
+SHA-256-Digest: m+yXUx0imv8Pgs61usFrQR9IUyyDFT0z/2aju7JlC00=
 
 Name: assets/data/ShopUVs.dat
-SHA1-Digest: cQOHB2HCACac/okiMLLuH3DM+dU=
+SHA-256-Digest: S3SyeoiAfl/irJ7H0h29EZjR80R9stG8dFv3qC1IcYM=
+
+Name: res/drawable/common_google_signin_btn_text_light_focused.xml
+SHA-256-Digest: rjP97LHNBJ39/cST5xzAidBGk6EiPG1orXz1v4Z3Vy4=
 
 Name: assets/data/script/mainV1.scm
-SHA1-Digest: Ej6z+mt+D7UZIaU7guuPlLZbpTE=
+SHA-256-Digest: AhrIf/L562t2Y4Up3me1Ws/hAqtrTwYia42+vLHq9i8=
 
-Name: res/color/wallet_primary_text_holo_light.xml
-SHA1-Digest: NTpLcLJY0w4ERerPiTRZmNktjyk=
+Name: res/drawable/common_google_signin_btn_text_light_normal.xml
+SHA-256-Digest: 7EQDLLHdhtyoXafAC+7EVG21nxGBxOzh1zgIbjYT+mg=
+
+Name: res/layout/notification_template_media.xml
+SHA-256-Digest: cXxlxlhMwpdJ15jvcAdkJiv6iLNLZe8DpbgmRZ7VQfo=
+
+Name: firebase-core.properties
+SHA-256-Digest: s02fI+NiVne3vIJcEKoD5upODNqwHKD7o4BC3NZM+48=
 
 Name: res/drawable-xxhdpi-v4/ic_plusone_medium_off_client.png
-SHA1-Digest: NlwS9mUcZVm81uqxcRAKuWudIh4=
+SHA-256-Digest: jhQpiiztqYV5IMKYf9vmJM9VFWDACgm72jp8NDAsEpg=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_disabled_focus_dark.
- 9.png
-SHA1-Digest: SwiWWZpxeqk1DsQXhin//+JtmY0=
+Name: res/drawable-watch-v20/common_google_signin_btn_text_dark_normal
+ .xml
+SHA-256-Digest: AKS0zdDi1WKpQnsXPrvUY8SWAAO/BvYw8/uVwoeZ7DY=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_pressed_light.9.png
-SHA1-Digest: FFQIjfdXmj3OFAEJLdBlWXlPCe8=
+Name: res/drawable-mdpi-v4/googleg_standard_color_18.png
+SHA-256-Digest: eIo7lHLppG4ba2jZGM0VcZFLcy6TqrAU138gvlN06d4=
 
-Name: assets/Fonts/HELVETICANEUELT-LIGHTCOND.TTF
-SHA1-Digest: AXvnAKCze+J6EEddaFTZyINJs9I=
+Name: lib/armeabi-v7a/libOpenAL32.so
+SHA-256-Digest: TpvwXUBOcG3B4cIq9qCeCDJNIy7nNaBCE20vzf6DzOY=
 
 Name: assets/socialclub/PopUP/PopUp_Button_Cross@2x.png
-SHA1-Digest: Z+GhOwzmtra+7OggxfY2BPYnbQ8=
+SHA-256-Digest: R/rhIZfeoiWWk7iNjrqNFRB3hrInflwnB/9xrzPhhYw=
 
-Name: res/drawable-mdpi-v4/powered_by_google_dark.png
-SHA1-Digest: q5QmElDsgWpsveQ9fAupQ7R3kZU=
+Name: assets/Fonts/HELVETICANEUELT-LIGHTCOND.TTF
+SHA-256-Digest: nDeaa0SawlBM8by9sVnF//4jebWP9lErpc6td4y2yF0=
+
+Name: res/drawable/common_google_signin_btn_icon_light_normal.xml
+SHA-256-Digest: sb6KRC6X0hykMFDcJM2YWcSrH0AbtfkQJ3cbmRJlP4A=
 
 Name: assets/socialclub/SC_Purple_Button@2x.png
-SHA1-Digest: L1LKylvzfRHYzcD6AfhBh41Khgw=
+SHA-256-Digest: RRs9pRbGOQA3gHub62Ysxwy3RZI/1TwuETptm2jUGFI=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_disabled_focus_ligh
- t.9.png
-SHA1-Digest: gJh+u557DT1JiSzDrPfimnZBVwU=
+Name: res/drawable-xhdpi-v4/notification_bg_normal.9.png
+SHA-256-Digest: VZv3g9dlwCM46XlSvcnGaJx/+ZCQuMmBM2kRjaiwgPA=
 
 Name: res/raw/triple_click.hapt
-SHA1-Digest: vm8arNN+dRmMoCU//LXkEpV6Q0M=
+SHA-256-Digest: fejeY2Y2NAKYzond1PetpKmLxmB1V+jf6iC2CBl/xJQ=
 
 Name: assets/socialclub/FeedBar@2x.png
-SHA1-Digest: Ws1IKghzOqs6dz9dmkKHH6W3Suk=
+SHA-256-Digest: Dqby5Ym7kLK5KTneLI5QgBau6oMoWpNOdHmrp0/ZnSQ=
 
 Name: assets/xml/app_data.xml
-SHA1-Digest: 58lyYVbvuZkicgEckyWBas6b+80=
+SHA-256-Digest: g9EUUyf25NcPAt6DRQjWXAFQbpdSZXJDZze/Z88pvS8=
 
 Name: assets/Textures/fonts/RussianFont.png
-SHA1-Digest: QdOzHMWiJtw/jYK1ZChpiZ3J+g4=
+SHA-256-Digest: El8YqIP0hheHNG6gKk2EzvxIIfhZYr/nYZ6pABhkn44=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_pressed_light.9.png
-SHA1-Digest: s6HWMKu9XkYse//vWJB3jdlURMY=
+Name: res/color/common_google_signin_btn_text_dark.xml
+SHA-256-Digest: CNUBcZ23xNEz1SIUpyefowAxsaUx1gingCgsSMqB1u0=
 
 Name: res/drawable-mdpi-v4/ic_plusone_tall_off_client.png
-SHA1-Digest: oGVyVWsOJrUvax9mAOklumIPfG4=
+SHA-256-Digest: L88r3mWaNUNY9HlLDiQQO1pi4coILo6zOT0J94g0pgE=
 
 Name: assets/socialclub/SC_Platform_PS3Button.png
-SHA1-Digest: YADwjYgvYwWNb3mkVUyNu5vwjbU=
-
-Name: res/drawable-mdpi-v4/common_signin_btn_text_pressed_light.9.png
-SHA1-Digest: ebfJipKWRZOG21PrzwGId+89RFQ=
+SHA-256-Digest: Lws24nUSHIf1lxd5EiORxQndFY+APmwd/d1B4Y0qCS0=
 
 Name: assets/socialclub/PopUP/PopUp_BG.png
-SHA1-Digest: QxPhTZQJWZvnbT7sVa2GbVuBGGI=
+SHA-256-Digest: LEbgTKmkov1uK0r7zvju6gHoQ6vteHfJFFXK0jV+DxY=
+
+Name: res/drawable/common_google_signin_btn_icon_disabled.xml
+SHA-256-Digest: gAdNIs6KQ2GPwD7Paqd7n0IQEURwx2EhUmN6C9bw9yc=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Corners_BR.png
-SHA1-Digest: 32qFKO+mtcrYjSoJjnAUDzQVxGM=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_disabled_focus_dar
- k.9.png
-SHA1-Digest: hp0bUEuRPx1AeyWxqsvV5oIIrns=
-
-Name: res/drawable-xxhdpi-v4/powered_by_google_light.png
-SHA1-Digest: b0j5WehWN/+iAzHHUXbjREw1q6g=
+SHA-256-Digest: xMpwA5/tavcHzMt2o1B+q7cyC/al6DaH3viYU8at6Ng=
 
 Name: assets/Text/american.gxt
-SHA1-Digest: MvTvWUvQnJWnmNHTq8gecNpqvs0=
+SHA-256-Digest: fZE03vIZ3yH/2FNWQ/THfBcGzVDGb1YTqWca5JoZceE=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_normal_light.9.png
-SHA1-Digest: B6PkhhSp/av/+c6ymYc6Be4r7EE=
+Name: firebase-iid.properties
+SHA-256-Digest: IaPIm90CLK383F2SaoHYAtTasieUn+xa7jjAMInpLJs=
 
 Name: res/raw/long_ramp_down.hapt
-SHA1-Digest: 6c+oiPMu89GGa0XUCUzmDWoCfBM=
+SHA-256-Digest: f6rh3OtAaW0FVvp8vYIoxEbnmH6MIiPjy51hLe6Z+Pw=
 
 Name: assets/socialclub/SC_Blue_Button_Tick.png
-SHA1-Digest: k+V1wS6rKjyee1qCmYUWa0z6sZY=
-
-Name: res/drawable-mdpi-v4/common_signin_btn_text_disabled_light.9.png
-SHA1-Digest: Jl9mXYfa9GrGcRgNUAUtuE8TqyE=
-
-Name: assets/social club/socialClubAssets.json
-SHA1-Digest: K47u+fHL6uHtxfksWg6D6ql1GTM=
+SHA-256-Digest: AaWb66OMegFxDfKujMbmjILj1PIo+NdvvI1+l5SPXhs=
 
 Name: assets/Text/italian.gxt
-SHA1-Digest: CxanXFHUWlLJzCyflD6nKSFUEOw=
+SHA-256-Digest: YfuVM0B+LB9+9tEW0obZftb1joFakjJt3WW3c/c2nHA=
+
+Name: assets/social club/socialClubAssets.json
+SHA-256-Digest: tIo/Htnm4J5DyAdNXNi9Lozcb6zLgNmKlVMz2E0mRv8=
+
+Name: res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png
+SHA-256-Digest: gjp49s0RwuVOedB9t56kVSnbVdb99KfxoS8V2YiLfwY=
 
 Name: assets/Fonts/HELVETICANEUELTCYR-LIGHTCN.TTF
-SHA1-Digest: HoJMx6AXf0PAM/SdEzLFzvX3QS8=
+SHA-256-Digest: mwWAq9e9Q5Gqoj0M7OxSLVz1iG3a02U7zWuJ/GFgbns=
 
 Name: assets/data/fonts.dat
-SHA1-Digest: bQmrPf4fiDBxcRtgAWUxsUFzhic=
+SHA-256-Digest: FzGFRG0RpUkOy4C6Z9N5lerxGrij9GW2v9H828Gurmk=
 
 Name: assets/socialclub/SC_Circle_Box.png
-SHA1-Digest: kgbZ1kyzPuloomuOqRFZ2jvRa8k=
+SHA-256-Digest: iyhwIhZUE1lCFqTII7rFvoYzzry1/9lnXdLJPSwQoVI=
 
-Name: res/color/wallet_secondary_text_holo_dark.xml
-SHA1-Digest: Er4JQ9RJo5siHhnHsf8SURTN8JE=
+Name: res/layout/notification_template_big_media_narrow_custom.xml
+SHA-256-Digest: cYfOXwImw056gA1/S15npp3j37lFsxRsbifkkzgtNOY=
 
 Name: assets/Text/russian.gxt
-SHA1-Digest: dkE2VOqoIQg3hMpkRVVy5VLbjmE=
+SHA-256-Digest: 9YXLgc1sne9hGhUq+typMirGsYCO0G0gjmiN2V7zDsM=
+
+Name: res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_
+ background.9.png
+SHA-256-Digest: jrlMny90+8zI/FId7Jc5iIaBysqhGVeI4rHn0LZP3Ds=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Edges_B.png
-SHA1-Digest: 3JJS6IPQsfOBj8zMs89qsTkVdJw=
+SHA-256-Digest: 2NzncA6jsKELrjhcyBBjm41tGPNYrB3SqtcfF80scLg=
 
 Name: assets/socialclub/SC_Gray_Button_Tick.png
-SHA1-Digest: /S8uIUlcwloqJqpFZgYWXjOUJsM=
+SHA-256-Digest: inXsGyxplO2WMGXp6RTV5AKA6J6Mt9G+McY/4evnzUw=
 
 Name: res/drawable-xhdpi-v4/ic_plusone_tall_off_client.png
-SHA1-Digest: cBMZ9JnSbJPtdNMORgKpSSXkBxk=
+SHA-256-Digest: FYtfoGR2LXsFOfIWB1w/KFn6yBHJ1Bl+JFtyqyltdpA=
 
 Name: assets/socialclub/SC_Blue_Button_Dot.png
-SHA1-Digest: luDSzCDnSljweqLPlAsCCnRfXDo=
+SHA-256-Digest: T5LNbRQdPqFR6CC2ViLefmCeARYDqAZyQ8xtOJq0Am0=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_normal_dark.9.png
-SHA1-Digest: IIEQTOwNCc3FEgRCDkiyIG+rZGk=
+Name: res/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_
+ background.9.png
+SHA-256-Digest: xLvO2m/J7rLPtxvhFP2jd6J0E4jOAK1yPh//V+rJa4U=
 
-Name: assets/socialclub/PopUP/Button_Blank.png
-SHA1-Digest: psUHeLOaYndbgkCKafoRDLIwUrk=
+Name: res/drawable/common_google_signin_btn_text_light.xml
+SHA-256-Digest: 0O+17SbuyUcDKLvp+M2K3fZvATYpK863eD9ZW0PKoqY=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Edges_T.png
-SHA1-Digest: +20a4sUKcUKNkqxxb9N3upHZHBA=
+SHA-256-Digest: A0HRlydgc+SdRg59cv6mAnLQNCqUnFhzbvSKpiVPt2w=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_normal_light.9.png
-SHA1-Digest: 3kdCR9WTZcOc4JxNXPqGjvDUNfE=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_disabled_focus_lig
- ht.9.png
-SHA1-Digest: 92NXSk6MOuFj5iuTDrsNZtfasd8=
+Name: assets/socialclub/PopUP/Button_Blank.png
+SHA-256-Digest: pNzYRrPccb62AXWQDU0DRA6Ei/z3chBj8C/5z4Zu2l0=
 
 Name: assets/data/TouchDefaultTablet4x3.cfg
-SHA1-Digest: UXymIku9BhETtw3p//4STnelPY8=
+SHA-256-Digest: fLPe+rrOkbgKwG6GVM0zAcHmkWvGtoiEkmC4qm0u5z0=
 
 Name: assets/Fonts/HELVETICANEUELTCOM-MDCN.TTF
-SHA1-Digest: bkIIlnhgfNtX17KvuW50YIY/IU4=
+SHA-256-Digest: eNsYwd6LaAXBPFmoaOWjS3z3RA7bPgrKYyH5b8G/KHk=
 
 Name: res/raw/pop_light.hapt
-SHA1-Digest: IpiyQ+pSD3EPdyweSE5ao3uB4eE=
+SHA-256-Digest: 0fXqz5sX3e0GfoSI0ikzaTNwlL7y8mEmEwvy02PAxP4=
 
 Name: lib/armeabi-v7a/libSCAnd.so
-SHA1-Digest: ylGitJC8Stm5XFrysTrm2hBNlTk=
+SHA-256-Digest: p3pG4SvcgnYr3MafKyrTbtuvQEwIe8EnB5MAY91/rpc=
 
 Name: assets/socialclub/PopUP/PopUp_Lines.png
-SHA1-Digest: kKj2YfjvH2psgBmMZmnpJtiCgtk=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_focus_light.9.png
-SHA1-Digest: BLOdWpqfrlpSXcSdDbw5yy4YVqY=
+SHA-256-Digest: cVaeKLwrflh44sM9j+VqNZcUeK0f1BdsQYErgZDPW9A=
 
 Name: res/raw/triple_click_light.hapt
-SHA1-Digest: sXyF0SKjqgG+TsEtLD6Og5UCFBw=
-
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_disabled_light.9.png
-SHA1-Digest: dneJL/KvvpQbWri3U2qKm4J3xoA=
+SHA-256-Digest: bNEsI0dVKU5fFEPLPS7QCUvXQJHYbs0f5Lp5MZJQn9o=
 
 Name: assets/images/25C5D0.png
-SHA1-Digest: BVtXPFlFFvhmNhqsETZUa98Xrwc=
+SHA-256-Digest: n3T4tGrpv967w8VPgQWSZxWLg+TpPUuGa4im7kp9Ids=
 
 Name: res/layout/download.xml
-SHA1-Digest: zL8aAa2KQRUojCG0f+Cczy4IkKM=
+SHA-256-Digest: 777AiNc/SD0URiW/rwLhNm3R6xi2xZhRcD7lY4GOiG8=
+
+Name: play-services-audience.properties
+SHA-256-Digest: YT8XkDIHah25QON4V7pVPOJhIRYCx0XU/yBcd3ynZq8=
 
 Name: assets/Fonts/BRADLEYHANDITCTTBOLD.TTF
-SHA1-Digest: Hse9guzGUpFH/qCTYsH3uZfI/7g=
+SHA-256-Digest: FDl0PJ8cqCqMULni+EmFlratyPciEaz/BnXT5uhQOJU=
 
-Name: assets/data/TouchDefaultPhoneWidescreen2.cfg
-SHA1-Digest: vpjfAqU58m6M4Cn1d34w1/WX61I=
+Name: res/layout/notification_template_big_media_custom.xml
+SHA-256-Digest: r7nQxNx/ar3apPjjF5hBdlnxt0/0YSaOe6+0YkWxQag=
 
 Name: res/drawable-hdpi-v4/adtlogo.png
-SHA1-Digest: LEuNuWVgrpWYvg6KvJ16uA8fK8s=
+SHA-256-Digest: Ci5q1yntqvUCFkq3kBgzFPw+eSBsfPFGdGfHBmIQLY8=
 
 Name: assets/audio/android/NAV_UP.ogg
-SHA1-Digest: KDCpF0zSRXrUmLBc+f4gkz6ailE=
-
-Name: res/drawable-hdpi-v4/powered_by_google_light.png
-SHA1-Digest: WMu7+xLWfzaYZQHbR1OTjkJpR6k=
+SHA-256-Digest: 8fvC0dg3oLTsa50XE4yOL1QF+H1VdJtf/uCWI+sIATI=
 
 Name: res/raw/long_ramp_up_light.hapt
-SHA1-Digest: WrSrNYWqa4uQ8LkOKjZUEOZfw34=
+SHA-256-Digest: V+azncVYuw4HZTn2PSR1oAlcw569E4/4bnKDbdS7cgI=
+
+Name: play-services-plus.properties
+SHA-256-Digest: 6Kv96MFPT57GaGx5oJ1QL11yV86zdgk2WXx8s+LLOcw=
 
 Name: assets/images/728EC3.png
-SHA1-Digest: uyayf2Fcc9/F2dbpJA4HCEFETn8=
-
-Name: res/drawable-mdpi-v4/common_signin_btn_text_normal_dark.9.png
-SHA1-Digest: e/ADI5/zipsdcD9FOOaSPTTXtIg=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_disabled_focus_dar
- k.9.png
-SHA1-Digest: 92NXSk6MOuFj5iuTDrsNZtfasd8=
+SHA-256-Digest: GUHizYY7v5xfwuxBM2FvIEvPjm5j5HAadEit1TQfckQ=
 
 Name: res/drawable-xhdpi-v4/ic_plusone_small_off_client.png
-SHA1-Digest: wnfa3qGDZVZtPel3M6xZUkJ24AE=
+SHA-256-Digest: lQbb7pHep7VnphH4M2ECMuSu5lMeKn3q8nYjru6OcFE=
 
 Name: assets/socialclub/Sc_Header.png
-SHA1-Digest: uD1NRNU+Of7iQkvhdPtq9CocSec=
+SHA-256-Digest: 8+BrN+ds4K6dfaaKNxDRSB2Z0sIaI+svIO+Fk2hSv7o=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_text_focus_dark.9.png
-SHA1-Digest: +vaVwLjf12QiZYjAr74Cz11CmL8=
+Name: META-INF/gradle-plugins/com.google.gms.google-services.propertie
+ s
+SHA-256-Digest: ciA2sw+hHpd4bnna5Qd/1KQJXQHnqnHeARKufoDKGTM=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_disabled_dark.9.png
-SHA1-Digest: JifSXGfFbvkdyHI11+pBw7KpSl8=
-
-Name: res/raw/double_click.hapt
-SHA1-Digest: 480JKBxx3lgJlJR9ArvWQaTULiI=
+Name: res/drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_b
+ ackground.9.png
+SHA-256-Digest: cb/XdrIbEQLybjGg9txl1A3iy65lDHUoJB1c3BfqyZE=
 
 Name: res/raw/engine.hapt
-SHA1-Digest: 6HwlxbR0Em4+ZVrZoJt3YXZkLpY=
+SHA-256-Digest: 8DGsz8qpTsrV6R9G1pEU3spOOJEx3XPJTT2IkNSV0Kc=
+
+Name: res/raw/double_click.hapt
+SHA-256-Digest: RrnmmoEHeJNsdBvzrOH1PL9h31QsUEPAMMjMF/t8X4k=
 
 Name: assets/socialclub/Header_SCBox.png
-SHA1-Digest: KkzBaTfcYDjaxa4Ll47S8ziOqgU=
+SHA-256-Digest: uUodX4B4oqG0xS/MS682dF9jJgFPmmPGh+XlldFnKgQ=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_text_disabled_dark.9.png
-SHA1-Digest: Jl9mXYfa9GrGcRgNUAUtuE8TqyE=
-
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_normal_dark.9.png
-SHA1-Digest: atAcViInU3h9sTNQ3LNomyDeOBg=
-
-Name: lib/armeabi-v7a/libcleo.so
-SHA1-Digest: 0CZ3b1vLT9z0xfcKBhF1xjMBEoE=
+Name: res/layout-v21/notification_template_icon_group.xml
+SHA-256-Digest: 8YgemDpd6mjQnE+knD5lba1ioee/Ul+eo7iKxuTaorU=
 
 Name: assets/images/728EBD.png
-SHA1-Digest: Wwzx4glGn6GoWqMUrjzo4dM/yBk=
+SHA-256-Digest: kvU6wID7BZ0s72sxD3FZUla0ELUhUvQ0HPRc5fTur/g=
 
 Name: assets/assetfile.txt
-SHA1-Digest: 6Blt/McdPKilmmLpXBSohpllG/s=
+SHA-256-Digest: RDcEOmyr2AqNLdynF+X7If8gVXRa4P/yJoQ/RSmJw1c=
 
 Name: assets/socialclub/SC_Platform_360Button.png
-SHA1-Digest: LVbnMgArp7xGCfZehkCZB9AarKI=
+SHA-256-Digest: aX2nYKQW1yF1Iu6qISUdaP0Duxf61o1U5/2VANespk8=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_text_normal_light.9.png
-SHA1-Digest: r6RqQ6JJknw5S/PNosschDebrAM=
-
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_focus_light.9.png
-SHA1-Digest: NfjAip806fC+PaiA0TwVI3kdqBg=
+Name: firebase-measurement-connector-impl.properties
+SHA-256-Digest: aBjAKGnlSmR3Adsj56hCSzdw8FnUDdjQgIROYqnlosI=
 
 Name: res/drawable-hdpi-v4/ic_plusone_small_off_client.png
-SHA1-Digest: ChuEyIC2DH09QNI/oX6XtODPrkU=
+SHA-256-Digest: alenggF58VnQSJ9CFGo+/H26+LVGOe/hTUSo6n0gj3Q=
 
 Name: res/raw/heartbeat.hapt
-SHA1-Digest: bgh5p3HDATJgMLhyD4oCJzYIy80=
+SHA-256-Digest: kGPrfXr7QhXbQM072m+1zqbiOlelAS23eJSxy8UGw1g=
 
 Name: assets/socialclub/FeedBar.png
-SHA1-Digest: R/dlV/ytIj926PFdRRC9NFVeaKg=
+SHA-256-Digest: /+9XePugu2Th/GHVAPEoiqA2qOVgXEED+LaWCy1AUbg=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_pressed_light.9.png
-SHA1-Digest: WihlvyDiBLmhQYpcATtmXAjtKO0=
+Name: res/drawable/common_google_signin_btn_text_disabled.xml
+SHA-256-Digest: Yfyx7iL/9U8c1AsmDkxYgRReUrAt8hOhe4pWdv7Wbxo=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Corners_TR.png
-SHA1-Digest: SEzqZlockfq5ygm215/OJUjBZcs=
+SHA-256-Digest: mNO0Oc1lTxsk5ZBf1YEVsa2Nd2abxR/hA5e5cHt2Xlw=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_normal_light.9.png
-SHA1-Digest: L3gxFF836smtZsdWuUaTktnGhZw=
+Name: res/color/common_google_signin_btn_tint.xml
+SHA-256-Digest: RAuIDVmUsSGyPf/pw8zAo6EtsznTVGovk4274lcbjew=
+
+Name: res/layout/notification_media_cancel_action.xml
+SHA-256-Digest: WRqiZL8l1lIvyW9mYUXhT5FkFPLsJY+jiEhSFDCWZLM=
+
+Name: res/drawable-hdpi-v4/common_full_open_on_phone.png
+SHA-256-Digest: 6OL+z78RHMXvZdu2xzlaWuFqaPfgkic40MgCsm6Gbkk=
 
 Name: assets/scache_small.txt
-SHA1-Digest: 08cVJ4+QCEraheWidL7AeSBc2Gc=
+SHA-256-Digest: DV7WH7sFx0W4OSW1+fFpPoksG1IaKSCpaBUvY77wMt4=
+
+Name: res/drawable-v21/notification_action_background.xml
+SHA-256-Digest: Ry62dKavyKcgKkRlzVVTUsk9LSwZbRlqiS2kS3CynDA=
+
+Name: play-services-ads-identifier.properties
+SHA-256-Digest: yEQdr3r0K62aLrO+voHEn3QfaZkjd0HYQf+lyj2bz44=
 
 Name: assets/socialclub/emptyImage.png
-SHA1-Digest: aNL/KV8ITBzbD0JbM+6RT3o5JVk=
+SHA-256-Digest: DhAwoHyC/bl4UelOWnZV3VhAna02gbLYg3mOsTtmfxw=
 
 Name: assets/socialclub/SC_Splitter.png
-SHA1-Digest: BirNO0cisTojWQJ3Yd1vXwWd+Ow=
-
-Name: lib/armeabi-v7a/libFastman92pluginLoader_ANDROID_ARM32.so
-SHA1-Digest: HftEF05s232qMPKmFNurvOYzwSo=
+SHA-256-Digest: VOkOHofHlfWFrl7Dzq6XGlwjWOr9xi0gSnzfrEc2zHg=
 
 Name: res/drawable-xxhdpi-v4/ic_plusone_tall_off_client.png
-SHA1-Digest: mC59ZHAxM6l8IGJw7/VTmoxt79s=
+SHA-256-Digest: +MK4HjSLZ5Cv4Hyc9GhaGrpd0RM/rVVmL4FlH3t8U78=
 
-Name: res/drawable/common_signin_btn_text_light.xml
-SHA1-Digest: 3vOjkjxUSUEzE5vCikb3jRVEq80=
+Name: res/drawable-watch-v20/common_google_signin_btn_text_disabled.xm
+ l
+SHA-256-Digest: Nl0cG5Mcc0bKJpCgM/mVV++aPkShthgtTabGaud35Pk=
+
+Name: res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_b
+ ackground.9.png
+SHA-256-Digest: mGVhkZZiSjy6MqNrARE1ev6jFI8SMiG6jHJlvGgauKk=
 
 Name: assets/socialclub/SC_Purple_Button.png
-SHA1-Digest: fDUpbdRCmvwwQvkXVf1iOGQvpgg=
-
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_disabled_light.9.p
- ng
-SHA1-Digest: 9Dyo4W1dMa+O0AfTDk4d2pJT8eo=
+SHA-256-Digest: QLWnjqtmf4vf6rFPZGrFb+NjFufkwGnJzOFcEMrbt0U=
 
 Name: res/raw/tick_light.hapt
-SHA1-Digest: mHcxTrP6yXdO5pHwafK6tbO3plU=
+SHA-256-Digest: tnQImL2UC0mtlxJYrMoOOMKOa7mV67i0u3s4ot9jw8Q=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_focus_dark.9.png
-SHA1-Digest: R3nje65N/ztUjRmH6nck6xz7K/I=
-
-Name: res/drawable-xxhdpi-v4/powered_by_google_dark.png
-SHA1-Digest: S0xxwkrfX5fOjd2ksxuLrBPlgVU=
+Name: res/layout/notification_template_big_media.xml
+SHA-256-Digest: Uy2PSKMngI3Mo153Tx/Y8zkP5hiBGbG1Gcx0QpJg40Y=
 
 Name: res/raw/long_ramp_up.hapt
-SHA1-Digest: YdubUXwp5amYeiGd/jIMwq6p8NE=
-
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_normal_light.9.png
-SHA1-Digest: QxOh1ej1/csemV2TD278sEt2klk=
+SHA-256-Digest: gLm0zrRWBl3DuAqzutGJMF6IxHeW8vA1LBdDdFbzY2o=
 
 Name: res/drawable-xxhdpi-v4/ic_plusone_standard_off_client.png
-SHA1-Digest: 28GhcGzFDAWaAqe55lRuwiSz6H4=
-
-Name: assets/Fonts/HELVETICANEUELTCYR-MDCOND.TTF
-SHA1-Digest: LFlYePu9k9y+HQjnG2/tXBTiN68=
+SHA-256-Digest: sJ4L0tZ5XVHJu0aDyINed6oAjHKsh9TIM7oHkIgluEk=
 
 Name: assets/socialclub/SC_Gray_Button.png
-SHA1-Digest: CCHuMgCnLqEJNalECYnH9/YpSWo=
+SHA-256-Digest: 3B3PVzt40+4gRRlnNo0uoP1olhueBPZDbxeFi2+9uYI=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_icon_pressed_dark.9.png
-SHA1-Digest: aZ9QiqqQ9KALsAyu4rdzybMX1XQ=
+Name: assets/Fonts/HELVETICANEUELTCYR-MDCOND.TTF
+SHA-256-Digest: Eidmzj2kk2km28+f2dniy5vJ2lZWmmilP43lM8qy7aM=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_normal_light.9.png
-SHA1-Digest: 3Ycy+ftDR31dkKg+bnKztAwBdf4=
+Name: res/drawable/common_google_signin_btn_icon_light_focused.xml
+SHA-256-Digest: a9t5H4AkC1W/fHcbY3oC53NKQy0eI4Zx4mgwbMMtZ+g=
 
 Name: res/drawable-ldpi-v4/ic_launcher.png
-SHA1-Digest: 90k5t409zSxg1ooq3eiEYfLNaCg=
+SHA-256-Digest: kWz2aDLRttly+fZJ7IvlpfrhHHyXk3hX4bWVxLFUlBA=
 
 Name: assets/socialclub/SC_Yellow_Button.png
-SHA1-Digest: bwYkTPdc7Cu3d7hfEtRy4mw78Pw=
+SHA-256-Digest: P8UgJk4gSBtEzteKvInXips2ZQ0mdWxbK9STcqcDyZQ=
+
+Name: res/layout-v21/notification_action_tombstone.xml
+SHA-256-Digest: brxm0NxTQT+8WY1CM/uhYvp9QTMmHNSCzeLi1RoTkWA=
 
 Name: assets/socialclub/UpdateBox.png
-SHA1-Digest: zFuPJX3kWIQM/66/ONqVZLxndhs=
+SHA-256-Digest: XYeGrGFYX/t8y61l/vq1k7tx7zEVZE0Fr0MxohRTYoQ=
 
-Name: lib/armeabi-v7a/libTouchSenseSDK.so
-SHA1-Digest: kCKfCjHgD6E6B0ZvUw73gVnmaaI=
+Name: res/drawable-mdpi-v4/notification_bg_low_pressed.9.png
+SHA-256-Digest: 4Xdh7SgO3ZPXFBvVBLcPnp4VqGUiiNnmMzv0zpZO+EQ=
 
 Name: assets/socialclub/PopUP/PopUp_BG_Edges_R.png
-SHA1-Digest: PTffeDju3nh1BTVMc4L8GbwkVAA=
+SHA-256-Digest: Eq+wHrrRY9ty1hc/tAkeuh+E8Y33+xhZYgFn8fUVZ44=
+
+Name: res/drawable/common_google_signin_btn_text_dark_normal.xml
+SHA-256-Digest: jY0+kHDezW2n1UrIUtrfzY5pSA89CkncN4mLmmm9WFs=
 
 Name: assets/images/728EC2.png
-SHA1-Digest: i9pOm9W46ngH083PmqvKCQmvs7Y=
+SHA-256-Digest: Z9ukG8gfYEo3arC9hKye2TkHfI4pHsGACLYhcirntz0=
 
 Name: assets/Textures/fonts/JapaneseFont.met
-SHA1-Digest: kpFdTLbp4XtUW0HBOX9LcLHXYxA=
+SHA-256-Digest: CnsoF6kvu/LSqQ7jDoUuMnv2SEKjXJIpXny+lvtZoKI=
 
 Name: assets/socialclub/SC_Platform_PCButton.png
-SHA1-Digest: t4PHJ8IBrx2HXlAizDIg0DCGroA=
+SHA-256-Digest: iF/uaoD9/ZTvdnrbZ6HqfX7qAVxl8bd2qPXiQaK+r3M=
+
+Name: res/layout-v21/notification_action.xml
+SHA-256-Digest: 2yG8Y6wGTGMUEUlAFurjfhUivjmrsxDjMp9el/QbX7Y=
 
 Name: res/raw/crunchy_texture.hapt
-SHA1-Digest: 1TTahYFgZgav5NaHIl9G9FjTawc=
+SHA-256-Digest: GuumAUKR6x7lEQhX7NfAmolAH240XjDQmT0KF2L521c=
+
+Name: play-services-tagmanager-v4-impl.properties
+SHA-256-Digest: 47FYB4Zhv/Qoww9nTHQvVwT0xOlWy/MIwVuByK9XU7U=
 
 Name: res/drawable-xhdpi-v4/ic_launcher.png
-SHA1-Digest: keoF1lL9GB3irX5aCqOlllhzB8k=
+SHA-256-Digest: kzAEAtxE7TUCyKDCr3pQ2Vj4xLMcFRJf1xObI7Svqw4=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_focus_light.9.png
-SHA1-Digest: JQY6aF+954IihAvEaD7VZfJIdmE=
+Name: res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png
+SHA-256-Digest: GLMo2AF+Z31arT29ZrrjVrXKyXjG8GcJOOpkjlHQ62Y=
 
 Name: assets/socialclub/SC_Grey_PoliciesButton.png
-SHA1-Digest: dnjxtVFT07qLfxH1T5zJXE++ZKA=
+SHA-256-Digest: SH9i191+T+TcDHICV0GUASx3+pCsXnV9SQ4MhbarKk4=
+
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_norma
+ l_background.9.png
+SHA-256-Digest: lvaxIDNU+wHAsWNk45lqZLS3IYzHrbZT/VDDHm06PlA=
 
 Name: assets/xml/part_data.xml
-SHA1-Digest: lbHFh+1Uqfx+fC7CjSIEhBRckak=
+SHA-256-Digest: YDrDeyaSSDS25Zn9q2M03pcsfqNAh+yo8ojG0BU9k2E=
+
+Name: res/layout/notification_template_media_custom.xml
+SHA-256-Digest: nbGDssSCZXET+jAL3qKn/1TqkmE6aiCt6p4GaRzecjs=
 
 Name: assets/data/script/scriptv1.img
-SHA1-Digest: 7U4xjonnPj4iKmqsEogdy9/d2oA=
+SHA-256-Digest: 0tXiHvtbsvZINWSO//uRVnvMXhug6YZyBAzKxSmmckU=
 
 Name: assets/images/Splash@2x.png
-SHA1-Digest: YwKMjaOjk8Mfz699iDuYsA0HqcY=
+SHA-256-Digest: S3J+lK/fvahAU7NhUQYFCo+vwtIlAvBXDg3lwQwC8g4=
+
+Name: res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png
+SHA-256-Digest: o9a6YXYeOVfvFBEKT7JvotAlVgWs9JbnEzCT4BOSoGk=
+
+Name: res/drawable/common_google_signin_btn_text_dark.xml
+SHA-256-Digest: P9iSQLeT8qEqt5QKjWpM9u7szqjlOWKmPuPAF1/BA/U=
 
 Name: assets/socialclub/ButtonDown.png
-SHA1-Digest: N0FLgihArBnHCVshmN+ri05+f6I=
+SHA-256-Digest: 1oTWe43C4/v4UY9N/t4m9ctaqcQGQA+7ADIopciK8xM=
 
 Name: res/drawable-hdpi-v4/ic_plusone_medium_off_client.png
-SHA1-Digest: w04HLvtzC1PStfzrQUfD98U8NhA=
+SHA-256-Digest: yRHOGLJe20v79O0EWYVl9/K1P9HIhR0WCSfE10UFm68=
 
 Name: assets/Text/japanese.gxt
-SHA1-Digest: W1GokaHsM24rBMENsWPryo1BJac=
-
-Name: assets/socialclub/PopUP/PopUp_Button_Cross.png
-SHA1-Digest: sTTr6Uf0zrEOmvwbTeoa5FduXgY=
+SHA-256-Digest: kYPSW/xl/ThdT67jS1JtztpSdqkJKJyVtV+CRHb3iqE=
 
 Name: assets/socialclub/PopUP/PopUp_Header.png
-SHA1-Digest: H7v3H4Yoq0GB6h4bXxGatY7uLhY=
+SHA-256-Digest: pDZQaHEFPyq7M3rUpCXgDDSRywMdLle/lLkN5L/Y2+8=
+
+Name: assets/socialclub/PopUP/PopUp_Button_Cross.png
+SHA-256-Digest: bfoCrHAA39CL4HwAirByzL6gO3StyvtSq3e/kuuKl4g=
 
 Name: assets/socialclub/UpdateBox_Cross.png
-SHA1-Digest: tWBCMP6fJGrB/AACICRRbM7aPws=
+SHA-256-Digest: P97yD9mKilYcjvad3OE4N6P9b0+mnKAxUcRQ85wlq9Q=
 
-Name: res/drawable/common_signin_btn_icon_dark.xml
-SHA1-Digest: CkPf9359lvqfmhBNeVZCM/EdcPA=
+Name: play-services-ads-lite.properties
+SHA-256-Digest: RdoCZEYbxkw2JCTRs8V5rWFv/Ik1bIJzfc+mQTfYMvk=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_focus_dark.9.png
-SHA1-Digest: PkdWUDA2wUSXY3g+R851sG3agu8=
+Name: firebase-iid-interop.properties
+SHA-256-Digest: RQbnYJIhnGICjGIWHBWSBLmIlZst/4EFwS9rNa39QAU=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_text_disabled_focus_light
- .9.png
-SHA1-Digest: TA6Qw5ymd77BwE/tztkg7zZxx3o=
+Name: res/drawable-xhdpi-v4/common_google_signin_btn_text_light_normal
+ _background.9.png
+SHA-256-Digest: GV484QJJL99veHRoADg2EFdyqq6vLqCZrcdtD6vpD88=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_disabled_light.9.pn
- g
-SHA1-Digest: 1pdTgb88Vv3Ei1fEGZc4avxOyi0=
+Name: res/drawable-tvdpi-v4/ic_plusone_small_off_client.png
+SHA-256-Digest: pXQMgRO+rU3A5JXQodr9dRSIwxms+HhzcDPzP0FtHtA=
 
 Name: assets/socialclub/PopUP/PopUp_Button_Tick@2x.png
-SHA1-Digest: YLv17q6osXG98LsB+vuBYTdn9hg=
+SHA-256-Digest: 1b7UmXgGCdavgZ4FBIHEz249sl4l/rGZPtZwkaIfiug=
 
 Name: res/drawable-hdpi-v4/ic_launcher.png
-SHA1-Digest: D/FBv0Nbli0hLG6fkh0+e81L/BE=
+SHA-256-Digest: oAakWCSZ8MU7c78m1oAXz2msv3PApwylcdQXlR8T+SM=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_disabled_dark.9.png
-SHA1-Digest: 1pdTgb88Vv3Ei1fEGZc4avxOyi0=
+Name: play-services-ads.properties
+SHA-256-Digest: /2lcO2ivE7S+KsCablIgbOS6sCzcDevVi79sQny3g3g=
 
-Name: res/drawable-xhdpi-v4/powered_by_google_light.png
-SHA1-Digest: XMYkxRikQsMnz/OAE8E54/4lk64=
+Name: junit/runner/smalllogo.gif
+SHA-256-Digest: tIGQCPGBvz4LRyVPchScYqVWpW/ANY0xQ+QFsZHeIIE=
 
 Name: assets/socialclub/SC_SignUp_BG.png
-SHA1-Digest: 9r1LcgWIhq/JAiSXAXT1/r6pEg8=
+SHA-256-Digest: sHqGJImHJKhfsO0E9ncz1OoTGlX9+hr11h9soj+lUGU=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_text_normal_dark.9.png
-SHA1-Digest: k5HlTEofkY6Syhg5IVQkAiUbf3k=
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal
+ _background.9.png
+SHA-256-Digest: vgNpPEfTxNRGbxSmlerM0hC2HpHYCMDEpG1vAhtZgng=
 
 Name: assets/socialclub/SC_Orange_LongButton.png
-SHA1-Digest: 6fkrUbecmqbU79Zzjg9LBMZsl00=
+SHA-256-Digest: q+wQ4ur5cLb1boq2quiBtRL1HzXZv7TaypAlEhxrQTo=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_focus_dark.9.png
-SHA1-Digest: qRqIRTsDzqR7vPe2RVvpy3VP+zc=
+Name: res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_
+ background.9.png
+SHA-256-Digest: /LRBak9fW01yhU2RciKJeJswu1Ysbw9Xl1gYq1VcyAk=
 
 Name: assets/audio/android/NAV_DOWN.ogg
-SHA1-Digest: 27PS2aba3njs6TlRNYOGF+B78Bs=
+SHA-256-Digest: 5A/5+SMOY9kjB22/Sil3VJDD7+SLbAu1IL4WTL5ji70=
 
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_disabled_focus_dark
- .9.png
-SHA1-Digest: gJh+u557DT1JiSzDrPfimnZBVwU=
+Name: res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
+SHA-256-Digest: 0nr0NRAcpMvsDIQL0waHkYzTnrg6qxSHQghVYjpFmYs=
+
+Name: res/drawable/notification_tile_bg.xml
+SHA-256-Digest: gPH85bzQDqzbEzvdfvnfzU7H9+2ggRfySskZx++aDvQ=
+
+Name: res/drawable-tvdpi-v4/ic_plusone_standard_off_client.png
+SHA-256-Digest: h4esxJmseevKV53o9AxORjaU181w1Ka0LEXzD8sFjm4=
 
 Name: res/raw/short_explosion.hapt
-SHA1-Digest: SKA1JL8NVIvVRY/mfmmX/Fb0KE8=
+SHA-256-Digest: 9jwiSzCcoPgsvykNMTUoREziNOIWYYtU50d4Q6cw6k4=
 
 Name: res/raw/bounce.hapt
-SHA1-Digest: H1V8CAXJqZbqf5sX2iRyBAd+3Nk=
+SHA-256-Digest: ae4/2jGBXK5GkugCfZX74lAoQ116Wbhp9YWEYrQYlig=
 
 Name: assets/Fonts/HELVETICANEUELTW1G-ROMAN.OTF
-SHA1-Digest: gh1/5cGRDzWNT/hYHcQqs60O4K8=
+SHA-256-Digest: 9mKllTtvu3KfaxPgr2t7LgnVrLLUBwV01rwvm5y8bNU=
 
 Name: res/drawable/xperiaicon.png
-SHA1-Digest: hq44gxdiMZZnEwDXae4C9BP2+sI=
+SHA-256-Digest: hIei7cfT9rMdtwyEJwD12rkeg8pe3fhNsuXI8j0bT0A=
 
-Name: res/drawable-xxhdpi-v4/common_signin_btn_text_pressed_light.9.pn
- g
-SHA1-Digest: qVm7msUFIk+pUG2NH6IObH+AVnk=
+Name: play-services-basement.properties
+SHA-256-Digest: 5cSWnazhD9ww3VLKk8WGqnnhPxZI6CLodTnjP1SF1Es=
 
 Name: assets/Text/french.gxt
-SHA1-Digest: WtU9PhQjzMFlUJKwnuqshuaJ18M=
+SHA-256-Digest: bdqSInTTozPNlskHV9fgpvQKnRdwEn/Ra0++llijMEA=
 
 Name: assets/scache_small_low.txt
-SHA1-Digest: x89nJ55XWw7xfNM88tTWqE/pBX0=
-
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_focus_dark.9.png
-SHA1-Digest: C9YE+rfZ42RhcmIsv0xb2Ipmt7Y=
+SHA-256-Digest: wbYWYr+2d87r/U7erpLIxp18h76nJ6ZHyBUsmnBZfpM=
 
 Name: res/raw/bounce_light.hapt
-SHA1-Digest: YTqWPItvH5rZ9X+UynO+RiOU5QY=
+SHA-256-Digest: U8rcW+wA48epTncE1TdnIxgA8YZ0dOcnNTm/S7Ac/GI=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_focus_light.9.png
-SHA1-Digest: W1gdxEyu2Fv7Z3yn408rkHPq4QA=
+Name: play-services-stats.properties
+SHA-256-Digest: AbRtKRN5YoF5IsIR2hoczuTVciQxKKhhPSAsVb5w/SU=
 
 Name: assets/xml/audio_data.xml
-SHA1-Digest: n/1zEB4smJgGk5pRTaovBJyWjj0=
+SHA-256-Digest: eyrZwU/baKDgZDMN4HweWWgass8FxomIXQugvxApK8A=
 
 Name: res/layout/loadingscreen.xml
-SHA1-Digest: dGnOVrvG6MBy42jkKWsdWqT/YNU=
+SHA-256-Digest: rZT+qh2C82ztqy3EM78XyBQ6woBNW2jTtjJQ7+hnY38=
 
 Name: assets/xml/color_palete.xml
-SHA1-Digest: LpOOCkqOyKrW8ewaGP7VMO0A7U8=
-
-Name: assets/socialclub/Header_SC.png
-SHA1-Digest: FyGqIqZ8TCvMe/4JEDipjNXm2Kk=
-
-Name: assets/socialclub/PopUP/PopUp_BG_Fill.png
-SHA1-Digest: b6Pp3mP3bGSNeQzxfUHfgkuVpio=
+SHA-256-Digest: xohjHbnhGMEk4l7ghm0/g4tucD59KNU/PO9G3Ts0zBI=
 
 Name: assets/socialclub/SC_Close_icon.png
-SHA1-Digest: 0MlzbYmwziUCs2UwSabE5qLulbI=
+SHA-256-Digest: 6XIl28h2V/A/AmuB/ACaxD/iV9+pGO6EuQcBAhfZO/4=
 
-Name: res/color/common_signin_btn_text_dark.xml
-SHA1-Digest: Yx3iaXUHtOD+0Df7CZUNzPDb72o=
+Name: assets/socialclub/PopUP/PopUp_BG_Fill.png
+SHA-256-Digest: OXkIZ1a4rQQk1d8ziGXAK4BZ9PUxXhDN7gg63EijgHg=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_icon_disabled_dark.9.png
-SHA1-Digest: Ot17Wwxj0OhDwMiGTQ4nu1DkcYo=
+Name: assets/socialclub/Header_SC.png
+SHA-256-Digest: yhlkYOW4pMPz2zFZjjBrLBPkra8/56YMzIx6oG82Ksc=
 
-Name: res/drawable-mdpi-v4/common_signin_btn_text_disabled_focus_dark.
- 9.png
-SHA1-Digest: TA6Qw5ymd77BwE/tztkg7zZxx3o=
+Name: firebase-messaging.properties
+SHA-256-Digest: uY6gdlX39Dy7OELtTHQfw49/bClrvRJqhZ0csdq5HT8=
 
 Name: assets/Textures/fonts/RussianFont.met
-SHA1-Digest: fuhq/T9Ijb8rhr7yjan3c5h/jUU=
-
-Name: assets/socialclub/Scroll_Bar.png
-SHA1-Digest: 8PZEtv8ZG72kRy2XwVHskx0fRV4=
+SHA-256-Digest: ARBxufGIaR9UUFVX3NsGOhi5Hy9MBvsRSeL0UcRS8gY=
 
 Name: assets/socialclub/SC_SignUp_Box.png
-SHA1-Digest: LPqIH8VEW9QPKImezqMcsj2Abpg=
+SHA-256-Digest: F7RbkZrkgGVwANNoT6X0PNJOXoMhLyjtS2pL9dltlaM=
+
+Name: assets/socialclub/Scroll_Bar.png
+SHA-256-Digest: HEjOhE9shkbcIiujK2qTEIoP/tMvnPvF1JOxP1Md3JA=
 
 Name: res/drawable-xxhdpi-v4/ic_plusone_small_off_client.png
-SHA1-Digest: wRFIG0DU5XuJuIDSdO5Zn0T45Cg=
+SHA-256-Digest: H1pGI44sdlJvpPorngZUKsjjS33kWwHNwEj7EOQYBhc=
 
 Name: assets/scache.txt
-SHA1-Digest: QSjNNtBKN/uNjRMbXZDpSXOs0lM=
-
-Name: res/drawable-xhdpi-v4/common_signin_btn_icon_focus_dark.9.png
-SHA1-Digest: cchE5V8rtNsVP0D2plNYEFbfNDA=
+SHA-256-Digest: Zj6B50TFyUNpcBdlmuQYPdER0W6Cv8nBCtUWVnHS94s=
 
 Name: res/raw/bump.hapt
-SHA1-Digest: uu2yuOaVS0vfzsDZRp6so8UBt4c=
+SHA-256-Digest: YhoDU1sJrD5YEVQ+haRJqyP7o98uMcP37F7M7fY0QXQ=
+
+Name: res/drawable-hdpi-v4/notification_bg_low_pressed.9.png
+SHA-256-Digest: Qq7gsDiD6U315UM0ijl9EwLBuCIYlYcag7gYmfWpZHs=
+
+Name: play-services-gass.properties
+SHA-256-Digest: ypCVtQZuXf2tVbknZ5v5DFQIcfnbnnaD0c26lP2RCo4=
 
 Name: assets/socialclub/PopUP/PopUp_Button_Tick.png
-SHA1-Digest: wWfYObk41Um0TD2dohzJeldHg8s=
+SHA-256-Digest: QbBwNm0gqhgCvrS/liX2eIToJDbaU0FhUuesZsZjQeM=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_pressed_light.9.png
-SHA1-Digest: pVQkpdjmxZtJ+0UOUOswE+xkMEI=
+Name: res/layout/notification_template_big_media_narrow.xml
+SHA-256-Digest: zAx1op/6ZqfR3+WV1Bh71cOuZqnPT43rhU2mcrR8bTQ=
+
+Name: res/drawable-xhdpi-v4/common_full_open_on_phone.png
+SHA-256-Digest: 6BbcCZj07pDXtjDxfhb8wuctkQeMUxWtqsS8LaTCJtc=
 
 Name: assets/socialclub/rockstar.png
-SHA1-Digest: /zS3huon3HWBO5Pj7+6m5IrpEv0=
-
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_pressed_dark.9.png
-SHA1-Digest: WIm8+o8K96YwtMDMbxCVGoocpdY=
-
-Name: res/drawable-xhdpi-v4/common_signin_btn_text_pressed_dark.9.png
-SHA1-Digest: aPJlCzCbj8fFPdu2JxVUZO4eSyo=
+SHA-256-Digest: uvNAcQTnXT37eI1YX8QnPyBXJBzMa2wyLTEZvDAQbE4=
 
 Name: assets/images/RockstarIntro.png
-SHA1-Digest: rZwR93tVZwP/AOQcWTmo8kEbuWA=
+SHA-256-Digest: eKdlPnd6u4mnPRmic/o/pTq/be+W82TlotnwZDWbsNY=
+
+Name: play-services-ads-base.properties
+SHA-256-Digest: +ouQWxF6Ty8396Ul6XtF/7E4/EzHPaTEaAiq4Ue9okU=
 
 Name: assets/Fonts/ChaletComprime-CologneSixty.otf
-SHA1-Digest: gmpXVczyslfyQGUMZJOfr7PLsKg=
-
-Name: classes.dex
-SHA1-Digest: A0BTuooTdsS8rDYQt7TTWgbgad0=
+SHA-256-Digest: bIncLgK29nLFYmMz1maQIcH7AYWR2wIV3c/mr7+L6EE=
 
 Name: lib/armeabi-v7a/libGTASA.so
-SHA1-Digest: U5PtRGXW5YkYu8T6TzIi4gvb5qA=
+SHA-256-Digest: eYdRrlzA87emX2O3DiOHm8HUxsKK+RT1Ofy0fuVTrbc=
 
-Name: res/drawable-hdpi-v4/common_signin_btn_icon_disabled_focus_light
- .9.png
-SHA1-Digest: uxYSZM2IQVNIL6vKdHiiYaWTmC0=
+Name: classes.dex
+SHA-256-Digest: 6/4qaw06U/X4R+UZx6QK1cIti6Re1cA7R2xLC37jTVc=
+
+Name: res/drawable-hdpi-v4/notification_bg_normal.9.png
+SHA-256-Digest: DGMox7JCBXCn7DizvrO6yaKdiVrBq3I5MVq6cmZBhZM=
 
 Name: assets/images/728EBC.png
-SHA1-Digest: uyayf2Fcc9/F2dbpJA4HCEFETn8=
+SHA-256-Digest: GUHizYY7v5xfwuxBM2FvIEvPjm5j5HAadEit1TQfckQ=
 

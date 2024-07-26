@@ -11,27 +11,26 @@
 
 
 # static fields
-.field private static final Sk:[Ljava/lang/String;
+.field private static final zzmt:[Ljava/lang/String;
 
 
 # instance fields
-.field private CQ:I
+.field private statusCode:I
 
-.field private MP:Ljava/lang/String;
+.field private zzby:Ljava/lang/String;
 
-.field private SQ:Ljava/util/HashMap;
+.field private zzmv:Ljava/lang/String;
+
+.field private zznz:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashMap",
+            "Landroid/util/SparseArray",
             "<",
-            "Ljava/lang/Integer;",
             "Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData$Result;",
             ">;"
         }
     .end annotation
 .end field
-
-.field private Sm:Ljava/lang/String;
 
 
 # direct methods
@@ -90,16 +89,14 @@
 
     aput-object v2, v0, v1
 
-    sput-object v0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->Sk:[Ljava/lang/String;
+    sput-object v0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zzmt:[Ljava/lang/String;
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/google/android/gms/common/data/DataHolder;)V
     .locals 9
-    .param p1, "dataHolder"    # Lcom/google/android/gms/common/data/DataHolder;
 
-    .prologue
     const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,13 +105,13 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->CQ:I
+    iput v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->statusCode:I
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v0, Landroid/util/SparseArray;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->SQ:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zznz:Landroid/util/SparseArray;
 
     invoke-virtual {p1}, Lcom/google/android/gms/common/data/DataHolder;->getCount()I
 
@@ -127,14 +124,14 @@
     const/4 v0, 0x1
 
     :goto_0
-    invoke-static {v0}, Lcom/google/android/gms/internal/hn;->C(Z)V
+    invoke-static {v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(Z)V
 
     move v0, v1
 
     :goto_1
     if-ge v0, v7, :cond_3
 
-    invoke-virtual {p1, v0}, Lcom/google/android/gms/common/data/DataHolder;->ae(I)I
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/common/data/DataHolder;->getWindowIndex(I)I
 
     move-result v8
 
@@ -142,24 +139,24 @@
 
     const-string v1, "leaderboardId"
 
-    invoke-virtual {p1, v1, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->c(Ljava/lang/String;II)Ljava/lang/String;
+    invoke-virtual {p1, v1, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getString(Ljava/lang/String;II)Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->Sm:Ljava/lang/String;
+    iput-object v1, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zzmv:Ljava/lang/String;
 
     const-string v1, "playerId"
 
-    invoke-virtual {p1, v1, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->c(Ljava/lang/String;II)Ljava/lang/String;
+    invoke-virtual {p1, v1, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getString(Ljava/lang/String;II)Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->MP:Ljava/lang/String;
+    iput-object v1, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zzby:Ljava/lang/String;
 
     :cond_0
     const-string v1, "hasResult"
 
-    invoke-virtual {p1, v1, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->d(Ljava/lang/String;II)Z
+    invoke-virtual {p1, v1, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getBoolean(Ljava/lang/String;II)Z
 
     move-result v1
 
@@ -169,25 +166,25 @@
 
     const-string v2, "rawScore"
 
-    invoke-virtual {p1, v2, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->a(Ljava/lang/String;II)J
+    invoke-virtual {p1, v2, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getLong(Ljava/lang/String;II)J
 
     move-result-wide v2
 
     const-string v4, "formattedScore"
 
-    invoke-virtual {p1, v4, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->c(Ljava/lang/String;II)Ljava/lang/String;
+    invoke-virtual {p1, v4, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getString(Ljava/lang/String;II)Ljava/lang/String;
 
     move-result-object v4
 
     const-string v5, "scoreTag"
 
-    invoke-virtual {p1, v5, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->c(Ljava/lang/String;II)Ljava/lang/String;
+    invoke-virtual {p1, v5, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getString(Ljava/lang/String;II)Ljava/lang/String;
 
     move-result-object v5
 
     const-string v6, "newBest"
 
-    invoke-virtual {p1, v6, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->d(Ljava/lang/String;II)Z
+    invoke-virtual {p1, v6, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getBoolean(Ljava/lang/String;II)Z
 
     move-result v6
 
@@ -195,11 +192,13 @@
 
     const-string v2, "timeSpan"
 
-    invoke-virtual {p1, v2, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->b(Ljava/lang/String;II)I
+    invoke-virtual {p1, v2, v0, v8}, Lcom/google/android/gms/common/data/DataHolder;->getInteger(Ljava/lang/String;II)I
 
     move-result v2
 
-    invoke-direct {p0, v1, v2}, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->a(Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData$Result;I)V
+    iget-object v3, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zznz:Landroid/util/SparseArray;
+
+    invoke-virtual {v3, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     :cond_1
     add-int/lit8 v1, v0, 0x1
@@ -217,50 +216,30 @@
     return-void
 .end method
 
-.method private a(Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData$Result;I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->SQ:Ljava/util/HashMap;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getLeaderboardId()Ljava/lang/String;
+.method public final getLeaderboardId()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->Sm:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zzmv:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getPlayerId()Ljava/lang/String;
+.method public final getPlayerId()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->MP:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zzby:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getScoreResult(I)Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData$Result;
-    .locals 2
-    .param p1, "timeSpan"    # I
+.method public final getScoreResult(I)Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData$Result;
+    .locals 1
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->SQ:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zznz:Landroid/util/SparseArray;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -269,30 +248,30 @@
     return-object v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 5
 
-    invoke-static {p0}, Lcom/google/android/gms/internal/hl;->e(Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-static {p0}, Lcom/google/android/gms/common/internal/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     const-string v1, "PlayerId"
 
-    iget-object v2, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->MP:Ljava/lang/String;
+    iget-object v2, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zzby:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     const-string v1, "StatusCode"
 
-    iget v2, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->CQ:I
+    iget v2, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->statusCode:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v2
 
@@ -305,13 +284,9 @@
 
     if-ge v1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->SQ:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;->zznz:Landroid/util/SparseArray;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -319,11 +294,11 @@
 
     const-string v3, "TimesSpan"
 
-    invoke-static {v1}, Lcom/google/android/gms/games/internal/constants/TimeSpan;->cm(I)Ljava/lang/String;
+    invoke-static {v1}, Lcom/google/android/gms/internal/games/zzei;->zzn(I)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v2, v3, v4}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     const-string v3, "Result"
 
@@ -332,7 +307,7 @@
     const-string v0, "null"
 
     :goto_1
-    invoke-virtual {v2, v3, v0}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v2, v3, v0}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     add-int/lit8 v0, v1, 0x1
 
@@ -348,7 +323,7 @@
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v2}, Lcom/google/android/gms/internal/hl$a;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0
 

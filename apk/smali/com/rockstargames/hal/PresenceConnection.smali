@@ -557,7 +557,6 @@
 
     invoke-static/range {v23 .. v23}, Lcom/rockstargames/hal/andHttp;->removeConnection(I)V
 
-    .line 215
     throw v22
 
     .line 128

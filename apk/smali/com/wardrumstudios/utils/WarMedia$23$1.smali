@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Lcom/wardrumstudios/utils/WarMedia$23;
 
     .prologue
-    .line 2635
+    .line 2642
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$23$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$23;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 1
 
     .prologue
-    .line 2638
+    .line 2645
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$23$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$23;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$23;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-virtual {v0}, Lcom/wardrumstudios/utils/WarMedia;->ClearSplashScreen()V
 
-    .line 2639
+    .line 2646
     return-void
 .end method

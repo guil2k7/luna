@@ -29,7 +29,7 @@
 
 .field public static final enum UNKNOWN:Lcom/google/ads/AdRequest$Gender;
 
-.field private static final synthetic b:[Lcom/google/ads/AdRequest$Gender;
+.field private static final synthetic zzcm:[Lcom/google/ads/AdRequest$Gender;
 
 
 # direct methods
@@ -82,7 +82,7 @@
 
     aput-object v1, v0, v4
 
-    sput-object v0, Lcom/google/ads/AdRequest$Gender;->b:[Lcom/google/ads/AdRequest$Gender;
+    sput-object v0, Lcom/google/ads/AdRequest$Gender;->zzcm:[Lcom/google/ads/AdRequest$Gender;
 
     return-void
 .end method
@@ -95,7 +95,6 @@
         }
     .end annotation
 
-    .prologue
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,9 +102,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/ads/AdRequest$Gender;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
     const-class v0, Lcom/google/ads/AdRequest$Gender;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -120,7 +117,7 @@
 .method public static values()[Lcom/google/ads/AdRequest$Gender;
     .locals 1
 
-    sget-object v0, Lcom/google/ads/AdRequest$Gender;->b:[Lcom/google/ads/AdRequest$Gender;
+    sget-object v0, Lcom/google/ads/AdRequest$Gender;->zzcm:[Lcom/google/ads/AdRequest$Gender;
 
     invoke-virtual {v0}, [Lcom/google/ads/AdRequest$Gender;->clone()Ljava/lang/Object;
 

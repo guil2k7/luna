@@ -12,6 +12,9 @@
     name = "DownloadProgressListener"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract onProgress(JJ)V

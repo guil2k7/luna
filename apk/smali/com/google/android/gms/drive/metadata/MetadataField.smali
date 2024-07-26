@@ -14,30 +14,10 @@
 
 
 # virtual methods
-.method public abstract a(Lcom/google/android/gms/common/data/DataHolder;II)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/common/data/DataHolder;",
-            "II)TT;"
-        }
-    .end annotation
+.method public abstract getName()Ljava/lang/String;
 .end method
 
-.method public abstract a(Lcom/google/android/gms/common/data/DataHolder;Lcom/google/android/gms/drive/metadata/internal/MetadataBundle;II)V
-.end method
-
-.method public abstract a(Ljava/lang/Object;Landroid/os/Bundle;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;",
-            "Landroid/os/Bundle;",
-            ")V"
-        }
-    .end annotation
-.end method
-
-.method public abstract e(Landroid/os/Bundle;)Ljava/lang/Object;
+.method public abstract zza(Landroid/os/Bundle;)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,17 +27,25 @@
     .end annotation
 .end method
 
-.method public abstract getName()Ljava/lang/String;
-.end method
-
-.method public abstract gx()Ljava/util/Collection;
+.method public abstract zza(Lcom/google/android/gms/common/data/DataHolder;II)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "()",
-            "Ljava/util/Collection",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
+            "(",
+            "Lcom/google/android/gms/common/data/DataHolder;",
+            "II)TT;"
+        }
+    .end annotation
+.end method
+
+.method public abstract zza(Lcom/google/android/gms/common/data/DataHolder;Lcom/google/android/gms/drive/metadata/internal/MetadataBundle;II)V
+.end method
+
+.method public abstract zza(Ljava/lang/Object;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;",
+            "Landroid/os/Bundle;",
+            ")V"
         }
     .end annotation
 .end method

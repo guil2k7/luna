@@ -14,13 +14,15 @@
 
 
 # instance fields
-.field private Mm:Ljava/lang/String;
+.field private description:Ljava/lang/String;
 
-.field private Ue:Landroid/net/Uri;
+.field private zzqp:Ljava/lang/Long;
 
-.field private Ug:Ljava/lang/Long;
+.field private zzqq:Ljava/lang/Long;
 
-.field private Uh:Lcom/google/android/gms/common/data/a;
+.field private zzqr:Lcom/google/android/gms/common/data/BitmapTeleporter;
+
+.field private zzqs:Landroid/net/Uri;
 
 
 # direct methods
@@ -34,36 +36,36 @@
 
 
 # virtual methods
-.method public build()Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;
-    .locals 5
+.method public final build()Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;
+    .locals 6
 
-    new-instance v0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;
+    new-instance v0, Lcom/google/android/gms/games/snapshot/zze;
 
-    iget-object v1, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Mm:Ljava/lang/String;
+    iget-object v1, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->description:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ug:Ljava/lang/Long;
+    iget-object v2, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqp:Ljava/lang/Long;
 
-    iget-object v3, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Uh:Lcom/google/android/gms/common/data/a;
+    iget-object v3, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqr:Lcom/google/android/gms/common/data/BitmapTeleporter;
 
-    iget-object v4, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ue:Landroid/net/Uri;
+    iget-object v4, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqs:Landroid/net/Uri;
 
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;-><init>(Ljava/lang/String;Ljava/lang/Long;Lcom/google/android/gms/common/data/a;Landroid/net/Uri;)V
+    iget-object v5, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqq:Ljava/lang/Long;
+
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/games/snapshot/zze;-><init>(Ljava/lang/String;Ljava/lang/Long;Lcom/google/android/gms/common/data/BitmapTeleporter;Landroid/net/Uri;Ljava/lang/Long;)V
 
     return-object v0
 .end method
 
-.method public fromMetadata(Lcom/google/android/gms/games/snapshot/SnapshotMetadata;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
+.method public final fromMetadata(Lcom/google/android/gms/games/snapshot/SnapshotMetadata;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
     .locals 5
-    .param p1, "metadata"    # Lcom/google/android/gms/games/snapshot/SnapshotMetadata;
 
-    .prologue
     const/4 v4, 0x0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/SnapshotMetadata;->getDescription()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Mm:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->description:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/SnapshotMetadata;->getPlayedTime()J
 
@@ -73,9 +75,19 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ug:Ljava/lang/Long;
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqp:Ljava/lang/Long;
 
-    iget-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ug:Ljava/lang/Long;
+    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/SnapshotMetadata;->getProgressValue()J
+
+    move-result-wide v0
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqq:Ljava/lang/Long;
+
+    iget-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqp:Ljava/lang/Long;
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -87,63 +99,69 @@
 
     if-nez v0, :cond_0
 
-    iput-object v4, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ug:Ljava/lang/Long;
+    iput-object v4, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqp:Ljava/lang/Long;
 
     :cond_0
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/SnapshotMetadata;->getCoverImageUri()Landroid/net/Uri;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ue:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqs:Landroid/net/Uri;
 
-    iget-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ue:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqs:Landroid/net/Uri;
 
     if-eqz v0, :cond_1
 
-    iput-object v4, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Uh:Lcom/google/android/gms/common/data/a;
+    iput-object v4, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqr:Lcom/google/android/gms/common/data/BitmapTeleporter;
 
     :cond_1
     return-object p0
 .end method
 
-.method public setCoverImage(Landroid/graphics/Bitmap;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
+.method public final setCoverImage(Landroid/graphics/Bitmap;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
     .locals 1
-    .param p1, "coverImage"    # Landroid/graphics/Bitmap;
 
-    .prologue
-    new-instance v0, Lcom/google/android/gms/common/data/a;
+    new-instance v0, Lcom/google/android/gms/common/data/BitmapTeleporter;
 
-    invoke-direct {v0, p1}, Lcom/google/android/gms/common/data/a;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v0, p1}, Lcom/google/android/gms/common/data/BitmapTeleporter;-><init>(Landroid/graphics/Bitmap;)V
 
-    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Uh:Lcom/google/android/gms/common/data/a;
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqr:Lcom/google/android/gms/common/data/BitmapTeleporter;
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ue:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqs:Landroid/net/Uri;
 
     return-object p0
 .end method
 
-.method public setDescription(Ljava/lang/String;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
+.method public final setDescription(Ljava/lang/String;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
     .locals 0
-    .param p1, "description"    # Ljava/lang/String;
 
-    .prologue
-    iput-object p1, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Mm:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->description:Ljava/lang/String;
 
     return-object p0
 .end method
 
-.method public setPlayedTimeMillis(J)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
+.method public final setPlayedTimeMillis(J)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
     .locals 1
-    .param p1, "playedTimeMillis"    # J
 
-    .prologue
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->Ug:Ljava/lang/Long;
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqp:Ljava/lang/Long;
+
+    return-object p0
+.end method
+
+.method public final setProgressValue(J)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
+    .locals 1
+
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->zzqq:Ljava/lang/Long;
 
     return-object p0
 .end method

@@ -1,9 +1,6 @@
 .class public interface abstract Lcom/google/android/gms/common/api/GoogleApiClient$OnConnectionFailedListener;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
-
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -18,4 +15,8 @@
 
 # virtual methods
 .method public abstract onConnectionFailed(Lcom/google/android/gms/common/ConnectionResult;)V
+    .param p1    # Lcom/google/android/gms/common/ConnectionResult;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 .end method

@@ -1990,7 +1990,6 @@
 
     invoke-static/range {v17 .. v17}, Lcom/google/android/vending/expansion/downloader/impl/DownloaderService;->setServiceRunning(Z)V
 
-    .line 1155
     throw v16
 
     .line 1024

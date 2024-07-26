@@ -14,13 +14,13 @@
 
 .field private final mDelayedShow:Ljava/lang/Runnable;
 
-.field private mDismissed:Z
+.field mDismissed:Z
 
-.field private mPostedHide:Z
+.field mPostedHide:Z
 
-.field private mPostedShow:Z
+.field mPostedShow:Z
 
-.field private mStartTime:J
+.field mStartTime:J
 
 
 # direct methods
@@ -79,53 +79,6 @@
 
     .line 70
     return-void
-.end method
-
-.method static synthetic access$002(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
-    .locals 0
-    .param p0, "x0"    # Landroid/support/v4/widget/ContentLoadingProgressBar;
-    .param p1, "x1"    # Z
-
-    .prologue
-    .line 30
-    iput-boolean p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
-
-    return p1
-.end method
-
-.method static synthetic access$102(Landroid/support/v4/widget/ContentLoadingProgressBar;J)J
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/widget/ContentLoadingProgressBar;
-    .param p1, "x1"    # J
-
-    .prologue
-    .line 30
-    iput-wide p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$202(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
-    .locals 0
-    .param p0, "x0"    # Landroid/support/v4/widget/ContentLoadingProgressBar;
-    .param p1, "x1"    # Z
-
-    .prologue
-    .line 30
-    iput-boolean p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Landroid/support/v4/widget/ContentLoadingProgressBar;)Z
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/widget/ContentLoadingProgressBar;
-
-    .prologue
-    .line 30
-    iget-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
-
-    return v0
 .end method
 
 .method private removeCallbacks()V

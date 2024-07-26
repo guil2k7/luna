@@ -16,6 +16,9 @@
     name = "LoadPlayersResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getPlayers()Lcom/google/android/gms/games/PlayerBuffer;

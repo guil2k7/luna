@@ -7,6 +7,9 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -16,6 +19,9 @@
         "Lcom/google/android/gms/games/request/GameRequest;",
         ">;"
     }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
@@ -29,6 +35,9 @@
 .field public static final STATUS_PENDING:I = 0x0
 
 .field public static final TYPE_ALL:I = 0xffff
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+.end field
 
 .field public static final TYPE_GIFT:I = 0x1
 

@@ -37,7 +37,7 @@
     .param p1, "this$1"    # Lcom/wardrumstudios/utils/WarGameService$2;
 
     .prologue
-    .line 161
+    .line 249
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
     .locals 0
 
     .prologue
-    .line 161
+    .line 249
     check-cast p1, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;
 
     invoke-virtual {p0, p1}, Lcom/wardrumstudios/utils/WarGameService$2$1;->onResult(Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;)V
@@ -60,84 +60,108 @@
 .end method
 
 .method public onResult(Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;)V
-    .locals 4
+    .locals 5
     .param p1, "result"    # Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;
 
     .prologue
-    .line 163
+    const/4 v3, 0x0
+
+    .line 251
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getStatus()Lcom/google/android/gms/common/api/Status;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/google/android/gms/common/api/Status;->getStatusCode()I
-
-    move-result v1
-
-    packed-switch v1, :pswitch_data_0
-
-    .line 170
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
-
-    iget-object v1, v1, Lcom/wardrumstudios/utils/WarGameService$2;->this$0:Lcom/wardrumstudios/utils/WarGameService;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Lcom/wardrumstudios/utils/WarGameService;->notifySnapshotSelected([B)V
-
-    .line 171
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
-
-    iget-object v1, v1, Lcom/wardrumstudios/utils/WarGameService$2;->this$0:Lcom/wardrumstudios/utils/WarGameService;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Failed to save snapshot, status:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getStatus()Lcom/google/android/gms/common/api/Status;
+    invoke-virtual {v2}, Lcom/google/android/gms/common/api/Status;->getStatusCode()I
+
+    move-result v2
+
+    packed-switch v2, :pswitch_data_0
+
+    .line 262
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
+
+    iget-object v2, v2, Lcom/wardrumstudios/utils/WarGameService$2;->this$0:Lcom/wardrumstudios/utils/WarGameService;
+
+    invoke-virtual {v2, v3}, Lcom/wardrumstudios/utils/WarGameService;->notifySnapshotSelected([B)V
+
+    .line 263
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
+
+    iget-object v2, v2, Lcom/wardrumstudios/utils/WarGameService$2;->this$0:Lcom/wardrumstudios/utils/WarGameService;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Failed to save snapshot, status:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getStatus()Lcom/google/android/gms/common/api/Status;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 175
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
+
+    .line 267
     :goto_0
     return-void
 
-    .line 165
+    .line 254
     :pswitch_0
+    :try_start_0
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getSnapshot()Lcom/google/android/gms/games/snapshot/Snapshot;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Lcom/google/android/gms/games/snapshot/Snapshot;->readFully()[B
+    invoke-interface {v2}, Lcom/google/android/gms/games/snapshot/Snapshot;->getSnapshotContents()Lcom/google/android/gms/games/snapshot/SnapshotContents;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Lcom/google/android/gms/games/snapshot/SnapshotContents;->readFully()[B
 
     move-result-object v0
 
-    .line 166
+    .line 255
     .local v0, "data":[B
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
 
-    iget-object v1, v1, Lcom/wardrumstudios/utils/WarGameService$2;->this$0:Lcom/wardrumstudios/utils/WarGameService;
+    iget-object v2, v2, Lcom/wardrumstudios/utils/WarGameService$2;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
-    invoke-virtual {v1, v0}, Lcom/wardrumstudios/utils/WarGameService;->notifySnapshotSelected([B)V
+    invoke-virtual {v2, v0}, Lcom/wardrumstudios/utils/WarGameService;->notifySnapshotSelected([B)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 163
+    .line 256
+    .end local v0    # "data":[B
+    :catch_0
+    move-exception v1
+
+    .line 257
+    .local v1, "e":Ljava/io/IOException;
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarGameService$2$1;->this$1:Lcom/wardrumstudios/utils/WarGameService$2;
+
+    iget-object v2, v2, Lcom/wardrumstudios/utils/WarGameService$2;->this$0:Lcom/wardrumstudios/utils/WarGameService;
+
+    invoke-virtual {v2, v3}, Lcom/wardrumstudios/utils/WarGameService;->notifySnapshotSelected([B)V
+
+    goto :goto_0
+
+    .line 251
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

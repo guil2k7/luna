@@ -1,5 +1,5 @@
 .class final Lcom/google/android/gms/appstate/AppStateManager$5;
-.super Lcom/google/android/gms/appstate/AppStateManager$b;
+.super Lcom/google/android/gms/appstate/AppStateManager$zzb;
 
 
 # annotations
@@ -14,25 +14,35 @@
 
 
 # instance fields
-.field final synthetic yH:I
+.field final synthetic zzOm:I
 
 
 # direct methods
-.method constructor <init>(I)V
-    .locals 1
+.method constructor <init>(Lcom/google/android/gms/common/api/GoogleApiClient;I)V
+    .locals 0
 
-    iput p1, p0, Lcom/google/android/gms/appstate/AppStateManager$5;->yH:I
+    iput p2, p0, Lcom/google/android/gms/appstate/AppStateManager$5;->zzOm:I
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/google/android/gms/appstate/AppStateManager$b;-><init>(Lcom/google/android/gms/appstate/AppStateManager$1;)V
+    invoke-direct {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$zzb;-><init>(Lcom/google/android/gms/common/api/GoogleApiClient;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected bridge synthetic a(Lcom/google/android/gms/common/api/Api$a;)V
+.method public synthetic createFailedResult(Lcom/google/android/gms/common/api/Status;)Lcom/google/android/gms/common/api/Result;
+    .locals 1
+    .param p1, "x0"    # Lcom/google/android/gms/common/api/Status;
+
+    .prologue
+    invoke-virtual {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$5;->zzf(Lcom/google/android/gms/common/api/Status;)Lcom/google/android/gms/appstate/AppStateManager$StateDeletedResult;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected bridge synthetic zza(Lcom/google/android/gms/common/api/Api$Client;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -40,34 +50,29 @@
         }
     .end annotation
 
-    check-cast p1, Lcom/google/android/gms/internal/gb;
+    check-cast p1, Lcom/google/android/gms/internal/zzjb;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$5;->a(Lcom/google/android/gms/internal/gb;)V
-
-    return-void
-.end method
-
-.method protected a(Lcom/google/android/gms/internal/gb;)V
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/gms/appstate/AppStateManager$5;->yH:I
-
-    invoke-virtual {p1, p0, v0}, Lcom/google/android/gms/internal/gb;->a(Lcom/google/android/gms/common/api/a$d;I)V
+    invoke-virtual {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$5;->zza(Lcom/google/android/gms/internal/zzjb;)V
 
     return-void
 .end method
 
-.method public synthetic c(Lcom/google/android/gms/common/api/Status;)Lcom/google/android/gms/common/api/Result;
+.method protected zza(Lcom/google/android/gms/internal/zzjb;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$5;->g(Lcom/google/android/gms/common/api/Status;)Lcom/google/android/gms/appstate/AppStateManager$StateDeletedResult;
+    iget v0, p0, Lcom/google/android/gms/appstate/AppStateManager$5;->zzOm:I
 
-    move-result-object v0
+    invoke-virtual {p1, p0, v0}, Lcom/google/android/gms/internal/zzjb;->zza(Lcom/google/android/gms/common/api/zza$zzb;I)V
 
-    return-object v0
+    return-void
 .end method
 
-.method public g(Lcom/google/android/gms/common/api/Status;)Lcom/google/android/gms/appstate/AppStateManager$StateDeletedResult;
+.method public zzf(Lcom/google/android/gms/common/api/Status;)Lcom/google/android/gms/appstate/AppStateManager$StateDeletedResult;
     .locals 1
 
     new-instance v0, Lcom/google/android/gms/appstate/AppStateManager$5$1;

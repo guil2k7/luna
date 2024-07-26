@@ -14,7 +14,9 @@
         Lcom/rockstargames/gtasa/R$integer;,
         Lcom/rockstargames/gtasa/R$id;,
         Lcom/rockstargames/gtasa/R$drawable;,
+        Lcom/rockstargames/gtasa/R$dimen;,
         Lcom/rockstargames/gtasa/R$color;,
+        Lcom/rockstargames/gtasa/R$bool;,
         Lcom/rockstargames/gtasa/R$attr;
     }
 .end annotation

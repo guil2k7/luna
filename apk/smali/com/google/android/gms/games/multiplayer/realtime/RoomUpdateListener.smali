@@ -2,6 +2,11 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # virtual methods
 .method public abstract onJoinedRoom(ILcom/google/android/gms/games/multiplayer/realtime/Room;)V
 .end method

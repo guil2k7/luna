@@ -11,7 +11,7 @@
 
 
 # instance fields
-.field private final sX:Ljava/util/HashMap;
+.field private final zzdgj:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -34,19 +34,17 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->sX:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzdgj:Ljava/util/HashMap;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getExtra(Ljava/lang/String;)Ljava/lang/Object;
+.method public final getExtra(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "label"    # Ljava/lang/String;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->sX:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzdgj:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -55,13 +53,10 @@
     return-object v0
 .end method
 
-.method public setExtra(Ljava/lang/String;Ljava/lang/Object;)V
+.method public final setExtra(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "label"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->sX:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzdgj:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

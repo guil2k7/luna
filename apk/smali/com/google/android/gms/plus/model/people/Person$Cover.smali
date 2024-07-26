@@ -6,6 +6,9 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/android/gms/plus/model/people/Person;
 .end annotation
@@ -33,22 +36,37 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getCoverInfo()Lcom/google/android/gms/plus/model/people/Person$Cover$CoverInfo;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getCoverPhoto()Lcom/google/android/gms/plus/model/people/Person$Cover$CoverPhoto;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getLayout()I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract hasCoverInfo()Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract hasCoverPhoto()Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract hasLayout()Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method

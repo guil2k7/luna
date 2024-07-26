@@ -3,18 +3,24 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/games/request/Requests$LoadRequestSummariesResult;,
         Lcom/google/android/gms/games/request/Requests$LoadRequestsResult;,
-        Lcom/google/android/gms/games/request/Requests$SendRequestResult;,
         Lcom/google/android/gms/games/request/Requests$UpdateRequestsResult;
     }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
 # static fields
 .field public static final EXTRA_REQUESTS:Ljava/lang/String; = "requests"
+
+.field public static final MAX_REQUEST_RECIPIENTS:I = 0x8
 
 .field public static final REQUEST_DEFAULT_LIFETIME_DAYS:I = -0x1
 

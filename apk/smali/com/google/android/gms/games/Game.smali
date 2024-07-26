@@ -23,21 +23,6 @@
 .method public abstract areSnapshotsEnabled()Z
 .end method
 
-.method public abstract gH()Z
-.end method
-
-.method public abstract gI()Z
-.end method
-
-.method public abstract gJ()Z
-.end method
-
-.method public abstract gK()Ljava/lang/String;
-.end method
-
-.method public abstract gL()I
-.end method
-
 .method public abstract getAchievementTotalCount()I
 .end method
 
@@ -66,6 +51,9 @@
 .end method
 
 .method public abstract getFeaturedImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -74,6 +62,9 @@
 .end method
 
 .method public abstract getHiResImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -82,6 +73,9 @@
 .end method
 
 .method public abstract getIconImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -95,6 +89,12 @@
 .method public abstract getSecondaryCategory()Ljava/lang/String;
 .end method
 
+.method public abstract getThemeColor()Ljava/lang/String;
+.end method
+
+.method public abstract hasGamepadSupport()Z
+.end method
+
 .method public abstract isMuted()Z
 .end method
 
@@ -102,4 +102,16 @@
 .end method
 
 .method public abstract isTurnBasedMultiplayerEnabled()Z
+.end method
+
+.method public abstract zza()Z
+.end method
+
+.method public abstract zzb()Z
+.end method
+
+.method public abstract zzc()Z
+.end method
+
+.method public abstract zzd()Ljava/lang/String;
 .end method

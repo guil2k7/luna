@@ -2814,7 +2814,7 @@
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_e
     .catch Ljava/lang/RuntimeException; {:try_start_b .. :try_end_b} :catch_f
 
-    .line 420
+    .line 418
     :cond_1
     :goto_6
     throw v3
@@ -3445,7 +3445,6 @@
     .line 242
     const/4 v13, 0x0
 
-    .line 243
     throw v1
     :try_end_2
     .catch Lcom/google/android/vending/expansion/downloader/impl/DownloadThread$StopRequest; {:try_start_2 .. :try_end_2} :catch_1
@@ -3757,6 +3756,5 @@
 
     invoke-direct/range {v1 .. v7}, Lcom/google/android/vending/expansion/downloader/impl/DownloadThread;->notifyDownloadCompleted(IZIIZLjava/lang/String;)V
 
-    .line 276
     throw v16
 .end method

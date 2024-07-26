@@ -2,16 +2,23 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # static fields
 .field public static final EXTRA_RESPONSE_DRIVE_ID:Ljava/lang/String; = "response_drive_id"
 
 
 # instance fields
-.field private HV:Ljava/lang/String;
+.field private zzay:Ljava/lang/String;
 
-.field private HW:[Ljava/lang/String;
+.field private zzaz:[Ljava/lang/String;
 
-.field private HX:Lcom/google/android/gms/drive/DriveId;
+.field private zzba:Lcom/google/android/gms/drive/query/Filter;
+
+.field private zzbb:Lcom/google/android/gms/drive/DriveId;
 
 
 # direct methods
@@ -26,59 +33,70 @@
 
 # virtual methods
 .method public build(Lcom/google/android/gms/common/api/GoogleApiClient;)Landroid/content/IntentSender;
-    .locals 5
-    .param p1, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
+    .locals 6
 
-    .prologue
-    invoke-interface {p1}, Lcom/google/android/gms/common/api/GoogleApiClient;->isConnected()Z
+    invoke-virtual {p1}, Lcom/google/android/gms/common/api/GoogleApiClient;->isConnected()Z
 
     move-result v0
 
     const-string v1, "Client must be connected"
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HW:[Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzf()V
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzba:Lcom/google/android/gms/drive/query/Filter;
 
     if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    new-array v0, v0, [Ljava/lang/String;
+    move-object v1, v0
 
-    iput-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HW:[Ljava/lang/String;
-
-    :cond_0
-    sget-object v0, Lcom/google/android/gms/drive/Drive;->yE:Lcom/google/android/gms/common/api/Api$c;
-
-    invoke-interface {p1, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->a(Lcom/google/android/gms/common/api/Api$c;)Lcom/google/android/gms/common/api/Api$a;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/drive/internal/r;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/drive/internal/r;->gk()Lcom/google/android/gms/drive/internal/aa;
-
-    move-result-object v0
-
+    :goto_0
     :try_start_0
-    new-instance v1, Lcom/google/android/gms/drive/internal/OpenFileIntentSenderRequest;
+    sget-object v0, Lcom/google/android/gms/drive/Drive;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    iget-object v2, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HV:Ljava/lang/String;
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->getClient(Lcom/google/android/gms/common/api/Api$AnyClientKey;)Lcom/google/android/gms/common/api/Api$Client;
 
-    iget-object v3, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HW:[Ljava/lang/String;
+    move-result-object v0
 
-    iget-object v4, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HX:Lcom/google/android/gms/drive/DriveId;
+    check-cast v0, Lcom/google/android/gms/internal/drive/zzaw;
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/google/android/gms/drive/internal/OpenFileIntentSenderRequest;-><init>(Ljava/lang/String;[Ljava/lang/String;Lcom/google/android/gms/drive/DriveId;)V
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/drive/zzaw;->getService()Landroid/os/IInterface;
 
-    invoke-interface {v0, v1}, Lcom/google/android/gms/drive/internal/aa;->a(Lcom/google/android/gms/drive/internal/OpenFileIntentSenderRequest;)Landroid/content/IntentSender;
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/internal/drive/zzeo;
+
+    new-instance v2, Lcom/google/android/gms/internal/drive/zzgg;
+
+    iget-object v3, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzay:Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzaz:[Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzbb:Lcom/google/android/gms/drive/DriveId;
+
+    invoke-direct {v2, v3, v4, v5, v1}, Lcom/google/android/gms/internal/drive/zzgg;-><init>(Ljava/lang/String;[Ljava/lang/String;Lcom/google/android/gms/drive/DriveId;Lcom/google/android/gms/drive/query/internal/FilterHolder;)V
+
+    invoke-interface {v0, v2}, Lcom/google/android/gms/internal/drive/zzeo;->zza(Lcom/google/android/gms/internal/drive/zzgg;)Landroid/content/IntentSender;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     return-object v0
+
+    :cond_0
+    new-instance v0, Lcom/google/android/gms/drive/query/internal/FilterHolder;
+
+    iget-object v1, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzba:Lcom/google/android/gms/drive/query/Filter;
+
+    invoke-direct {v0, v1}, Lcom/google/android/gms/drive/query/internal/FilterHolder;-><init>(Lcom/google/android/gms/drive/query/Filter;)V
+
+    move-object v1, v0
+
+    goto :goto_0
 
     :catch_0
     move-exception v0
@@ -92,43 +110,45 @@
     throw v1
 .end method
 
+.method final getTitle()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzay:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public setActivityStartFolder(Lcom/google/android/gms/drive/DriveId;)Lcom/google/android/gms/drive/OpenFileActivityBuilder;
     .locals 1
-    .param p1, "folder"    # Lcom/google/android/gms/drive/DriveId;
 
-    .prologue
-    invoke-static {p1}, Lcom/google/android/gms/internal/hn;->f(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/google/android/gms/drive/DriveId;
 
-    iput-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HX:Lcom/google/android/gms/drive/DriveId;
+    iput-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzbb:Lcom/google/android/gms/drive/DriveId;
 
     return-object p0
 .end method
 
 .method public setActivityTitle(Ljava/lang/String;)Lcom/google/android/gms/drive/OpenFileActivityBuilder;
     .locals 1
-    .param p1, "title"    # Ljava/lang/String;
 
-    .prologue
-    invoke-static {p1}, Lcom/google/android/gms/internal/hn;->f(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HV:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzay:Ljava/lang/String;
 
     return-object p0
 .end method
 
 .method public setMimeType([Ljava/lang/String;)Lcom/google/android/gms/drive/OpenFileActivityBuilder;
     .locals 2
-    .param p1, "mimeTypes"    # [Ljava/lang/String;
 
-    .prologue
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
@@ -136,9 +156,9 @@
     :goto_0
     const-string v1, "mimeTypes may not be null"
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->b(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->HW:[Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzaz:[Ljava/lang/String;
 
     return-object p0
 
@@ -146,4 +166,106 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public setSelectionFilter(Lcom/google/android/gms/drive/query/Filter;)Lcom/google/android/gms/drive/OpenFileActivityBuilder;
+    .locals 4
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz p1, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    const-string v3, "filter may not be null"
+
+    invoke-static {v0, v3}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+
+    invoke-static {p1}, Lcom/google/android/gms/drive/query/internal/zzk;->zza(Lcom/google/android/gms/drive/query/Filter;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :goto_1
+    const-string v0, "FullTextSearchFilter cannot be used as a selection filter"
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+
+    iput-object p1, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzba:Lcom/google/android/gms/drive/query/Filter;
+
+    return-object p0
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
+.end method
+
+.method final zzf()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzaz:[Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzaz:[Ljava/lang/String;
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzaz:[Ljava/lang/String;
+
+    array-length v0, v0
+
+    if-lez v0, :cond_1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzba:Lcom/google/android/gms/drive/query/Filter;
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "Cannot use a selection filter and set mimetypes simultaneously"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    return-void
+.end method
+
+.method final zzr()[Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzaz:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method final zzs()Lcom/google/android/gms/drive/query/Filter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzba:Lcom/google/android/gms/drive/query/Filter;
+
+    return-object v0
+.end method
+
+.method final zzt()Lcom/google/android/gms/drive/DriveId;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/drive/OpenFileActivityBuilder;->zzbb:Lcom/google/android/gms/drive/DriveId;
+
+    return-object v0
 .end method

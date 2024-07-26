@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/support/v4/app/FragmentManager$FragmentLifecycleCallbacks;,
         Landroid/support/v4/app/FragmentManager$OnBackStackChangedListener;,
         Landroid/support/v4/app/FragmentManager$BackStackEntry;
     }
@@ -21,10 +22,10 @@
     .locals 0
 
     .prologue
-    .line 71
+    .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 128
+    .line 448
     return-void
 .end method
 
@@ -33,10 +34,10 @@
     .param p0, "enabled"    # Z
 
     .prologue
-    .line 362
+    .line 428
     sput-boolean p0, Landroid/support/v4/app/FragmentManagerImpl;->DEBUG:Z
 
-    .line 363
+    .line 429
     return-void
 .end method
 
@@ -85,16 +86,28 @@
     .end annotation
 .end method
 
+.method public abstract getPrimaryNavigationFragment()Landroid/support/v4/app/Fragment;
+.end method
+
 .method public abstract isDestroyed()Z
+.end method
+
+.method public abstract isStateSaved()Z
 .end method
 
 .method public openTransaction()Landroid/support/v4/app/FragmentTransaction;
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .prologue
-    .line 153
+    .line 171
     invoke-virtual {p0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
 
     move-result-object v0
@@ -123,8 +136,14 @@
 .method public abstract putFragment(Landroid/os/Bundle;Ljava/lang/String;Landroid/support/v4/app/Fragment;)V
 .end method
 
+.method public abstract registerFragmentLifecycleCallbacks(Landroid/support/v4/app/FragmentManager$FragmentLifecycleCallbacks;Z)V
+.end method
+
 .method public abstract removeOnBackStackChangedListener(Landroid/support/v4/app/FragmentManager$OnBackStackChangedListener;)V
 .end method
 
 .method public abstract saveFragmentInstanceState(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/Fragment$SavedState;
+.end method
+
+.method public abstract unregisterFragmentLifecycleCallbacks(Landroid/support/v4/app/FragmentManager$FragmentLifecycleCallbacks;)V
 .end method

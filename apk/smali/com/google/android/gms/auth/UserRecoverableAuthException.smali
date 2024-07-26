@@ -9,14 +9,15 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/content/Intent;)V
     .locals 0
-    .param p1, "msg"    # Ljava/lang/String;
-    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
+    .line 1
     invoke-direct {p0, p1}, Lcom/google/android/gms/auth/GoogleAuthException;-><init>(Ljava/lang/String;)V
 
+    .line 2
     iput-object p2, p0, Lcom/google/android/gms/auth/UserRecoverableAuthException;->mIntent:Landroid/content/Intent;
 
+    .line 3
     return-void
 .end method
 
@@ -25,12 +26,16 @@
 .method public getIntent()Landroid/content/Intent;
     .locals 2
 
+    .prologue
+    .line 4
     iget-object v0, p0, Lcom/google/android/gms/auth/UserRecoverableAuthException;->mIntent:Landroid/content/Intent;
 
     if-nez v0, :cond_0
 
+    .line 5
     const/4 v0, 0x0
 
+    .line 6
     :goto_0
     return-object v0
 

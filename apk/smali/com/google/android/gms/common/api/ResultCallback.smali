@@ -15,6 +15,10 @@
 
 # virtual methods
 .method public abstract onResult(Lcom/google/android/gms/common/api/Result;)V
+    .param p1    # Lcom/google/android/gms/common/api/Result;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)V"

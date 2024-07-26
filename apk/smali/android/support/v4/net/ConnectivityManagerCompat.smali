@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/net/ConnectivityManagerCompat$JellyBeanConnectivityManagerCompatImpl;,
-        Landroid/support/v4/net/ConnectivityManagerCompat$HoneycombMR2ConnectivityManagerCompatImpl;,
-        Landroid/support/v4/net/ConnectivityManagerCompat$GingerbreadConnectivityManagerCompatImpl;,
-        Landroid/support/v4/net/ConnectivityManagerCompat$BaseConnectivityManagerCompatImpl;,
+        Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatApi24Impl;,
+        Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatApi16Impl;,
+        Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatBaseImpl;,
+        Landroid/support/v4/net/ConnectivityManagerCompat$RestrictBackgroundStatus;,
         Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
     }
 .end annotation
@@ -18,69 +18,58 @@
 # static fields
 .field private static final IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
+.field public static final RESTRICT_BACKGROUND_STATUS_DISABLED:I = 0x1
+
+.field public static final RESTRICT_BACKGROUND_STATUS_ENABLED:I = 0x3
+
+.field public static final RESTRICT_BACKGROUND_STATUS_WHITELISTED:I = 0x2
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
 
     .prologue
-    .line 84
+    .line 143
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x18
+
+    if-lt v0, v1, :cond_0
+
+    .line 144
+    new-instance v0, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatApi24Impl;
+
+    invoke-direct {v0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatApi24Impl;-><init>()V
+
+    sput-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
+
+    .line 150
+    :goto_0
+    return-void
+
+    .line 145
+    :cond_0
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_0
-
-    .line 85
-    new-instance v0, Landroid/support/v4/net/ConnectivityManagerCompat$JellyBeanConnectivityManagerCompatImpl;
-
-    invoke-direct {v0}, Landroid/support/v4/net/ConnectivityManagerCompat$JellyBeanConnectivityManagerCompatImpl;-><init>()V
-
-    sput-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
-
-    .line 93
-    :goto_0
-    return-void
-
-    .line 86
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xd
-
     if-lt v0, v1, :cond_1
 
-    .line 87
-    new-instance v0, Landroid/support/v4/net/ConnectivityManagerCompat$HoneycombMR2ConnectivityManagerCompatImpl;
+    .line 146
+    new-instance v0, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatApi16Impl;
 
-    invoke-direct {v0}, Landroid/support/v4/net/ConnectivityManagerCompat$HoneycombMR2ConnectivityManagerCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatApi16Impl;-><init>()V
 
     sput-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
     goto :goto_0
 
-    .line 88
+    .line 148
     :cond_1
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    new-instance v0, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatBaseImpl;
 
-    const/16 v1, 0x8
-
-    if-lt v0, v1, :cond_2
-
-    .line 89
-    new-instance v0, Landroid/support/v4/net/ConnectivityManagerCompat$GingerbreadConnectivityManagerCompatImpl;
-
-    invoke-direct {v0}, Landroid/support/v4/net/ConnectivityManagerCompat$GingerbreadConnectivityManagerCompatImpl;-><init>()V
-
-    sput-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
-
-    goto :goto_0
-
-    .line 91
-    :cond_2
-    new-instance v0, Landroid/support/v4/net/ConnectivityManagerCompat$BaseConnectivityManagerCompatImpl;
-
-    invoke-direct {v0}, Landroid/support/v4/net/ConnectivityManagerCompat$BaseConnectivityManagerCompatImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
@@ -91,7 +80,7 @@
     .locals 0
 
     .prologue
-    .line 122
+    .line 199
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -103,7 +92,7 @@
     .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 114
+    .line 178
     const-string v1, "networkInfo"
 
     invoke-virtual {p1, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -112,11 +101,11 @@
 
     check-cast v0, Landroid/net/NetworkInfo;
 
-    .line 115
+    .line 179
     .local v0, "info":Landroid/net/NetworkInfo;
     if-eqz v0, :cond_0
 
-    .line 116
+    .line 180
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v1
@@ -125,7 +114,7 @@
 
     move-result-object v1
 
-    .line 118
+    .line 182
     :goto_0
     return-object v1
 
@@ -135,12 +124,30 @@
     goto :goto_0
 .end method
 
-.method public static isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
+.method public static getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
     .locals 1
     .param p0, "cm"    # Landroid/net/ConnectivityManager;
 
     .prologue
-    .line 103
+    .line 196
+    sget-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
+
+    invoke-interface {v0, p0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;->getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
+    .locals 1
+    .param p0, "cm"    # Landroid/net/ConnectivityManager;
+    .annotation build Landroid/support/annotation/RequiresPermission;
+        value = "android.permission.ACCESS_NETWORK_STATE"
+    .end annotation
+
+    .prologue
+    .line 167
     sget-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;->isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z

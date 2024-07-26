@@ -12,7 +12,12 @@
     name = "OnPlusOneClickListener"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract onPlusOneClick(Landroid/content/Intent;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method

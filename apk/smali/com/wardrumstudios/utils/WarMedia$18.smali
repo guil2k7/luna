@@ -33,7 +33,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 1864
+    .line 1871
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iput-object p2, p0, Lcom/wardrumstudios/utils/WarMedia$18;->val$afdFinal:Landroid/content/res/AssetFileDescriptor;
@@ -53,7 +53,7 @@
     .locals 8
 
     .prologue
-    .line 1868
+    .line 1875
     :try_start_0
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -63,12 +63,12 @@
 
     iput-object v1, v0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
-    .line 1869
+    .line 1876
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->val$afdFinal:Landroid/content/res/AssetFileDescriptor;
 
     if-eqz v0, :cond_1
 
-    .line 1870
+    .line 1877
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
@@ -93,14 +93,14 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaPlayer;->setDataSource(Ljava/io/FileDescriptor;JJ)V
 
-    .line 1873
+    .line 1880
     :goto_0
     const/4 v6, 0x0
 
     .local v6, "count":I
     move v7, v6
 
-    .line 1874
+    .line 1881
     .end local v6    # "count":I
     .local v7, "count":I
     :goto_1
@@ -112,7 +112,7 @@
 
     if-nez v0, :cond_2
 
-    .line 1875
+    .line 1882
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "Waiting for video surface PlayMovie"
@@ -121,7 +121,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1876
+    .line 1883
     add-int/lit8 v6, v7, 0x1
 
     .end local v7    # "count":I
@@ -130,7 +130,7 @@
 
     if-le v7, v0, :cond_0
 
-    .line 1878
+    .line 1885
     :try_start_1
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -141,7 +141,7 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1880
+    .line 1887
     :goto_2
     :try_start_2
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -150,12 +150,12 @@
 
     iput-object v1, v0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
-    .line 1881
+    .line 1888
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-virtual {v0}, Lcom/wardrumstudios/utils/WarMedia;->ClearVidView()V
 
-    .line 1883
+    .line 1890
     :cond_0
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -169,7 +169,7 @@
     .restart local v7    # "count":I
     goto :goto_1
 
-    .line 1872
+    .line 1879
     .end local v7    # "count":I
     :cond_1
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -182,15 +182,15 @@
 
     goto :goto_0
 
-    .line 1890
+    .line 1897
     :catch_0
     move-exception v0
 
-    .line 1892
+    .line 1899
     :goto_3
     return-void
 
-    .line 1885
+    .line 1892
     .restart local v7    # "count":I
     :cond_2
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -203,7 +203,7 @@
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setDisplay(Landroid/view/SurfaceHolder;)V
 
-    .line 1886
+    .line 1893
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
@@ -212,7 +212,7 @@
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setOnPreparedListener(Landroid/media/MediaPlayer$OnPreparedListener;)V
 
-    .line 1887
+    .line 1894
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
@@ -221,7 +221,7 @@
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setOnErrorListener(Landroid/media/MediaPlayer$OnErrorListener;)V
 
-    .line 1888
+    .line 1895
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
@@ -230,7 +230,7 @@
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
 
-    .line 1889
+    .line 1896
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$18;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
@@ -241,7 +241,7 @@
 
     goto :goto_3
 
-    .line 1879
+    .line 1886
     .end local v7    # "count":I
     .restart local v6    # "count":I
     :catch_1

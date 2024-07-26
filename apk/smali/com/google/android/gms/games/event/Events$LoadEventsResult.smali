@@ -16,6 +16,9 @@
     name = "LoadEventsResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getEvents()Lcom/google/android/gms/games/event/EventBuffer;

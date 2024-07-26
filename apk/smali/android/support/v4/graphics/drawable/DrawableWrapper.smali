@@ -3,17 +3,16 @@
 .source "DrawableWrapper.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # virtual methods
 .method public abstract getWrappedDrawable()Landroid/graphics/drawable/Drawable;
-.end method
-
-.method public abstract setCompatTint(I)V
-.end method
-
-.method public abstract setCompatTintList(Landroid/content/res/ColorStateList;)V
-.end method
-
-.method public abstract setCompatTintMode(Landroid/graphics/PorterDuff$Mode;)V
 .end method
 
 .method public abstract setWrappedDrawable(Landroid/graphics/drawable/Drawable;)V

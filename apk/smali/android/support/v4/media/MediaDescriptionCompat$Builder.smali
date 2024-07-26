@@ -37,20 +37,20 @@
     .locals 0
 
     .prologue
-    .line 343
+    .line 444
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 344
+    .line 445
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Landroid/support/v4/media/MediaDescriptionCompat;
-    .locals 10
+    .locals 9
 
     .prologue
-    .line 444
+    .line 545
     new-instance v0, Landroid/support/v4/media/MediaDescriptionCompat;
 
     iget-object v1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mMediaId:Ljava/lang/String;
@@ -69,9 +69,7 @@
 
     iget-object v8, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mMediaUri:Landroid/net/Uri;
 
-    const/4 v9, 0x0
-
-    invoke-direct/range {v0 .. v9}, Landroid/support/v4/media/MediaDescriptionCompat;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroid/os/Bundle;Landroid/net/Uri;Landroid/support/v4/media/MediaDescriptionCompat$1;)V
+    invoke-direct/range {v0 .. v8}, Landroid/support/v4/media/MediaDescriptionCompat;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroid/os/Bundle;Landroid/net/Uri;)V
 
     return-object v0
 .end method
@@ -84,10 +82,10 @@
     .end param
 
     .prologue
-    .line 387
+    .line 488
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mDescription:Ljava/lang/CharSequence;
 
-    .line 388
+    .line 489
     return-object p0
 .end method
 
@@ -99,10 +97,10 @@
     .end param
 
     .prologue
-    .line 422
+    .line 523
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mExtras:Landroid/os/Bundle;
 
-    .line 423
+    .line 524
     return-object p0
 .end method
 
@@ -114,10 +112,10 @@
     .end param
 
     .prologue
-    .line 399
+    .line 500
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mIcon:Landroid/graphics/Bitmap;
 
-    .line 400
+    .line 501
     return-object p0
 .end method
 
@@ -129,10 +127,10 @@
     .end param
 
     .prologue
-    .line 411
+    .line 512
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mIconUri:Landroid/net/Uri;
 
-    .line 412
+    .line 513
     return-object p0
 .end method
 
@@ -144,10 +142,10 @@
     .end param
 
     .prologue
-    .line 353
+    .line 454
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mMediaId:Ljava/lang/String;
 
-    .line 354
+    .line 455
     return-object p0
 .end method
 
@@ -159,10 +157,10 @@
     .end param
 
     .prologue
-    .line 433
+    .line 534
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mMediaUri:Landroid/net/Uri;
 
-    .line 434
+    .line 535
     return-object p0
 .end method
 
@@ -174,10 +172,10 @@
     .end param
 
     .prologue
-    .line 375
+    .line 476
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mSubtitle:Ljava/lang/CharSequence;
 
-    .line 376
+    .line 477
     return-object p0
 .end method
 
@@ -189,9 +187,9 @@
     .end param
 
     .prologue
-    .line 364
+    .line 465
     iput-object p1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mTitle:Ljava/lang/CharSequence;
 
-    .line 365
+    .line 466
     return-object p0
 .end method

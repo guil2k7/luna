@@ -1,54 +1,97 @@
 .class public final Lcom/google/android/gms/games/PlayerLevel;
-.super Ljava/lang/Object;
+.super Lcom/google/android/gms/games/internal/zzd;
 
-# interfaces
-.implements Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
+
+# annotations
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Class;
+    creator = "PlayerLevelCreator"
+.end annotation
+
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Reserved;
+    value = {
+        0x3e8
+    }
+.end annotation
 
 
 # static fields
-.field public static final CREATOR:Lcom/google/android/gms/games/PlayerLevelCreator;
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/Parcelable$Creator",
+            "<",
+            "Lcom/google/android/gms/games/PlayerLevel;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final MW:I
+.field private final zzcp:I
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getLevelNumber"
+        id = 0x1
+    .end annotation
+.end field
 
-.field private final MX:J
+.field private final zzcq:J
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getMinXp"
+        id = 0x2
+    .end annotation
+.end field
 
-.field private final MY:J
-
-.field private final xJ:I
+.field private final zzcr:J
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        getter = "getMaxXp"
+        id = 0x3
+    .end annotation
+.end field
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/games/PlayerLevelCreator;
+    new-instance v0, Lcom/google/android/gms/games/zzaq;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/PlayerLevelCreator;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/games/zzaq;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/games/PlayerLevel;->CREATOR:Lcom/google/android/gms/games/PlayerLevelCreator;
+    sput-object v0, Lcom/google/android/gms/games/PlayerLevel;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
-.method constructor <init>(IIJJ)V
-    .locals 7
-    .param p1, "versionCode"    # I
-    .param p2, "levelNumber"    # I
-    .param p3, "minXp"    # J
-    .param p5, "maxXp"    # J
+.method public constructor <init>(IJJ)V
+    .locals 6
+    .param p1    # I
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x1
+        .end annotation
+    .end param
+    .param p2    # J
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x2
+        .end annotation
+    .end param
+    .param p4    # J
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x3
+        .end annotation
+    .end param
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
+    .end annotation
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/google/android/gms/games/internal/zzd;-><init>()V
 
     const-wide/16 v4, 0x0
 
-    cmp-long v0, p3, v4
+    cmp-long v0, p2, v4
 
     if-ltz v0, :cond_0
 
@@ -57,24 +100,22 @@
     :goto_0
     const-string v3, "Min XP must be positive!"
 
-    invoke-static {v0, v3}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v0, v3}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    cmp-long v0, p5, p3
+    cmp-long v0, p4, p2
 
     if-lez v0, :cond_1
 
     :goto_1
     const-string v0, "Max XP must be more than min XP!"
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    iput p1, p0, Lcom/google/android/gms/games/PlayerLevel;->xJ:I
+    iput p1, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcp:I
 
-    iput p2, p0, Lcom/google/android/gms/games/PlayerLevel;->MW:I
+    iput-wide p2, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcq:J
 
-    iput-wide p3, p0, Lcom/google/android/gms/games/PlayerLevel;->MX:J
-
-    iput-wide p5, p0, Lcom/google/android/gms/games/PlayerLevel;->MY:J
+    iput-wide p4, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcr:J
 
     return-void
 
@@ -89,65 +130,33 @@
     goto :goto_1
 .end method
 
-.method public constructor <init>(IJJ)V
-    .locals 8
-    .param p1, "value"    # I
-    .param p2, "minXp"    # J
-    .param p4, "maxXp"    # J
-
-    .prologue
-    const/4 v2, 0x1
-
-    move-object v1, p0
-
-    move v3, p1
-
-    move-wide v4, p2
-
-    move-wide v6, p4
-
-    invoke-direct/range {v1 .. v7}, Lcom/google/android/gms/games/PlayerLevel;-><init>(IIJJ)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 6
+
+    const/4 v1, 0x1
 
     const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
-    .locals 6
-    .param p1, "obj"    # Ljava/lang/Object;
-
-    .prologue
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
 
     instance-of v2, p1, Lcom/google/android/gms/games/PlayerLevel;
 
     if-nez v2, :cond_1
 
-    move v0, v1
-
-    .end local p1    # "obj":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
-    .restart local p1    # "obj":Ljava/lang/Object;
     :cond_1
-    if-eq p0, p1, :cond_0
+    if-ne p0, p1, :cond_2
 
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
     check-cast p1, Lcom/google/android/gms/games/PlayerLevel;
 
-    .end local p1    # "obj":Ljava/lang/Object;
     invoke-virtual {p1}, Lcom/google/android/gms/games/PlayerLevel;->getLevelNumber()I
 
     move-result v2
@@ -164,11 +173,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-virtual {p1}, Lcom/google/android/gms/games/PlayerLevel;->getMinXp()J
 
@@ -186,11 +195,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-virtual {p1}, Lcom/google/android/gms/games/PlayerLevel;->getMaxXp()J
 
@@ -208,51 +217,42 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
-    :cond_2
     move v0, v1
 
     goto :goto_0
 .end method
 
-.method public getLevelNumber()I
+.method public final getLevelNumber()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/games/PlayerLevel;->MW:I
+    iget v0, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcp:I
 
     return v0
 .end method
 
-.method public getMaxXp()J
+.method public final getMaxXp()J
     .locals 2
 
-    iget-wide v0, p0, Lcom/google/android/gms/games/PlayerLevel;->MY:J
+    iget-wide v0, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcr:J
 
     return-wide v0
 .end method
 
-.method public getMinXp()J
+.method public final getMinXp()J
     .locals 2
 
-    iget-wide v0, p0, Lcom/google/android/gms/games/PlayerLevel;->MX:J
+    iget-wide v0, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcq:J
 
     return-wide v0
 .end method
 
-.method public getVersionCode()I
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/gms/games/PlayerLevel;->xJ:I
-
-    return v0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 4
 
     const/4 v0, 0x3
@@ -261,7 +261,7 @@
 
     const/4 v1, 0x0
 
-    iget v2, p0, Lcom/google/android/gms/games/PlayerLevel;->MW:I
+    iget v2, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcp:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -271,7 +271,7 @@
 
     const/4 v1, 0x1
 
-    iget-wide v2, p0, Lcom/google/android/gms/games/PlayerLevel;->MX:J
+    iget-wide v2, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcq:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -281,7 +281,7 @@
 
     const/4 v1, 0x2
 
-    iget-wide v2, p0, Lcom/google/android/gms/games/PlayerLevel;->MY:J
+    iget-wide v2, p0, Lcom/google/android/gms/games/PlayerLevel;->zzcr:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -289,17 +289,17 @@
 
     aput-object v2, v0, v1
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/hl;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/android/gms/common/internal/Objects;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 4
 
-    invoke-static {p0}, Lcom/google/android/gms/internal/hl;->e(Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-static {p0}, Lcom/google/android/gms/common/internal/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -313,7 +313,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -327,7 +327,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -341,24 +341,49 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/hl$a;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+.method public final writeToParcel(Landroid/os/Parcel;I)V
+    .locals 4
 
-    .prologue
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/games/PlayerLevelCreator;->a(Lcom/google/android/gms/games/PlayerLevel;Landroid/os/Parcel;I)V
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerLevel;->getLevelNumber()I
+
+    move-result v2
+
+    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
+
+    const/4 v1, 0x2
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerLevel;->getMinXp()J
+
+    move-result-wide v2
+
+    invoke-static {p1, v1, v2, v3}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeLong(Landroid/os/Parcel;IJ)V
+
+    const/4 v1, 0x3
+
+    invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerLevel;->getMaxXp()J
+
+    move-result-wide v2
+
+    invoke-static {p1, v1, v2, v3}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeLong(Landroid/os/Parcel;IJ)V
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
 
     return-void
 .end method

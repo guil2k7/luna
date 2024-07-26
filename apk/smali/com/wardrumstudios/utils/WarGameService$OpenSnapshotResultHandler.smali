@@ -52,27 +52,27 @@
     .param p6, "playedMS"    # J
 
     .prologue
-    .line 580
+    .line 915
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 581
+    .line 916
     iput-object p2, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->name:Ljava/lang/String;
 
-    .line 582
+    .line 917
     iput-object p3, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->description:Ljava/lang/String;
 
-    .line 583
+    .line 918
     iput-object p4, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->data:[B
 
-    .line 584
+    .line 919
     iput-object p5, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->screenshot:[B
 
-    .line 585
+    .line 920
     iput-wide p6, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->playedMS:J
 
-    .line 586
+    .line 921
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .locals 0
 
     .prologue
-    .line 573
+    .line 908
     check-cast p1, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;
 
     invoke-virtual {p0, p1}, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->onResult(Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;)V
@@ -95,7 +95,7 @@
     .param p1, "result"    # Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;
 
     .prologue
-    .line 589
+    .line 924
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getStatus()Lcom/google/android/gms/common/api/Status;
 
     move-result-object v0
@@ -106,7 +106,7 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 632
+    .line 967
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -133,35 +133,39 @@
 
     invoke-virtual {v0, v1}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 635
+    .line 970
     :cond_0
     :goto_0
     return-void
 
-    .line 591
+    .line 926
     :sswitch_0
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getSnapshot()Lcom/google/android/gms/games/snapshot/Snapshot;
 
     move-result-object v0
 
+    invoke-interface {v0}, Lcom/google/android/gms/games/snapshot/Snapshot;->getSnapshotContents()Lcom/google/android/gms/games/snapshot/SnapshotContents;
+
+    move-result-object v0
+
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->data:[B
 
-    invoke-interface {v0, v1}, Lcom/google/android/gms/games/snapshot/Snapshot;->writeBytes([B)Z
+    invoke-interface {v0, v1}, Lcom/google/android/gms/games/snapshot/SnapshotContents;->writeBytes([B)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 592
+    .line 927
     const/4 v8, 0x0
 
-    .line 593
+    .line 928
     .local v8, "bitmap":Landroid/graphics/Bitmap;
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->screenshot:[B
 
     if-eqz v0, :cond_1
 
-    .line 594
+    .line 929
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -186,7 +190,7 @@
 
     invoke-virtual {v0, v1}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 595
+    .line 930
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -213,7 +217,7 @@
 
     invoke-virtual {v0, v1}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 596
+    .line 931
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->screenshot:[B
 
     const/4 v1, 0x0
@@ -226,7 +230,7 @@
 
     move-result-object v8
 
-    .line 597
+    .line 932
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -249,19 +253,19 @@
 
     invoke-virtual {v0, v1}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 599
+    .line 934
     :cond_1
     new-instance v12, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
 
     invoke-direct {v12}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;-><init>()V
 
-    .line 601
+    .line 936
     .local v12, "metadataBuilder":Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->description:Ljava/lang/String;
 
     invoke-virtual {v12, v0}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->setDescription(Ljava/lang/String;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
 
-    .line 602
+    .line 937
     iget-wide v0, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->playedMS:J
 
     const-wide/16 v2, 0x0
@@ -274,19 +278,19 @@
 
     invoke-virtual {v12, v0, v1}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->setPlayedTimeMillis(J)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
 
-    .line 603
+    .line 938
     :cond_2
     if-eqz v8, :cond_3
 
     invoke-virtual {v12, v8}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->setCoverImage(Landroid/graphics/Bitmap;)Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
 
-    .line 604
+    .line 939
     :cond_3
     invoke-virtual {v12}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;->build()Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;
 
     move-result-object v11
 
-    .line 609
+    .line 944
     .local v11, "metadata":Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;
     sget-object v0, Lcom/google/android/gms/games/Games;->Snapshots:Lcom/google/android/gms/games/snapshot/Snapshots;
 
@@ -304,7 +308,7 @@
 
     goto/16 :goto_0
 
-    .line 614
+    .line 949
     .end local v8    # "bitmap":Landroid/graphics/Bitmap;
     .end local v11    # "metadata":Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;
     .end local v12    # "metadataBuilder":Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange$Builder;
@@ -315,34 +319,34 @@
 
     invoke-virtual {v0, v1}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    .line 615
+    .line 950
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getSnapshot()Lcom/google/android/gms/games/snapshot/Snapshot;
 
     move-result-object v10
 
-    .line 616
+    .line 951
     .local v10, "latest":Lcom/google/android/gms/games/snapshot/Snapshot;
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getConflictingSnapshot()Lcom/google/android/gms/games/snapshot/Snapshot;
 
     move-result-object v9
 
-    .line 618
+    .line 953
     .local v9, "conflict":Lcom/google/android/gms/games/snapshot/Snapshot;
     sget-object v0, Lcom/google/android/gms/games/Games;->Snapshots:Lcom/google/android/gms/games/snapshot/Snapshots;
 
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
-    .line 619
+    .line 954
     invoke-virtual {v1}, Lcom/wardrumstudios/utils/WarGameService;->getApiClient()Lcom/google/android/gms/common/api/GoogleApiClient;
 
     move-result-object v1
 
-    .line 620
+    .line 955
     invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;->getConflictId()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 618
+    .line 953
     invoke-interface {v0, v1, v2, v9}, Lcom/google/android/gms/games/snapshot/Snapshots;->resolveConflict(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;Lcom/google/android/gms/games/snapshot/Snapshot;)Lcom/google/android/gms/common/api/PendingResult;
 
     move-result-object v13
@@ -363,12 +367,12 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/wardrumstudios/utils/WarGameService$OpenSnapshotResultHandler;-><init>(Lcom/wardrumstudios/utils/WarGameService;Ljava/lang/String;Ljava/lang/String;[B[BJ)V
 
-    .line 621
-    invoke-interface {v13, v0}, Lcom/google/android/gms/common/api/PendingResult;->setResultCallback(Lcom/google/android/gms/common/api/ResultCallback;)V
+    .line 956
+    invoke-virtual {v13, v0}, Lcom/google/android/gms/common/api/PendingResult;->setResultCallback(Lcom/google/android/gms/common/api/ResultCallback;)V
 
     goto/16 :goto_0
 
-    .line 589
+    .line 924
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0

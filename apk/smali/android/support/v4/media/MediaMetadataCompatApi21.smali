@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/media/MediaMetadataCompatApi21$Builder;
@@ -16,10 +20,10 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
+    .line 57
     return-void
 .end method
 
@@ -28,7 +32,7 @@
     .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 52
+    .line 54
     sget-object v0, Landroid/media/MediaMetadata;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -44,7 +48,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 32
+    .line 34
     check-cast p0, Landroid/media/MediaMetadata;
 
     .end local p0    # "metadataObj":Ljava/lang/Object;
@@ -61,7 +65,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 36
+    .line 38
     check-cast p0, Landroid/media/MediaMetadata;
 
     .end local p0    # "metadataObj":Ljava/lang/Object;
@@ -78,7 +82,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 40
+    .line 42
     check-cast p0, Landroid/media/MediaMetadata;
 
     .end local p0    # "metadataObj":Ljava/lang/Object;
@@ -95,7 +99,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 44
+    .line 46
     check-cast p0, Landroid/media/MediaMetadata;
 
     .end local p0    # "metadataObj":Ljava/lang/Object;
@@ -122,7 +126,7 @@
     .end annotation
 
     .prologue
-    .line 28
+    .line 30
     check-cast p0, Landroid/media/MediaMetadata;
 
     .end local p0    # "metadataObj":Ljava/lang/Object;
@@ -140,12 +144,12 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 48
+    .line 50
     check-cast p0, Landroid/media/MediaMetadata;
 
     .end local p0    # "metadataObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/MediaMetadata;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 49
+    .line 51
     return-void
 .end method

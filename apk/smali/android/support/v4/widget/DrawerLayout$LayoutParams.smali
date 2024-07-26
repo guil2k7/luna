@@ -25,11 +25,11 @@
 # instance fields
 .field public gravity:I
 
-.field private isPeeking:Z
+.field isPeeking:Z
 
-.field private onScreen:F
+.field onScreen:F
 
-.field private openState:I
+.field openState:I
 
 
 # direct methods
@@ -39,15 +39,15 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 2176
+    .line 2230
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    .line 2162
+    .line 2216
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2177
+    .line 2231
     return-void
 .end method
 
@@ -58,13 +58,13 @@
     .param p3, "gravity"    # I
 
     .prologue
-    .line 2180
+    .line 2234
     invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/DrawerLayout$LayoutParams;-><init>(II)V
 
-    .line 2181
+    .line 2235
     iput p3, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2182
+    .line 2236
     return-void
 .end method
 
@@ -76,22 +76,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 2168
+    .line 2222
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 2162
+    .line 2216
     iput v2, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2170
-    invoke-static {}, Landroid/support/v4/widget/DrawerLayout;->access$400()[I
-
-    move-result-object v1
+    .line 2224
+    sget-object v1, Landroid/support/v4/widget/DrawerLayout;->LAYOUT_ATTRS:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 2171
+    .line 2225
     .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
@@ -99,10 +97,10 @@
 
     iput v1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2172
+    .line 2226
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 2173
+    .line 2227
     return-void
 .end method
 
@@ -111,20 +109,20 @@
     .param p1, "source"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
 
     .prologue
-    .line 2185
+    .line 2239
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 2162
+    .line 2216
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2186
+    .line 2240
     iget v0, p1, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2187
+    .line 2241
     return-void
 .end method
 
@@ -133,15 +131,15 @@
     .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 2190
+    .line 2244
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2162
+    .line 2216
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2191
+    .line 2245
     return-void
 .end method
 
@@ -150,99 +148,14 @@
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .prologue
-    .line 2194
+    .line 2248
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 2162
+    .line 2216
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    .line 2195
+    .line 2249
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/support/v4/widget/DrawerLayout$LayoutParams;)F
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
-
-    .prologue
-    .line 2157
-    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
-
-    return v0
-.end method
-
-.method static synthetic access$002(Landroid/support/v4/widget/DrawerLayout$LayoutParams;F)F
-    .locals 0
-    .param p0, "x0"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
-    .param p1, "x1"    # F
-
-    .prologue
-    .line 2157
-    iput p1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
-
-    return p1
-.end method
-
-.method static synthetic access$100(Landroid/support/v4/widget/DrawerLayout$LayoutParams;)I
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
-
-    .prologue
-    .line 2157
-    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->openState:I
-
-    return v0
-.end method
-
-.method static synthetic access$102(Landroid/support/v4/widget/DrawerLayout$LayoutParams;I)I
-    .locals 0
-    .param p0, "x0"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
-    .param p1, "x1"    # I
-
-    .prologue
-    .line 2157
-    iput p1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->openState:I
-
-    return p1
-.end method
-
-.method static synthetic access$176(Landroid/support/v4/widget/DrawerLayout$LayoutParams;I)I
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
-    .param p1, "x1"    # I
-
-    .prologue
-    .line 2157
-    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->openState:I
-
-    or-int/2addr v0, p1
-
-    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->openState:I
-
-    return v0
-.end method
-
-.method static synthetic access$200(Landroid/support/v4/widget/DrawerLayout$LayoutParams;)Z
-    .locals 1
-    .param p0, "x0"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
-
-    .prologue
-    .line 2157
-    iget-boolean v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->isPeeking:Z
-
-    return v0
-.end method
-
-.method static synthetic access$202(Landroid/support/v4/widget/DrawerLayout$LayoutParams;Z)Z
-    .locals 0
-    .param p0, "x0"    # Landroid/support/v4/widget/DrawerLayout$LayoutParams;
-    .param p1, "x1"    # Z
-
-    .prologue
-    .line 2157
-    iput-boolean p1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->isPeeking:Z
-
-    return p1
 .end method

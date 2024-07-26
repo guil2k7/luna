@@ -13,14 +13,20 @@
 .end annotation
 
 
+# static fields
+.field private static final zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+
 # instance fields
-.field private final LO:I
+.field private final fieldId:I
 
-.field private LP:I
+.field private final resource:I
 
-.field private final LQ:I
+.field private final zzgu:Landroid/content/Context;
 
-.field private final LR:Ljava/util/List;
+.field private zzmj:I
+
+.field private final zzmk:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -31,21 +37,31 @@
     .end annotation
 .end field
 
-.field private final LS:Landroid/view/LayoutInflater;
+.field private final zzml:Landroid/view/LayoutInflater;
 
-.field private LT:Z
-
-.field private final mContext:Landroid/content/Context;
+.field private zzmm:Z
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    new-instance v0, Lcom/google/android/gms/common/internal/GmsLogger;
+
+    const-string v1, "DataBufferAdapter"
+
+    const-string v2, ""
+
+    invoke-direct {v0, v1, v2}, Lcom/google/android/gms/common/internal/GmsLogger;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    sput-object v0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resource"    # I
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
     const/4 v0, 0x0
 
     new-instance v1, Ljava/util/ArrayList;
@@ -59,12 +75,7 @@
 
 .method public constructor <init>(Landroid/content/Context;II)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resource"    # I
-    .param p3, "textViewResourceId"    # I
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -76,9 +87,6 @@
 
 .method public constructor <init>(Landroid/content/Context;IILjava/util/List;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resource"    # I
-    .param p3, "textViewResourceId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,24 +99,21 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    .local p4, "objects":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/common/data/DataBuffer<TT;>;>;"
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LT:Z
+    iput-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmm:Z
 
-    iput-object p1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzgu:Landroid/content/Context;
 
-    iput p2, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LP:I
+    iput p2, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmj:I
 
-    iput p2, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LO:I
+    iput p2, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->resource:I
 
-    iput p3, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LQ:I
+    iput p3, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->fieldId:I
 
-    iput-object p4, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LR:Ljava/util/List;
+    iput-object p4, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmk:Ljava/util/List;
 
     const-string v0, "layout_inflater"
 
@@ -118,16 +123,13 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    iput-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LS:Landroid/view/LayoutInflater;
+    iput-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzml:Landroid/view/LayoutInflater;
 
     return-void
 .end method
 
 .method public varargs constructor <init>(Landroid/content/Context;II[Lcom/google/android/gms/common/data/DataBuffer;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resource"    # I
-    .param p3, "textViewResourceId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -138,9 +140,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    .local p4, "buffers":[Lcom/google/android/gms/common/data/DataBuffer;, "[Lcom/google/android/gms/common/data/DataBuffer<TT;>;"
     invoke-static {p4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -152,8 +151,6 @@
 
 .method public constructor <init>(Landroid/content/Context;ILjava/util/List;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resource"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -166,9 +163,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    .local p3, "objects":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/common/data/DataBuffer<TT;>;>;"
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0, p3}, Lcom/google/android/gms/drive/widget/DataBufferAdapter;-><init>(Landroid/content/Context;IILjava/util/List;)V
@@ -178,8 +172,6 @@
 
 .method public varargs constructor <init>(Landroid/content/Context;I[Lcom/google/android/gms/common/data/DataBuffer;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resource"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -190,9 +182,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    .local p3, "buffers":[Lcom/google/android/gms/common/data/DataBuffer;, "[Lcom/google/android/gms/common/data/DataBuffer<TT;>;"
     const/4 v0, 0x0
 
     invoke-static {p3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -204,12 +193,12 @@
     return-void
 .end method
 
-.method private a(ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
+.method private final zza(ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
     .locals 5
 
     if-nez p2, :cond_0
 
-    iget-object v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LS:Landroid/view/LayoutInflater;
+    iget-object v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzml:Landroid/view/LayoutInflater;
 
     const/4 v2, 0x0
 
@@ -219,7 +208,7 @@
 
     :goto_0
     :try_start_0
-    iget v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LQ:I
+    iget v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->fieldId:I
 
     if-nez v1, :cond_1
 
@@ -256,7 +245,7 @@
 
     :cond_1
     :try_start_1
-    iget v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LQ:I
+    iget v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->fieldId:I
 
     invoke-virtual {v2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -273,11 +262,13 @@
     :catch_0
     move-exception v1
 
-    const-string v2, "DataBufferAdapter"
+    sget-object v2, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
 
-    const-string v3, "You must supply a resource ID for a TextView"
+    const-string v3, "DataBufferAdapter"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "You must supply a resource ID for a TextView"
+
+    invoke-virtual {v2, v3, v4, v1}, Lcom/google/android/gms/common/internal/GmsLogger;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     new-instance v2, Ljava/lang/IllegalStateException;
 
@@ -309,14 +300,11 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    .local p1, "buffer":Lcom/google/android/gms/common/data/DataBuffer;, "Lcom/google/android/gms/common/data/DataBuffer<TT;>;"
-    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LR:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmk:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    iget-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LT:Z
+    iget-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmm:Z
 
     if-eqz v0, :cond_0
 
@@ -329,7 +317,7 @@
 .method public clear()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LR:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmk:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -348,16 +336,16 @@
 
     check-cast v0, Lcom/google/android/gms/common/data/DataBuffer;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/common/data/DataBuffer;->close()V
+    invoke-interface {v0}, Lcom/google/android/gms/common/data/DataBuffer;->release()V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LR:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmk:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    iget-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LT:Z
+    iget-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmm:Z
 
     if-eqz v0, :cond_1
 
@@ -370,7 +358,7 @@
 .method public getContext()Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzgu:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -380,7 +368,7 @@
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LR:Ljava/util/List;
+    iget-object v1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmk:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -401,7 +389,7 @@
 
     check-cast v0, Lcom/google/android/gms/common/data/DataBuffer;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
+    invoke-interface {v0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
 
     move-result v0
 
@@ -417,15 +405,10 @@
 
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
-    .param p1, "position"    # I
-    .param p2, "convertView"    # Landroid/view/View;
-    .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    iget v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LP:I
+    iget v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmj:I
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->a(ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zza(ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
 
     move-result-object v0
 
@@ -434,7 +417,6 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 4
-    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -447,9 +429,7 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LR:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmk:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -470,7 +450,7 @@
 
     check-cast v0, Lcom/google/android/gms/common/data/DataBuffer;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
+    invoke-interface {v0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
 
     move-result v3
 
@@ -484,7 +464,7 @@
 
     :cond_0
     :try_start_0
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/common/data/DataBuffer;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Lcom/google/android/gms/common/data/DataBuffer;->get(I)Ljava/lang/Object;
     :try_end_0
     .catch Landroid/database/CursorIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -519,10 +499,7 @@
 
 .method public getItemId(I)J
     .locals 2
-    .param p1, "position"    # I
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
     int-to-long v0, p1
 
     return-wide v0
@@ -530,15 +507,10 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
-    .param p1, "position"    # I
-    .param p2, "convertView"    # Landroid/view/View;
-    .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    iget v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LO:I
+    iget v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->resource:I
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->a(ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zza(ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
 
     move-result-object v0
 
@@ -552,29 +524,23 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LT:Z
+    iput-boolean v0, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmm:Z
 
     return-void
 .end method
 
 .method public setDropDownViewResource(I)V
     .locals 0
-    .param p1, "resource"    # I
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    iput p1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LP:I
+    iput p1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmj:I
 
     return-void
 .end method
 
 .method public setNotifyOnChange(Z)V
     .locals 0
-    .param p1, "notifyOnChange"    # Z
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/drive/widget/DataBufferAdapter;, "Lcom/google/android/gms/drive/widget/DataBufferAdapter<TT;>;"
-    iput-boolean p1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->LT:Z
+    iput-boolean p1, p0, Lcom/google/android/gms/drive/widget/DataBufferAdapter;->zzmm:Z
 
     return-void
 .end method

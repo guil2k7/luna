@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "ConnectionRecord"
 .end annotation
 
@@ -31,43 +31,31 @@
             "Ljava/lang/String;",
             "Ljava/util/List",
             "<",
+            "Landroid/support/v4/util/Pair",
+            "<",
+            "Landroid/os/IBinder;",
             "Landroid/os/Bundle;",
-            ">;>;"
+            ">;>;>;"
         }
     .end annotation
 .end field
 
-.field final synthetic this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
-
 
 # direct methods
-.method private constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
+.method constructor <init>()V
     .locals 1
 
     .prologue
-    .line 217
-    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
-
+    .line 561
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 222
+    .line 559
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
 
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Landroid/support/v4/media/MediaBrowserServiceCompat$1;)V
-    .locals 0
-    .param p1, "x0"    # Landroid/support/v4/media/MediaBrowserServiceCompat;
-    .param p2, "x1"    # Landroid/support/v4/media/MediaBrowserServiceCompat$1;
-
-    .prologue
-    .line 217
-    invoke-direct {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;-><init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
-
+    .line 562
     return-void
 .end method

@@ -19,19 +19,54 @@
 
 
 # virtual methods
-.method public abstract createFile(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/drive/MetadataChangeSet;Lcom/google/android/gms/drive/Contents;)Lcom/google/android/gms/common/api/PendingResult;
+.method public abstract createFile(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/drive/MetadataChangeSet;Lcom/google/android/gms/drive/DriveContents;)Lcom/google/android/gms/common/api/PendingResult;
+    .param p3    # Lcom/google/android/gms/drive/DriveContents;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/google/android/gms/common/api/GoogleApiClient;",
             "Lcom/google/android/gms/drive/MetadataChangeSet;",
-            "Lcom/google/android/gms/drive/Contents;",
+            "Lcom/google/android/gms/drive/DriveContents;",
             ")",
             "Lcom/google/android/gms/common/api/PendingResult",
             "<",
             "Lcom/google/android/gms/drive/DriveFolder$DriveFileResult;",
             ">;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end method
+
+.method public abstract createFile(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/drive/MetadataChangeSet;Lcom/google/android/gms/drive/DriveContents;Lcom/google/android/gms/drive/ExecutionOptions;)Lcom/google/android/gms/common/api/PendingResult;
+    .param p3    # Lcom/google/android/gms/drive/DriveContents;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # Lcom/google/android/gms/drive/ExecutionOptions;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/common/api/GoogleApiClient;",
+            "Lcom/google/android/gms/drive/MetadataChangeSet;",
+            "Lcom/google/android/gms/drive/DriveContents;",
+            "Lcom/google/android/gms/drive/ExecutionOptions;",
+            ")",
+            "Lcom/google/android/gms/common/api/PendingResult",
+            "<",
+            "Lcom/google/android/gms/drive/DriveFolder$DriveFileResult;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 
@@ -48,6 +83,9 @@
             ">;"
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract listChildren(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/common/api/PendingResult;
@@ -61,6 +99,9 @@
             "Lcom/google/android/gms/drive/DriveApi$MetadataBufferResult;",
             ">;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 
@@ -76,5 +117,8 @@
             "Lcom/google/android/gms/drive/DriveApi$MetadataBufferResult;",
             ">;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method

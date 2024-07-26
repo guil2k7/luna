@@ -3,12 +3,18 @@
 .source "MediaSessionCompatApi22.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x16
+.end annotation
+
+
 # direct methods
 .method constructor <init>()V
     .locals 0
 
     .prologue
-    .line 20
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,12 +26,12 @@
     .param p1, "type"    # I
 
     .prologue
-    .line 23
+    .line 25
     check-cast p0, Landroid/media/session/MediaSession;
 
     .end local p0    # "sessionObj":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/media/session/MediaSession;->setRatingType(I)V
 
-    .line 24
+    .line 26
     return-void
 .end method

@@ -16,6 +16,9 @@
     name = "LeaderboardMetadataResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getLeaderboards()Lcom/google/android/gms/games/leaderboard/LeaderboardBuffer;

@@ -16,6 +16,9 @@
     name = "LoadInvitationsResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getInvitations()Lcom/google/android/gms/games/multiplayer/InvitationBuffer;

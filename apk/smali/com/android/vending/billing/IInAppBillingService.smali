@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/vending/billing/IInAppBillingService$Stub;
+        Lcom/android/vending/billing/IInAppBillingService$Stub;,
+        Lcom/android/vending/billing/IInAppBillingService$Default;
     }
 .end annotation
 

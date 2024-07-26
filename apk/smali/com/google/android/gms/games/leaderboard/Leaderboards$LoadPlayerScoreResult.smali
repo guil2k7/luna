@@ -15,6 +15,9 @@
     name = "LoadPlayerScoreResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getScore()Lcom/google/android/gms/games/leaderboard/LeaderboardScore;

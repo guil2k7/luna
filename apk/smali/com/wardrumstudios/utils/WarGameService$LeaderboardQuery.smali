@@ -37,7 +37,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarGameService;
 
     .prologue
-    .line 432
+    .line 708
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarGameService$LeaderboardQuery;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

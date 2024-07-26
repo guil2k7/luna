@@ -15,6 +15,9 @@
     name = "UpdateMatchResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getMatch()Lcom/google/android/gms/games/multiplayer/turnbased/TurnBasedMatch;

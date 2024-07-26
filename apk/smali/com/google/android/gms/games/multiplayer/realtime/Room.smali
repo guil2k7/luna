@@ -35,6 +35,8 @@
 
 # virtual methods
 .method public abstract getAutoMatchCriteria()Landroid/os/Bundle;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract getAutoMatchWaitEstimateSeconds()I

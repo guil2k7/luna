@@ -16,6 +16,9 @@
     name = "LoadAchievementsResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getAchievements()Lcom/google/android/gms/games/achievement/AchievementBuffer;

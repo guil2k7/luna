@@ -5,11 +5,11 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/games/GamesMetadata$LoadGameSearchSuggestionsResult;,
-        Lcom/google/android/gms/games/GamesMetadata$LoadExtendedGamesResult;,
-        Lcom/google/android/gms/games/GamesMetadata$LoadGameInstancesResult;,
         Lcom/google/android/gms/games/GamesMetadata$LoadGamesResult;
     }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 

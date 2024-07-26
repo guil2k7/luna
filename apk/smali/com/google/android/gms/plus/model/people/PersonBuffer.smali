@@ -1,25 +1,31 @@
 .class public final Lcom/google/android/gms/plus/model/people/PersonBuffer;
-.super Lcom/google/android/gms/common/data/DataBuffer;
+.super Lcom/google/android/gms/common/data/AbstractDataBuffer;
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/google/android/gms/common/data/DataBuffer",
+        "Lcom/google/android/gms/common/data/AbstractDataBuffer",
         "<",
         "Lcom/google/android/gms/plus/model/people/Person;",
         ">;"
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
-.field private final adW:Lcom/google/android/gms/common/data/e;
+.field private final zzcm:Lcom/google/android/gms/common/data/DataBufferSafeParcelable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/android/gms/common/data/e",
+            "Lcom/google/android/gms/common/data/DataBufferSafeParcelable",
             "<",
-            "Lcom/google/android/gms/internal/kt;",
+            "Lcom/google/android/gms/internal/plus/zzr;",
             ">;"
         }
     .end annotation
@@ -29,18 +35,16 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/common/data/DataHolder;)V
     .locals 3
-    .param p1, "dataHolder"    # Lcom/google/android/gms/common/data/DataHolder;
 
-    .prologue
-    invoke-direct {p0, p1}, Lcom/google/android/gms/common/data/DataBuffer;-><init>(Lcom/google/android/gms/common/data/DataHolder;)V
+    invoke-direct {p0, p1}, Lcom/google/android/gms/common/data/AbstractDataBuffer;-><init>(Lcom/google/android/gms/common/data/DataHolder;)V
 
-    invoke-virtual {p1}, Lcom/google/android/gms/common/data/DataHolder;->eP()Landroid/os/Bundle;
+    invoke-virtual {p1}, Lcom/google/android/gms/common/data/DataHolder;->getMetadata()Landroid/os/Bundle;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Lcom/google/android/gms/common/data/DataHolder;->eP()Landroid/os/Bundle;
+    invoke-virtual {p1}, Lcom/google/android/gms/common/data/DataHolder;->getMetadata()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -54,13 +58,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Lcom/google/android/gms/common/data/e;
+    new-instance v0, Lcom/google/android/gms/common/data/DataBufferSafeParcelable;
 
-    sget-object v1, Lcom/google/android/gms/internal/kt;->CREATOR:Lcom/google/android/gms/internal/ku;
+    sget-object v1, Lcom/google/android/gms/internal/plus/zzr;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-direct {v0, p1, v1}, Lcom/google/android/gms/common/data/e;-><init>(Lcom/google/android/gms/common/data/DataHolder;Landroid/os/Parcelable$Creator;)V
+    invoke-direct {v0, p1, v1}, Lcom/google/android/gms/common/data/DataBufferSafeParcelable;-><init>(Lcom/google/android/gms/common/data/DataHolder;Landroid/os/Parcelable$Creator;)V
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->adW:Lcom/google/android/gms/common/data/e;
+    iput-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->zzcm:Lcom/google/android/gms/common/data/DataBufferSafeParcelable;
 
     :goto_0
     return-void
@@ -68,25 +72,25 @@
     :cond_0
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->adW:Lcom/google/android/gms/common/data/e;
+    iput-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->zzcm:Lcom/google/android/gms/common/data/DataBufferSafeParcelable;
 
     goto :goto_0
 .end method
 
 
 # virtual methods
-.method public get(I)Lcom/google/android/gms/plus/model/people/Person;
+.method public final get(I)Lcom/google/android/gms/plus/model/people/Person;
     .locals 2
-    .param p1, "position"    # I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->adW:Lcom/google/android/gms/common/data/e;
+    iget-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->zzcm:Lcom/google/android/gms/common/data/DataBufferSafeParcelable;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->adW:Lcom/google/android/gms/common/data/e;
+    iget-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->zzcm:Lcom/google/android/gms/common/data/DataBufferSafeParcelable;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/common/data/e;->ad(I)Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/common/data/DataBufferSafeParcelable;->get(I)Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
 
     move-result-object v0
 
@@ -96,20 +100,20 @@
     return-object v0
 
     :cond_0
-    new-instance v0, Lcom/google/android/gms/internal/le;
+    new-instance v0, Lcom/google/android/gms/internal/plus/zzac;
 
-    iget-object v1, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->DD:Lcom/google/android/gms/common/data/DataHolder;
+    iget-object v1, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->mDataHolder:Lcom/google/android/gms/common/data/DataHolder;
 
-    invoke-direct {v0, v1, p1}, Lcom/google/android/gms/internal/le;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
+    invoke-direct {v0, v1, p1}, Lcom/google/android/gms/internal/plus/zzac;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
 
     goto :goto_0
 .end method
 
-.method public bridge synthetic get(I)Ljava/lang/Object;
+.method public final bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/plus/model/people/PersonBuffer;->get(I)Lcom/google/android/gms/plus/model/people/Person;
 
     move-result-object v0

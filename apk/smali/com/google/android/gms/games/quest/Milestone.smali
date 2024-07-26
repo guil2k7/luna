@@ -7,6 +7,9 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -18,6 +21,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final STATE_CLAIMED:I = 0x4
@@ -27,8 +33,6 @@
 .field public static final STATE_NOT_COMPLETED:I = 0x2
 
 .field public static final STATE_NOT_STARTED:I = 0x1
-
-.field public static final UNSET_CRITERIA:J = -0x1L
 
 
 # virtual methods

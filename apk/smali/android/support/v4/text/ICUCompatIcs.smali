@@ -3,6 +3,12 @@
 .source "ICUCompatIcs.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0xe
+.end annotation
+
+
 # static fields
 .field private static final TAG:Ljava/lang/String; = "ICUCompatIcs"
 
@@ -18,7 +24,7 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 34
+    .line 36
     :try_start_0
     const-string v2, "libcore.icu.ICU"
 
@@ -26,11 +32,11 @@
 
     move-result-object v0
 
-    .line 35
+    .line 37
     .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz v0, :cond_0
 
-    .line 36
+    .line 38
     const-string v2, "getScript"
 
     const/4 v3, 0x1
@@ -49,7 +55,7 @@
 
     sput-object v2, Landroid/support/v4/text/ICUCompatIcs;->sGetScriptMethod:Ljava/lang/reflect/Method;
 
-    .line 38
+    .line 40
     const-string v2, "addLikelySubtags"
 
     const/4 v3, 0x1
@@ -70,23 +76,23 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 48
+    .line 50
     :cond_0
     :goto_0
     return-void
 
-    .line 41
+    .line 43
     :catch_0
     move-exception v1
 
-    .line 42
+    .line 44
     .local v1, "e":Ljava/lang/Exception;
     sput-object v6, Landroid/support/v4/text/ICUCompatIcs;->sGetScriptMethod:Ljava/lang/reflect/Method;
 
-    .line 43
+    .line 45
     sput-object v6, Landroid/support/v4/text/ICUCompatIcs;->sAddLikelySubtagsMethod:Ljava/lang/reflect/Method;
 
-    .line 46
+    .line 48
     const-string v2, "ICUCompatIcs"
 
     invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
@@ -98,7 +104,7 @@
     .locals 0
 
     .prologue
-    .line 25
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -109,19 +115,19 @@
     .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
-    .line 77
+    .line 79
     invoke-virtual {p0}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 79
+    .line 81
     .local v2, "localeStr":Ljava/lang/String;
     :try_start_0
     sget-object v3, Landroid/support/v4/text/ICUCompatIcs;->sAddLikelySubtagsMethod:Ljava/lang/reflect/Method;
 
     if-eqz v3, :cond_0
 
-    .line 80
+    .line 82
     const/4 v3, 0x1
 
     new-array v0, v3, [Ljava/lang/Object;
@@ -130,7 +136,7 @@
 
     aput-object v2, v0, v3
 
-    .line 81
+    .line 83
     .local v0, "args":[Ljava/lang/Object;
     sget-object v3, Landroid/support/v4/text/ICUCompatIcs;->sAddLikelySubtagsMethod:Ljava/lang/reflect/Method;
 
@@ -145,16 +151,16 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 92
+    .line 94
     .end local v0    # "args":[Ljava/lang/Object;
     :goto_0
     return-object v3
 
-    .line 83
+    .line 85
     :catch_0
     move-exception v1
 
-    .line 85
+    .line 87
     .local v1, "e":Ljava/lang/IllegalAccessException;
     const-string v3, "ICUCompatIcs"
 
@@ -165,14 +171,14 @@
     :goto_1
     move-object v3, v2
 
-    .line 92
+    .line 94
     goto :goto_0
 
-    .line 87
+    .line 89
     :catch_1
     move-exception v1
 
-    .line 89
+    .line 91
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
     const-string v3, "ICUCompatIcs"
 
@@ -188,13 +194,13 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 61
+    .line 63
     :try_start_0
     sget-object v2, Landroid/support/v4/text/ICUCompatIcs;->sGetScriptMethod:Ljava/lang/reflect/Method;
 
     if-eqz v2, :cond_0
 
-    .line 62
+    .line 64
     const/4 v2, 0x1
 
     new-array v0, v2, [Ljava/lang/Object;
@@ -203,7 +209,7 @@
 
     aput-object p0, v0, v2
 
-    .line 63
+    .line 65
     .local v0, "args":[Ljava/lang/Object;
     sget-object v2, Landroid/support/v4/text/ICUCompatIcs;->sGetScriptMethod:Ljava/lang/reflect/Method;
 
@@ -218,16 +224,16 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 73
+    .line 75
     .end local v0    # "args":[Ljava/lang/Object;
     :goto_0
     return-object v2
 
-    .line 65
+    .line 67
     :catch_0
     move-exception v1
 
-    .line 67
+    .line 69
     .local v1, "e":Ljava/lang/IllegalAccessException;
     const-string v2, "ICUCompatIcs"
 
@@ -238,14 +244,14 @@
     :goto_1
     move-object v2, v3
 
-    .line 73
+    .line 75
     goto :goto_0
 
-    .line 69
+    .line 71
     :catch_1
     move-exception v1
 
-    .line 71
+    .line 73
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
     const-string v2, "ICUCompatIcs"
 
@@ -259,21 +265,21 @@
     .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
-    .line 51
+    .line 53
     invoke-static {p0}, Landroid/support/v4/text/ICUCompatIcs;->addLikelySubtags(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 52
+    .line 54
     .local v0, "localeWithSubtags":Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .line 53
+    .line 55
     invoke-static {v0}, Landroid/support/v4/text/ICUCompatIcs;->getScript(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 56
+    .line 58
     :goto_0
     return-object v1
 

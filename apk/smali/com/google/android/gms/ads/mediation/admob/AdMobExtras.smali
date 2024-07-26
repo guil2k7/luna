@@ -17,9 +17,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "extras"    # Landroid/os/Bundle;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     if-eqz p1, :cond_0
@@ -41,7 +39,7 @@
 
 
 # virtual methods
-.method public getExtras()Landroid/os/Bundle;
+.method public final getExtras()Landroid/os/Bundle;
     .locals 1
 
     iget-object v0, p0, Lcom/google/android/gms/ads/mediation/admob/AdMobExtras;->mExtras:Landroid/os/Bundle;

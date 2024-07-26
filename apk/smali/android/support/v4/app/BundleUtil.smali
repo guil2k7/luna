@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 11
+    .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,12 +20,12 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 18
+    .line 15
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
 
     move-result-object v0
 
-    .line 19
+    .line 16
     .local v0, "array":[Landroid/os/Parcelable;
     instance-of v2, v0, [Landroid/os/Bundle;
 
@@ -33,7 +33,7 @@
 
     if-nez v0, :cond_1
 
-    .line 20
+    .line 17
     :cond_0
     check-cast v0, [Landroid/os/Bundle;
 
@@ -42,11 +42,11 @@
 
     move-object v1, v0
 
-    .line 25
+    .line 22
     :goto_0
     return-object v1
 
-    .line 22
+    .line 19
     .restart local v0    # "array":[Landroid/os/Parcelable;
     :cond_1
     array-length v2, v0
@@ -59,7 +59,7 @@
 
     check-cast v1, [Landroid/os/Bundle;
 
-    .line 24
+    .line 21
     .local v1, "typedArray":[Landroid/os/Bundle;
     invoke-virtual {p0, p1, v1}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
 

@@ -34,24 +34,12 @@
 
 
 # virtual methods
-.method protected abstract a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lcom/google/android/gms/drive/metadata/MetadataField",
-            "<TT;>;)TT;"
-        }
-    .end annotation
-.end method
-
 .method public getAlternateLink()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JR:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zziw:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -63,9 +51,9 @@
 .method public getContentAvailability()I
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/iv;->Kz:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzik;->zzku:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -89,9 +77,9 @@
 .method public getCreatedDate()Ljava/util/Date;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Kt:Lcom/google/android/gms/internal/it$a;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzkn:Lcom/google/android/gms/internal/drive/zzid;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -100,12 +88,50 @@
     return-object v0
 .end method
 
+.method public getCustomProperties()Ljava/util/Map;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map",
+            "<",
+            "Lcom/google/android/gms/drive/metadata/CustomPropertyKey;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzix:Lcom/google/android/gms/internal/drive/zzhs;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties;
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/google/android/gms/drive/metadata/internal/AppVisibleCustomProperties;->zzas()Ljava/util/Map;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
 .method public getDescription()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JT:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zziy:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -117,9 +143,9 @@
 .method public getDriveId()Lcom/google/android/gms/drive/DriveId;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JQ:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zziv:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -131,9 +157,9 @@
 .method public getEmbedLink()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JU:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zziz:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -145,9 +171,9 @@
 .method public getFileExtension()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JV:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzja:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -159,9 +185,9 @@
 .method public getFileSize()J
     .locals 2
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JW:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjb:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -176,10 +202,12 @@
 
 .method public getLastViewedByMeDate()Ljava/util/Date;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Ku:Lcom/google/android/gms/internal/it$b;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzko:Lcom/google/android/gms/internal/drive/zzie;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -191,9 +219,9 @@
 .method public getMimeType()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kh:Lcom/google/android/gms/internal/ir$c;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjs:Lcom/google/android/gms/internal/drive/zzhu;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -204,10 +232,12 @@
 
 .method public getModifiedByMeDate()Ljava/util/Date;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Kw:Lcom/google/android/gms/internal/it$c;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzkq:Lcom/google/android/gms/internal/drive/zzif;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -219,9 +249,9 @@
 .method public getModifiedDate()Ljava/util/Date;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Kv:Lcom/google/android/gms/internal/it$d;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzkp:Lcom/google/android/gms/internal/drive/zzig;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -233,9 +263,9 @@
 .method public getOriginalFilename()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Ki:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjt:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -247,9 +277,9 @@
 .method public getQuotaBytesUsed()J
     .locals 2
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kl:Lcom/google/android/gms/internal/ir$e;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjy:Lcom/google/android/gms/internal/drive/zzhv;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -264,10 +294,12 @@
 
 .method public getSharedWithMeDate()Ljava/util/Date;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/it;->Kx:Lcom/google/android/gms/internal/it$e;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzic;->zzkr:Lcom/google/android/gms/internal/drive/zzii;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -279,9 +311,9 @@
 .method public getTitle()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Ko:Lcom/google/android/gms/internal/ir$g;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzkb:Lcom/google/android/gms/internal/drive/zzhy;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -293,9 +325,9 @@
 .method public getWebContentLink()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kq:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzkd:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -307,9 +339,9 @@
 .method public getWebViewLink()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kr:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzke:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -321,9 +353,35 @@
 .method public isEditable()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kb:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjh:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public isExplicitlyTrashed()Z
+    .locals 1
+
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzji:Lcom/google/android/gms/drive/metadata/MetadataField;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -363,9 +421,9 @@
 .method public isInAppFolder()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->JZ:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjf:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -389,9 +447,9 @@
 .method public isPinnable()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/iv;->KA:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzik;->zzkv:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -415,9 +473,9 @@
 .method public isPinned()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kc:Lcom/google/android/gms/internal/ir$b;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjk:Lcom/google/android/gms/internal/drive/zzht;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -441,9 +499,9 @@
 .method public isRestricted()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kd:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjm:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -467,9 +525,9 @@
 .method public isShared()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Ke:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjn:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -493,9 +551,9 @@
 .method public isStarred()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Km:Lcom/google/android/gms/internal/ir$f;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjz:Lcom/google/android/gms/internal/drive/zzhx;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -516,12 +574,38 @@
     goto :goto_0
 .end method
 
+.method public isTrashable()Z
+    .locals 1
+
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjq:Lcom/google/android/gms/drive/metadata/MetadataField;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
 .method public isTrashed()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kp:Lcom/google/android/gms/internal/ir$h;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzkc:Lcom/google/android/gms/internal/drive/zzhz;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -545,9 +629,9 @@
 .method public isViewed()Z
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/ir;->Kg:Lcom/google/android/gms/drive/metadata/MetadataField;
+    sget-object v0, Lcom/google/android/gms/internal/drive/zzhp;->zzjr:Lcom/google/android/gms/drive/metadata/MetadataField;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->a(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/Metadata;->zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -566,4 +650,16 @@
     move-result v0
 
     goto :goto_0
+.end method
+
+.method public abstract zza(Lcom/google/android/gms/drive/metadata/MetadataField;)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/google/android/gms/drive/metadata/MetadataField",
+            "<TT;>;)TT;"
+        }
+    .end annotation
 .end method

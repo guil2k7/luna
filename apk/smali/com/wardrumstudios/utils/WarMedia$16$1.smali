@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Lcom/wardrumstudios/utils/WarMedia$16;
 
     .prologue
-    .line 1664
+    .line 1671
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .param p4, "height"    # I
 
     .prologue
-    .line 1678
+    .line 1685
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -78,21 +78,21 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1679
+    .line 1686
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iput p3, v0, Lcom/wardrumstudios/utils/WarMedia;->movieViewWidth:I
 
-    .line 1680
+    .line 1687
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iput p4, v0, Lcom/wardrumstudios/utils/WarMedia;->movieViewHeight:I
 
-    .line 1681
+    .line 1688
     return-void
 .end method
 
@@ -103,14 +103,14 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1668
+    .line 1675
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iput-boolean v2, v0, Lcom/wardrumstudios/utils/WarMedia;->movieViewIsActive:Z
 
-    .line 1669
+    .line 1676
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -119,25 +119,25 @@
 
     if-nez v0, :cond_0
 
-    .line 1670
+    .line 1677
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "movieViewCreated surfaceCreated firsttime"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1671
+    .line 1678
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iput-boolean v2, v0, Lcom/wardrumstudios/utils/WarMedia;->movieViewCreated:Z
 
-    .line 1675
+    .line 1682
     :goto_0
     return-void
 
-    .line 1673
+    .line 1680
     :cond_0
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -155,14 +155,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1684
+    .line 1691
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "movieViewCreated surfaceDestroyed"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1685
+    .line 1692
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -181,7 +181,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceView;->setVisibility(I)V
 
-    .line 1686
+    .line 1693
     :cond_0
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
@@ -189,14 +189,14 @@
 
     iput-boolean v2, v0, Lcom/wardrumstudios/utils/WarMedia;->movieViewIsActive:Z
 
-    .line 1687
+    .line 1694
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-static {v0, v2}, Lcom/wardrumstudios/utils/WarMedia;->access$1402(Lcom/wardrumstudios/utils/WarMedia;Z)Z
 
-    .line 1688
+    .line 1695
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -205,7 +205,7 @@
 
     iput-object v1, v0, Lcom/wardrumstudios/utils/WarMedia;->movieSubtitleText:Ljava/lang/String;
 
-    .line 1689
+    .line 1696
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$16$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$16;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$16;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -214,6 +214,6 @@
 
     invoke-static {v0, v1}, Lcom/wardrumstudios/utils/WarMedia;->access$1502(Lcom/wardrumstudios/utils/WarMedia;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 1690
+    .line 1697
     return-void
 .end method

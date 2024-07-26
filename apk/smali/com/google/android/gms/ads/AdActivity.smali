@@ -1,5 +1,10 @@
-.class public final Lcom/google/android/gms/ads/AdActivity;
+.class public Lcom/google/android/gms/ads/AdActivity;
 .super Landroid/app/Activity;
+
+
+# annotations
+.annotation build Lcom/google/android/gms/common/annotation/KeepForSdkWithMembers;
+.end annotation
 
 
 # static fields
@@ -9,7 +14,7 @@
 
 
 # instance fields
-.field private kp:Lcom/google/android/gms/internal/co;
+.field private zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
 
 # direct methods
@@ -21,17 +26,17 @@
     return-void
 .end method
 
-.method private N()V
+.method private final zzax()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/co;->N()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzaap;->zzax()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -42,35 +47,130 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward setContentViewSet to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method
 
 
 # virtual methods
+.method protected onActivityResult(IILandroid/content/Intent;)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
+
+    invoke-interface {v0, p1, p2, p3}, Lcom/google/android/gms/internal/ads/zzaap;->onActivityResult(IILandroid/content/Intent;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "#007 Could not call remote method."
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_0
+.end method
+
+.method public onBackPressed()V
+    .locals 3
+
+    const/4 v0, 0x1
+
+    :try_start_0
+    iget-object v1, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
+
+    invoke-interface {v1}, Lcom/google/android/gms/internal/ads/zzaap;->zznj()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    :cond_0
+    :goto_0
+    if-eqz v0, :cond_1
+
+    invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
+
+    :cond_1
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string v2, "#007 Could not call remote method."
+
+    invoke-static {v2, v1}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_0
+.end method
+
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
+
+    invoke-static {p1}, Lcom/google/android/gms/dynamic/ObjectWrapper;->wrap(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/IObjectWrapper;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/ads/zzaap;->zzo(Lcom/google/android/gms/dynamic/IObjectWrapper;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "#007 Could not call remote method."
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_0
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-static {p0}, Lcom/google/android/gms/internal/cn;->a(Landroid/app/Activity;)Lcom/google/android/gms/internal/co;
+    invoke-static {}, Lcom/google/android/gms/internal/ads/zzkb;->zzig()Lcom/google/android/gms/internal/ads/zzjr;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/ads/zzjr;->zzb(Landroid/app/Activity;)Lcom/google/android/gms/internal/ads/zzaap;
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
+
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-nez v0, :cond_0
 
-    const-string v0, "Could not create ad overlay."
+    const-string v0, "#007 Could not call remote method."
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/ev;->D(Ljava/lang/String;)V
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -79,9 +179,9 @@
 
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0, p1}, Lcom/google/android/gms/internal/co;->onCreate(Landroid/os/Bundle;)V
+    invoke-interface {v0, p1}, Lcom/google/android/gms/internal/ads/zzaap;->onCreate(Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -90,9 +190,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onCreate to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -103,13 +203,13 @@
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/co;->onDestroy()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzaap;->onDestroy()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -122,9 +222,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onDestroy to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method
@@ -133,13 +233,13 @@
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/co;->onPause()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzaap;->onPause()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -152,9 +252,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onPause to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -167,13 +267,13 @@
     invoke-super {p0}, Landroid/app/Activity;->onRestart()V
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/co;->onRestart()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzaap;->onRestart()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -184,9 +284,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onRestart to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -199,13 +299,13 @@
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/co;->onResume()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzaap;->onResume()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -216,9 +316,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onResume to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -227,17 +327,15 @@
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "outState"    # Landroid/os/Bundle;
 
-    .prologue
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0, p1}, Lcom/google/android/gms/internal/co;->onSaveInstanceState(Landroid/os/Bundle;)V
+    invoke-interface {v0, p1}, Lcom/google/android/gms/internal/ads/zzaap;->onSaveInstanceState(Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -250,9 +348,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onSaveInstanceState to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -265,13 +363,13 @@
     invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/co;->onStart()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzaap;->onStart()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -282,9 +380,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onStart to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -295,13 +393,13 @@
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->kp:Lcom/google/android/gms/internal/co;
+    iget-object v0, p0, Lcom/google/android/gms/ads/AdActivity;->zzuj:Lcom/google/android/gms/internal/ads/zzaap;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/co;->onStop()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzaap;->onStop()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -314,9 +412,9 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Could not forward onStop to ad overlay:"
+    const-string v1, "#007 Could not call remote method."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ev;->c(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzane;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/AdActivity;->finish()V
 
@@ -325,37 +423,30 @@
 
 .method public setContentView(I)V
     .locals 0
-    .param p1, "layoutResID"    # I
 
-    .prologue
     invoke-super {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
-    invoke-direct {p0}, Lcom/google/android/gms/ads/AdActivity;->N()V
+    invoke-direct {p0}, Lcom/google/android/gms/ads/AdActivity;->zzax()V
 
     return-void
 .end method
 
 .method public setContentView(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     invoke-super {p0, p1}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
 
-    invoke-direct {p0}, Lcom/google/android/gms/ads/AdActivity;->N()V
+    invoke-direct {p0}, Lcom/google/android/gms/ads/AdActivity;->zzax()V
 
     return-void
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
-    .prologue
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-direct {p0}, Lcom/google/android/gms/ads/AdActivity;->N()V
+    invoke-direct {p0}, Lcom/google/android/gms/ads/AdActivity;->zzax()V
 
     return-void
 .end method

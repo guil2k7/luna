@@ -8,7 +8,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/drive/DriveFile$DownloadProgressListener;
+        Lcom/google/android/gms/drive/DriveFile$DownloadProgressListener;,
+        Lcom/google/android/gms/drive/DriveFile$OpenMode;
     }
 .end annotation
 
@@ -22,53 +23,11 @@
 
 
 # virtual methods
-.method public abstract commitAndCloseContents(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/drive/Contents;)Lcom/google/android/gms/common/api/PendingResult;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/common/api/GoogleApiClient;",
-            "Lcom/google/android/gms/drive/Contents;",
-            ")",
-            "Lcom/google/android/gms/common/api/PendingResult",
-            "<",
-            "Lcom/google/android/gms/common/api/Status;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract commitAndCloseContents(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/drive/Contents;Lcom/google/android/gms/drive/MetadataChangeSet;)Lcom/google/android/gms/common/api/PendingResult;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/common/api/GoogleApiClient;",
-            "Lcom/google/android/gms/drive/Contents;",
-            "Lcom/google/android/gms/drive/MetadataChangeSet;",
-            ")",
-            "Lcom/google/android/gms/common/api/PendingResult",
-            "<",
-            "Lcom/google/android/gms/common/api/Status;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract discardContents(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/drive/Contents;)Lcom/google/android/gms/common/api/PendingResult;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/common/api/GoogleApiClient;",
-            "Lcom/google/android/gms/drive/Contents;",
-            ")",
-            "Lcom/google/android/gms/common/api/PendingResult",
-            "<",
-            "Lcom/google/android/gms/common/api/Status;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract openContents(Lcom/google/android/gms/common/api/GoogleApiClient;ILcom/google/android/gms/drive/DriveFile$DownloadProgressListener;)Lcom/google/android/gms/common/api/PendingResult;
+.method public abstract open(Lcom/google/android/gms/common/api/GoogleApiClient;ILcom/google/android/gms/drive/DriveFile$DownloadProgressListener;)Lcom/google/android/gms/common/api/PendingResult;
+    .param p3    # Lcom/google/android/gms/drive/DriveFile$DownloadProgressListener;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,8 +37,11 @@
             ")",
             "Lcom/google/android/gms/common/api/PendingResult",
             "<",
-            "Lcom/google/android/gms/drive/DriveApi$ContentsResult;",
+            "Lcom/google/android/gms/drive/DriveApi$DriveContentsResult;",
             ">;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method

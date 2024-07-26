@@ -15,6 +15,9 @@
     name = "DriveIdResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getDriveId()Lcom/google/android/gms/drive/DriveId;

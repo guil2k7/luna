@@ -15,12 +15,24 @@
 
 # static fields
 .field public static final CONTRIBUTOR:I = 0x6
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final OTHER:I = 0x4
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final OTHER_PROFILE:I = 0x5
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final WEBSITE:I = 0x7
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # direct methods

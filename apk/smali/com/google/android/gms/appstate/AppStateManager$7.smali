@@ -1,5 +1,5 @@
 .class final Lcom/google/android/gms/appstate/AppStateManager$7;
-.super Lcom/google/android/gms/appstate/AppStateManager$c;
+.super Lcom/google/android/gms/appstate/AppStateManager$zzc;
 
 
 # annotations
@@ -14,19 +14,17 @@
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 1
+.method constructor <init>(Lcom/google/android/gms/common/api/GoogleApiClient;)V
+    .locals 0
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/google/android/gms/appstate/AppStateManager$c;-><init>(Lcom/google/android/gms/appstate/AppStateManager$1;)V
+    invoke-direct {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$zzc;-><init>(Lcom/google/android/gms/common/api/GoogleApiClient;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected bridge synthetic a(Lcom/google/android/gms/common/api/Api$a;)V
+.method protected bridge synthetic zza(Lcom/google/android/gms/common/api/Api$Client;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -34,17 +32,22 @@
         }
     .end annotation
 
-    check-cast p1, Lcom/google/android/gms/internal/gb;
+    check-cast p1, Lcom/google/android/gms/internal/zzjb;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$7;->a(Lcom/google/android/gms/internal/gb;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/gms/appstate/AppStateManager$7;->zza(Lcom/google/android/gms/internal/zzjb;)V
 
     return-void
 .end method
 
-.method protected a(Lcom/google/android/gms/internal/gb;)V
+.method protected zza(Lcom/google/android/gms/internal/zzjb;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    invoke-virtual {p1, p0}, Lcom/google/android/gms/internal/gb;->a(Lcom/google/android/gms/common/api/a$d;)V
+    invoke-virtual {p1, p0}, Lcom/google/android/gms/internal/zzjb;->zza(Lcom/google/android/gms/common/api/zza$zzb;)V
 
     return-void
 .end method

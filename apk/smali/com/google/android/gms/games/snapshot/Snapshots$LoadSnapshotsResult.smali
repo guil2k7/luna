@@ -16,6 +16,9 @@
     name = "LoadSnapshotsResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getSnapshots()Lcom/google/android/gms/games/snapshot/SnapshotMetadataBuffer;

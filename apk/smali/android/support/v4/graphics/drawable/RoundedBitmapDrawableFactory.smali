@@ -12,7 +12,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "RoundedBitmapDrawableFactory"
+.field private static final TAG:Ljava/lang/String; = "RoundedBitmapDrawableFa"
 
 
 # direct methods
@@ -80,7 +80,7 @@
     if-nez v1, :cond_0
 
     .line 93
-    const-string v1, "RoundedBitmapDrawableFactory"
+    const-string v1, "RoundedBitmapDrawableFa"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -131,7 +131,7 @@
     if-nez v1, :cond_0
 
     .line 80
-    const-string v1, "RoundedBitmapDrawableFactory"
+    const-string v1, "RoundedBitmapDrawableFa"
 
     new-instance v2, Ljava/lang/StringBuilder;
 

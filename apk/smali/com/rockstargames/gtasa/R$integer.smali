@@ -15,7 +15,11 @@
 
 
 # static fields
-.field public static final google_play_services_version:I = 0x7f080000
+.field public static final cancel_button_image_alpha:I = 0x7f0b0000
+
+.field public static final google_play_services_version:I = 0x7f0b0001
+
+.field public static final status_bar_notification_info_maxnum:I = 0x7f0b0002
 
 
 # direct methods
@@ -23,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 441
+    .line 323
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

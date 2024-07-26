@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/content/SharedPreferencesCompat$1;,
         Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
     }
 .end annotation
@@ -17,7 +16,7 @@
     .locals 0
 
     .prologue
-    .line 71
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

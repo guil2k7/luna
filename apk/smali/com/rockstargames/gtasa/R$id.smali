@@ -15,79 +15,117 @@
 
 
 # static fields
-.field public static final approveCellular:I = 0x7f09001d
+.field public static final action0:I = 0x7f0a0027
 
-.field public static final book_now:I = 0x7f09000e
+.field public static final action_container:I = 0x7f0a0024
 
-.field public static final buttonRow:I = 0x7f090020
+.field public static final action_divider:I = 0x7f0a002b
 
-.field public static final buyButton:I = 0x7f09000a
+.field public static final action_image:I = 0x7f0a0025
 
-.field public static final buy_now:I = 0x7f09000f
+.field public static final action_text:I = 0x7f0a0026
 
-.field public static final buy_with_google:I = 0x7f090010
+.field public static final actions:I = 0x7f0a0034
 
-.field public static final cancelButton:I = 0x7f09001c
+.field public static final adjust_height:I = 0x7f0a000a
 
-.field public static final classic:I = 0x7f090011
+.field public static final adjust_width:I = 0x7f0a000b
 
-.field public static final downloaderDashboard:I = 0x7f090015
+.field public static final approveCellular:I = 0x7f0a001c
 
-.field public static final grayscale:I = 0x7f090012
+.field public static final async:I = 0x7f0a0005
 
-.field public static final holo_dark:I = 0x7f090005
+.field public static final auto:I = 0x7f0a0010
 
-.field public static final holo_light:I = 0x7f090006
+.field public static final blocking:I = 0x7f0a0006
 
-.field public static final hybrid:I = 0x7f090000
+.field public static final buttonRow:I = 0x7f0a001f
 
-.field public static final imageView1:I = 0x7f090023
+.field public static final cancelButton:I = 0x7f0a001b
 
-.field public static final match_parent:I = 0x7f09000c
+.field public static final cancel_action:I = 0x7f0a0028
 
-.field public static final monochrome:I = 0x7f090013
+.field public static final chronometer:I = 0x7f0a0030
 
-.field public static final none:I = 0x7f090001
+.field public static final dark:I = 0x7f0a0011
 
-.field public static final normal:I = 0x7f090002
+.field public static final downloaderDashboard:I = 0x7f0a0014
 
-.field public static final pauseButton:I = 0x7f09001b
+.field public static final end_padder:I = 0x7f0a0037
 
-.field public static final production:I = 0x7f090007
+.field public static final forever:I = 0x7f0a0007
 
-.field public static final progressAsFraction:I = 0x7f090016
+.field public static final icon:I = 0x7f0a0032
 
-.field public static final progressAsPercentage:I = 0x7f090017
+.field public static final icon_group:I = 0x7f0a0035
 
-.field public static final progressAverageSpeed:I = 0x7f090019
+.field public static final icon_only:I = 0x7f0a000d
 
-.field public static final progressBar:I = 0x7f090018
+.field public static final imageView1:I = 0x7f0a0022
 
-.field public static final progressBar1:I = 0x7f090024
+.field public static final info:I = 0x7f0a0031
 
-.field public static final progressTimeRemaining:I = 0x7f09001a
+.field public static final italic:I = 0x7f0a0008
 
-.field public static final resumeOverCellular:I = 0x7f090021
+.field public static final light:I = 0x7f0a0012
 
-.field public static final sandbox:I = 0x7f090008
+.field public static final line1:I = 0x7f0a0000
 
-.field public static final satellite:I = 0x7f090003
+.field public static final line3:I = 0x7f0a0001
 
-.field public static final selectionDetails:I = 0x7f09000b
+.field public static final media_actions:I = 0x7f0a002a
 
-.field public static final statusText:I = 0x7f090014
+.field public static final none:I = 0x7f0a000c
 
-.field public static final strict_sandbox:I = 0x7f090009
+.field public static final normal:I = 0x7f0a0009
 
-.field public static final terrain:I = 0x7f090004
+.field public static final notification_background:I = 0x7f0a0033
 
-.field public static final textPausedParagraph1:I = 0x7f09001e
+.field public static final notification_main_column:I = 0x7f0a002d
 
-.field public static final textPausedParagraph2:I = 0x7f09001f
+.field public static final notification_main_column_container:I = 0x7f0a002c
 
-.field public static final wifiSettingsButton:I = 0x7f090022
+.field public static final pauseButton:I = 0x7f0a001a
 
-.field public static final wrap_content:I = 0x7f09000d
+.field public static final progressAsFraction:I = 0x7f0a0015
+
+.field public static final progressAsPercentage:I = 0x7f0a0016
+
+.field public static final progressAverageSpeed:I = 0x7f0a0018
+
+.field public static final progressBar:I = 0x7f0a0017
+
+.field public static final progressBar1:I = 0x7f0a0023
+
+.field public static final progressTimeRemaining:I = 0x7f0a0019
+
+.field public static final resumeOverCellular:I = 0x7f0a0020
+
+.field public static final right_icon:I = 0x7f0a0036
+
+.field public static final right_side:I = 0x7f0a002e
+
+.field public static final standard:I = 0x7f0a000e
+
+.field public static final statusText:I = 0x7f0a0013
+
+.field public static final status_bar_latest_event_content:I = 0x7f0a0029
+
+.field public static final text:I = 0x7f0a0002
+
+.field public static final text2:I = 0x7f0a0003
+
+.field public static final textPausedParagraph1:I = 0x7f0a001d
+
+.field public static final textPausedParagraph2:I = 0x7f0a001e
+
+.field public static final time:I = 0x7f0a002f
+
+.field public static final title:I = 0x7f0a0004
+
+.field public static final wide:I = 0x7f0a000f
+
+.field public static final wifiSettingsButton:I = 0x7f0a0021
 
 
 # direct methods
@@ -95,7 +133,7 @@
     .locals 0
 
     .prologue
-    .line 402
+    .line 265
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

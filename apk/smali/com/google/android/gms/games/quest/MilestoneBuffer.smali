@@ -1,41 +1,40 @@
 .class public final Lcom/google/android/gms/games/quest/MilestoneBuffer;
-.super Lcom/google/android/gms/common/data/DataBuffer;
+.super Lcom/google/android/gms/common/data/AbstractDataBuffer;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/google/android/gms/common/data/DataBuffer",
+        "Lcom/google/android/gms/common/data/AbstractDataBuffer",
         "<",
         "Lcom/google/android/gms/games/quest/Milestone;",
         ">;"
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
-.method public get(I)Lcom/google/android/gms/games/quest/Milestone;
+.method public final get(I)Lcom/google/android/gms/games/quest/Milestone;
     .locals 2
-    .param p1, "position"    # I
 
-    .prologue
-    new-instance v0, Lcom/google/android/gms/games/quest/MilestoneRef;
+    new-instance v0, Lcom/google/android/gms/games/quest/zzb;
 
-    iget-object v1, p0, Lcom/google/android/gms/games/quest/MilestoneBuffer;->DD:Lcom/google/android/gms/common/data/DataHolder;
+    iget-object v1, p0, Lcom/google/android/gms/games/quest/MilestoneBuffer;->mDataHolder:Lcom/google/android/gms/common/data/DataHolder;
 
-    invoke-direct {v0, v1, p1}, Lcom/google/android/gms/games/quest/MilestoneRef;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
+    invoke-direct {v0, v1, p1}, Lcom/google/android/gms/games/quest/zzb;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
 
     return-object v0
 .end method
 
-.method public bridge synthetic get(I)Ljava/lang/Object;
+.method public final synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/games/quest/MilestoneBuffer;->get(I)Lcom/google/android/gms/games/quest/Milestone;
+    new-instance v0, Ljava/lang/NoSuchMethodError;
 
-    move-result-object v0
+    invoke-direct {v0}, Ljava/lang/NoSuchMethodError;-><init>()V
 
-    return-object v0
+    throw v0
 .end method

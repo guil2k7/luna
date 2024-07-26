@@ -3,6 +3,12 @@
 .source "TreeDocumentFile.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
+
 # instance fields
 .field private mContext:Landroid/content/Context;
 
@@ -17,16 +23,16 @@
     .param p3, "uri"    # Landroid/net/Uri;
 
     .prologue
-    .line 27
+    .line 29
     invoke-direct {p0, p1}, Landroid/support/v4/provider/DocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;)V
 
-    .line 28
+    .line 30
     iput-object p2, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
-    .line 29
+    .line 31
     iput-object p3, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
 
-    .line 30
+    .line 32
     return-void
 .end method
 
@@ -36,7 +42,7 @@
     .locals 2
 
     .prologue
-    .line 81
+    .line 88
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -52,7 +58,7 @@
     .locals 2
 
     .prologue
-    .line 86
+    .line 93
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -69,7 +75,7 @@
     .param p1, "displayName"    # Ljava/lang/String;
 
     .prologue
-    .line 40
+    .line 42
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -78,7 +84,7 @@
 
     move-result-object v0
 
-    .line 41
+    .line 43
     .local v0, "result":Landroid/net/Uri;
     if-eqz v0, :cond_0
 
@@ -103,7 +109,7 @@
     .param p2, "displayName"    # Ljava/lang/String;
 
     .prologue
-    .line 34
+    .line 36
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -112,7 +118,7 @@
 
     move-result-object v0
 
-    .line 35
+    .line 37
     .local v0, "result":Landroid/net/Uri;
     if-eqz v0, :cond_0
 
@@ -135,7 +141,7 @@
     .locals 2
 
     .prologue
-    .line 91
+    .line 98
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -151,7 +157,7 @@
     .locals 2
 
     .prologue
-    .line 96
+    .line 103
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -167,7 +173,7 @@
     .locals 2
 
     .prologue
-    .line 51
+    .line 53
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -183,7 +189,7 @@
     .locals 2
 
     .prologue
-    .line 56
+    .line 58
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -199,7 +205,7 @@
     .locals 1
 
     .prologue
-    .line 46
+    .line 48
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
 
     return-object v0
@@ -209,7 +215,7 @@
     .locals 2
 
     .prologue
-    .line 61
+    .line 63
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -225,7 +231,7 @@
     .locals 2
 
     .prologue
-    .line 66
+    .line 68
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -237,11 +243,27 @@
     return v0
 .end method
 
+.method public isVirtual()Z
+    .locals 2
+
+    .prologue
+    .line 73
+    iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
+
+    invoke-static {v0, v1}, Landroid/support/v4/provider/DocumentsContractApi19;->isVirtual(Landroid/content/Context;Landroid/net/Uri;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public lastModified()J
     .locals 2
 
     .prologue
-    .line 71
+    .line 78
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -257,7 +279,7 @@
     .locals 2
 
     .prologue
-    .line 76
+    .line 83
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -273,7 +295,7 @@
     .locals 6
 
     .prologue
-    .line 101
+    .line 108
     iget-object v3, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v4, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -282,13 +304,13 @@
 
     move-result-object v1
 
-    .line 102
+    .line 109
     .local v1, "result":[Landroid/net/Uri;
     array-length v3, v1
 
     new-array v2, v3, [Landroid/support/v4/provider/DocumentFile;
 
-    .line 103
+    .line 110
     .local v2, "resultFiles":[Landroid/support/v4/provider/DocumentFile;
     const/4 v0, 0x0
 
@@ -298,7 +320,7 @@
 
     if-ge v0, v3, :cond_0
 
-    .line 104
+    .line 111
     new-instance v3, Landroid/support/v4/provider/TreeDocumentFile;
 
     iget-object v4, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
@@ -309,12 +331,12 @@
 
     aput-object v3, v2, v0
 
-    .line 103
+    .line 110
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 106
+    .line 113
     :cond_0
     return-object v2
 .end method
@@ -324,7 +346,7 @@
     .param p1, "displayName"    # Ljava/lang/String;
 
     .prologue
-    .line 111
+    .line 118
     iget-object v1, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
@@ -333,17 +355,17 @@
 
     move-result-object v0
 
-    .line 112
+    .line 119
     .local v0, "result":Landroid/net/Uri;
     if-eqz v0, :cond_0
 
-    .line 113
+    .line 120
     iput-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
 
-    .line 114
+    .line 121
     const/4 v1, 0x1
 
-    .line 116
+    .line 123
     :goto_0
     return v1
 

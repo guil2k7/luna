@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Lcom/wardrumstudios/utils/WarMedia$19;
 
     .prologue
-    .line 2349
+    .line 2356
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$19$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$19;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 2352
+    .line 2359
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$19$1;->this$1:Lcom/wardrumstudios/utils/WarMedia$19;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$19;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -51,6 +51,6 @@
 
     invoke-static {v0, v1}, Lcom/wardrumstudios/utils/WarMedia;->access$1802(Lcom/wardrumstudios/utils/WarMedia;Z)Z
 
-    .line 2353
+    .line 2360
     return-void
 .end method

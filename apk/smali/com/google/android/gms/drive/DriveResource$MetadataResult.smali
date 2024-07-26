@@ -15,6 +15,9 @@
     name = "MetadataResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getMetadata()Lcom/google/android/gms/drive/Metadata;

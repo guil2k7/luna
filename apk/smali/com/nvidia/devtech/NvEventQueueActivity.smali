@@ -39,7 +39,7 @@
 
 .field SwapBufferSkip:I
 
-.field Use2Touches:Z
+.field public Use2Touches:Z
 
 .field protected UseSubtitles:Z
 
@@ -2660,12 +2660,10 @@
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_4
 
-    .line 308
     :cond_1
     :goto_2
     throw v5
 
-    .line 306
     .restart local v4    # "size":I
     :catch_3
     move-exception v5

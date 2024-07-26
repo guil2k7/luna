@@ -64,7 +64,7 @@
     .local p0, "this":Landroid/support/v4/util/MapCollections;, "Landroid/support/v4/util/MapCollections<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 353
+    .line 355
     return-void
 .end method
 
@@ -85,14 +85,14 @@
     .end annotation
 
     .prologue
-    .line 455
+    .line 457
     .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 456
+    .line 458
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<*>;"
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -101,7 +101,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 457
+    .line 459
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -112,10 +112,10 @@
 
     if-nez v1, :cond_0
 
-    .line 458
+    .line 460
     const/4 v1, 0x0
 
-    .line 461
+    .line 463
     :goto_0
     return v1
 
@@ -146,17 +146,17 @@
 
     const/4 v3, 0x0
 
-    .line 511
+    .line 513
     if-ne p0, p1, :cond_1
 
     move v3, v2
 
-    .line 525
+    .line 527
     :cond_0
     :goto_0
     return v3
 
-    .line 514
+    .line 516
     :cond_1
     instance-of v4, p1, Ljava/util/Set;
 
@@ -164,10 +164,10 @@
 
     move-object v1, p1
 
-    .line 515
+    .line 517
     check-cast v1, Ljava/util/Set;
 
-    .line 518
+    .line 520
     .local v1, "s":Ljava/util/Set;, "Ljava/util/Set<*>;"
     :try_start_0
     invoke-interface {p0}, Ljava/util/Set;->size()I
@@ -199,20 +199,20 @@
 
     goto :goto_1
 
-    .line 519
+    .line 521
     :catch_0
     move-exception v0
 
-    .line 520
+    .line 522
     .local v0, "ignored":Ljava/lang/NullPointerException;
     goto :goto_0
 
-    .line 521
+    .line 523
     .end local v0    # "ignored":Ljava/lang/NullPointerException;
     :catch_1
     move-exception v0
 
-    .line 522
+    .line 524
     .local v0, "ignored":Ljava/lang/ClassCastException;
     goto :goto_0
 .end method
@@ -234,20 +234,20 @@
     .end annotation
 
     .prologue
-    .line 465
+    .line 467
     .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
     move-result v1
 
-    .line 466
+    .line 468
     .local v1, "oldSize":I
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 467
+    .line 469
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<*>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -256,7 +256,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 468
+    .line 470
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -265,7 +265,7 @@
 
     goto :goto_0
 
-    .line 470
+    .line 472
     :cond_0
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
@@ -301,14 +301,14 @@
     .end annotation
 
     .prologue
-    .line 474
+    .line 476
     .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
     move-result v1
 
-    .line 475
+    .line 477
     .local v1, "oldSize":I
     invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
@@ -318,7 +318,7 @@
 
     move-result-object v0
 
-    .line 476
+    .line 478
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TK;>;"
     :cond_0
     :goto_0
@@ -328,7 +328,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 477
+    .line 479
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -339,12 +339,12 @@
 
     if-nez v2, :cond_0
 
-    .line 478
+    .line 480
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     goto :goto_0
 
-    .line 481
+    .line 483
     :cond_1
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
@@ -422,20 +422,20 @@
     .end annotation
 
     .prologue
-    .line 529
+    .line 531
     .local p0, "this":Landroid/support/v4/util/MapCollections;, "Landroid/support/v4/util/MapCollections<TK;TV;>;"
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mEntrySet:Landroid/support/v4/util/MapCollections$EntrySet;
 
     if-nez v0, :cond_0
 
-    .line 530
+    .line 532
     new-instance v0, Landroid/support/v4/util/MapCollections$EntrySet;
 
     invoke-direct {v0, p0}, Landroid/support/v4/util/MapCollections$EntrySet;-><init>(Landroid/support/v4/util/MapCollections;)V
 
     iput-object v0, p0, Landroid/support/v4/util/MapCollections;->mEntrySet:Landroid/support/v4/util/MapCollections$EntrySet;
 
-    .line 532
+    .line 534
     :cond_0
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mEntrySet:Landroid/support/v4/util/MapCollections$EntrySet;
 
@@ -453,20 +453,20 @@
     .end annotation
 
     .prologue
-    .line 536
+    .line 538
     .local p0, "this":Landroid/support/v4/util/MapCollections;, "Landroid/support/v4/util/MapCollections<TK;TV;>;"
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mKeySet:Landroid/support/v4/util/MapCollections$KeySet;
 
     if-nez v0, :cond_0
 
-    .line 537
+    .line 539
     new-instance v0, Landroid/support/v4/util/MapCollections$KeySet;
 
     invoke-direct {v0, p0}, Landroid/support/v4/util/MapCollections$KeySet;-><init>(Landroid/support/v4/util/MapCollections;)V
 
     iput-object v0, p0, Landroid/support/v4/util/MapCollections;->mKeySet:Landroid/support/v4/util/MapCollections$KeySet;
 
-    .line 539
+    .line 541
     :cond_0
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mKeySet:Landroid/support/v4/util/MapCollections$KeySet;
 
@@ -484,20 +484,20 @@
     .end annotation
 
     .prologue
-    .line 543
+    .line 545
     .local p0, "this":Landroid/support/v4/util/MapCollections;, "Landroid/support/v4/util/MapCollections<TK;TV;>;"
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mValues:Landroid/support/v4/util/MapCollections$ValuesCollection;
 
     if-nez v0, :cond_0
 
-    .line 544
+    .line 546
     new-instance v0, Landroid/support/v4/util/MapCollections$ValuesCollection;
 
     invoke-direct {v0, p0}, Landroid/support/v4/util/MapCollections$ValuesCollection;-><init>(Landroid/support/v4/util/MapCollections;)V
 
     iput-object v0, p0, Landroid/support/v4/util/MapCollections;->mValues:Landroid/support/v4/util/MapCollections$ValuesCollection;
 
-    .line 546
+    .line 548
     :cond_0
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mValues:Landroid/support/v4/util/MapCollections$ValuesCollection;
 
@@ -509,17 +509,17 @@
     .param p1, "offset"    # I
 
     .prologue
-    .line 486
+    .line 488
     .local p0, "this":Landroid/support/v4/util/MapCollections;, "Landroid/support/v4/util/MapCollections<TK;TV;>;"
     invoke-virtual {p0}, Landroid/support/v4/util/MapCollections;->colGetSize()I
 
     move-result v0
 
-    .line 487
+    .line 489
     .local v0, "N":I
     new-array v2, v0, [Ljava/lang/Object;
 
-    .line 488
+    .line 490
     .local v2, "result":[Ljava/lang/Object;
     const/4 v1, 0x0
 
@@ -527,19 +527,19 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 489
+    .line 491
     invoke-virtual {p0, v1, p1}, Landroid/support/v4/util/MapCollections;->colGetEntry(II)Ljava/lang/Object;
 
     move-result-object v3
 
     aput-object v3, v2, v1
 
-    .line 488
+    .line 490
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 491
+    .line 493
     :cond_0
     return-object v2
 .end method
@@ -556,20 +556,20 @@
     .end annotation
 
     .prologue
-    .line 495
+    .line 497
     .local p0, "this":Landroid/support/v4/util/MapCollections;, "Landroid/support/v4/util/MapCollections<TK;TV;>;"
     .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-virtual {p0}, Landroid/support/v4/util/MapCollections;->colGetSize()I
 
     move-result v0
 
-    .line 496
+    .line 498
     .local v0, "N":I
     array-length v3, p1
 
     if-ge v3, v0, :cond_0
 
-    .line 497
+    .line 500
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -588,11 +588,11 @@
 
     check-cast v2, [Ljava/lang/Object;
 
-    .line 499
+    .line 501
     .local v2, "newArray":[Ljava/lang/Object;, "[TT;"
     move-object p1, v2
 
-    .line 501
+    .line 503
     .end local v2    # "newArray":[Ljava/lang/Object;, "[TT;"
     :cond_0
     const/4 v1, 0x0
@@ -601,30 +601,30 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 502
+    .line 504
     invoke-virtual {p0, v1, p2}, Landroid/support/v4/util/MapCollections;->colGetEntry(II)Ljava/lang/Object;
 
     move-result-object v3
 
     aput-object v3, p1, v1
 
-    .line 501
+    .line 503
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 504
+    .line 506
     :cond_1
     array-length v3, p1
 
     if-le v3, v0, :cond_2
 
-    .line 505
+    .line 507
     const/4 v3, 0x0
 
     aput-object v3, p1, v0
 
-    .line 507
+    .line 509
     :cond_2
     return-object p1
 .end method

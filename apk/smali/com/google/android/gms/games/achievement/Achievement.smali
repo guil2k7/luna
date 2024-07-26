@@ -1,6 +1,33 @@
 .class public interface abstract Lcom/google/android/gms/games/achievement/Achievement;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Landroid/os/Parcelable;
+.implements Lcom/google/android/gms/common/data/Freezable;
+
+
+# annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/games/achievement/Achievement$AchievementType;,
+        Lcom/google/android/gms/games/achievement/Achievement$AchievementState;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroid/os/Parcelable;",
+        "Lcom/google/android/gms/common/data/Freezable",
+        "<",
+        "Lcom/google/android/gms/games/achievement/Achievement;",
+        ">;"
+    }
+.end annotation
+
 
 # static fields
 .field public static final STATE_HIDDEN:I = 0x2
@@ -52,9 +79,17 @@
 .end method
 
 .method public abstract getRevealedImageUri()Landroid/net/Uri;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract getRevealedImageUrl()Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -69,9 +104,17 @@
 .end method
 
 .method public abstract getUnlockedImageUri()Landroid/net/Uri;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract getUnlockedImageUrl()Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method

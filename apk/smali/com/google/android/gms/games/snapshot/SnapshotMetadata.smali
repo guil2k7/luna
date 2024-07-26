@@ -22,6 +22,8 @@
 # static fields
 .field public static final PLAYED_TIME_UNKNOWN:J = -0x1L
 
+.field public static final PROGRESS_VALUE_UNKNOWN:J = -0x1L
+
 
 # virtual methods
 .method public abstract getCoverImageAspectRatio()F
@@ -31,6 +33,9 @@
 .end method
 
 .method public abstract getCoverImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -39,6 +44,9 @@
 .end method
 
 .method public abstract getDescription(Landroid/database/CharArrayBuffer;)V
+.end method
+
+.method public abstract getDeviceName()Ljava/lang/String;
 .end method
 
 .method public abstract getGame()Lcom/google/android/gms/games/Game;
@@ -53,6 +61,9 @@
 .method public abstract getPlayedTime()J
 .end method
 
+.method public abstract getProgressValue()J
+.end method
+
 .method public abstract getSnapshotId()Ljava/lang/String;
 .end method
 
@@ -60,4 +71,7 @@
 .end method
 
 .method public abstract getUniqueName()Ljava/lang/String;
+.end method
+
+.method public abstract hasChangePending()Z
 .end method

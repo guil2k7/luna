@@ -3,6 +3,9 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/android/gms/plus/PlusShare;
 .end annotation
@@ -12,11 +15,18 @@
     name = "Builder"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
-.field private abE:Z
+.field private final mContext:Landroid/content/Context;
 
-.field private abF:Ljava/util/ArrayList;
+.field private final mIntent:Landroid/content/Intent;
+
+.field private zzp:Z
+
+.field private zzq:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -27,17 +37,13 @@
     .end annotation
 .end field
 
-.field private final mContext:Landroid/content/Context;
-
-.field private final mIntent:Landroid/content/Intent;
-
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;)V
     .locals 2
-    .param p1, "launchingActivity"    # Landroid/app/Activity;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mContext:Landroid/content/Context;
@@ -70,88 +76,17 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abE:Z
+    iput-boolean v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzp:Z
 
     :cond_0
     return-void
-.end method
-
-.method public constructor <init>(Landroid/app/Activity;Lcom/google/android/gms/plus/PlusClient;)V
-    .locals 3
-    .param p1, "launchingActivity"    # Landroid/app/Activity;
-    .param p2, "plusClient"    # Lcom/google/android/gms/plus/PlusClient;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    .prologue
-    invoke-direct {p0, p1}, Lcom/google/android/gms/plus/PlusShare$Builder;-><init>(Landroid/app/Activity;)V
-
-    if-eqz p2, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    const-string v1, "PlusClient must not be null."
-
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
-
-    invoke-virtual {p2}, Lcom/google/android/gms/plus/PlusClient;->isConnected()Z
-
-    move-result v0
-
-    const-string v1, "PlusClient must be connected to create an interactive post."
-
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
-
-    invoke-virtual {p2}, Lcom/google/android/gms/plus/PlusClient;->jN()Lcom/google/android/gms/plus/internal/e;
-
-    move-result-object v0
-
-    const-string v1, "https://www.googleapis.com/auth/plus.login"
-
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/plus/internal/e;->by(Ljava/lang/String;)Z
-
-    move-result v0
-
-    const-string v1, "Must request PLUS_LOGIN scope in PlusClient to create an interactive post."
-
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
-
-    invoke-virtual {p2}, Lcom/google/android/gms/plus/PlusClient;->getCurrentPerson()Lcom/google/android/gms/plus/model/people/Person;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v0}, Lcom/google/android/gms/plus/model/people/Person;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_1
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
-
-    const-string v2, "com.google.android.apps.plus.SENDER_ID"
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_1
-    const-string v0, "0"
-
-    goto :goto_1
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mContext:Landroid/content/Context;
@@ -175,18 +110,16 @@
 # virtual methods
 .method public addCallToAction(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 4
-    .param p1, "label"    # Ljava/lang/String;
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "deepLinkId"    # Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     const/4 v1, 0x1
 
-    iget-boolean v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abE:Z
+    iget-boolean v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzp:Z
 
     const-string v2, "Must include the launching activity with PlusShare.Builder constructor before setting call-to-action"
 
-    invoke-static {v0, v2}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v0, v2}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
     if-eqz p2, :cond_2
 
@@ -205,7 +138,7 @@
     :goto_0
     const-string v2, "Must provide a call to action URL"
 
-    invoke-static {v0, v2}, Lcom/google/android/gms/internal/hn;->b(ZLjava/lang/Object;)V
+    invoke-static {v0, v2}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     new-instance v0, Landroid/os/Bundle;
 
@@ -236,13 +169,13 @@
 
     if-nez v2, :cond_1
 
-    invoke-static {p3}, Lcom/google/android/gms/plus/PlusShare;->bv(Ljava/lang/String;)Z
+    invoke-static {p3}, Lcom/google/android/gms/plus/PlusShare;->zza(Ljava/lang/String;)Z
 
     move-result v2
 
     const-string v3, "The specified deep-link ID was malformed."
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
     const-string v2, "deepLinkId"
 
@@ -277,9 +210,9 @@
 
 .method public addStream(Landroid/net/Uri;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 2
-    .param p1, "streamUri"    # Landroid/net/Uri;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
     const-string v1, "android.intent.extra.STREAM"
@@ -296,13 +229,11 @@
 
     move-result-object p0
 
-    .end local p0    # "this":Lcom/google/android/gms/plus/PlusShare$Builder;
     :goto_0
     return-object p0
 
-    .restart local p0    # "this":Lcom/google/android/gms/plus/PlusShare$Builder;
     :cond_0
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     if-nez v1, :cond_1
 
@@ -310,14 +241,14 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iput-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     :cond_1
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -326,16 +257,18 @@
 
 .method public getIntent()Landroid/content/Intent;
     .locals 7
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v0, 0x1
 
     const/4 v2, 0x0
 
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     if-eqz v1, :cond_6
 
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -376,7 +309,7 @@
     :goto_1
     const-string v6, "Call-to-action buttons are only available for URLs."
 
-    invoke-static {v3, v6}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v3, v6}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
     if-eqz v5, :cond_1
 
@@ -396,7 +329,7 @@
     :goto_2
     const-string v6, "The content URL is required for interactive posts."
 
-    invoke-static {v3, v6}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v3, v6}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
     if-eqz v5, :cond_2
 
@@ -424,7 +357,7 @@
     :goto_3
     const-string v3, "Must set content URL or content deep-link ID to use a call-to-action button."
 
-    invoke-static {v0, v3}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v0, v3}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
@@ -444,13 +377,13 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/plus/PlusShare;->bv(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/google/android/gms/plus/PlusShare;->zza(Ljava/lang/String;)Z
 
     move-result v0
 
     const-string v3, "The specified deep-link ID was malformed."
 
-    invoke-static {v0, v3}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v0, v3}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
     :cond_3
     if-nez v1, :cond_4
@@ -463,11 +396,11 @@
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_a
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -479,7 +412,7 @@
 
     const-string v5, "android.intent.extra.STREAM"
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -492,7 +425,7 @@
     :goto_4
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     :cond_4
     if-eqz v1, :cond_5
@@ -505,11 +438,11 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_b
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -521,7 +454,7 @@
 
     const-string v1, "android.intent.extra.STREAM"
 
-    iget-object v2, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
@@ -631,9 +564,9 @@
 
 .method public setContentDeepLinkId(Ljava/lang/String;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 1
-    .param p1, "deepLinkId"    # Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0, v0, v0}, Lcom/google/android/gms/plus/PlusShare$Builder;->setContentDeepLinkId(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)Lcom/google/android/gms/plus/PlusShare$Builder;
@@ -645,35 +578,51 @@
 
 .method public setContentDeepLinkId(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 3
-    .param p1, "deepLinkId"    # Ljava/lang/String;
-    .param p2, "title"    # Ljava/lang/String;
-    .param p3, "description"    # Ljava/lang/String;
-    .param p4, "thumbnailUri"    # Landroid/net/Uri;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iget-boolean v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abE:Z
+    iget-boolean v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzp:Z
 
     const-string v1, "Must include the launching activity with PlusShare.Builder constructor before setting deep links"
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->b(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     const/4 v0, 0x1
 
     :goto_0
     const-string v1, "The deepLinkId parameter is required."
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->b(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    invoke-static {p2, p3, p4}, Lcom/google/android/gms/plus/PlusShare;->a(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)Landroid/os/Bundle;
+    new-instance v0, Landroid/os/Bundle;
 
-    move-result-object v0
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    const-string v1, "title"
+
+    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v1, "description"
+
+    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p4, :cond_0
+
+    const-string v1, "thumbnailUrl"
+
+    invoke-virtual {p4}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
     const-string v2, "com.google.android.apps.plus.CONTENT_DEEP_LINK_ID"
@@ -694,7 +643,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -702,9 +651,9 @@
 
 .method public setContentUrl(Landroid/net/Uri;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 3
-    .param p1, "uri"    # Landroid/net/Uri;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     if-eqz p1, :cond_0
@@ -740,8 +689,7 @@
 .end method
 
 .method public setRecipients(Lcom/google/android/gms/plus/model/people/Person;Ljava/util/List;)Lcom/google/android/gms/plus/PlusShare$Builder;
-    .locals 3
-    .param p1, "user"    # Lcom/google/android/gms/plus/model/people/Person;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -754,8 +702,9 @@
         }
     .end annotation
 
-    .prologue
-    .local p2, "recipientList":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/plus/model/people/Person;>;"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
     iget-object v1, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
     const-string v2, "com.google.android.apps.plus.SENDER_ID"
@@ -769,44 +718,14 @@
     :goto_0
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {p0, p2}, Lcom/google/android/gms/plus/PlusShare$Builder;->setRecipients(Ljava/util/List;)Lcom/google/android/gms/plus/PlusShare$Builder;
+    if-eqz p2, :cond_1
 
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    const-string v0, "0"
-
-    goto :goto_0
-.end method
-
-.method public setRecipients(Ljava/util/List;)Lcom/google/android/gms/plus/PlusShare$Builder;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/google/android/gms/plus/model/people/Person;",
-            ">;)",
-            "Lcom/google/android/gms/plus/PlusShare$Builder;"
-        }
-    .end annotation
-
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    .prologue
-    .local p1, "recipientList":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/plus/model/people/Person;>;"
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_1
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
@@ -820,15 +739,20 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->removeExtra(Ljava/lang/String;)V
 
-    :goto_1
+    :goto_2
     return-object p0
 
     :cond_0
-    const/4 v0, 0x0
+    const-string v0, "0"
 
     goto :goto_0
 
     :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_2
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
@@ -837,16 +761,16 @@
 
     invoke-direct {v2, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_2
+    :goto_3
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -866,9 +790,9 @@
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
     const-string v3, "com.google.android.apps.plus.RECIPIENT_IDS"
@@ -881,17 +805,17 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putStringArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public setStream(Landroid/net/Uri;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 2
-    .param p1, "streamUri"    # Landroid/net/Uri;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->abF:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->zzq:Ljava/util/ArrayList;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
@@ -904,9 +828,9 @@
 
 .method public setText(Ljava/lang/CharSequence;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 2
-    .param p1, "text"    # Ljava/lang/CharSequence;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
     const-string v1, "android.intent.extra.TEXT"
@@ -918,9 +842,9 @@
 
 .method public setType(Ljava/lang/String;)Lcom/google/android/gms/plus/PlusShare$Builder;
     .locals 1
-    .param p1, "mimeType"    # Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusShare$Builder;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, p1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;

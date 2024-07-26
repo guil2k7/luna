@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "MediaSessionCompatApi21.java"
 
-# interfaces
-.implements Landroid/support/v4/media/session/MediaSessionCompatApi19$Callback;
-
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -43,6 +40,15 @@
 .end method
 
 .method public abstract onRewind()V
+.end method
+
+.method public abstract onSeekTo(J)V
+.end method
+
+.method public abstract onSetRating(Ljava/lang/Object;)V
+.end method
+
+.method public abstract onSetRating(Ljava/lang/Object;Landroid/os/Bundle;)V
 .end method
 
 .method public abstract onSkipToNext()V

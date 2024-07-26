@@ -2,6 +2,17 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/games/multiplayer/Multiplayer$InvitationSortOrder;
+    }
+.end annotation
+
+
 # static fields
 .field public static final EXTRA_EXCLUSIVE_BIT_MASK:Ljava/lang/String; = "exclusive_bit_mask"
 

@@ -16,6 +16,9 @@
     name = "LoadMatchesResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getMatches()Lcom/google/android/gms/games/multiplayer/turnbased/LoadMatchesResponse;

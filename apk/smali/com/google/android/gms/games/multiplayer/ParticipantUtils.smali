@@ -11,25 +11,8 @@
     return-void
 .end method
 
-.method public static bn(Ljava/lang/String;)Z
-    .locals 1
-
-    const-string v0, "Participant ID must not be null"
-
-    invoke-static {p0, v0}, Lcom/google/android/gms/internal/hn;->b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string v0, "p_"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public static getParticipantId(Ljava/util/ArrayList;Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .param p1, "playerId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,8 +26,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "participants":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/android/gms/games/multiplayer/Participant;>;"
     const/4 v0, 0x0
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I

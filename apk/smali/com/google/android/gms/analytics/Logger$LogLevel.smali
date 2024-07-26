@@ -12,6 +12,9 @@
     name = "LogLevel"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final ERROR:I = 0x3

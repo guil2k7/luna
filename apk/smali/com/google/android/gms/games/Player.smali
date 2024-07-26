@@ -7,6 +7,9 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -26,13 +29,26 @@
 
 
 # virtual methods
-.method public abstract gN()I
+.method public abstract getBannerImageLandscapeUri()Landroid/net/Uri;
 .end method
 
-.method public abstract gO()Z
+.method public abstract getBannerImageLandscapeUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
-.method public abstract gP()Lcom/google/android/gms/games/internal/player/MostRecentGameInfo;
+.method public abstract getBannerImagePortraitUri()Landroid/net/Uri;
+.end method
+
+.method public abstract getBannerImagePortraitUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getDisplayName()Ljava/lang/String;
@@ -45,6 +61,9 @@
 .end method
 
 .method public abstract getHiResImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -53,6 +72,9 @@
 .end method
 
 .method public abstract getIconImageUrl()Ljava/lang/String;
+    .annotation build Lcom/google/android/gms/common/annotation/KeepName;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
@@ -61,6 +83,9 @@
 .end method
 
 .method public abstract getLevelInfo()Lcom/google/android/gms/games/PlayerLevelInfo;
+.end method
+
+.method public abstract getName()Ljava/lang/String;
 .end method
 
 .method public abstract getPlayerId()Ljava/lang/String;
@@ -79,4 +104,30 @@
 .end method
 
 .method public abstract hasIconImage()Z
+.end method
+
+.method public abstract isMuted()Z
+.end method
+
+.method public abstract zzg()Ljava/lang/String;
+.end method
+
+.method public abstract zzh()Z
+.end method
+
+.method public abstract zzi()I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end method
+
+.method public abstract zzj()Z
+.end method
+
+.method public abstract zzk()Lcom/google/android/gms/games/internal/player/zza;
+.end method
+
+.method public abstract zzl()I
+.end method
+
+.method public abstract zzm()J
 .end method

@@ -1,5 +1,14 @@
-.class public final Lcom/google/android/gms/analytics/CampaignTrackingReceiver;
+.class public Lcom/google/android/gms/analytics/CampaignTrackingReceiver;
 .super Landroid/content/BroadcastReceiver;
+
+
+# annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
+
+# static fields
+.field private static zzqt:Ljava/lang/Boolean;
 
 
 # direct methods
@@ -11,50 +20,164 @@
     return-void
 .end method
 
+.method public static zza(Landroid/content/Context;)Z
+    .locals 2
+
+    invoke-static {p0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/google/android/gms/analytics/CampaignTrackingReceiver;->zzqt:Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/google/android/gms/analytics/CampaignTrackingReceiver;->zzqt:Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const-string v0, "com.google.android.gms.analytics.CampaignTrackingReceiver"
+
+    const/4 v1, 0x1
+
+    invoke-static {p0, v0, v1}, Lcom/google/android/gms/internal/measurement/zzdd;->zza(Landroid/content/Context;Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/google/android/gms/analytics/CampaignTrackingReceiver;->zzqt:Ljava/lang/Boolean;
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
-    .param p1, "ctx"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
+    .locals 7
+    .annotation build Landroid/support/annotation/RequiresPermission;
+        allOf = {
+            "android.permission.INTERNET",
+            "android.permission.ACCESS_NETWORK_STATE"
+        }
+    .end annotation
 
-    .prologue
+    invoke-static {p1}, Lcom/google/android/gms/internal/measurement/zzat;->zzc(Landroid/content/Context;)Lcom/google/android/gms/internal/measurement/zzat;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/google/android/gms/internal/measurement/zzat;->zzbu()Lcom/google/android/gms/internal/measurement/zzcm;
+
+    move-result-object v2
+
+    if-nez p2, :cond_0
+
+    const-string v0, "CampaignTrackingReceiver received null intent"
+
+    invoke-virtual {v2, v0}, Lcom/google/android/gms/internal/measurement/zzaq;->zzs(Ljava/lang/String;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
     const-string v0, "referrer"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "com.android.vending.INSTALL_REFERRER"
-
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "CampaignTrackingReceiver received"
+
+    invoke-virtual {v2, v4, v3}, Lcom/google/android/gms/internal/measurement/zzaq;->zza(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const-string v4, "com.android.vending.INSTALL_REFERRER"
+
+    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    :cond_1
+    const-string v0, "CampaignTrackingReceiver received unexpected intent without referrer extra"
+
+    invoke-virtual {v2, v0}, Lcom/google/android/gms/internal/measurement/zzaq;->zzs(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0, p1, v0}, Lcom/google/android/gms/analytics/CampaignTrackingReceiver;->zza(Landroid/content/Context;Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/google/android/gms/internal/measurement/zzbu;->zzdu()I
+
+    move-result v3
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-gt v4, v3, :cond_3
+
+    :goto_1
+    invoke-virtual {p0}, Lcom/google/android/gms/analytics/CampaignTrackingReceiver;->goAsync()Landroid/content/BroadcastReceiver$PendingResult;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1}, Lcom/google/android/gms/internal/measurement/zzat;->zzby()Lcom/google/android/gms/internal/measurement/zzai;
 
-    move-result v1
+    move-result-object v1
 
-    if-eqz v1, :cond_0
+    new-instance v3, Lcom/google/android/gms/analytics/zzc;
 
-    if-nez v0, :cond_1
+    invoke-direct {v3, p0, v2}, Lcom/google/android/gms/analytics/zzc;-><init>(Lcom/google/android/gms/analytics/CampaignTrackingReceiver;Landroid/content/BroadcastReceiver$PendingResult;)V
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    new-instance v1, Landroid/content/Intent;
-
-    const-class v2, Lcom/google/android/gms/analytics/CampaignTrackingService;
-
-    invoke-direct {v1, p1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    const-string v2, "referrer"
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v1, v0, v3}, Lcom/google/android/gms/internal/measurement/zzai;->zza(Ljava/lang/String;Ljava/lang/Runnable;)V
 
     goto :goto_0
+
+    :cond_3
+    const-string v4, "Campaign data exceed the maximum supported size and will be clipped. size, limit"
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v2, v4, v5, v6}, Lcom/google/android/gms/internal/measurement/zzaq;->zzc(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+.end method
+
+.method protected zza(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 0
+
+    return-void
 .end method

@@ -26,25 +26,23 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .locals 2
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 634
+    .line 826
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 635
+    .line 827
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
     if-lt v0, v1, :cond_0
 
-    .line 636
+    .line 828
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback$StubApi23;
 
-    invoke-direct {v0, p0, v2}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback$StubApi23;-><init>(Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;Landroid/support/v4/media/MediaBrowserCompat$1;)V
+    invoke-direct {v0, p0}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback$StubApi23;-><init>(Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;)V
 
     invoke-static {v0}, Landroid/support/v4/media/MediaBrowserCompatApi23;->createItemCallback(Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;)Ljava/lang/Object;
 
@@ -52,13 +50,15 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackObj:Ljava/lang/Object;
 
-    .line 640
+    .line 832
     :goto_0
     return-void
 
-    .line 638
+    .line 830
     :cond_0
-    iput-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackObj:Ljava/lang/Object;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackObj:Ljava/lang/Object;
 
     goto :goto_0
 .end method
@@ -73,7 +73,7 @@
     .end param
 
     .prologue
-    .line 656
+    .line 848
     return-void
 .end method
 
@@ -82,6 +82,6 @@
     .param p1, "item"    # Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
 
     .prologue
-    .line 648
+    .line 840
     return-void
 .end method

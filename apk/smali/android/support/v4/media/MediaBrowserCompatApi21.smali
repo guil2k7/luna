@@ -4,8 +4,13 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/support/v4/media/MediaBrowserCompatApi21$MediaItem;,
         Landroid/support/v4/media/MediaBrowserCompatApi21$SubscriptionCallbackProxy;,
         Landroid/support/v4/media/MediaBrowserCompatApi21$SubscriptionCallback;,
         Landroid/support/v4/media/MediaBrowserCompatApi21$ConnectionCallbackProxy;,
@@ -26,7 +31,7 @@
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 121
+    .line 141
     return-void
 .end method
 

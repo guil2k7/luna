@@ -7,6 +7,9 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/android/gms/plus/People;
 .end annotation
@@ -16,10 +19,17 @@
     name = "LoadPeopleResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getNextPageToken()Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getPersonBuffer()Lcom/google/android/gms/plus/model/people/PersonBuffer;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method

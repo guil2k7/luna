@@ -6,67 +6,65 @@
 
 
 # instance fields
-.field private final Lk:Ljava/lang/String;
+.field private final zzac:Ljava/lang/String;
 
-.field private final Mo:Landroid/net/Uri;
+.field private final zzmv:Ljava/lang/String;
 
-.field private final Mz:Ljava/lang/String;
+.field private final zzmw:I
 
-.field private final Sm:Ljava/lang/String;
-
-.field private final Sn:I
-
-.field private final So:Ljava/util/ArrayList;
+.field private final zzmx:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/google/android/gms/games/leaderboard/LeaderboardVariantEntity;",
+            "Lcom/google/android/gms/games/leaderboard/zzb;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final Sp:Lcom/google/android/gms/games/Game;
+.field private final zzmy:Lcom/google/android/gms/games/Game;
+
+.field private final zzn:Ljava/lang/String;
+
+.field private final zzr:Landroid/net/Uri;
 
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/games/leaderboard/Leaderboard;)V
     .locals 5
-    .param p1, "leaderboard"    # Lcom/google/android/gms/games/leaderboard/Leaderboard;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getLeaderboardId()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Sm:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmv:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getDisplayName()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Lk:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzn:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getIconImageUri()Landroid/net/Uri;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Mo:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzr:Landroid/net/Uri;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getIconImageUrl()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Mz:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzac:Ljava/lang/String;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getScoreOrder()I
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Sn:I
+    iput v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmw:I
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getGame()Lcom/google/android/gms/games/Game;
 
@@ -77,7 +75,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Sp:Lcom/google/android/gms/games/Game;
+    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmy:Lcom/google/android/gms/games/Game;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getVariants()Ljava/util/ArrayList;
 
@@ -91,7 +89,7 @@
 
     invoke-direct {v0, v3}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->So:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmx:Ljava/util/ArrayList;
 
     const/4 v0, 0x0
 
@@ -100,7 +98,7 @@
     :goto_1
     if-ge v1, v3, :cond_1
 
-    iget-object v4, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->So:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmx:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -112,9 +110,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/gms/games/leaderboard/LeaderboardVariantEntity;
-
-    check-cast v0, Lcom/google/android/gms/games/leaderboard/LeaderboardVariantEntity;
+    check-cast v0, Lcom/google/android/gms/games/leaderboard/zzb;
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -135,7 +131,7 @@
     return-void
 .end method
 
-.method static a(Lcom/google/android/gms/games/leaderboard/Leaderboard;)I
+.method static zza(Lcom/google/android/gms/games/leaderboard/Leaderboard;)I
     .locals 3
 
     const/4 v0, 0x5
@@ -186,33 +182,36 @@
 
     aput-object v2, v0, v1
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/hl;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/android/gms/common/internal/Objects;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method static a(Lcom/google/android/gms/games/leaderboard/Leaderboard;Ljava/lang/Object;)Z
+.method static zza(Lcom/google/android/gms/games/leaderboard/Leaderboard;Ljava/lang/Object;)Z
     .locals 4
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     instance-of v2, p1, Lcom/google/android/gms/games/leaderboard/Leaderboard;
 
     if-nez v2, :cond_1
-
-    move v0, v1
 
     :cond_0
     :goto_0
     return v0
 
     :cond_1
-    if-eq p0, p1, :cond_0
+    if-ne p0, p1, :cond_2
 
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
     check-cast p1, Lcom/google/android/gms/games/leaderboard/Leaderboard;
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getLeaderboardId()Ljava/lang/String;
@@ -223,11 +222,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getDisplayName()Ljava/lang/String;
 
@@ -237,11 +236,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getIconImageUri()Landroid/net/Uri;
 
@@ -251,11 +250,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getScoreOrder()I
 
@@ -273,11 +272,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {p1}, Lcom/google/android/gms/games/leaderboard/Leaderboard;->getVariants()Ljava/util/ArrayList;
 
@@ -287,22 +286,21 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/google/android/gms/internal/hl;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Lcom/google/android/gms/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
-    :cond_2
     move v0, v1
 
     goto :goto_0
 .end method
 
-.method static b(Lcom/google/android/gms/games/leaderboard/Leaderboard;)Ljava/lang/String;
+.method static zzb(Lcom/google/android/gms/games/leaderboard/Leaderboard;)Ljava/lang/String;
     .locals 3
 
-    invoke-static {p0}, Lcom/google/android/gms/internal/hl;->e(Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-static {p0}, Lcom/google/android/gms/common/internal/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -312,7 +310,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -322,7 +320,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -332,7 +330,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -342,7 +340,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -356,7 +354,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
@@ -366,11 +364,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/hl$a;->a(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/internal/hl$a;
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/android/gms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/hl$a;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/android/gms/common/internal/Objects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -379,89 +377,88 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    invoke-static {p0, p1}, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->a(Lcom/google/android/gms/games/leaderboard/Leaderboard;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zza(Lcom/google/android/gms/games/leaderboard/Leaderboard;Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public synthetic freeze()Ljava/lang/Object;
+.method public final bridge synthetic freeze()Ljava/lang/Object;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->iu()Lcom/google/android/gms/games/leaderboard/Leaderboard;
+    if-nez p0, :cond_0
 
-    move-result-object v0
+    const/4 v0, 0x0
+
+    throw v0
+
+    :cond_0
+    return-object p0
+.end method
+
+.method public final getDisplayName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzn:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getDisplayName()Ljava/lang/String;
+.method public final getDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Lk:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzn:Ljava/lang/String;
 
-    return-object v0
-.end method
-
-.method public getDisplayName(Landroid/database/CharArrayBuffer;)V
-    .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Lk:Ljava/lang/String;
-
-    invoke-static {v0, p1}, Lcom/google/android/gms/internal/il;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-static {v0, p1}, Lcom/google/android/gms/common/util/DataUtils;->copyStringToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public getGame()Lcom/google/android/gms/games/Game;
+.method public final getGame()Lcom/google/android/gms/games/Game;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Sp:Lcom/google/android/gms/games/Game;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmy:Lcom/google/android/gms/games/Game;
 
     return-object v0
 .end method
 
-.method public getIconImageUri()Landroid/net/Uri;
+.method public final getIconImageUri()Landroid/net/Uri;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Mo:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzr:Landroid/net/Uri;
 
     return-object v0
 .end method
 
-.method public getIconImageUrl()Ljava/lang/String;
+.method public final getIconImageUrl()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Mz:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzac:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getLeaderboardId()Ljava/lang/String;
+.method public final getLeaderboardId()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Sm:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmv:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getScoreOrder()I
+.method public final getScoreOrder()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->Sn:I
+    iget v0, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmw:I
 
     return v0
 .end method
 
-.method public getVariants()Ljava/util/ArrayList;
+.method public final getVariants()Ljava/util/ArrayList;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -475,24 +472,24 @@
 
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->So:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzmx:Ljava/util/ArrayList;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->a(Lcom/google/android/gms/games/leaderboard/Leaderboard;)I
+    invoke-static {p0}, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zza(Lcom/google/android/gms/games/leaderboard/Leaderboard;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public isDataValid()Z
+.method public final isDataValid()Z
     .locals 1
 
     const/4 v0, 0x1
@@ -500,16 +497,10 @@
     return v0
 .end method
 
-.method public iu()Lcom/google/android/gms/games/leaderboard/Leaderboard;
-    .locals 0
-
-    return-object p0
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->b(Lcom/google/android/gms/games/leaderboard/Leaderboard;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/google/android/gms/games/leaderboard/LeaderboardEntity;->zzb(Lcom/google/android/gms/games/leaderboard/Leaderboard;)Ljava/lang/String;
 
     move-result-object v0
 

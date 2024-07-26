@@ -15,6 +15,9 @@
     name = "DriveFileResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getDriveFile()Lcom/google/android/gms/drive/DriveFile;

@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 2169
+    .line 3597
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,16 +30,18 @@
 
 
 # virtual methods
-.method public build(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;)Landroid/support/v4/app/NotificationCompat$Action;
-    .locals 7
+.method public build(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;Z)Landroid/support/v4/app/NotificationCompatBase$Action;
+    .locals 8
     .param p1, "icon"    # I
     .param p2, "title"    # Ljava/lang/CharSequence;
     .param p3, "actionIntent"    # Landroid/app/PendingIntent;
     .param p4, "extras"    # Landroid/os/Bundle;
     .param p5, "remoteInputs"    # [Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
+    .param p6, "dataOnlyRemoteInputs"    # [Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
+    .param p7, "allowGeneratedReplies"    # Z
 
     .prologue
-    .line 2174
+    .line 3604
     new-instance v0, Landroid/support/v4/app/NotificationCompat$Action;
 
     check-cast p5, [Landroid/support/v4/app/RemoteInput;
@@ -49,7 +51,12 @@
 
     check-cast v5, [Landroid/support/v4/app/RemoteInput;
 
-    const/4 v6, 0x0
+    check-cast p6, [Landroid/support/v4/app/RemoteInput;
+
+    .end local p6    # "dataOnlyRemoteInputs":[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
+    move-object v6, p6
+
+    check-cast v6, [Landroid/support/v4/app/RemoteInput;
 
     move v1, p1
 
@@ -59,19 +66,9 @@
 
     move-object v4, p4
 
-    invoke-direct/range {v0 .. v6}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;Landroid/support/v4/app/NotificationCompat$1;)V
+    move v7, p7
 
-    return-object v0
-.end method
-
-.method public bridge synthetic build(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;)Landroid/support/v4/app/NotificationCompatBase$Action;
-    .locals 1
-
-    .prologue
-    .line 2169
-    invoke-virtual/range {p0 .. p5}, Landroid/support/v4/app/NotificationCompat$Action$1;->build(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;)Landroid/support/v4/app/NotificationCompat$Action;
-
-    move-result-object v0
+    invoke-direct/range {v0 .. v7}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;Z)V
 
     return-object v0
 .end method
@@ -81,7 +78,7 @@
     .param p1, "length"    # I
 
     .prologue
-    .line 2180
+    .line 3611
     new-array v0, p1, [Landroid/support/v4/app/NotificationCompat$Action;
 
     return-object v0
@@ -91,7 +88,7 @@
     .locals 1
 
     .prologue
-    .line 2169
+    .line 3597
     invoke-virtual {p0, p1}, Landroid/support/v4/app/NotificationCompat$Action$1;->newArray(I)[Landroid/support/v4/app/NotificationCompat$Action;
 
     move-result-object v0

@@ -16,7 +16,7 @@
 
 .method public static isLowRamDevice(Landroid/app/ActivityManager;)Z
     .locals 2
-    .param p0, "am"    # Landroid/app/ActivityManager;
+    .param p0, "activityManager"    # Landroid/app/ActivityManager;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -30,7 +30,7 @@
     if-lt v0, v1, :cond_0
 
     .line 40
-    invoke-static {p0}, Landroid/support/v4/app/ActivityManagerCompatKitKat;->isLowRamDevice(Landroid/app/ActivityManager;)Z
+    invoke-virtual {p0}, Landroid/app/ActivityManager;->isLowRamDevice()Z
 
     move-result v0
 

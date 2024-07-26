@@ -17,6 +17,10 @@
 .end annotation
 
 
+# static fields
+.field public static sDefaultImpl:Lcom/android/vending/billing/IInAppBillingService;
+
+
 # instance fields
 .field private mRemote:Landroid/os/IBinder;
 
@@ -27,13 +31,13 @@
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
-    .line 181
+    .line 296
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 182
+    .line 297
     iput-object p1, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 183
+    .line 298
     return-void
 .end method
 
@@ -43,14 +47,14 @@
     .locals 1
 
     .prologue
-    .line 186
+    .line 301
     iget-object v0, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
 .end method
 
 .method public consumePurchase(ILjava/lang/String;Ljava/lang/String;)I
-    .locals 6
+    .locals 7
     .param p1, "apiVersion"    # I
     .param p2, "packageName"    # Ljava/lang/String;
     .param p3, "purchaseToken"    # Ljava/lang/String;
@@ -61,77 +65,112 @@
     .end annotation
 
     .prologue
-    .line 369
+    .line 514
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 370
+    .line 515
     .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 373
+    .line 518
     .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
-    const-string v3, "com.android.vending.billing.IInAppBillingService"
+    const-string v4, "com.android.vending.billing.IInAppBillingService"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 374
+    .line 519
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 375
+    .line 520
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 376
+    .line 521
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 377
-    iget-object v3, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    .line 522
+    iget-object v4, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x5
+    const/4 v5, 0x5
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 378
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    move-result v3
 
-    .line 379
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    .line 523
+    .local v3, "_status":Z
+    if-nez v3, :cond_0
+
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    .line 524
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
+
+    move-result-object v4
+
+    invoke-interface {v4, p1, p2, p3}, Lcom/android/vending/billing/IInAppBillingService;->consumePurchase(ILjava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    .line 382
+    .line 530
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 531
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 533
+    :goto_0
+    return v2
+
+    .line 526
+    :cond_0
+    :try_start_1
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 527
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v2
+
+    .line 530
     .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 383
+    .line 531
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 385
-    return v2
+    goto :goto_0
 
-    .line 382
+    .line 530
     .end local v2    # "_result":I
+    .end local v3    # "_status":Z
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 383
+    .line 531
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v3
+    throw v4
 .end method
 
 .method public getBuyIntent(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
-    .locals 6
+    .locals 10
     .param p1, "apiVersion"    # I
     .param p2, "packageName"    # Ljava/lang/String;
     .param p3, "sku"    # Ljava/lang/String;
@@ -144,113 +183,158 @@
     .end annotation
 
     .prologue
-    .line 292
+    .line 422
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v6
+
+    .line 423
+    .local v6, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v7
+
+    .line 426
+    .local v7, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v0, "com.android.vending.billing.IInAppBillingService"
+
+    invoke-virtual {v6, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 427
+    invoke-virtual {v6, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 428
+    invoke-virtual {v6, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 429
+    invoke-virtual {v6, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 430
+    invoke-virtual {v6, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 431
+    invoke-virtual {v6, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 432
+    iget-object v0, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v1, 0x3
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v6, v7, v2}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    move-result v9
+
+    .line 433
+    .local v9, "_status":Z
+    if-nez v9, :cond_0
+
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
 
     move-result-object v0
 
-    .line 293
-    .local v0, "_data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+    if-eqz v0, :cond_0
 
-    move-result-object v1
+    .line 434
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
 
-    .line 296
-    .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.android.vending.billing.IInAppBillingService"
+    move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    move v1, p1
 
-    .line 297
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+    move-object v2, p2
 
-    .line 298
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-object v3, p3
 
-    .line 299
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-object v4, p4
 
-    .line 300
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-object v5, p5
 
-    .line 301
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 302
-    iget-object v3, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v4, 0x3
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 303
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 304
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 305
-    sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/Bundle;
+    invoke-interface/range {v0 .. v5}, Lcom/android/vending/billing/IInAppBillingService;->getBuyIntent(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 312
-    .local v2, "_result":Landroid/os/Bundle;
+    move-result-object v8
+
+    .line 445
+    invoke-virtual {v7}, Landroid/os/Parcel;->recycle()V
+
+    .line 446
+    invoke-virtual {v6}, Landroid/os/Parcel;->recycle()V
+
+    .line 448
     :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    return-object v8
 
-    .line 313
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 315
-    return-object v2
-
-    .line 308
-    .end local v2    # "_result":Landroid/os/Bundle;
+    .line 436
     :cond_0
-    const/4 v2, 0x0
+    :try_start_1
+    invoke-virtual {v7}, Landroid/os/Parcel;->readException()V
 
-    .restart local v2    # "_result":Landroid/os/Bundle;
+    .line 437
+    invoke-virtual {v7}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 438
+    sget-object v0, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, v7}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/os/Bundle;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 445
+    .local v8, "_result":Landroid/os/Bundle;
+    :goto_1
+    invoke-virtual {v7}, Landroid/os/Parcel;->recycle()V
+
+    .line 446
+    invoke-virtual {v6}, Landroid/os/Parcel;->recycle()V
+
     goto :goto_0
 
-    .line 312
-    .end local v2    # "_result":Landroid/os/Bundle;
+    .line 441
+    .end local v8    # "_result":Landroid/os/Bundle;
+    :cond_1
+    const/4 v8, 0x0
+
+    .restart local v8    # "_result":Landroid/os/Bundle;
+    goto :goto_1
+
+    .line 445
+    .end local v8    # "_result":Landroid/os/Bundle;
+    .end local v9    # "_status":Z
     :catchall_0
-    move-exception v3
+    move-exception v0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    invoke-virtual {v7}, Landroid/os/Parcel;->recycle()V
 
-    .line 313
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+    .line 446
+    invoke-virtual {v6}, Landroid/os/Parcel;->recycle()V
 
-    throw v3
+    throw v0
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 190
+    .line 305
     const-string v0, "com.android.vending.billing.IInAppBillingService"
 
     return-object v0
 .end method
 
 .method public getPurchases(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
-    .locals 6
+    .locals 7
     .param p1, "apiVersion"    # I
     .param p2, "packageName"    # Ljava/lang/String;
     .param p3, "type"    # Ljava/lang/String;
@@ -262,100 +346,135 @@
     .end annotation
 
     .prologue
-    .line 343
+    .line 476
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 344
+    .line 477
     .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 347
+    .line 480
     .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
-    const-string v3, "com.android.vending.billing.IInAppBillingService"
+    const-string v4, "com.android.vending.billing.IInAppBillingService"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 348
+    .line 481
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 349
+    .line 482
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 350
+    .line 483
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 351
+    .line 484
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 352
-    iget-object v3, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    .line 485
+    iget-object v4, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 353
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 354
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    .line 486
+    .local v3, "_status":Z
+    if-nez v3, :cond_0
 
-    .line 355
-    sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
 
-    invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    .line 487
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
+
+    move-result-object v4
+
+    invoke-interface {v4, p1, p2, p3, p4}, Lcom/android/vending/billing/IInAppBillingService;->getPurchases(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    .line 498
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 499
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 501
+    :goto_0
+    return-object v2
+
+    .line 489
+    :cond_0
+    :try_start_1
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 490
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 491
+    sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v4, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/os/Bundle;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 362
+    .line 498
     .local v2, "_result":Landroid/os/Bundle;
-    :goto_0
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 363
+    .line 499
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 365
-    return-object v2
+    goto :goto_0
 
-    .line 358
+    .line 494
     .end local v2    # "_result":Landroid/os/Bundle;
-    :cond_0
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2    # "_result":Landroid/os/Bundle;
-    goto :goto_0
+    goto :goto_1
 
-    .line 362
+    .line 498
     .end local v2    # "_result":Landroid/os/Bundle;
+    .end local v3    # "_status":Z
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 363
+    .line 499
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v3
+    throw v4
 .end method
 
 .method public getSkuDetails(ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 6
+    .locals 7
     .param p1, "apiVersion"    # I
     .param p2, "packageName"    # Ljava/lang/String;
     .param p3, "type"    # Ljava/lang/String;
@@ -367,121 +486,157 @@
     .end annotation
 
     .prologue
-    .line 230
+    .line 357
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 231
+    .line 358
     .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 234
+    .line 361
     .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
-    const-string v3, "com.android.vending.billing.IInAppBillingService"
+    const-string v4, "com.android.vending.billing.IInAppBillingService"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 235
+    .line 362
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 236
+    .line 363
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 237
+    .line 364
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 238
+    .line 365
     if-eqz p4, :cond_0
 
-    .line 239
-    const/4 v3, 0x1
+    .line 366
+    const/4 v4, 0x1
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 240
-    const/4 v3, 0x0
+    .line 367
+    const/4 v4, 0x0
 
-    invoke-virtual {p4, v0, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p4, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 245
+    .line 372
     :goto_0
-    iget-object v3, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v4, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 246
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 247
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    .line 373
+    .local v3, "_status":Z
+    if-nez v3, :cond_1
 
-    .line 248
-    sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
 
-    invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-result-object v4
 
-    move-result-object v2
+    if-eqz v4, :cond_1
 
-    check-cast v2, Landroid/os/Bundle;
+    .line 374
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
+
+    move-result-object v4
+
+    invoke-interface {v4, p1, p2, p3, p4}, Lcom/android/vending/billing/IInAppBillingService;->getSkuDetails(ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 255
-    .local v2, "_result":Landroid/os/Bundle;
-    :goto_1
+    move-result-object v2
+
+    .line 385
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 256
+    .line 386
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 258
+    .line 388
+    :goto_1
     return-object v2
 
-    .line 243
-    .end local v2    # "_result":Landroid/os/Bundle;
+    .line 370
+    .end local v3    # "_status":Z
     :cond_0
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     :try_start_1
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 255
+    .line 385
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 256
+    .line 386
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v3
+    throw v4
 
-    .line 251
+    .line 376
+    .restart local v3    # "_status":Z
     :cond_1
+    :try_start_2
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 377
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    .line 378
+    sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v4, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/Bundle;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 385
+    .local v2, "_result":Landroid/os/Bundle;
+    :goto_2
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 386
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    goto :goto_1
+
+    .line 381
+    .end local v2    # "_result":Landroid/os/Bundle;
+    :cond_2
     const/4 v2, 0x0
 
     .restart local v2    # "_result":Landroid/os/Bundle;
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public isBillingSupported(ILjava/lang/String;Ljava/lang/String;)I
-    .locals 6
+    .locals 7
     .param p1, "apiVersion"    # I
     .param p2, "packageName"    # Ljava/lang/String;
     .param p3, "type"    # Ljava/lang/String;
@@ -492,71 +647,106 @@
     .end annotation
 
     .prologue
-    .line 194
+    .line 318
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 195
+    .line 319
     .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 198
+    .line 322
     .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
-    const-string v3, "com.android.vending.billing.IInAppBillingService"
+    const-string v4, "com.android.vending.billing.IInAppBillingService"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 199
+    .line 323
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 200
+    .line 324
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 201
+    .line 325
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 202
-    iget-object v3, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    .line 326
+    iget-object v4, p0, Lcom/android/vending/billing/IInAppBillingService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 203
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    move-result v3
 
-    .line 204
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    .line 327
+    .local v3, "_status":Z
+    if-nez v3, :cond_0
+
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    .line 328
+    invoke-static {}, Lcom/android/vending/billing/IInAppBillingService$Stub;->getDefaultImpl()Lcom/android/vending/billing/IInAppBillingService;
+
+    move-result-object v4
+
+    invoke-interface {v4, p1, p2, p3}, Lcom/android/vending/billing/IInAppBillingService;->isBillingSupported(ILjava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    .line 207
+    .line 334
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 335
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 337
+    :goto_0
+    return v2
+
+    .line 330
+    :cond_0
+    :try_start_1
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 331
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v2
+
+    .line 334
     .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 208
+    .line 335
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 210
-    return v2
+    goto :goto_0
 
-    .line 207
+    .line 334
     .end local v2    # "_result":I
+    .end local v3    # "_status":Z
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 208
+    .line 335
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v3
+    throw v4
 .end method

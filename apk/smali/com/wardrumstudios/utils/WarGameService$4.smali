@@ -39,7 +39,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarGameService;
 
     .prologue
-    .line 466
+    .line 742
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarGameService$4;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     iput p2, p0, Lcom/wardrumstudios/utils/WarGameService$4;->val$qQueryId:I
@@ -55,7 +55,7 @@
     .locals 0
 
     .prologue
-    .line 466
+    .line 742
     check-cast p1, Lcom/google/android/gms/games/leaderboard/Leaderboards$LoadScoresResult;
 
     invoke-virtual {p0, p1}, Lcom/wardrumstudios/utils/WarGameService$4;->onResult(Lcom/google/android/gms/games/leaderboard/Leaderboards$LoadScoresResult;)V
@@ -68,14 +68,14 @@
     .param p1, "loadScoresResult"    # Lcom/google/android/gms/games/leaderboard/Leaderboards$LoadScoresResult;
 
     .prologue
-    .line 469
+    .line 745
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$4;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     invoke-virtual {v1, p1}, Lcom/wardrumstudios/utils/WarGameService;->extractScores(Lcom/google/android/gms/games/leaderboard/Leaderboards$LoadScoresResult;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 470
+    .line 746
     .local v0, "leaderboardScores":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/games/leaderboard/LeaderboardScore;>;"
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$4;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
@@ -83,6 +83,6 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/wardrumstudios/utils/WarGameService;->notifyScoresLoaded(ILjava/util/List;)V
 
-    .line 471
+    .line 747
     return-void
 .end method

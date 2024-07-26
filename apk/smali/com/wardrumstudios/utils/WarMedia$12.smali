@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 1436
+    .line 1443
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$12;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 1438
+    .line 1445
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$12;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     const-string v2, "notification"
@@ -52,10 +52,10 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    .line 1440
+    .line 1447
     .local v0, "mNotificationManager":Landroid/app/NotificationManager;
     invoke-virtual {v0}, Landroid/app/NotificationManager;->cancelAll()V
 
-    .line 1441
+    .line 1448
     return-void
 .end method

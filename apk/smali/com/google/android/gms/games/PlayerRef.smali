@@ -1,25 +1,22 @@
 .class public final Lcom/google/android/gms/games/PlayerRef;
-.super Lcom/google/android/gms/common/data/d;
+.super Lcom/google/android/gms/common/data/DataBufferRef;
 
 # interfaces
 .implements Lcom/google/android/gms/games/Player;
 
 
 # instance fields
-.field private final MU:Lcom/google/android/gms/games/PlayerLevelInfo;
+.field private final zzce:Lcom/google/android/gms/games/PlayerLevelInfo;
 
-.field private final Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+.field private final zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-.field private final Ne:Lcom/google/android/gms/games/internal/player/MostRecentGameInfoRef;
+.field private final zzcx:Lcom/google/android/gms/games/internal/player/zzd;
 
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/common/data/DataHolder;I)V
     .locals 1
-    .param p1, "holder"    # Lcom/google/android/gms/common/data/DataHolder;
-    .param p2, "dataRow"    # I
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/android/gms/games/PlayerRef;-><init>(Lcom/google/android/gms/common/data/DataHolder;ILjava/lang/String;)V
@@ -29,44 +26,63 @@
 
 .method public constructor <init>(Lcom/google/android/gms/common/data/DataHolder;ILjava/lang/String;)V
     .locals 9
-    .param p1, "holder"    # Lcom/google/android/gms/common/data/DataHolder;
-    .param p2, "dataRow"    # I
-    .param p3, "prefix"    # Ljava/lang/String;
 
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/google/android/gms/common/data/d;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
+    invoke-direct {p0, p1, p2}, Lcom/google/android/gms/common/data/DataBufferRef;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
 
-    new-instance v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    new-instance v0, Lcom/google/android/gms/games/internal/player/zze;
 
-    invoke-direct {v0, p3}, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p3}, Lcom/google/android/gms/games/internal/player/zze;-><init>(Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iput-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/player/MostRecentGameInfoRef;
+    new-instance v0, Lcom/google/android/gms/games/internal/player/zzd;
 
-    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    invoke-direct {v0, p1, p2, v1}, Lcom/google/android/gms/games/internal/player/MostRecentGameInfoRef;-><init>(Lcom/google/android/gms/common/data/DataHolder;ILcom/google/android/gms/games/internal/player/PlayerColumnNames;)V
+    invoke-direct {v0, p1, p2, v1}, Lcom/google/android/gms/games/internal/player/zzd;-><init>(Lcom/google/android/gms/common/data/DataHolder;ILcom/google/android/gms/games/internal/player/zze;)V
 
-    iput-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Ne:Lcom/google/android/gms/games/internal/player/MostRecentGameInfoRef;
+    iput-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcx:Lcom/google/android/gms/games/internal/player/zzd;
 
-    invoke-direct {p0}, Lcom/google/android/gms/games/PlayerRef;->gQ()Z
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlu:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->hasNull(Ljava/lang/String;)Z
 
     move-result v0
 
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlu:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    const-wide/16 v2, -0x1
+
+    cmp-long v0, v0, v2
+
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    const/4 v0, 0x1
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RV:Ljava/lang/String;
+    :goto_0
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlv:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getInteger(Ljava/lang/String;)I
 
     move-result v1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RY:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzly:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getInteger(Ljava/lang/String;)I
 
@@ -74,17 +90,17 @@
 
     new-instance v0, Lcom/google/android/gms/games/PlayerLevel;
 
-    iget-object v2, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v2, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v2, v2, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RW:Ljava/lang/String;
+    iget-object v2, v2, Lcom/google/android/gms/games/internal/player/zze;->zzlw:Ljava/lang/String;
 
     invoke-virtual {p0, v2}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
     move-result-wide v2
 
-    iget-object v4, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v4, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v4, v4, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RX:Ljava/lang/String;
+    iget-object v4, v4, Lcom/google/android/gms/games/internal/player/zze;->zzlx:Ljava/lang/String;
 
     invoke-virtual {p0, v4}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
@@ -92,21 +108,21 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/games/PlayerLevel;-><init>(IJJ)V
 
-    if-eq v1, v8, :cond_1
+    if-eq v1, v8, :cond_2
 
     new-instance v2, Lcom/google/android/gms/games/PlayerLevel;
 
-    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v1, v1, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RX:Ljava/lang/String;
+    iget-object v1, v1, Lcom/google/android/gms/games/internal/player/zze;->zzlx:Ljava/lang/String;
 
     invoke-virtual {p0, v1}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
     move-result-wide v4
 
-    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v1, v1, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RZ:Ljava/lang/String;
+    iget-object v1, v1, Lcom/google/android/gms/games/internal/player/zze;->zzlz:Ljava/lang/String;
 
     invoke-virtual {p0, v1}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
@@ -118,20 +134,20 @@
 
     move-object v7, v2
 
-    :goto_0
+    :goto_1
     new-instance v1, Lcom/google/android/gms/games/PlayerLevelInfo;
 
-    iget-object v2, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v2, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v2, v2, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RU:Ljava/lang/String;
+    iget-object v2, v2, Lcom/google/android/gms/games/internal/player/zze;->zzlu:Ljava/lang/String;
 
     invoke-virtual {p0, v2}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
     move-result-wide v2
 
-    iget-object v4, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v4, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v4, v4, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->Sa:Ljava/lang/String;
+    iget-object v4, v4, Lcom/google/android/gms/games/internal/player/zze;->zzma:Ljava/lang/String;
 
     invoke-virtual {p0, v4}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
@@ -141,66 +157,32 @@
 
     invoke-direct/range {v1 .. v7}, Lcom/google/android/gms/games/PlayerLevelInfo;-><init>(JJLcom/google/android/gms/games/PlayerLevel;Lcom/google/android/gms/games/PlayerLevel;)V
 
-    iput-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->MU:Lcom/google/android/gms/games/PlayerLevelInfo;
+    iput-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->zzce:Lcom/google/android/gms/games/PlayerLevelInfo;
 
-    :goto_1
+    :goto_2
     return-void
 
     :cond_0
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->MU:Lcom/google/android/gms/games/PlayerLevelInfo;
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_1
-    move-object v7, v0
-
-    goto :goto_0
-.end method
-
-.method private gQ()Z
-    .locals 6
-
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iput-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzce:Lcom/google/android/gms/games/PlayerLevelInfo;
 
-    iget-object v1, v1, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RU:Ljava/lang/String;
+    goto :goto_2
 
-    invoke-virtual {p0, v1}, Lcom/google/android/gms/games/PlayerRef;->ax(Ljava/lang/String;)Z
+    :cond_2
+    move-object v7, v0
 
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    iget-object v1, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
-
-    iget-object v1, v1, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RU:Ljava/lang/String;
-
-    invoke-virtual {p0, v1}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
-
-    move-result-wide v2
-
-    const-wide/16 v4, -0x1
-
-    cmp-long v1, v2, v4
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 1
 
     const/4 v0, 0x0
@@ -208,19 +190,17 @@
     return v0
 .end method
 
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    invoke-static {p0, p1}, Lcom/google/android/gms/games/PlayerEntity;->a(Lcom/google/android/gms/games/Player;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Lcom/google/android/gms/games/PlayerEntity;->zza(Lcom/google/android/gms/games/Player;Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public freeze()Lcom/google/android/gms/games/Player;
+.method public final synthetic freeze()Ljava/lang/Object;
     .locals 1
 
     new-instance v0, Lcom/google/android/gms/games/PlayerEntity;
@@ -230,74 +210,26 @@
     return-object v0
 .end method
 
-.method public bridge synthetic freeze()Ljava/lang/Object;
+.method public final getBannerImageLandscapeUri()Landroid/net/Uri;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerRef;->freeze()Lcom/google/android/gms/games/Player;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmk:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->parseUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public gN()I
+.method public final getBannerImageLandscapeUrl()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RS:Ljava/lang/String;
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getInteger(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public gO()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
-
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->Sc:Ljava/lang/String;
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public gP()Lcom/google/android/gms/games/internal/player/MostRecentGameInfo;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
-
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->Sd:Ljava/lang/String;
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->ax(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Ne:Lcom/google/android/gms/games/internal/player/MostRecentGameInfoRef;
-
-    goto :goto_0
-.end method
-
-.method public getDisplayName()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
-
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RM:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzml:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -306,40 +238,80 @@
     return-object v0
 .end method
 
-.method public getDisplayName(Landroid/database/CharArrayBuffer;)V
+.method public final getBannerImagePortraitUri()Landroid/net/Uri;
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RM:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmm:Ljava/lang/String;
 
-    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/PlayerRef;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->parseUri(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final getBannerImagePortraitUrl()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmn:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final getDisplayName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlm:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final getDisplayName(Landroid/database/CharArrayBuffer;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlm:Ljava/lang/String;
+
+    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/PlayerRef;->copyToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public getHiResImageUri()Landroid/net/Uri;
+.method public final getHiResImageUri()Landroid/net/Uri;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RP:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlp:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->aw(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->parseUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getHiResImageUrl()Ljava/lang/String;
+.method public final getHiResImageUrl()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RQ:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlq:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -348,26 +320,26 @@
     return-object v0
 .end method
 
-.method public getIconImageUri()Landroid/net/Uri;
+.method public final getIconImageUri()Landroid/net/Uri;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RN:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzln:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->aw(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->parseUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getIconImageUrl()Ljava/lang/String;
+.method public final getIconImageUrl()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RO:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlo:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -376,24 +348,24 @@
     return-object v0
 .end method
 
-.method public getLastPlayedWithTimestamp()J
+.method public final getLastPlayedWithTimestamp()J
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RT:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlt:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->av(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->hasColumn(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RT:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlt:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->ax(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->hasNull(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -406,9 +378,9 @@
     return-wide v0
 
     :cond_1
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RT:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlt:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
@@ -417,20 +389,20 @@
     goto :goto_0
 .end method
 
-.method public getLevelInfo()Lcom/google/android/gms/games/PlayerLevelInfo;
+.method public final getLevelInfo()Lcom/google/android/gms/games/PlayerLevelInfo;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->MU:Lcom/google/android/gms/games/PlayerLevelInfo;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzce:Lcom/google/android/gms/games/PlayerLevelInfo;
 
     return-object v0
 .end method
 
-.method public getPlayerId()Ljava/lang/String;
+.method public final getName()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RL:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->name:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -439,12 +411,26 @@
     return-object v0
 .end method
 
-.method public getRetrievedTimestamp()J
+.method public final getPlayerId()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzll:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final getRetrievedTimestamp()J
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->RR:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzlr:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
 
@@ -453,12 +439,12 @@
     return-wide v0
 .end method
 
-.method public getTitle()Ljava/lang/String;
+.method public final getTitle()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->Sb:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzcc:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -467,21 +453,19 @@
     return-object v0
 .end method
 
-.method public getTitle(Landroid/database/CharArrayBuffer;)V
+.method public final getTitle(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->Nd:Lcom/google/android/gms/games/internal/player/PlayerColumnNames;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
 
-    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/PlayerColumnNames;->Sb:Ljava/lang/String;
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzcc:Ljava/lang/String;
 
-    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/PlayerRef;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/PlayerRef;->copyToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public hasHiResImage()Z
+.method public final hasHiResImage()Z
     .locals 1
 
     invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerRef;->getHiResImageUri()Landroid/net/Uri;
@@ -501,7 +485,7 @@
     goto :goto_0
 .end method
 
-.method public hasIconImage()Z
+.method public final hasIconImage()Z
     .locals 1
 
     invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerRef;->getIconImageUri()Landroid/net/Uri;
@@ -521,39 +505,160 @@
     goto :goto_0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/gms/games/PlayerEntity;->a(Lcom/google/android/gms/games/Player;)I
+    invoke-static {p0}, Lcom/google/android/gms/games/PlayerEntity;->zza(Lcom/google/android/gms/games/Player;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final isMuted()Z
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/gms/games/PlayerEntity;->b(Lcom/google/android/gms/games/Player;)Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmq:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .locals 1
+
+    invoke-static {p0}, Lcom/google/android/gms/games/PlayerEntity;->zzb(Lcom/google/android/gms/games/Player;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerRef;->freeze()Lcom/google/android/gms/games/Player;
+    invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerRef;->freeze()Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/games/Player;
 
     check-cast v0, Lcom/google/android/gms/games/PlayerEntity;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/games/PlayerEntity;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void
+.end method
+
+.method public final zzg()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzch:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final zzh()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmj:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public final zzi()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzls:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getInteger(Ljava/lang/String;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public final zzj()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmc:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public final zzk()Lcom/google/android/gms/games/internal/player/zza;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmd:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->hasNull(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcx:Lcom/google/android/gms/games/internal/player/zzd;
+
+    goto :goto_0
+.end method
+
+.method public final zzl()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmo:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getInteger(Ljava/lang/String;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public final zzm()J
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/gms/games/PlayerRef;->zzcw:Lcom/google/android/gms/games/internal/player/zze;
+
+    iget-object v0, v0, Lcom/google/android/gms/games/internal/player/zze;->zzmp:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/PlayerRef;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method

@@ -21,6 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v4/content/Loader;)V
     .locals 1
+    .param p1, "this$0"    # Landroid/support/v4/content/Loader;
 
     .prologue
     .line 53

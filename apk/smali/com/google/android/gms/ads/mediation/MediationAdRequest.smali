@@ -29,6 +29,12 @@
     .end annotation
 .end method
 
+.method public abstract getLocation()Landroid/location/Location;
+.end method
+
+.method public abstract isDesignedForFamilies()Z
+.end method
+
 .method public abstract isTesting()Z
 .end method
 

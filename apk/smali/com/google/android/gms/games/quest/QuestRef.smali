@@ -1,40 +1,41 @@
 .class public final Lcom/google/android/gms/games/quest/QuestRef;
-.super Lcom/google/android/gms/common/data/d;
+.super Lcom/google/android/gms/common/data/DataBufferRef;
 
 # interfaces
 .implements Lcom/google/android/gms/games/quest/Quest;
 
 
-# instance fields
-.field private final RD:I
+# annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
 
-.field private final Sp:Lcom/google/android/gms/games/Game;
+
+# instance fields
+.field private final zzmy:Lcom/google/android/gms/games/Game;
+
+.field private final zzmz:I
 
 
 # direct methods
 .method constructor <init>(Lcom/google/android/gms/common/data/DataHolder;II)V
     .locals 1
-    .param p1, "holder"    # Lcom/google/android/gms/common/data/DataHolder;
-    .param p2, "dataRow"    # I
-    .param p3, "numChildren"    # I
 
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/google/android/gms/common/data/d;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
+    invoke-direct {p0, p1, p2}, Lcom/google/android/gms/common/data/DataBufferRef;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
 
     new-instance v0, Lcom/google/android/gms/games/GameRef;
 
     invoke-direct {v0, p1, p2}, Lcom/google/android/gms/games/GameRef;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
 
-    iput-object v0, p0, Lcom/google/android/gms/games/quest/QuestRef;->Sp:Lcom/google/android/gms/games/Game;
+    iput-object v0, p0, Lcom/google/android/gms/games/quest/QuestRef;->zzmy:Lcom/google/android/gms/games/Game;
 
-    iput p3, p0, Lcom/google/android/gms/games/quest/QuestRef;->RD:I
+    iput p3, p0, Lcom/google/android/gms/games/quest/QuestRef;->zzmz:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 1
 
     const/4 v0, 0x0
@@ -42,19 +43,17 @@
     return v0
 .end method
 
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    invoke-static {p0, p1}, Lcom/google/android/gms/games/quest/QuestEntity;->a(Lcom/google/android/gms/games/quest/Quest;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Lcom/google/android/gms/games/quest/QuestEntity;->zza(Lcom/google/android/gms/games/quest/Quest;Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public freeze()Lcom/google/android/gms/games/quest/Quest;
+.method public final synthetic freeze()Ljava/lang/Object;
     .locals 1
 
     new-instance v0, Lcom/google/android/gms/games/quest/QuestEntity;
@@ -64,17 +63,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic freeze()Ljava/lang/Object;
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/google/android/gms/games/quest/QuestRef;->freeze()Lcom/google/android/gms/games/quest/Quest;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getAcceptedTimestamp()J
+.method public final getAcceptedTimestamp()J
     .locals 2
 
     const-string v0, "accepted_ts"
@@ -86,19 +75,19 @@
     return-wide v0
 .end method
 
-.method public getBannerImageUri()Landroid/net/Uri;
+.method public final getBannerImageUri()Landroid/net/Uri;
     .locals 1
 
     const-string v0, "quest_banner_image_uri"
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/quest/QuestRef;->aw(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/quest/QuestRef;->parseUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getBannerImageUrl()Ljava/lang/String;
+.method public final getBannerImageUrl()Ljava/lang/String;
     .locals 1
 
     const-string v0, "quest_banner_image_url"
@@ -110,10 +99,10 @@
     return-object v0
 .end method
 
-.method public getCurrentMilestone()Lcom/google/android/gms/games/quest/Milestone;
+.method public final getCurrentMilestone()Lcom/google/android/gms/games/quest/Milestone;
     .locals 2
 
-    invoke-virtual {p0}, Lcom/google/android/gms/games/quest/QuestRef;->iE()Ljava/util/List;
+    invoke-virtual {p0}, Lcom/google/android/gms/games/quest/QuestRef;->zzcj()Ljava/util/List;
 
     move-result-object v0
 
@@ -128,7 +117,7 @@
     return-object v0
 .end method
 
-.method public getDescription()Ljava/lang/String;
+.method public final getDescription()Ljava/lang/String;
     .locals 1
 
     const-string v0, "quest_description"
@@ -140,19 +129,17 @@
     return-object v0
 .end method
 
-.method public getDescription(Landroid/database/CharArrayBuffer;)V
+.method public final getDescription(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "quest_description"
 
-    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/quest/QuestRef;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/quest/QuestRef;->copyToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public getEndTimestamp()J
+.method public final getEndTimestamp()J
     .locals 2
 
     const-string v0, "quest_end_ts"
@@ -164,27 +151,27 @@
     return-wide v0
 .end method
 
-.method public getGame()Lcom/google/android/gms/games/Game;
+.method public final getGame()Lcom/google/android/gms/games/Game;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/games/quest/QuestRef;->Sp:Lcom/google/android/gms/games/Game;
+    iget-object v0, p0, Lcom/google/android/gms/games/quest/QuestRef;->zzmy:Lcom/google/android/gms/games/Game;
 
     return-object v0
 .end method
 
-.method public getIconImageUri()Landroid/net/Uri;
+.method public final getIconImageUri()Landroid/net/Uri;
     .locals 1
 
     const-string v0, "quest_icon_image_uri"
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/quest/QuestRef;->aw(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/quest/QuestRef;->parseUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getIconImageUrl()Ljava/lang/String;
+.method public final getIconImageUrl()Ljava/lang/String;
     .locals 1
 
     const-string v0, "quest_icon_image_url"
@@ -196,7 +183,7 @@
     return-object v0
 .end method
 
-.method public getLastUpdatedTimestamp()J
+.method public final getLastUpdatedTimestamp()J
     .locals 2
 
     const-string v0, "quest_last_updated_ts"
@@ -208,7 +195,7 @@
     return-wide v0
 .end method
 
-.method public getName()Ljava/lang/String;
+.method public final getName()Ljava/lang/String;
     .locals 1
 
     const-string v0, "quest_name"
@@ -220,19 +207,17 @@
     return-object v0
 .end method
 
-.method public getName(Landroid/database/CharArrayBuffer;)V
+.method public final getName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "quest_name"
 
-    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/quest/QuestRef;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
+    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/quest/QuestRef;->copyToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
 
     return-void
 .end method
 
-.method public getQuestId()Ljava/lang/String;
+.method public final getQuestId()Ljava/lang/String;
     .locals 1
 
     const-string v0, "external_quest_id"
@@ -244,7 +229,7 @@
     return-object v0
 .end method
 
-.method public getStartTimestamp()J
+.method public final getStartTimestamp()J
     .locals 2
 
     const-string v0, "quest_start_ts"
@@ -256,7 +241,7 @@
     return-wide v0
 .end method
 
-.method public getState()I
+.method public final getState()I
     .locals 1
 
     const-string v0, "quest_state"
@@ -268,7 +253,7 @@
     return v0
 .end method
 
-.method public getType()I
+.method public final getType()I
     .locals 1
 
     const-string v0, "quest_type"
@@ -280,77 +265,22 @@
     return v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/gms/games/quest/QuestEntity;->a(Lcom/google/android/gms/games/quest/Quest;)I
+    invoke-static {p0}, Lcom/google/android/gms/games/quest/QuestEntity;->zza(Lcom/google/android/gms/games/quest/Quest;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public iE()Ljava/util/List;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/google/android/gms/games/quest/Milestone;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget v0, p0, Lcom/google/android/gms/games/quest/QuestRef;->RD:I
-
-    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget v2, p0, Lcom/google/android/gms/games/quest/QuestRef;->RD:I
-
-    if-ge v0, v2, :cond_0
-
-    new-instance v2, Lcom/google/android/gms/games/quest/MilestoneRef;
-
-    iget-object v3, p0, Lcom/google/android/gms/games/quest/QuestRef;->DD:Lcom/google/android/gms/common/data/DataHolder;
-
-    iget v4, p0, Lcom/google/android/gms/games/quest/QuestRef;->Ez:I
-
-    add-int/2addr v4, v0
-
-    invoke-direct {v2, v3, v4}, Lcom/google/android/gms/games/quest/MilestoneRef;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-object v1
-.end method
-
-.method public iF()J
-    .locals 2
+.method public final isEndingSoon()Z
+    .locals 6
 
     const-string v0, "notification_ts"
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/quest/QuestRef;->getLong(Ljava/lang/String;)J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
-.method public isEndingSoon()Z
-    .locals 6
-
-    invoke-virtual {p0}, Lcom/google/android/gms/games/quest/QuestRef;->iF()J
 
     move-result-wide v0
 
@@ -377,29 +307,85 @@
     goto :goto_0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/gms/games/quest/QuestEntity;->b(Lcom/google/android/gms/games/quest/Quest;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/google/android/gms/games/quest/QuestEntity;->zzb(Lcom/google/android/gms/games/quest/Quest;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    invoke-virtual {p0}, Lcom/google/android/gms/games/quest/QuestRef;->freeze()Lcom/google/android/gms/games/quest/Quest;
+    invoke-virtual {p0}, Lcom/google/android/gms/games/quest/QuestRef;->freeze()Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/games/quest/Quest;
 
     check-cast v0, Lcom/google/android/gms/games/quest/QuestEntity;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/games/quest/QuestEntity;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void
+.end method
+
+.method public final zzcj()Ljava/util/List;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/google/android/gms/games/quest/Milestone;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    iget v0, p0, Lcom/google/android/gms/games/quest/QuestRef;->zzmz:I
+
+    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget v2, p0, Lcom/google/android/gms/games/quest/QuestRef;->zzmz:I
+
+    if-ge v0, v2, :cond_0
+
+    new-instance v2, Lcom/google/android/gms/games/quest/zzb;
+
+    iget-object v3, p0, Lcom/google/android/gms/games/quest/QuestRef;->mDataHolder:Lcom/google/android/gms/common/data/DataHolder;
+
+    iget v4, p0, Lcom/google/android/gms/games/quest/QuestRef;->mDataRow:I
+
+    add-int/2addr v4, v0
+
+    invoke-direct {v2, v3, v4}, Lcom/google/android/gms/games/quest/zzb;-><init>(Lcom/google/android/gms/common/data/DataHolder;I)V
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-object v1
+.end method
+
+.method public final zzck()J
+    .locals 2
+
+    const-string v0, "notification_ts"
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/games/quest/QuestRef;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method

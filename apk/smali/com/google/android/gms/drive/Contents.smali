@@ -1,8 +1,20 @@
 .class public Lcom/google/android/gms/drive/Contents;
-.super Ljava/lang/Object;
+.super Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;
 
-# interfaces
-.implements Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
+
+# annotations
+.annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
+.end annotation
+
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Class;
+    creator = "ContentsCreator"
+.end annotation
+
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Reserved;
+    value = {
+        0x1
+    }
+.end annotation
 
 
 # static fields
@@ -19,161 +31,130 @@
 
 
 # instance fields
-.field final Fg:Landroid/os/ParcelFileDescriptor;
+.field private final mode:I
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        id = 0x4
+    .end annotation
+.end field
 
-.field private HA:Z
+.field private final zzi:Landroid/os/ParcelFileDescriptor;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        id = 0x2
+    .end annotation
+.end field
 
-.field private HB:Z
+.field final zzj:I
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        id = 0x3
+    .end annotation
+.end field
 
-.field final Hv:I
+.field private final zzk:Lcom/google/android/gms/drive/DriveId;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        id = 0x5
+    .end annotation
+.end field
 
-.field final Hw:Lcom/google/android/gms/drive/DriveId;
+.field private final zzl:Z
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        id = 0x7
+    .end annotation
+.end field
 
-.field Hx:Ljava/lang/String;
+.field private final zzm:Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
-.field Hy:Z
-
-.field private Hz:Z
-
-.field private mClosed:Z
-
-.field final qX:I
-
-.field final xJ:I
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        id = 0x8
+    .end annotation
+.end field
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/drive/a;
+    new-instance v0, Lcom/google/android/gms/drive/zzc;
 
-    invoke-direct {v0}, Lcom/google/android/gms/drive/a;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/drive/zzc;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/drive/Contents;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
-.method constructor <init>(ILandroid/os/ParcelFileDescriptor;IILcom/google/android/gms/drive/DriveId;Ljava/lang/String;Z)V
-    .locals 1
-    .param p1, "versionCode"    # I
-    .param p2, "parcelFileDescriptor"    # Landroid/os/ParcelFileDescriptor;
-    .param p3, "requestId"    # I
-    .param p4, "mode"    # I
-    .param p5, "driveId"    # Lcom/google/android/gms/drive/DriveId;
-    .param p6, "baseContentHash"    # Ljava/lang/String;
-    .param p7, "validForConflictDetection"    # Z
+.method public constructor <init>(Landroid/os/ParcelFileDescriptor;IILcom/google/android/gms/drive/DriveId;ZLjava/lang/String;)V
+    .locals 0
+    .param p1    # Landroid/os/ParcelFileDescriptor;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x2
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x3
+        .end annotation
+    .end param
+    .param p3    # I
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x4
+        .end annotation
+    .end param
+    .param p4    # Lcom/google/android/gms/drive/DriveId;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x5
+        .end annotation
+    .end param
+    .param p5    # Z
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x7
+        .end annotation
+    .end param
+    .param p6    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
 
-    .prologue
-    const/4 v0, 0x0
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x8
+        .end annotation
+    .end param
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
+    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
 
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->mClosed:Z
+    iput-object p1, p0, Lcom/google/android/gms/drive/Contents;->zzi:Landroid/os/ParcelFileDescriptor;
 
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->Hz:Z
+    iput p2, p0, Lcom/google/android/gms/drive/Contents;->zzj:I
 
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->HA:Z
+    iput p3, p0, Lcom/google/android/gms/drive/Contents;->mode:I
 
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->HB:Z
+    iput-object p4, p0, Lcom/google/android/gms/drive/Contents;->zzk:Lcom/google/android/gms/drive/DriveId;
 
-    iput p1, p0, Lcom/google/android/gms/drive/Contents;->xJ:I
+    iput-boolean p5, p0, Lcom/google/android/gms/drive/Contents;->zzl:Z
 
-    iput-object p2, p0, Lcom/google/android/gms/drive/Contents;->Fg:Landroid/os/ParcelFileDescriptor;
-
-    iput p3, p0, Lcom/google/android/gms/drive/Contents;->qX:I
-
-    iput p4, p0, Lcom/google/android/gms/drive/Contents;->Hv:I
-
-    iput-object p5, p0, Lcom/google/android/gms/drive/Contents;->Hw:Lcom/google/android/gms/drive/DriveId;
-
-    iput-object p6, p0, Lcom/google/android/gms/drive/Contents;->Hx:Ljava/lang/String;
-
-    iput-boolean p7, p0, Lcom/google/android/gms/drive/Contents;->Hy:Z
+    iput-object p6, p0, Lcom/google/android/gms/drive/Contents;->zzm:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public close()V
+.method public final getDriveId()Lcom/google/android/gms/drive/DriveId;
     .locals 1
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->mClosed:Z
-
-    return-void
-.end method
-
-.method public describeContents()I
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getDriveId()Lcom/google/android/gms/drive/DriveId;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/drive/Contents;->Hw:Lcom/google/android/gms/drive/DriveId;
+    iget-object v0, p0, Lcom/google/android/gms/drive/Contents;->zzk:Lcom/google/android/gms/drive/DriveId;
 
     return-object v0
 .end method
 
-.method public getInputStream()Ljava/io/InputStream;
+.method public final getInputStream()Ljava/io/InputStream;
     .locals 2
-
-    iget-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->mClosed:Z
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "Contents have been closed, cannot access the input stream."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    iget v0, p0, Lcom/google/android/gms/drive/Contents;->Hv:I
-
-    const/high16 v1, 0x10000000
-
-    if-eq v0, v1, :cond_1
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "getInputStream() can only be used with contents opened with MODE_READ_ONLY."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    iget-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->Hz:Z
-
-    if-eqz v0, :cond_2
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "getInputStream() can only be called once per Contents instance."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->Hz:Z
 
     new-instance v0, Ljava/io/FileInputStream;
 
-    iget-object v1, p0, Lcom/google/android/gms/drive/Contents;->Fg:Landroid/os/ParcelFileDescriptor;
+    iget-object v1, p0, Lcom/google/android/gms/drive/Contents;->zzi:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
@@ -184,65 +165,20 @@
     return-object v0
 .end method
 
-.method public getMode()I
+.method public final getMode()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/drive/Contents;->Hv:I
+    iget v0, p0, Lcom/google/android/gms/drive/Contents;->mode:I
 
     return v0
 .end method
 
-.method public getOutputStream()Ljava/io/OutputStream;
+.method public final getOutputStream()Ljava/io/OutputStream;
     .locals 2
-
-    iget-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->mClosed:Z
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "Contents have been closed, cannot access the output stream."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    iget v0, p0, Lcom/google/android/gms/drive/Contents;->Hv:I
-
-    const/high16 v1, 0x20000000
-
-    if-eq v0, v1, :cond_1
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "getOutputStream() can only be used with contents opened with MODE_WRITE_ONLY."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    iget-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->HA:Z
-
-    if-eqz v0, :cond_2
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "getOutputStream() can only be called once per Contents instance."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->HA:Z
 
     new-instance v0, Ljava/io/FileOutputStream;
 
-    iget-object v1, p0, Lcom/google/android/gms/drive/Contents;->Fg:Landroid/os/ParcelFileDescriptor;
+    iget-object v1, p0, Lcom/google/android/gms/drive/Contents;->zzi:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
@@ -254,41 +190,77 @@
 .end method
 
 .method public getParcelFileDescriptor()Landroid/os/ParcelFileDescriptor;
-    .locals 2
+    .locals 1
+    .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->mClosed:Z
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "Contents have been closed, cannot access the output stream."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/drive/Contents;->Fg:Landroid/os/ParcelFileDescriptor;
+    iget-object v0, p0, Lcom/google/android/gms/drive/Contents;->zzi:Landroid/os/ParcelFileDescriptor;
 
     return-object v0
 .end method
 
-.method public getRequestId()I
+.method public final getRequestId()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/drive/Contents;->qX:I
+    iget v0, p0, Lcom/google/android/gms/drive/Contents;->zzj:I
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+    .locals 4
 
-    .prologue
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/drive/a;->a(Lcom/google/android/gms/drive/Contents;Landroid/os/Parcel;I)V
+    const/4 v3, 0x0
+
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
+
+    move-result v0
+
+    const/4 v1, 0x2
+
+    iget-object v2, p0, Lcom/google/android/gms/drive/Contents;->zzi:Landroid/os/ParcelFileDescriptor;
+
+    invoke-static {p1, v1, v2, p2, v3}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeParcelable(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
+
+    const/4 v1, 0x3
+
+    iget v2, p0, Lcom/google/android/gms/drive/Contents;->zzj:I
+
+    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
+
+    const/4 v1, 0x4
+
+    iget v2, p0, Lcom/google/android/gms/drive/Contents;->mode:I
+
+    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
+
+    const/4 v1, 0x5
+
+    iget-object v2, p0, Lcom/google/android/gms/drive/Contents;->zzk:Lcom/google/android/gms/drive/DriveId;
+
+    invoke-static {p1, v1, v2, p2, v3}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeParcelable(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
+
+    const/4 v1, 0x7
+
+    iget-boolean v2, p0, Lcom/google/android/gms/drive/Contents;->zzl:Z
+
+    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeBoolean(Landroid/os/Parcel;IZ)V
+
+    const/16 v1, 0x8
+
+    iget-object v2, p0, Lcom/google/android/gms/drive/Contents;->zzm:Ljava/lang/String;
+
+    invoke-static {p1, v1, v2, v3}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
 
     return-void
+.end method
+
+.method public final zza()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/google/android/gms/drive/Contents;->zzl:Z
+
+    return v0
 .end method

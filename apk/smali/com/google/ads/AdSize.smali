@@ -32,7 +32,7 @@
 
 
 # instance fields
-.field private final c:Lcom/google/android/gms/ads/AdSize;
+.field private final zzcn:Lcom/google/android/gms/ads/AdSize;
 
 
 # direct methods
@@ -116,10 +116,7 @@
 
 .method public constructor <init>(II)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/ads/AdSize;
 
     invoke-direct {v0, p1, p2}, Lcom/google/android/gms/ads/AdSize;-><init>(II)V
@@ -131,11 +128,7 @@
 
 .method private constructor <init>(IILjava/lang/String;)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "type"    # Ljava/lang/String;
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/ads/AdSize;
 
     invoke-direct {v0, p1, p2}, Lcom/google/android/gms/ads/AdSize;-><init>(II)V
@@ -147,41 +140,34 @@
 
 .method public constructor <init>(Lcom/google/android/gms/ads/AdSize;)V
     .locals 0
-    .param p1, "adSize"    # Lcom/google/android/gms/ads/AdSize;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iput-object p1, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
     instance-of v0, p1, Lcom/google/ads/AdSize;
 
     if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    .end local p1    # "other":Ljava/lang/Object;
     :goto_0
     return v0
 
-    .restart local p1    # "other":Ljava/lang/Object;
     :cond_0
     check-cast p1, Lcom/google/ads/AdSize;
 
-    .end local p1    # "other":Ljava/lang/Object;
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
-    iget-object v1, p1, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v1, p1, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/AdSize;->equals(Ljava/lang/Object;)Z
 
@@ -190,11 +176,9 @@
     goto :goto_0
 .end method
 
-.method public varargs findBestSize([Lcom/google/ads/AdSize;)Lcom/google/ads/AdSize;
+.method public final varargs findBestSize([Lcom/google/ads/AdSize;)Lcom/google/ads/AdSize;
     .locals 11
-    .param p1, "options"    # [Lcom/google/ads/AdSize;
 
-    .prologue
     const/4 v3, 0x0
 
     const/high16 v10, 0x3f800000    # 1.0f
@@ -278,10 +262,10 @@
     goto :goto_1
 .end method
 
-.method public getHeight()I
+.method public final getHeight()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0}, Lcom/google/android/gms/ads/AdSize;->getHeight()I
 
@@ -290,12 +274,10 @@
     return v0
 .end method
 
-.method public getHeightInPixels(Landroid/content/Context;)I
+.method public final getHeightInPixels(Landroid/content/Context;)I
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/ads/AdSize;->getHeightInPixels(Landroid/content/Context;)I
 
@@ -304,10 +286,10 @@
     return v0
 .end method
 
-.method public getWidth()I
+.method public final getWidth()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0}, Lcom/google/android/gms/ads/AdSize;->getWidth()I
 
@@ -316,12 +298,10 @@
     return v0
 .end method
 
-.method public getWidthInPixels(Landroid/content/Context;)I
+.method public final getWidthInPixels(Landroid/content/Context;)I
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/ads/AdSize;->getWidthInPixels(Landroid/content/Context;)I
 
@@ -330,10 +310,10 @@
     return v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0}, Lcom/google/android/gms/ads/AdSize;->hashCode()I
 
@@ -342,10 +322,10 @@
     return v0
 .end method
 
-.method public isAutoHeight()Z
+.method public final isAutoHeight()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0}, Lcom/google/android/gms/ads/AdSize;->isAutoHeight()Z
 
@@ -354,7 +334,7 @@
     return v0
 .end method
 
-.method public isCustomAdSize()Z
+.method public final isCustomAdSize()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -362,10 +342,10 @@
     return v0
 .end method
 
-.method public isFullWidth()Z
+.method public final isFullWidth()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0}, Lcom/google/android/gms/ads/AdSize;->isFullWidth()Z
 
@@ -374,12 +354,9 @@
     return v0
 .end method
 
-.method public isSizeAppropriate(II)Z
+.method public final isSizeAppropriate(II)Z
     .locals 6
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .prologue
     const/high16 v5, 0x3fa00000    # 1.25f
 
     const v4, 0x3f4ccccd    # 0.8f
@@ -443,10 +420,10 @@
     goto :goto_0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/AdSize;->c:Lcom/google/android/gms/ads/AdSize;
+    iget-object v0, p0, Lcom/google/ads/AdSize;->zzcn:Lcom/google/android/gms/ads/AdSize;
 
     invoke-virtual {v0}, Lcom/google/android/gms/ads/AdSize;->toString()Ljava/lang/String;
 

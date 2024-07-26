@@ -5,9 +5,12 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/plus/Plus$a;,
+        Lcom/google/android/gms/plus/Plus$zza;,
         Lcom/google/android/gms/plus/Plus$PlusOptions;
     }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
@@ -21,73 +24,87 @@
             ">;"
         }
     .end annotation
-.end field
 
-.field public static final AccountApi:Lcom/google/android/gms/plus/Account;
-
-.field public static final MomentsApi:Lcom/google/android/gms/plus/Moments;
-
-.field public static final PeopleApi:Lcom/google/android/gms/plus/People;
-
-.field public static final SCOPE_PLUS_LOGIN:Lcom/google/android/gms/common/api/Scope;
-
-.field public static final SCOPE_PLUS_PROFILE:Lcom/google/android/gms/common/api/Scope;
-
-.field public static final abm:Lcom/google/android/gms/plus/b;
-
-.field public static final abn:Lcom/google/android/gms/plus/a;
-
-.field public static final yE:Lcom/google/android/gms/common/api/Api$c;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/common/api/Api$c",
-            "<",
-            "Lcom/google/android/gms/plus/internal/e;",
-            ">;"
-        }
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field static final yF:Lcom/google/android/gms/common/api/Api$b;
+.field public static final AccountApi:Lcom/google/android/gms/plus/Account;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field private static final CLIENT_BUILDER:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/android/gms/common/api/Api$b",
+            "Lcom/google/android/gms/common/api/Api$AbstractClientBuilder",
             "<",
-            "Lcom/google/android/gms/plus/internal/e;",
+            "Lcom/google/android/gms/plus/internal/zzh;",
             "Lcom/google/android/gms/plus/Plus$PlusOptions;",
             ">;"
         }
     .end annotation
 .end field
 
+.field public static final CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/common/api/Api$ClientKey",
+            "<",
+            "Lcom/google/android/gms/plus/internal/zzh;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static final PeopleApi:Lcom/google/android/gms/plus/People;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final SCOPE_PLUS_LOGIN:Lcom/google/android/gms/common/api/Scope;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final SCOPE_PLUS_PROFILE:Lcom/google/android/gms/common/api/Scope;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field private static final zze:Lcom/google/android/gms/plus/zzb;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field private static final zzf:Lcom/google/android/gms/plus/zza;
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 4
 
-    new-instance v0, Lcom/google/android/gms/common/api/Api$c;
+    new-instance v0, Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    invoke-direct {v0}, Lcom/google/android/gms/common/api/Api$c;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/common/api/Api$ClientKey;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/plus/Plus;->yE:Lcom/google/android/gms/common/api/Api$c;
+    sput-object v0, Lcom/google/android/gms/plus/Plus;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    new-instance v0, Lcom/google/android/gms/plus/Plus$1;
+    new-instance v0, Lcom/google/android/gms/plus/zzc;
 
-    invoke-direct {v0}, Lcom/google/android/gms/plus/Plus$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/plus/zzc;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/plus/Plus;->yF:Lcom/google/android/gms/common/api/Api$b;
+    sput-object v0, Lcom/google/android/gms/plus/Plus;->CLIENT_BUILDER:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
 
     new-instance v0, Lcom/google/android/gms/common/api/Api;
 
-    sget-object v1, Lcom/google/android/gms/plus/Plus;->yF:Lcom/google/android/gms/common/api/Api$b;
+    const-string v1, "Plus.API"
 
-    sget-object v2, Lcom/google/android/gms/plus/Plus;->yE:Lcom/google/android/gms/common/api/Api$c;
+    sget-object v2, Lcom/google/android/gms/plus/Plus;->CLIENT_BUILDER:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
 
-    const/4 v3, 0x0
+    sget-object v3, Lcom/google/android/gms/plus/Plus;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    new-array v3, v3, [Lcom/google/android/gms/common/api/Scope;
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Lcom/google/android/gms/common/api/Api$b;Lcom/google/android/gms/common/api/Api$c;[Lcom/google/android/gms/common/api/Scope;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Ljava/lang/String;Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;Lcom/google/android/gms/common/api/Api$ClientKey;)V
 
     sput-object v0, Lcom/google/android/gms/plus/Plus;->API:Lcom/google/android/gms/common/api/Api;
 
@@ -107,35 +124,29 @@
 
     sput-object v0, Lcom/google/android/gms/plus/Plus;->SCOPE_PLUS_PROFILE:Lcom/google/android/gms/common/api/Scope;
 
-    new-instance v0, Lcom/google/android/gms/internal/km;
+    new-instance v0, Lcom/google/android/gms/internal/plus/zzj;
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/km;-><init>()V
-
-    sput-object v0, Lcom/google/android/gms/plus/Plus;->MomentsApi:Lcom/google/android/gms/plus/Moments;
-
-    new-instance v0, Lcom/google/android/gms/internal/kn;
-
-    invoke-direct {v0}, Lcom/google/android/gms/internal/kn;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/plus/zzj;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/plus/Plus;->PeopleApi:Lcom/google/android/gms/plus/People;
 
-    new-instance v0, Lcom/google/android/gms/internal/kj;
+    new-instance v0, Lcom/google/android/gms/internal/plus/zze;
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/kj;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/plus/zze;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/plus/Plus;->AccountApi:Lcom/google/android/gms/plus/Account;
 
-    new-instance v0, Lcom/google/android/gms/internal/kl;
+    new-instance v0, Lcom/google/android/gms/internal/plus/zzi;
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/kl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/plus/zzi;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/plus/Plus;->abm:Lcom/google/android/gms/plus/b;
+    sput-object v0, Lcom/google/android/gms/plus/Plus;->zze:Lcom/google/android/gms/plus/zzb;
 
-    new-instance v0, Lcom/google/android/gms/internal/kk;
+    new-instance v0, Lcom/google/android/gms/internal/plus/zzh;
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/kk;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/plus/zzh;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/plus/Plus;->abn:Lcom/google/android/gms/plus/a;
+    sput-object v0, Lcom/google/android/gms/plus/Plus;->zzf:Lcom/google/android/gms/plus/zza;
 
     return-void
 .end method
@@ -148,63 +159,75 @@
     return-void
 .end method
 
-.method public static a(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/common/api/Api$c;)Lcom/google/android/gms/plus/internal/e;
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/common/api/GoogleApiClient;",
-            "Lcom/google/android/gms/common/api/Api$c",
-            "<",
-            "Lcom/google/android/gms/plus/internal/e;",
-            ">;)",
-            "Lcom/google/android/gms/plus/internal/e;"
-        }
-    .end annotation
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+.method public static zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/plus/internal/zzh;
+    .locals 2
 
     if-eqz p0, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
-    const-string v3, "GoogleApiClient parameter is required."
+    const-string v1, "GoogleApiClient parameter is required."
 
-    invoke-static {v0, v3}, Lcom/google/android/gms/internal/hn;->b(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    invoke-interface {p0}, Lcom/google/android/gms/common/api/GoogleApiClient;->isConnected()Z
+    invoke-virtual {p0}, Lcom/google/android/gms/common/api/GoogleApiClient;->isConnected()Z
 
     move-result v0
 
-    const-string v3, "GoogleApiClient must be connected."
+    const-string v1, "GoogleApiClient must be connected."
 
-    invoke-static {v0, v3}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    invoke-interface {p0, p1}, Lcom/google/android/gms/common/api/GoogleApiClient;->a(Lcom/google/android/gms/common/api/Api$c;)Lcom/google/android/gms/common/api/Api$a;
+    sget-object v0, Lcom/google/android/gms/plus/Plus;->API:Lcom/google/android/gms/common/api/Api;
 
-    move-result-object v0
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->hasApi(Lcom/google/android/gms/common/api/Api;)Z
 
-    check-cast v0, Lcom/google/android/gms/plus/internal/e;
+    move-result v0
 
-    if-eqz v0, :cond_1
+    const-string v1, "GoogleApiClient is not configured to use the Plus.API Api. Pass this into GoogleApiClient.Builder#addApi() to use this feature."
 
-    :goto_1
-    const-string v2, "GoogleApiClient is not configured to use the Plus.API Api. Pass this into GoogleApiClient.Builder#addApi() to use this feature."
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    invoke-static {v1, v2}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    sget-object v0, Lcom/google/android/gms/plus/Plus;->API:Lcom/google/android/gms/common/api/Api;
 
-    return-object v0
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->hasConnectedApi(Lcom/google/android/gms/common/api/Api;)Z
+
+    move-result v0
+
+    if-eqz p1, :cond_1
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "GoogleApiClient has an optional Plus.API and is not connected to Plus. Use GoogleApiClient.hasConnectedApi(Plus.API) to guard this call."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/google/android/gms/plus/Plus;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->getClient(Lcom/google/android/gms/common/api/Api$AnyClientKey;)Lcom/google/android/gms/common/api/Api$Client;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/plus/internal/zzh;
+
+    :goto_1
+    return-object v0
+
+    :cond_2
+    const/4 v0, 0x0
 
     goto :goto_1
 .end method

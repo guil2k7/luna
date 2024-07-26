@@ -15,7 +15,18 @@
 
 
 # instance fields
-.field private mAllowFreeFormInput:Z
+.field private mAllowFreeFormTextInput:Z
+
+.field private final mAllowedDataTypes:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mChoices:[Ljava/lang/CharSequence;
 
@@ -32,25 +43,32 @@
     .param p1, "resultKey"    # Ljava/lang/String;
 
     .prologue
-    .line 105
+    .line 142
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 98
+    .line 134
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowFreeFormInput:Z
+    iput-boolean v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowFreeFormTextInput:Z
 
-    .line 99
+    .line 135
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
 
-    .line 106
+    .line 136
+    new-instance v0, Ljava/util/HashSet;
+
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowedDataTypes:Ljava/util/Set;
+
+    .line 143
     if-nez p1, :cond_0
 
-    .line 107
+    .line 144
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Result key can\'t be null"
@@ -59,11 +77,11 @@
 
     throw v0
 
-    .line 109
+    .line 146
     :cond_0
     iput-object p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mResultKey:Ljava/lang/String;
 
-    .line 110
+    .line 147
     return-void
 .end method
 
@@ -74,15 +92,15 @@
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 156
+    .line 213
     if-eqz p1, :cond_0
 
-    .line 157
+    .line 214
     iget-object v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
-    .line 159
+    .line 216
     :cond_0
     return-object p0
 .end method
@@ -91,7 +109,7 @@
     .locals 7
 
     .prologue
-    .line 176
+    .line 233
     new-instance v0, Landroid/support/v4/app/RemoteInput;
 
     iget-object v1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mResultKey:Ljava/lang/String;
@@ -100,13 +118,13 @@
 
     iget-object v3, p0, Landroid/support/v4/app/RemoteInput$Builder;->mChoices:[Ljava/lang/CharSequence;
 
-    iget-boolean v4, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowFreeFormInput:Z
+    iget-boolean v4, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowFreeFormTextInput:Z
 
     iget-object v5, p0, Landroid/support/v4/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
 
-    const/4 v6, 0x0
+    iget-object v6, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowedDataTypes:Ljava/util/Set;
 
-    invoke-direct/range {v0 .. v6}, Landroid/support/v4/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZLandroid/os/Bundle;Landroid/support/v4/app/RemoteInput$1;)V
+    invoke-direct/range {v0 .. v6}, Landroid/support/v4/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZLandroid/os/Bundle;Ljava/util/Set;)V
 
     return-object v0
 .end method
@@ -115,21 +133,48 @@
     .locals 1
 
     .prologue
-    .line 168
+    .line 225
     iget-object v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
 
     return-object v0
 .end method
 
-.method public setAllowFreeFormInput(Z)Landroid/support/v4/app/RemoteInput$Builder;
-    .locals 0
-    .param p1, "allowFreeFormInput"    # Z
+.method public setAllowDataType(Ljava/lang/String;Z)Landroid/support/v4/app/RemoteInput$Builder;
+    .locals 1
+    .param p1, "mimeType"    # Ljava/lang/String;
+    .param p2, "doAllow"    # Z
 
     .prologue
-    .line 144
-    iput-boolean p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowFreeFormInput:Z
+    .line 182
+    if-eqz p2, :cond_0
 
-    .line 145
+    .line 183
+    iget-object v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowedDataTypes:Ljava/util/Set;
+
+    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    .line 187
+    :goto_0
+    return-object p0
+
+    .line 185
+    :cond_0
+    iget-object v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowedDataTypes:Ljava/util/Set;
+
+    invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+
+    goto :goto_0
+.end method
+
+.method public setAllowFreeFormInput(Z)Landroid/support/v4/app/RemoteInput$Builder;
+    .locals 0
+    .param p1, "allowFreeFormTextInput"    # Z
+
+    .prologue
+    .line 201
+    iput-boolean p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowFreeFormTextInput:Z
+
+    .line 202
     return-object p0
 .end method
 
@@ -138,10 +183,10 @@
     .param p1, "choices"    # [Ljava/lang/CharSequence;
 
     .prologue
-    .line 130
+    .line 167
     iput-object p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mChoices:[Ljava/lang/CharSequence;
 
-    .line 131
+    .line 168
     return-object p0
 .end method
 
@@ -150,9 +195,9 @@
     .param p1, "label"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 118
+    .line 155
     iput-object p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mLabel:Ljava/lang/CharSequence;
 
-    .line 119
+    .line 156
     return-object p0
 .end method

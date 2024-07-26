@@ -3,14 +3,16 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/games/Players$LoadXpStreamResult;,
-        Lcom/google/android/gms/games/Players$LoadXpForGameCategoriesResult;,
-        Lcom/google/android/gms/games/Players$LoadXpForGamesResult;,
-        Lcom/google/android/gms/games/Players$LoadOwnerCoverPhotoUrisResult;,
         Lcom/google/android/gms/games/Players$LoadPlayersResult;
     }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
@@ -19,6 +21,9 @@
 
 
 # virtual methods
+.method public abstract getCompareProfileIntent(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/games/Player;)Landroid/content/Intent;
+.end method
+
 .method public abstract getCurrentPlayer(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/Player;
 .end method
 
@@ -40,6 +45,9 @@
             ">;"
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract loadInvitablePlayers(Lcom/google/android/gms/common/api/GoogleApiClient;IZ)Lcom/google/android/gms/common/api/PendingResult;
@@ -54,6 +62,9 @@
             ">;"
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract loadMoreInvitablePlayers(Lcom/google/android/gms/common/api/GoogleApiClient;I)Lcom/google/android/gms/common/api/PendingResult;
@@ -67,6 +78,9 @@
             "Lcom/google/android/gms/games/Players$LoadPlayersResult;",
             ">;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 
@@ -91,6 +105,21 @@
             "Lcom/google/android/gms/common/api/GoogleApiClient;",
             "Ljava/lang/String;",
             ")",
+            "Lcom/google/android/gms/common/api/PendingResult",
+            "<",
+            "Lcom/google/android/gms/games/Players$LoadPlayersResult;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract loadPlayer(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;Z)Lcom/google/android/gms/common/api/PendingResult;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/common/api/GoogleApiClient;",
+            "Ljava/lang/String;",
+            "Z)",
             "Lcom/google/android/gms/common/api/PendingResult",
             "<",
             "Lcom/google/android/gms/games/Players$LoadPlayersResult;",

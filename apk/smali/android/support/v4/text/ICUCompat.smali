@@ -6,16 +6,14 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/text/ICUCompat$ICUCompatImplLollipop;,
-        Landroid/support/v4/text/ICUCompat$ICUCompatImplIcs;,
-        Landroid/support/v4/text/ICUCompat$ICUCompatImplBase;,
-        Landroid/support/v4/text/ICUCompat$ICUCompatImpl;
+        Landroid/support/v4/text/ICUCompat$ICUCompatApi21Impl;,
+        Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
     }
 .end annotation
 
 
 # static fields
-.field private static final IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatImpl;
+.field private static final IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
 
 # direct methods
@@ -23,48 +21,31 @@
     .locals 2
 
     .prologue
-    .line 53
+    .line 43
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 54
-    .local v0, "version":I
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_0
 
-    .line 55
-    new-instance v1, Landroid/support/v4/text/ICUCompat$ICUCompatImplLollipop;
+    .line 44
+    new-instance v0, Landroid/support/v4/text/ICUCompat$ICUCompatApi21Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/text/ICUCompat$ICUCompatImplLollipop;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/text/ICUCompat$ICUCompatApi21Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatImpl;
+    sput-object v0, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
-    .line 61
+    .line 48
     :goto_0
     return-void
 
-    .line 56
+    .line 46
     :cond_0
-    const/16 v1, 0xe
+    new-instance v0, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
-    if-lt v0, v1, :cond_1
+    invoke-direct {v0}, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;-><init>()V
 
-    .line 57
-    new-instance v1, Landroid/support/v4/text/ICUCompat$ICUCompatImplIcs;
-
-    invoke-direct {v1}, Landroid/support/v4/text/ICUCompat$ICUCompatImplIcs;-><init>()V
-
-    sput-object v1, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatImpl;
-
-    goto :goto_0
-
-    .line 59
-    :cond_1
-    new-instance v1, Landroid/support/v4/text/ICUCompat$ICUCompatImplBase;
-
-    invoke-direct {v1}, Landroid/support/v4/text/ICUCompat$ICUCompatImplBase;-><init>()V
-
-    sput-object v1, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatImpl;
+    sput-object v0, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
     goto :goto_0
 .end method
@@ -73,7 +54,7 @@
     .locals 0
 
     .prologue
-    .line 90
+    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -82,12 +63,14 @@
 .method public static maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
     .locals 1
     .param p0, "locale"    # Ljava/util/Locale;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .prologue
-    .line 87
-    sget-object v0, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatImpl;
+    .line 75
+    sget-object v0, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/text/ICUCompat$ICUCompatImpl;->maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v0, p0}, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;->maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v0
 

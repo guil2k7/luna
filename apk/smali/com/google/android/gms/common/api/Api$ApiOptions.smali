@@ -15,6 +15,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;,
+        Lcom/google/android/gms/common/api/Api$ApiOptions$HasGoogleSignInAccountOptions;,
+        Lcom/google/android/gms/common/api/Api$ApiOptions$HasAccountOptions;,
         Lcom/google/android/gms/common/api/Api$ApiOptions$Optional;,
         Lcom/google/android/gms/common/api/Api$ApiOptions$HasOptions;,
         Lcom/google/android/gms/common/api/Api$ApiOptions$NotRequiredOptions;

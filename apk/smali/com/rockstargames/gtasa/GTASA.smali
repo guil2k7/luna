@@ -113,7 +113,8 @@
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    const-string v0, "luna"
+    const-string v0, "Luna"
+
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
     .line 457
@@ -832,17 +833,10 @@
 
     invoke-static {v2, v3}, Lcom/rockstargames/hal/ActivityWrapper;->runMain(II)V
 
-    .line 237
-    :goto_3
-    invoke-static {}, Lcom/rockstargames/hal/andFacebook;->getInstance()Lcom/rockstargames/hal/andFacebook;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/rockstargames/hal/andFacebook;->onCreate()V
-
     .line 242
     .end local v0    # "d":Landroid/view/Display;
     :cond_0
+    :goto_3
     invoke-virtual {p0}, Lcom/rockstargames/gtasa/GTASA;->DoResumeEvent()V
 
     .line 248
@@ -1238,7 +1232,7 @@
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 1
+    .locals 0
     .param p1, "requestCode"    # I
     .param p2, "resultCode"    # I
     .param p3, "data"    # Landroid/content/Intent;
@@ -1246,13 +1240,6 @@
     .prologue
     .line 396
     invoke-super {p0, p1, p2, p3}, Lcom/wardrumstudios/utils/WarMedia;->onActivityResult(IILandroid/content/Intent;)V
-
-    .line 397
-    invoke-static {}, Lcom/rockstargames/hal/andFacebook;->getInstance()Lcom/rockstargames/hal/andFacebook;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/rockstargames/hal/andFacebook;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 398
     return-void
@@ -2121,15 +2108,8 @@
     :goto_0
     return-void
 
-    .line 360
-    :cond_0
-    invoke-static {}, Lcom/rockstargames/hal/andFacebook;->getInstance()Lcom/rockstargames/hal/andFacebook;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/rockstargames/hal/andFacebook;->onStop()V
-
     .line 362
+    :cond_0
     const-string v0, "StartupActivity"
 
     new-instance v1, Ljava/lang/StringBuilder;

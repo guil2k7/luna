@@ -9,14 +9,15 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/content/Intent;)V
     .locals 0
-    .param p1, "msg"    # Ljava/lang/String;
-    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
+    .line 1
     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
+    .line 2
     iput-object p2, p0, Lcom/google/android/gms/common/UserRecoverableException;->mIntent:Landroid/content/Intent;
 
+    .line 3
     return-void
 .end method
 
@@ -25,6 +26,8 @@
 .method public getIntent()Landroid/content/Intent;
     .locals 2
 
+    .prologue
+    .line 4
     new-instance v0, Landroid/content/Intent;
 
     iget-object v1, p0, Lcom/google/android/gms/common/UserRecoverableException;->mIntent:Landroid/content/Intent;

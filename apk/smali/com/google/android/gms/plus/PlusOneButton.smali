@@ -10,45 +10,72 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final ANNOTATION_BUBBLE:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ANNOTATION_INLINE:I = 0x2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ANNOTATION_NONE:I = 0x0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_ACTIVITY_REQUEST_CODE:I = -0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SIZE_MEDIUM:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SIZE_SMALL:I = 0x0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SIZE_STANDARD:I = 0x3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SIZE_TALL:I = 0x2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # instance fields
-.field private abA:I
-
-.field private abB:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
-
-.field private aby:Landroid/view/View;
-
-.field private abz:I
-
 .field private mSize:I
 
-.field private qV:Ljava/lang/String;
+.field private zzi:Landroid/view/View;
+
+.field private zzj:I
+
+.field private zzk:Ljava/lang/String;
+
+.field private zzl:I
+
+.field private zzm:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/google/android/gms/plus/PlusOneButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -58,10 +85,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     invoke-static {p1, p2}, Lcom/google/android/gms/plus/PlusOneButton;->getSize(Landroid/content/Context;Landroid/util/AttributeSet;)I
@@ -74,17 +100,17 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->abz:I
+    iput v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzj:I
 
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->abA:I
+    iput v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzl:I
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->z(Landroid/content/Context;)V
+    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->zza(Landroid/content/Context;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->isInEditMode()Z
 
@@ -96,28 +122,11 @@
     return-void
 .end method
 
-.method static synthetic a(Lcom/google/android/gms/plus/PlusOneButton;)Landroid/view/View;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
-
-    return-object v0
-.end method
-
-.method static synthetic b(Lcom/google/android/gms/plus/PlusOneButton;)I
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->abA:I
-
-    return v0
-.end method
-
 .method protected static getAnnotation(Landroid/content/Context;Landroid/util/AttributeSet;)I
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "attrs"    # Landroid/util/AttributeSet;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -132,7 +141,7 @@
 
     move-object v3, p1
 
-    invoke-static/range {v0 .. v6}, Lcom/google/android/gms/internal/hq;->a(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;ZZLjava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v0 .. v6}, Lcom/google/android/gms/common/internal/ViewUtils;->getXmlAttributeString(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;ZZLjava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -166,10 +175,9 @@
 
 .method protected static getSize(Landroid/content/Context;Landroid/util/AttributeSet;)I
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "attrs"    # Landroid/util/AttributeSet;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -184,7 +192,7 @@
 
     move-object v3, p1
 
-    invoke-static/range {v0 .. v6}, Lcom/google/android/gms/internal/hq;->a(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;ZZLjava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v0 .. v6}, Lcom/google/android/gms/common/internal/ViewUtils;->getXmlAttributeString(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;ZZLjava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -231,51 +239,66 @@
     goto :goto_0
 .end method
 
-.method private z(Landroid/content/Context;)V
+.method static synthetic zza(Lcom/google/android/gms/plus/PlusOneButton;)Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
+
+    return-object v0
+.end method
+
+.method private final zza(Landroid/content/Context;)V
     .locals 4
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->removeView(Landroid/view/View;)V
 
     :cond_0
     iget v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->mSize:I
 
-    iget v1, p0, Lcom/google/android/gms/plus/PlusOneButton;->abz:I
+    iget v1, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzj:I
 
-    iget-object v2, p0, Lcom/google/android/gms/plus/PlusOneButton;->qV:Ljava/lang/String;
+    iget-object v2, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzk:Ljava/lang/String;
 
-    iget v3, p0, Lcom/google/android/gms/plus/PlusOneButton;->abA:I
+    iget v3, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzl:I
 
-    invoke-static {p1, v0, v1, v2, v3}, Lcom/google/android/gms/plus/internal/g;->a(Landroid/content/Context;IILjava/lang/String;I)Landroid/view/View;
+    invoke-static {p1, v0, v1, v2, v3}, Lcom/google/android/gms/plus/internal/zzm;->zza(Landroid/content/Context;IILjava/lang/String;I)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
+    iput-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->abB:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzm:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->setOnPlusOneClickListener(Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->addView(Landroid/view/View;)V
 
     return-void
 .end method
 
+.method static synthetic zzb(Lcom/google/android/gms/plus/PlusOneButton;)I
+    .locals 1
+
+    iget v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzl:I
+
+    return v0
+.end method
+
 
 # virtual methods
-.method public initialize(Ljava/lang/String;I)V
+.method public final initialize(Ljava/lang/String;I)V
     .locals 2
-    .param p1, "url"    # Ljava/lang/String;
-    .param p2, "activityRequestCode"    # I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -284,56 +307,49 @@
 
     const-string v1, "To use this method, the PlusOneButton must be placed in an Activity. Use initialize(String, OnPlusOneClickListener)."
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->qV:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzk:Ljava/lang/String;
 
-    iput p2, p0, Lcom/google/android/gms/plus/PlusOneButton;->abA:I
+    iput p2, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzl:I
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->z(Landroid/content/Context;)V
+    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->zza(Landroid/content/Context;)V
 
     return-void
 .end method
 
-.method public initialize(Ljava/lang/String;Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
+.method public final initialize(Ljava/lang/String;Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
     .locals 1
-    .param p1, "url"    # Ljava/lang/String;
-    .param p2, "plusOneClickListener"    # Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->qV:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzk:Ljava/lang/String;
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->abA:I
+    iput v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzl:I
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->z(Landroid/content/Context;)V
+    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->zza(Landroid/content/Context;)V
 
     invoke-virtual {p0, p2}, Lcom/google/android/gms/plus/PlusOneButton;->setOnPlusOneClickListener(Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
 
     return-void
 .end method
 
-.method protected onLayout(ZIIII)V
+.method protected final onLayout(ZIIII)V
     .locals 4
-    .param p1, "changed"    # Z
-    .param p2, "left"    # I
-    .param p3, "top"    # I
-    .param p4, "right"    # I
-    .param p5, "bottom"    # I
 
-    .prologue
     const/4 v3, 0x0
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
 
     sub-int v1, p4, p2
 
@@ -344,13 +360,10 @@
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method protected final onMeasure(II)V
     .locals 2
-    .param p1, "widthMeasureSpec"    # I
-    .param p2, "heightMeasureSpec"    # I
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/google/android/gms/plus/PlusOneButton;->measureChild(Landroid/view/View;II)V
 
@@ -367,30 +380,60 @@
     return-void
 .end method
 
-.method public setAnnotation(I)V
+.method public final plusOneClick()V
     .locals 1
-    .param p1, "annotation"    # I
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+    .end annotation
 
-    .prologue
-    iput p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->abz:I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
+
+    return-void
+.end method
+
+.method public final setAnnotation(I)V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    iput p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzj:I
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->z(Landroid/content/Context;)V
+    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->zza(Landroid/content/Context;)V
 
     return-void
 .end method
 
-.method public setOnPlusOneClickListener(Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
+.method public final setIntent(Landroid/content/Intent;)V
+    .locals 1
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
+
+    invoke-virtual {v0, p1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public final setOnPlusOneClickListener(Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->abB:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzm:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->aby:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->zzi:Landroid/view/View;
 
     new-instance v1, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;
 
@@ -401,18 +444,18 @@
     return-void
 .end method
 
-.method public setSize(I)V
+.method public final setSize(I)V
     .locals 1
-    .param p1, "size"    # I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
     iput p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->mSize:I
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->z(Landroid/content/Context;)V
+    invoke-direct {p0, v0}, Lcom/google/android/gms/plus/PlusOneButton;->zza(Landroid/content/Context;)V
 
     return-void
 .end method

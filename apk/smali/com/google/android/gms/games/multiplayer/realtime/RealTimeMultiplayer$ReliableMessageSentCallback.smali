@@ -12,6 +12,9 @@
     name = "ReliableMessageSentCallback"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract onRealTimeMessageSent(IILjava/lang/String;)V

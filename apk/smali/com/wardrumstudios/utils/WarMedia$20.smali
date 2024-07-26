@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 2511
+    .line 2518
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$20;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 2513
+    .line 2520
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$20;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v1, v1, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
@@ -50,7 +50,7 @@
 
     move-result-object v0
 
-    .line 2514
+    .line 2521
     .local v0, "canvas":Landroid/graphics/Canvas;
     const/4 v1, 0x0
 
@@ -58,13 +58,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 2515
+    .line 2522
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$20;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v1, v1, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
 
     invoke-interface {v1, v0}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
-    .line 2516
+    .line 2523
     return-void
 .end method

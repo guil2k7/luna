@@ -12,6 +12,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final DISPLAY_LIMIT_NONE:I = -0x1
@@ -19,6 +22,16 @@
 .field public static final EXTRA_SNAPSHOT_METADATA:Ljava/lang/String; = "com.google.android.gms.games.SNAPSHOT_METADATA"
 
 .field public static final EXTRA_SNAPSHOT_NEW:Ljava/lang/String; = "com.google.android.gms.games.SNAPSHOT_NEW"
+
+.field public static final RESOLUTION_POLICY_HIGHEST_PROGRESS:I = 0x4
+
+.field public static final RESOLUTION_POLICY_LAST_KNOWN_GOOD:I = 0x2
+
+.field public static final RESOLUTION_POLICY_LONGEST_PLAYTIME:I = 0x1
+
+.field public static final RESOLUTION_POLICY_MANUAL:I = -0x1
+
+.field public static final RESOLUTION_POLICY_MOST_RECENTLY_MODIFIED:I = 0x3
 
 
 # virtual methods
@@ -97,6 +110,21 @@
     .end annotation
 .end method
 
+.method public abstract open(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/games/snapshot/SnapshotMetadata;I)Lcom/google/android/gms/common/api/PendingResult;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/common/api/GoogleApiClient;",
+            "Lcom/google/android/gms/games/snapshot/SnapshotMetadata;",
+            "I)",
+            "Lcom/google/android/gms/common/api/PendingResult",
+            "<",
+            "Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;",
+            ">;"
+        }
+    .end annotation
+.end method
+
 .method public abstract open(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;Z)Lcom/google/android/gms/common/api/PendingResult;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,6 +132,21 @@
             "Lcom/google/android/gms/common/api/GoogleApiClient;",
             "Ljava/lang/String;",
             "Z)",
+            "Lcom/google/android/gms/common/api/PendingResult",
+            "<",
+            "Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract open(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;ZI)Lcom/google/android/gms/common/api/PendingResult;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/common/api/GoogleApiClient;",
+            "Ljava/lang/String;",
+            "ZI)",
             "Lcom/google/android/gms/common/api/PendingResult",
             "<",
             "Lcom/google/android/gms/games/snapshot/Snapshots$OpenSnapshotResult;",
@@ -128,7 +171,7 @@
     .end annotation
 .end method
 
-.method public abstract resolveConflict(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;Lcom/google/android/gms/drive/Contents;)Lcom/google/android/gms/common/api/PendingResult;
+.method public abstract resolveConflict(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;Lcom/google/android/gms/games/snapshot/SnapshotContents;)Lcom/google/android/gms/common/api/PendingResult;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,7 +179,7 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "Lcom/google/android/gms/games/snapshot/SnapshotMetadataChange;",
-            "Lcom/google/android/gms/drive/Contents;",
+            "Lcom/google/android/gms/games/snapshot/SnapshotContents;",
             ")",
             "Lcom/google/android/gms/common/api/PendingResult",
             "<",

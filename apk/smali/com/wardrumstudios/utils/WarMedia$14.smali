@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 1461
+    .line 1468
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$14;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,14 +43,14 @@
     .prologue
     const/16 v1, 0x8
 
-    .line 1464
+    .line 1471
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$14;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
     if-nez v0, :cond_1
 
-    .line 1465
+    .line 1472
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$14;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-static {v0}, Lcom/wardrumstudios/utils/WarMedia;->access$900(Lcom/wardrumstudios/utils/WarMedia;)Z
@@ -67,12 +67,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceView;->setVisibility(I)V
 
-    .line 1471
+    .line 1478
     :cond_0
     :goto_0
     return-void
 
-    .line 1467
+    .line 1474
     :cond_1
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$14;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -80,14 +80,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceView;->setVisibility(I)V
 
-    .line 1468
+    .line 1475
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$14;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia;->movieView:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 1469
+    .line 1476
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$14;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     const/4 v1, 0x0

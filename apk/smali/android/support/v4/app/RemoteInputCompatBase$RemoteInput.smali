@@ -25,16 +25,28 @@
     .locals 0
 
     .prologue
-    .line 23
+    .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
+    .line 37
     return-void
 .end method
 
 
 # virtual methods
 .method protected abstract getAllowFreeFormInput()Z
+.end method
+
+.method protected abstract getAllowedDataTypes()Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method protected abstract getChoices()[Ljava/lang/CharSequence;

@@ -2,6 +2,14 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/games/PageDirection$Direction;
+    }
+.end annotation
+
+
 # static fields
 .field public static final NEXT:I = 0x0
 

@@ -15,6 +15,9 @@
     name = "CommitSnapshotResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getSnapshotMetadata()Lcom/google/android/gms/games/snapshot/SnapshotMetadata;

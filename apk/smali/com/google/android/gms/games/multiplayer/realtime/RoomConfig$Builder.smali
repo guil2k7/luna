@@ -14,21 +14,32 @@
 
 
 # instance fields
-.field SV:I
+.field zzoe:I
 
-.field final Th:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
+.field final zzor:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
-.field Ti:Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;
+.field zzos:Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
-.field Tj:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;
+.field zzot:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
-.field Tl:Landroid/os/Bundle;
+.field final zzou:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;
 
-.field Tm:Z
+.field zzov:Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateCallback;
 
-.field Tn:Ljava/lang/String;
+.field zzow:Lcom/google/android/gms/games/multiplayer/realtime/OnRealTimeMessageReceivedListener;
 
-.field To:Ljava/util/ArrayList;
+.field zzox:Ljava/lang/String;
+
+.field zzoy:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -39,52 +50,95 @@
     .end annotation
 .end field
 
+.field zzoz:Landroid/os/Bundle;
+
 
 # direct methods
-.method private constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;)V
-    .locals 1
-    .param p1, "updateListener"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
+.method private constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;)V
+    .locals 2
+    .param p1    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    .prologue
+    const/4 v1, 0x0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Tn:Ljava/lang/String;
+    iput-object v1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzox:Ljava/lang/String;
 
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->SV:I
+    iput v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoe:I
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->To:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoy:Ljava/util/ArrayList;
 
-    const/4 v0, 0x0
+    const-string v0, "Must provide a RoomUpdateCallback"
 
-    iput-boolean v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Tm:Z
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;
+
+    iput-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzou:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;
+
+    iput-object v1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzor:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;Lcom/google/android/gms/games/multiplayer/realtime/zzc;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;-><init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;)V
+
+    return-void
+.end method
+
+.method private constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;)V
+    .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzox:Ljava/lang/String;
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoe:I
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoy:Ljava/util/ArrayList;
 
     const-string v0, "Must provide a RoomUpdateListener"
 
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/hn;->b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
 
-    iput-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Th:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
+    iput-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzor:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
+
+    iput-object v1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzou:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateCallback;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$1;)V
+.method synthetic constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;Lcom/google/android/gms/games/multiplayer/realtime/zzc;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
-    .param p2, "x1"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$1;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;-><init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;)V
 
     return-void
@@ -92,8 +146,12 @@
 
 
 # virtual methods
-.method public addPlayersToInvite(Ljava/util/ArrayList;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final addPlayersToInvite(Ljava/util/ArrayList;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 1
+    .param p1    # Ljava/util/ArrayList;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -105,25 +163,25 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "playerIds":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    invoke-static {p1}, Lcom/google/android/gms/internal/hn;->f(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->To:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoy:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     return-object p0
 .end method
 
-.method public varargs addPlayersToInvite([Ljava/lang/String;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final varargs addPlayersToInvite([Ljava/lang/String;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 2
-    .param p1, "playerIds"    # [Ljava/lang/String;
+    .param p1    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    .prologue
-    invoke-static {p1}, Lcom/google/android/gms/internal/hn;->f(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->To:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoy:Ljava/util/ArrayList;
 
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -134,75 +192,81 @@
     return-object p0
 .end method
 
-.method public build()Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;
-    .locals 2
+.method public final build()Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;
+    .locals 1
 
-    new-instance v0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;
+    new-instance v0, Lcom/google/android/gms/games/multiplayer/realtime/zzd;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;-><init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$1;)V
+    invoke-direct {v0, p0}, Lcom/google/android/gms/games/multiplayer/realtime/zzd;-><init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;)V
 
     return-object v0
 .end method
 
-.method public setAutoMatchCriteria(Landroid/os/Bundle;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final setAutoMatchCriteria(Landroid/os/Bundle;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "autoMatchCriteria"    # Landroid/os/Bundle;
 
-    .prologue
-    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Tl:Landroid/os/Bundle;
+    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoz:Landroid/os/Bundle;
 
     return-object p0
 .end method
 
-.method public setInvitationIdToAccept(Ljava/lang/String;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final setInvitationIdToAccept(Ljava/lang/String;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "invitationId"    # Ljava/lang/String;
 
-    .prologue
-    invoke-static {p1}, Lcom/google/android/gms/internal/hn;->f(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Tn:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzox:Ljava/lang/String;
 
     return-object p0
 .end method
 
-.method public setMessageReceivedListener(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final setMessageReceivedListener(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Tj:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;
+    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzot:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;
 
     return-object p0
 .end method
 
-.method public setRoomStatusUpdateListener(Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final setOnMessageReceivedListener(Lcom/google/android/gms/games/multiplayer/realtime/OnRealTimeMessageReceivedListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;
+    .param p1    # Lcom/google/android/gms/games/multiplayer/realtime/OnRealTimeMessageReceivedListener;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    .prologue
-    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Ti:Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;
+    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzow:Lcom/google/android/gms/games/multiplayer/realtime/OnRealTimeMessageReceivedListener;
 
     return-object p0
 .end method
 
-.method public setSocketCommunicationEnabled(Z)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final setRoomStatusUpdateCallback(Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateCallback;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "enableSockets"    # Z
+    .param p1    # Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
-    .prologue
-    iput-boolean p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->Tm:Z
+    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzov:Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateCallback;
 
     return-object p0
 .end method
 
-.method public setVariant(I)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+.method public final setRoomStatusUpdateListener(Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzos:Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;
+
+    return-object p0
+.end method
+
+.method public final setVariant(I)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 2
-    .param p1, "variant"    # I
 
-    .prologue
     const/4 v0, -0x1
 
     if-eq p1, v0, :cond_0
@@ -215,9 +279,9 @@
     :goto_0
     const-string v1, "Variant must be a positive integer or Room.ROOM_VARIANT_ANY"
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->b(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    iput p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->SV:I
+    iput p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->zzoe:I
 
     return-object p0
 

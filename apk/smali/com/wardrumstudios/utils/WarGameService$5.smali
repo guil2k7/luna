@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/wardrumstudios/utils/WarGameService;->LoadSnapshotCount()V
+    value = Lcom/wardrumstudios/utils/WarGameService;->LoadSnapshot()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -37,7 +37,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarGameService;
 
     .prologue
-    .line 552
+    .line 829
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarGameService$5;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
     .locals 0
 
     .prologue
-    .line 552
+    .line 829
     check-cast p1, Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;
 
     invoke-virtual {p0, p1}, Lcom/wardrumstudios/utils/WarGameService$5;->onResult(Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;)V
@@ -60,80 +60,66 @@
 .end method
 
 .method public onResult(Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;)V
-    .locals 3
-    .param p1, "result"    # Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;
+    .locals 5
+    .param p1, "loadResult"    # Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;
 
     .prologue
-    .line 555
-    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;->getStatus()Lcom/google/android/gms/common/api/Status;
+    .line 833
+    :try_start_0
+    sget-object v1, Lcom/google/android/gms/games/Games;->Snapshots:Lcom/google/android/gms/games/snapshot/Snapshots;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarGameService$5;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/common/api/Status;->getStatusCode()I
-
-    move-result v0
-
-    packed-switch v0, :pswitch_data_0
-
-    .line 567
-    iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$5;->this$0:Lcom/wardrumstudios/utils/WarGameService;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Failed to load snapshots, status:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;->getStatus()Lcom/google/android/gms/common/api/Status;
+    invoke-virtual {v2}, Lcom/wardrumstudios/utils/WarGameService;->getApiClient()Lcom/google/android/gms/common/api/GoogleApiClient;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;->getSnapshots()Lcom/google/android/gms/games/snapshot/SnapshotMetadataBuffer;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataBuffer;->get(I)Lcom/google/android/gms/games/snapshot/SnapshotMetadata;
+
+    move-result-object v3
+
+    invoke-interface {v1, v2, v3}, Lcom/google/android/gms/games/snapshot/Snapshots;->open(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/games/snapshot/SnapshotMetadata;)Lcom/google/android/gms/common/api/PendingResult;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v2, Lcom/wardrumstudios/utils/WarGameService$5$1;
 
-    move-result-object v1
+    invoke-direct {v2, p0}, Lcom/wardrumstudios/utils/WarGameService$5$1;-><init>(Lcom/wardrumstudios/utils/WarGameService$5;)V
 
-    invoke-virtual {v0, v1}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/google/android/gms/common/api/PendingResult;->setResultCallback(Lcom/google/android/gms/common/api/ResultCallback;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 569
+    .line 879
     :goto_0
     return-void
 
-    .line 557
-    :pswitch_0
-    iget-object v0, p0, Lcom/wardrumstudios/utils/WarGameService$5;->this$0:Lcom/wardrumstudios/utils/WarGameService;
+    .line 875
+    :catch_0
+    move-exception v0
 
-    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;->getSnapshots()Lcom/google/android/gms/games/snapshot/SnapshotMetadataBuffer;
+    .line 876
+    .local v0, "isex":Ljava/lang/IllegalStateException;
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$5;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/IllegalStateException;->getMessage()Ljava/lang/String;
 
-    invoke-virtual {v1}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataBuffer;->getCount()I
+    move-result-object v2
 
-    move-result v1
+    invoke-virtual {v1, v2}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Lcom/wardrumstudios/utils/WarGameService;->notifySnapshotCountLoaded(I)V
+    .line 877
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarGameService$5;->this$0:Lcom/wardrumstudios/utils/WarGameService;
 
-    .line 558
-    invoke-interface {p1}, Lcom/google/android/gms/games/snapshot/Snapshots$LoadSnapshotsResult;->getSnapshots()Lcom/google/android/gms/games/snapshot/SnapshotMetadataBuffer;
+    const-string v2, "Snapshot IllegalStateException load"
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/google/android/gms/games/snapshot/SnapshotMetadataBuffer;->close()V
+    invoke-virtual {v1, v2}, Lcom/wardrumstudios/utils/WarGameService;->debugLog(Ljava/lang/String;)V
 
     goto :goto_0
-
-    .line 555
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-    .end packed-switch
 .end method

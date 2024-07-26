@@ -21,10 +21,11 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/content/LocalBroadcastManager;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/content/LocalBroadcastManager;
     .param p2, "x0"    # Landroid/os/Looper;
 
     .prologue
-    .line 110
+    .line 112
     iput-object p1, p0, Landroid/support/v4/content/LocalBroadcastManager$1;->this$0:Landroid/support/v4/content/LocalBroadcastManager;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -39,19 +40,19 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 114
+    .line 116
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 119
+    .line 121
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 121
+    .line 123
     :goto_0
     return-void
 
-    .line 116
+    .line 118
     :pswitch_0
     iget-object v0, p0, Landroid/support/v4/content/LocalBroadcastManager$1;->this$0:Landroid/support/v4/content/LocalBroadcastManager;
 
@@ -59,7 +60,7 @@
 
     goto :goto_0
 
-    .line 114
+    .line 116
     nop
 
     :pswitch_data_0

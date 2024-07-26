@@ -6,6 +6,16 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/games/leaderboard/LeaderboardVariant$TimeSpan;,
+        Lcom/google/android/gms/games/leaderboard/LeaderboardVariant$Collection;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -21,6 +31,9 @@
 .field public static final COLLECTION_PUBLIC:I = 0x0
 
 .field public static final COLLECTION_SOCIAL:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final NUM_SCORES_UNKNOWN:I = -0x1
 
@@ -65,11 +78,11 @@
 .method public abstract hasPlayerInfo()Z
 .end method
 
-.method public abstract iA()Ljava/lang/String;
+.method public abstract zzcd()Ljava/lang/String;
 .end method
 
-.method public abstract iy()Ljava/lang/String;
+.method public abstract zzce()Ljava/lang/String;
 .end method
 
-.method public abstract iz()Ljava/lang/String;
+.method public abstract zzcf()Ljava/lang/String;
 .end method

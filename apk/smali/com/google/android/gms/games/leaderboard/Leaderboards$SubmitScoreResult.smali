@@ -16,6 +16,9 @@
     name = "SubmitScoreResult"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract getScoreData()Lcom/google/android/gms/games/leaderboard/ScoreSubmissionData;

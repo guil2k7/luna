@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/media/MediaDescriptionCompatApi21$Builder;
@@ -16,10 +20,10 @@
     .locals 0
 
     .prologue
-    .line 24
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
+    .line 64
     return-void
 .end method
 
@@ -28,7 +32,7 @@
     .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 59
+    .line 61
     sget-object v0, Landroid/media/MediaDescription;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -43,7 +47,7 @@
     .param p0, "descriptionObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 39
+    .line 41
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
@@ -59,7 +63,7 @@
     .param p0, "descriptionObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 51
+    .line 53
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
@@ -75,7 +79,7 @@
     .param p0, "descriptionObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 43
+    .line 45
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
@@ -91,7 +95,7 @@
     .param p0, "descriptionObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 47
+    .line 49
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
@@ -107,7 +111,7 @@
     .param p0, "descriptionObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 27
+    .line 29
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
@@ -123,7 +127,7 @@
     .param p0, "descriptionObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 35
+    .line 37
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
@@ -139,7 +143,7 @@
     .param p0, "descriptionObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 31
+    .line 33
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
@@ -157,12 +161,12 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 55
+    .line 57
     check-cast p0, Landroid/media/MediaDescription;
 
     .end local p0    # "descriptionObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/MediaDescription;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 56
+    .line 58
     return-void
 .end method

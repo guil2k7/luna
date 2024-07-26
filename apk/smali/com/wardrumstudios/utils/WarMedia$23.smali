@@ -31,7 +31,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 2632
+    .line 2639
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$23;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iput p2, p0, Lcom/wardrumstudios/utils/WarMedia$23;->val$splashTimer:I
@@ -49,7 +49,7 @@
     .locals 20
 
     .prologue
-    .line 2635
+    .line 2642
     :try_start_0
     move-object/from16 v0, p0
 
@@ -85,10 +85,10 @@
 
     invoke-virtual/range {v16 .. v19}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 2642
+    .line 2649
     const/16 v8, 0x14
 
-    .line 2643
+    .line 2650
     .local v8, "margin":I
     new-instance v11, Landroid/widget/ImageView;
 
@@ -106,7 +106,7 @@
 
     invoke-direct {v11, v0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .line 2644
+    .line 2651
     .local v11, "splashView":Landroid/widget/ImageView;
     move-object/from16 v0, p0
 
@@ -134,7 +134,7 @@
 
     iput-object v0, v1, Lcom/wardrumstudios/utils/WarMedia;->llSplashView:Landroid/widget/LinearLayout;
 
-    .line 2646
+    .line 2653
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$23;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -161,7 +161,7 @@
 
     move-result-object v3
 
-    .line 2647
+    .line 2654
     .local v3, "dr":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -169,7 +169,7 @@
 
     add-int/lit8 v15, v16, -0x28
 
-    .line 2648
+    .line 2655
     .local v15, "width":I
     invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
@@ -177,11 +177,11 @@
 
     add-int/lit8 v5, v16, -0x28
 
-    .line 2650
+    .line 2657
     .local v5, "height":I
     invoke-virtual {v11, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2652
+    .line 2659
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$23;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -192,7 +192,7 @@
 
     iget v13, v0, Lcom/wardrumstudios/utils/WarMedia;->baseDisplayWidth:I
 
-    .line 2653
+    .line 2660
     .local v13, "surfaceView_Width":I
     move-object/from16 v0, p0
 
@@ -204,7 +204,7 @@
 
     iget v12, v0, Lcom/wardrumstudios/utils/WarMedia;->baseDisplayHeight:I
 
-    .line 2655
+    .line 2662
     .local v12, "surfaceView_Height":I
     new-instance v7, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -218,7 +218,7 @@
 
     invoke-direct {v7, v0, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 2656
+    .line 2663
     .local v7, "layoutParams":Landroid/widget/LinearLayout$LayoutParams;
     int-to-float v0, v13
 
@@ -230,7 +230,7 @@
 
     div-float v10, v16, v17
 
-    .line 2657
+    .line 2664
     .local v10, "ratio_width":F
     int-to-float v0, v12
 
@@ -242,7 +242,7 @@
 
     div-float v9, v16, v17
 
-    .line 2658
+    .line 2665
     .local v9, "ratio_height":F
     int-to-float v0, v15
 
@@ -254,13 +254,13 @@
 
     div-float v2, v16, v17
 
-    .line 2659
+    .line 2666
     .local v2, "aspectratio":F
     cmpl-float v16, v10, v9
 
     if-lez v16, :cond_0
 
-    .line 2660
+    .line 2667
     int-to-float v0, v12
 
     move/from16 v16, v0
@@ -277,10 +277,10 @@
 
     iput v0, v7, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
-    .line 2661
+    .line 2668
     iput v12, v7, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
-    .line 2666
+    .line 2673
     :goto_0
     iget v0, v7, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
@@ -290,7 +290,7 @@
 
     div-int/lit8 v6, v16, 0x2
 
-    .line 2667
+    .line 2674
     .local v6, "horiz":I
     iget v0, v7, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
@@ -300,7 +300,7 @@
 
     div-int/lit8 v14, v16, 0x2
 
-    .line 2669
+    .line 2676
     .local v14, "vert":I
     const/16 v16, 0x11
 
@@ -308,7 +308,7 @@
 
     iput v0, v7, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 2670
+    .line 2677
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$23;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -325,7 +325,7 @@
 
     invoke-virtual {v0, v11, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2672
+    .line 2679
     new-instance v7, Landroid/widget/LinearLayout$LayoutParams;
 
     .end local v7    # "layoutParams":Landroid/widget/LinearLayout$LayoutParams;
@@ -339,7 +339,7 @@
 
     invoke-direct {v7, v0, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 2673
+    .line 2680
     .restart local v7    # "layoutParams":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v16, 0x11
 
@@ -347,7 +347,7 @@
 
     iput v0, v7, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 2674
+    .line 2681
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/wardrumstudios/utils/WarMedia$23;->this$0:Lcom/wardrumstudios/utils/WarMedia;
@@ -372,7 +372,7 @@
 
     invoke-virtual {v0, v1, v7}, Lcom/wardrumstudios/utils/WarMedia;->addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2681
+    .line 2688
     .end local v2    # "aspectratio":F
     .end local v3    # "dr":Landroid/graphics/drawable/Drawable;
     .end local v5    # "height":I
@@ -389,7 +389,7 @@
     :goto_1
     return-void
 
-    .line 2663
+    .line 2670
     .restart local v2    # "aspectratio":F
     .restart local v3    # "dr":Landroid/graphics/drawable/Drawable;
     .restart local v5    # "height":I
@@ -404,7 +404,7 @@
     :cond_0
     iput v13, v7, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
-    .line 2664
+    .line 2671
     int-to-float v0, v13
 
     move/from16 v16, v0
@@ -425,7 +425,7 @@
 
     goto :goto_0
 
-    .line 2677
+    .line 2684
     .end local v2    # "aspectratio":F
     .end local v3    # "dr":Landroid/graphics/drawable/Drawable;
     .end local v5    # "height":I
@@ -440,7 +440,7 @@
     :catch_0
     move-exception v4
 
-    .line 2678
+    .line 2685
     .local v4, "ex":Ljava/lang/Exception;
     move-object/from16 v0, p0
 
@@ -456,7 +456,7 @@
 
     iput-object v0, v1, Lcom/wardrumstudios/utils/WarMedia;->llSplashView:Landroid/widget/LinearLayout;
 
-    .line 2679
+    .line 2686
     sget-object v16, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v17, "DisplaySplashScreeen Error"

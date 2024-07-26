@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 121
+    .line 136
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,13 +30,13 @@
     .param p0, "controlsObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 139
+    .line 154
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->fastForward()V
 
-    .line 140
+    .line 155
     return-void
 .end method
 
@@ -45,13 +45,13 @@
     .param p0, "controlsObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 127
+    .line 142
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->pause()V
 
-    .line 128
+    .line 143
     return-void
 .end method
 
@@ -60,13 +60,13 @@
     .param p0, "controlsObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 123
+    .line 138
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->play()V
 
-    .line 124
+    .line 139
     return-void
 .end method
 
@@ -77,13 +77,13 @@
     .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 159
+    .line 174
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->playFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 160
+    .line 175
     return-void
 .end method
 
@@ -94,13 +94,13 @@
     .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 163
+    .line 178
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->playFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 164
+    .line 179
     return-void
 .end method
 
@@ -109,13 +109,13 @@
     .param p0, "controlsObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 143
+    .line 158
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->rewind()V
 
-    .line 144
+    .line 159
     return-void
 .end method
 
@@ -125,13 +125,13 @@
     .param p1, "pos"    # J
 
     .prologue
-    .line 135
+    .line 150
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->seekTo(J)V
 
-    .line 136
+    .line 151
     return-void
 .end method
 
@@ -142,13 +142,13 @@
     .param p2, "args"    # Landroid/os/Bundle;
 
     .prologue
-    .line 171
+    .line 186
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 172
+    .line 187
     return-void
 .end method
 
@@ -158,7 +158,7 @@
     .param p1, "ratingObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 155
+    .line 170
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
@@ -167,7 +167,7 @@
     .end local p1    # "ratingObj":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/media/session/MediaController$TransportControls;->setRating(Landroid/media/Rating;)V
 
-    .line 156
+    .line 171
     return-void
 .end method
 
@@ -176,13 +176,13 @@
     .param p0, "controlsObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 147
+    .line 162
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->skipToNext()V
 
-    .line 148
+    .line 163
     return-void
 .end method
 
@@ -191,13 +191,13 @@
     .param p0, "controlsObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 151
+    .line 166
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->skipToPrevious()V
 
-    .line 152
+    .line 167
     return-void
 .end method
 
@@ -207,13 +207,13 @@
     .param p1, "id"    # J
 
     .prologue
-    .line 167
+    .line 182
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->skipToQueueItem(J)V
 
-    .line 168
+    .line 183
     return-void
 .end method
 
@@ -222,12 +222,12 @@
     .param p0, "controlsObj"    # Ljava/lang/Object;
 
     .prologue
-    .line 131
+    .line 146
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->stop()V
 
-    .line 132
+    .line 147
     return-void
 .end method

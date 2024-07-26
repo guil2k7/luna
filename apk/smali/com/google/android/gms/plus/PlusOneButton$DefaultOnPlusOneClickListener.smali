@@ -16,24 +16,27 @@
     name = "DefaultOnPlusOneClickListener"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
-.field private final abC:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+.field private final zzn:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
-.field final synthetic abD:Lcom/google/android/gms/plus/PlusOneButton;
+.field private final synthetic zzo:Lcom/google/android/gms/plus/PlusOneButton;
 
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/plus/PlusOneButton;Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
     .locals 0
-    .param p2, "proxy"    # Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->abD:Lcom/google/android/gms/plus/PlusOneButton;
+    iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->zzo:Lcom/google/android/gms/plus/PlusOneButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->abC:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    iput-object p2, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->zzn:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
     return-void
 .end method
@@ -42,12 +45,12 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
-    .param p1, "view"    # Landroid/view/View;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->abD:Lcom/google/android/gms/plus/PlusOneButton;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->zzo:Lcom/google/android/gms/plus/PlusOneButton;
 
-    invoke-static {v0}, Lcom/google/android/gms/plus/PlusOneButton;->a(Lcom/google/android/gms/plus/PlusOneButton;)Landroid/view/View;
+    invoke-static {v0}, Lcom/google/android/gms/plus/PlusOneButton;->zza(Lcom/google/android/gms/plus/PlusOneButton;)Landroid/view/View;
 
     move-result-object v0
 
@@ -57,11 +60,11 @@
 
     check-cast v0, Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->abC:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    iget-object v1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->zzn:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->abC:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
+    iget-object v1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->zzn:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
     invoke-interface {v1, v0}, Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;->onPlusOneClick(Landroid/content/Intent;)V
 
@@ -76,10 +79,10 @@
 
 .method public onPlusOneClick(Landroid/content/Intent;)V
     .locals 2
-    .param p1, "intent"    # Landroid/content/Intent;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->abD:Lcom/google/android/gms/plus/PlusOneButton;
+    iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->zzo:Lcom/google/android/gms/plus/PlusOneButton;
 
     invoke-virtual {v0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
@@ -93,9 +96,9 @@
 
     check-cast v0, Landroid/app/Activity;
 
-    iget-object v1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->abD:Lcom/google/android/gms/plus/PlusOneButton;
+    iget-object v1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->zzo:Lcom/google/android/gms/plus/PlusOneButton;
 
-    invoke-static {v1}, Lcom/google/android/gms/plus/PlusOneButton;->b(Lcom/google/android/gms/plus/PlusOneButton;)I
+    invoke-static {v1}, Lcom/google/android/gms/plus/PlusOneButton;->zzb(Lcom/google/android/gms/plus/PlusOneButton;)I
 
     move-result v1
 

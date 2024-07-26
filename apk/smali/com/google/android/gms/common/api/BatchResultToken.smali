@@ -20,13 +20,14 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "id"    # I
 
     .prologue
-    .local p0, "this":Lcom/google/android/gms/common/api/BatchResultToken;, "Lcom/google/android/gms/common/api/BatchResultToken<TR;>;"
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2
     iput p1, p0, Lcom/google/android/gms/common/api/BatchResultToken;->mId:I
 
+    .line 3
     return-void
 .end method

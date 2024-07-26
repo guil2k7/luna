@@ -1342,6 +1342,7 @@
 
     mul-double/2addr v6, v4
 
+    .line 485
     invoke-static {v6, v7}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v6
@@ -1360,6 +1361,7 @@
 
     mul-double/2addr v8, v2
 
+    .line 486
     invoke-static {v8, v9}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v8
@@ -1378,6 +1380,7 @@
 
     mul-double/2addr v8, v0
 
+    .line 487
     invoke-static {v8, v9}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v8
@@ -1392,6 +1395,7 @@
 
     move-result v8
 
+    .line 484
     invoke-static {v6, v7, v8}, Landroid/graphics/Color;->rgb(III)I
 
     move-result v6
@@ -1882,6 +1886,7 @@
 
     move-result-object v5
 
+    .line 93
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v6
@@ -2010,6 +2015,7 @@
 
     move-result-object v8
 
+    .line 121
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v9
@@ -2318,10 +2324,12 @@
 
     move-result v6
 
+    .line 53
     invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v7
 
+    .line 52
     invoke-static {v6, v3, v7, v2, v0}, Landroid/support/v4/graphics/ColorUtils;->compositeComponent(IIIII)I
 
     move-result v5
@@ -2332,10 +2340,12 @@
 
     move-result v6
 
+    .line 55
     invoke-static {p1}, Landroid/graphics/Color;->green(I)I
 
     move-result v7
 
+    .line 54
     invoke-static {v6, v3, v7, v2, v0}, Landroid/support/v4/graphics/ColorUtils;->compositeComponent(IIIII)I
 
     move-result v4
@@ -2346,10 +2356,12 @@
 
     move-result v6
 
+    .line 57
     invoke-static {p1}, Landroid/graphics/Color;->blue(I)I
 
     move-result v7
 
+    .line 56
     invoke-static {v6, v3, v7, v2, v0}, Landroid/support/v4/graphics/ColorUtils;->compositeComponent(IIIII)I
 
     move-result v1
@@ -2498,6 +2510,7 @@
 
     sub-double/2addr v2, v4
 
+    .line 512
     invoke-static {v2, v3, v6, v7}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v2
@@ -2510,12 +2523,14 @@
 
     sub-double/2addr v2, v4
 
+    .line 513
     invoke-static {v2, v3, v6, v7}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v2
 
     add-double/2addr v0, v2
 
+    .line 511
     invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v0
@@ -2569,6 +2584,7 @@
 
     const-wide v0, 0x3fd5555555555555L    # 0.3333333333333333
 
+    .line 526
     invoke-static {p0, p1, v0, v1}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v0

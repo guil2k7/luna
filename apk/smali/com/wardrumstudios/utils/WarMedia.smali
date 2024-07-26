@@ -595,87 +595,87 @@
     .line 1260
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->myPid:[I
 
-    .line 1483
+    .line 1490
     iput-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieIsSkippable:Z
 
-    .line 1488
+    .line 1495
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/wardrumstudios/utils/WarMedia;->lastMovieStop:J
 
-    .line 1516
+    .line 1523
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieWindowSurface:Landroid/view/SurfaceView;
 
-    .line 1517
+    .line 1524
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieWindowHolder:Landroid/view/SurfaceHolder;
 
-    .line 1519
+    .line 1526
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
 
-    .line 1520
+    .line 1527
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextSurface:Landroid/view/SurfaceView;
 
-    .line 1522
+    .line 1529
     iput-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewIsActive:Z
 
-    .line 1523
+    .line 1530
     iput-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewCreated:Z
 
-    .line 1525
+    .line 1532
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieHolder:Landroid/view/SurfaceHolder;
 
-    .line 1526
+    .line 1533
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
-    .line 1528
+    .line 1535
     iput v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewWidth:I
 
-    .line 1529
+    .line 1536
     iput v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewHeight:I
 
-    .line 1530
+    .line 1537
     iput v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewX:I
 
-    .line 1531
+    .line 1538
     iput v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewY:I
 
-    .line 1532
+    .line 1539
     iput v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieLooping:I
 
-    .line 1533
+    .line 1540
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieView:Landroid/widget/LinearLayout;
 
-    .line 1536
+    .line 1543
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewText:Landroid/widget/TextView;
 
-    .line 1940
+    .line 1947
     const-string v0, ""
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->DeviceLocale:Ljava/lang/String;
 
-    .line 1941
+    .line 1948
     const-string v0, ""
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->DeviceCountry:Ljava/lang/String;
 
-    .line 2002
+    .line 2009
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->locale:Ljava/util/Locale;
 
-    .line 2334
+    .line 2341
     iput-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->IsInValidation:Z
 
-    .line 2521
+    .line 2528
     const/16 v0, 0x20
 
     iput v0, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextScale:I
 
-    .line 2586
+    .line 2593
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextView:Landroid/widget/TextView;
 
-    .line 2602
+    .line 2609
     iput-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieTextDisplayed:Z
 
-    .line 2630
+    .line 2637
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->llSplashView:Landroid/widget/LinearLayout;
 
     return-void
@@ -1075,7 +1075,7 @@
     .locals 4
 
     .prologue
-    .line 2178
+    .line 2185
     :try_start_0
     new-instance v0, Ljava/io/File;
 
@@ -1083,7 +1083,7 @@
 
     invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2180
+    .line 2187
     .local v0, "dir":Ljava/io/File;
     new-instance v3, Lcom/wardrumstudios/utils/WarMedia$1CpuFilter;
 
@@ -1093,23 +1093,23 @@
 
     move-result-object v2
 
-    .line 2182
+    .line 2189
     .local v2, "files":[Ljava/io/File;
     array-length v3, v2
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2185
+    .line 2192
     .end local v0    # "dir":Ljava/io/File;
     .end local v2    # "files":[Ljava/io/File;
     :goto_0
     return v3
 
-    .line 2183
+    .line 2190
     :catch_0
     move-exception v1
 
-    .line 2185
+    .line 2192
     .local v1, "e":Ljava/lang/Exception;
     const/4 v3, 0x1
 
@@ -1504,10 +1504,10 @@
     .param p1, "paused"    # Z
 
     .prologue
-    .line 2244
+    .line 2251
     iput-boolean p1, p0, Lcom/wardrumstudios/utils/WarMedia;->mStatePaused:Z
 
-    .line 2245
+    .line 2252
     if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getApplicationContext()Landroid/content/Context;
@@ -1522,17 +1522,17 @@
 
     move-result v0
 
-    .line 2247
+    .line 2254
     .local v0, "stringResourceID":I
     :goto_0
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->mPauseButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(I)V
 
-    .line 2248
+    .line 2255
     return-void
 
-    .line 2246
+    .line 2253
     .end local v0    # "stringResourceID":I
     :cond_0
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getApplicationContext()Landroid/content/Context;
@@ -1555,15 +1555,15 @@
     .param p1, "newState"    # I
 
     .prologue
-    .line 2237
+    .line 2244
     iget v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mState:I
 
     if-eq v0, p1, :cond_0
 
-    .line 2238
+    .line 2245
     iput p1, p0, Lcom/wardrumstudios/utils/WarMedia;->mState:I
 
-    .line 2239
+    .line 2246
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mStatusText:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getApplicationContext()Landroid/content/Context;
@@ -1576,7 +1576,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 2241
+    .line 2248
     :cond_0
     return-void
 .end method
@@ -1587,10 +1587,10 @@
     .locals 0
 
     .prologue
-    .line 2725
+    .line 2732
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->DoResumeEvent()V
 
-    .line 2726
+    .line 2733
     return-void
 .end method
 
@@ -1604,7 +1604,7 @@
     .prologue
     const/4 v2, -0x2
 
-    .line 1627
+    .line 1634
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->row1:Landroid/widget/LinearLayout;
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
@@ -1613,7 +1613,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1628
+    .line 1635
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
@@ -1622,7 +1622,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1629
+    .line 1636
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
@@ -1631,7 +1631,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1630
+    .line 1637
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
@@ -1640,7 +1640,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1631
+    .line 1638
     return-void
 .end method
 
@@ -1655,7 +1655,7 @@
 
     const/4 v5, 0x1
 
-    .line 2801
+    .line 2808
     iget-object v7, p0, Lcom/wardrumstudios/utils/WarMedia;->xAPKS:[Lcom/wardrumstudios/utils/WarMedia$XAPKFile;
 
     aget-object v7, v7, v6
@@ -1666,7 +1666,7 @@
 
     move-result-object v4
 
-    .line 2802
+    .line 2809
     .local v4, "fileName":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getObbDir()Ljava/io/File;
 
@@ -1676,11 +1676,11 @@
 
     move-result-object v1
 
-    .line 2803
+    .line 2810
     .local v1, "baseDirectory":Ljava/lang/String;
     const/4 v0, 0x1
 
-    .line 2805
+    .line 2812
     .local v0, "askForPermission":Z
     :try_start_0
     new-instance v2, Ljava/io/BufferedReader;
@@ -1713,19 +1713,19 @@
 
     invoke-direct {v2, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
-    .line 2806
+    .line 2813
     .local v2, "br":Ljava/io/BufferedReader;
     invoke-virtual {v2}, Ljava/io/BufferedReader;->read()I
 
-    .line 2807
+    .line 2814
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2808
+    .line 2815
     const/4 v0, 0x0
 
-    .line 2813
+    .line 2820
     .end local v2    # "br":Ljava/io/BufferedReader;
     :goto_0
     if-eqz v0, :cond_1
@@ -1738,13 +1738,13 @@
 
     if-eqz v7, :cond_1
 
-    .line 2814
+    .line 2821
     iput-boolean v5, p0, Lcom/wardrumstudios/utils/WarMedia;->waitForPermissions:Z
 
-    .line 2815
+    .line 2822
     iput-boolean v5, p0, Lcom/wardrumstudios/utils/WarMedia;->delaySetContentView:Z
 
-    .line 2817
+    .line 2824
     const-string v7, "android.permission.READ_EXTERNAL_STORAGE"
 
     invoke-static {p1, v7}, Landroid/support/v4/app/ActivityCompat;->shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
@@ -1753,7 +1753,7 @@
 
     if-eqz v7, :cond_0
 
-    .line 2821
+    .line 2828
     new-array v7, v5, [Ljava/lang/String;
 
     const-string v8, "android.permission.READ_EXTERNAL_STORAGE"
@@ -1762,15 +1762,15 @@
 
     invoke-static {p1, v7, v10}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
 
-    .line 2827
+    .line 2834
     :goto_1
     return v5
 
-    .line 2809
+    .line 2816
     :catch_0
     move-exception v3
 
-    .line 2810
+    .line 2817
     .local v3, "e":Ljava/lang/Exception;
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1780,7 +1780,7 @@
 
     goto :goto_0
 
-    .line 2823
+    .line 2830
     .end local v3    # "e":Ljava/lang/Exception;
     :cond_0
     new-array v7, v5, [Ljava/lang/String;
@@ -1796,7 +1796,7 @@
     :cond_1
     move v5, v6
 
-    .line 2827
+    .line 2834
     goto :goto_1
 .end method
 
@@ -1804,14 +1804,14 @@
     .locals 1
 
     .prologue
-    .line 2511
+    .line 2518
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$20;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$20;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
 
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 2518
+    .line 2525
     return-void
 .end method
 
@@ -1819,14 +1819,14 @@
     .locals 1
 
     .prologue
-    .line 2686
+    .line 2693
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$24;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$24;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
 
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 2692
+    .line 2699
     return-void
 .end method
 
@@ -1834,14 +1834,14 @@
     .locals 1
 
     .prologue
-    .line 1436
+    .line 1443
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$12;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$12;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
 
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 1443
+    .line 1450
     return-void
 .end method
 
@@ -1849,14 +1849,14 @@
     .locals 1
 
     .prologue
-    .line 1461
+    .line 1468
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$14;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$14;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
 
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 1473
+    .line 1480
     return-void
 .end method
 
@@ -1866,7 +1866,7 @@
     .param p2, "length"    # I
 
     .prologue
-    .line 2863
+    .line 2870
     const/4 v0, 0x0
 
     return v0
@@ -1881,12 +1881,12 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 2833
+    .line 2840
     new-instance v7, Ljava/io/File;
 
     invoke-direct {v7, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2834
+    .line 2841
     .local v7, "ringtone":Ljava/io/File;
     invoke-virtual {v7}, Ljava/io/File;->exists()Z
 
@@ -1894,43 +1894,43 @@
 
     if-nez v9, :cond_0
 
-    .line 2835
+    .line 2842
     invoke-virtual {v7}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v2
 
-    .line 2836
+    .line 2843
     .local v2, "destParentDir":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
 
-    .line 2837
+    .line 2844
     const/4 v3, 0x0
 
-    .line 2838
+    .line 2845
     .local v3, "in":Ljava/io/InputStream;
     const/4 v4, 0x0
 
-    .line 2841
+    .line 2848
     .local v4, "out":Ljava/io/OutputStream;
     :try_start_0
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v0
 
-    .line 2842
+    .line 2849
     .local v0, "assetManager":Landroid/content/res/AssetManager;
     invoke-virtual {v0, p1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v3
 
-    .line 2843
+    .line 2850
     new-instance v5, Ljava/io/FileOutputStream;
 
     invoke-direct {v5, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 2845
+    .line 2852
     .end local v4    # "out":Ljava/io/OutputStream;
     .local v5, "out":Ljava/io/OutputStream;
     const/16 v9, 0x400
@@ -1938,7 +1938,7 @@
     :try_start_1
     new-array v1, v9, [B
 
-    .line 2847
+    .line 2854
     .local v1, "buffer":[B
     :goto_0
     invoke-virtual {v3, v1}, Ljava/io/InputStream;->read([B)I
@@ -1950,14 +1950,14 @@
 
     if-eq v6, v9, :cond_1
 
-    .line 2848
+    .line 2855
     const/4 v9, 0x0
 
     invoke-virtual {v5, v1, v9, v6}, Ljava/io/OutputStream;->write([BII)V
 
     goto :goto_0
 
-    .line 2857
+    .line 2864
     .end local v1    # "buffer":[B
     .end local v6    # "read":I
     :catch_0
@@ -1965,7 +1965,7 @@
 
     move-object v4, v5
 
-    .line 2859
+    .line 2866
     .end local v0    # "assetManager":Landroid/content/res/AssetManager;
     .end local v2    # "destParentDir":Ljava/io/File;
     .end local v3    # "in":Ljava/io/InputStream;
@@ -1974,7 +1974,7 @@
     :goto_1
     return v8
 
-    .line 2850
+    .line 2857
     .restart local v0    # "assetManager":Landroid/content/res/AssetManager;
     .restart local v1    # "buffer":[B
     .restart local v2    # "destParentDir":Ljava/io/File;
@@ -1984,28 +1984,28 @@
     :cond_1
     invoke-virtual {v3}, Ljava/io/InputStream;->close()V
 
-    .line 2851
+    .line 2858
     const/4 v3, 0x0
 
-    .line 2852
+    .line 2859
     invoke-virtual {v5}, Ljava/io/OutputStream;->flush()V
 
-    .line 2853
+    .line 2860
     invoke-virtual {v5}, Ljava/io/OutputStream;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 2854
+    .line 2861
     const/4 v4, 0x0
 
-    .line 2855
+    .line 2862
     .end local v5    # "out":Ljava/io/OutputStream;
     .restart local v4    # "out":Ljava/io/OutputStream;
     const/4 v8, 0x1
 
     goto :goto_1
 
-    .line 2857
+    .line 2864
     .end local v0    # "assetManager":Landroid/content/res/AssetManager;
     .end local v1    # "buffer":[B
     .end local v6    # "read":I
@@ -2020,12 +2020,12 @@
     .param p1, "surface"    # Landroid/view/SurfaceView;
 
     .prologue
-    .line 1539
+    .line 1546
     invoke-virtual {p1}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
 
-    .line 1540
+    .line 1547
     .local v0, "holder":Landroid/view/SurfaceHolder;
     new-instance v1, Lcom/wardrumstudios/utils/WarMedia$15;
 
@@ -2033,24 +2033,24 @@
 
     invoke-interface {v0, v1}, Landroid/view/SurfaceHolder;->addCallback(Landroid/view/SurfaceHolder$Callback;)V
 
-    .line 1571
+    .line 1578
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v2, "movieWindowHolder setType"
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1572
+    .line 1579
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Landroid/view/SurfaceHolder;->setType(I)V
 
-    .line 1573
+    .line 1580
     const/4 v1, 0x1
 
     invoke-virtual {p1, v1}, Landroid/view/SurfaceView;->setZOrderOnTop(Z)V
 
-    .line 1575
+    .line 1582
     return-object v0
 .end method
 
@@ -2068,25 +2068,25 @@
 
     const/4 v3, -0x2
 
-    .line 1588
+    .line 1595
     new-instance v0, Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
 
     invoke-direct {v0, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 1589
+    .line 1596
     .local v0, "ll":Landroid/widget/LinearLayout;
     invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 1590
+    .line 1597
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v1, v3, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1592
+    .line 1599
     new-instance v1, Landroid/widget/LinearLayout;
 
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
@@ -2095,12 +2095,12 @@
 
     iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row1:Landroid/widget/LinearLayout;
 
-    .line 1593
+    .line 1600
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row1:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 1594
+    .line 1601
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row1:Landroid/widget/LinearLayout;
 
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
@@ -2109,56 +2109,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1595
+    .line 1602
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row1:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 1597
-    new-instance v1, Landroid/widget/LinearLayout;
-
-    iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
-
-    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
-
-    .line 1598
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    .line 1599
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
-
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v2, v3, p4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 1601
-    new-instance v1, Landroid/widget/LinearLayout;
-
-    iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
-
-    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
-
-    .line 1602
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    .line 1603
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
-
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v2, p1, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 1604
     new-instance v1, Landroid/widget/LinearLayout;
@@ -2167,37 +2121,44 @@
 
     invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
+    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     .line 1605
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 1606
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v2, p3, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v2, v3, p4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 1608
-    new-instance v1, Landroid/view/SurfaceView;
+    new-instance v1, Landroid/widget/LinearLayout;
 
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
 
-    invoke-direct {v1, v2}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieWindowSurface:Landroid/view/SurfaceView;
+    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
 
     .line 1609
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
 
-    iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieWindowSurface:Landroid/view/SurfaceView;
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    .line 1610
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
+
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {v2, p1, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 1611
     new-instance v1, Landroid/widget/LinearLayout;
@@ -2206,14 +2167,53 @@
 
     invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col3:Landroid/widget/LinearLayout;
+    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
 
     .line 1612
-    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col3:Landroid/widget/LinearLayout;
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 1613
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
+
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {v2, p3, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 1615
+    new-instance v1, Landroid/view/SurfaceView;
+
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
+
+    invoke-direct {v1, v2}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieWindowSurface:Landroid/view/SurfaceView;
+
+    .line 1616
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieWindowSurface:Landroid/view/SurfaceView;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 1618
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col3:Landroid/widget/LinearLayout;
+
+    .line 1619
+    iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col3:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 1620
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->col3:Landroid/widget/LinearLayout;
 
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
@@ -2222,33 +2222,33 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1614
+    .line 1621
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->col1:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1615
+    .line 1622
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->col2:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1616
+    .line 1623
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->col3:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1617
+    .line 1624
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row2:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1619
+    .line 1626
     new-instance v1, Landroid/widget/LinearLayout;
 
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
@@ -2257,12 +2257,12 @@
 
     iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row3:Landroid/widget/LinearLayout;
 
-    .line 1620
+    .line 1627
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row3:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 1621
+    .line 1628
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row3:Landroid/widget/LinearLayout;
 
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
@@ -2271,12 +2271,12 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1622
+    .line 1629
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->row3:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1623
+    .line 1630
     return-object v0
 .end method
 
@@ -2289,7 +2289,7 @@
     .param p5, "y2"    # I
 
     .prologue
-    .line 2779
+    .line 2786
     return-void
 .end method
 
@@ -2299,14 +2299,14 @@
     .prologue
     const/4 v2, -0x2
 
-    .line 1579
+    .line 1586
     new-instance v0, Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->activity:Landroid/app/Activity;
 
     invoke-direct {v0, v1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 1580
+    .line 1587
     .local v0, "tv":Landroid/widget/TextView;
     new-instance v1, Landroid/view/WindowManager$LayoutParams;
 
@@ -2314,17 +2314,17 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1581
+    .line 1588
     const/high16 v1, 0x42400000    # 48.0f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 1582
+    .line 1589
     const-string v1, "Tap to Skip"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1584
+    .line 1591
     return-object v0
 .end method
 
@@ -2332,7 +2332,7 @@
     .locals 1
 
     .prologue
-    .line 2720
+    .line 2727
     const/4 v0, 0x0
 
     return v0
@@ -2344,12 +2344,12 @@
     .param p2, "recurse"    # Z
 
     .prologue
-    .line 2700
+    .line 2707
     new-instance v2, Ljava/io/File;
 
     invoke-direct {v2, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2701
+    .line 2708
     .local v2, "dir":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->isDirectory()Z
 
@@ -2357,12 +2357,12 @@
 
     if-eqz v4, :cond_2
 
-    .line 2702
+    .line 2709
     invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2703
+    .line 2710
     .local v1, "children":[Ljava/lang/String;
     const/4 v3, 0x0
 
@@ -2372,14 +2372,14 @@
 
     if-ge v3, v4, :cond_1
 
-    .line 2704
+    .line 2711
     new-instance v0, Ljava/io/File;
 
     aget-object v4, v1, v3
 
     invoke-direct {v0, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 2705
+    .line 2712
     .local v0, "child":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
@@ -2387,7 +2387,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 2706
+    .line 2713
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -2414,7 +2414,7 @@
 
     invoke-virtual {p0, v4, p2}, Lcom/wardrumstudios/utils/WarMedia;->DeleteDirectory(Ljava/lang/String;Z)V
 
-    .line 2708
+    .line 2715
     :cond_0
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -2450,20 +2450,20 @@
 
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2709
+    .line 2716
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 2703
+    .line 2710
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 2712
+    .line 2719
     .end local v0    # "child":Ljava/io/File;
     :cond_1
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    .line 2714
+    .line 2721
     .end local v1    # "children":[Ljava/lang/String;
     .end local v3    # "i":I
     :cond_2
@@ -2475,7 +2475,7 @@
     .param p1, "filename"    # Ljava/lang/String;
 
     .prologue
-    .line 2090
+    .line 2097
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2508,19 +2508,19 @@
 
     move-result-object v1
 
-    .line 2091
+    .line 2098
     .local v1, "fullFilename":Ljava/lang/String;
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2092
+    .line 2099
     .local v0, "delfile":Ljava/io/File;
     iget-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v2, :cond_0
 
-    .line 2093
+    .line 2100
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2543,7 +2543,7 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2094
+    .line 2101
     :cond_0
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -2551,12 +2551,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 2095
+    .line 2102
     iget-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v2, :cond_1
 
-    .line 2096
+    .line 2103
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2579,13 +2579,13 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2097
+    .line 2104
     :cond_1
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     move-result v2
 
-    .line 2099
+    .line 2106
     :goto_0
     return v2
 
@@ -2599,10 +2599,10 @@
     .locals 4
 
     .prologue
-    .line 2588
+    .line 2595
     move-object v0, p0
 
-    .line 2589
+    .line 2596
     .local v0, "myActivity":Landroid/app/Activity;
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -2628,10 +2628,10 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2592
+    .line 2599
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->DrawMovieText()V
 
-    .line 2594
+    .line 2601
     return-void
 .end method
 
@@ -2641,14 +2641,14 @@
     .param p2, "splashTimer"    # I
 
     .prologue
-    .line 2632
+    .line 2639
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$23;
 
     invoke-direct {v0, p0, p2, p1}, Lcom/wardrumstudios/utils/WarMedia$23;-><init>(Lcom/wardrumstudios/utils/WarMedia;ILjava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 2683
+    .line 2690
     return-void
 .end method
 
@@ -2656,14 +2656,14 @@
     .locals 1
 
     .prologue
-    .line 2548
+    .line 2555
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$21;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$21;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
 
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 2584
+    .line 2591
     return-void
 .end method
 
@@ -2693,34 +2693,34 @@
     .param p1, "type"    # I
 
     .prologue
-    .line 2112
+    .line 2119
     packed-switch p1, :pswitch_data_0
 
-    .line 2117
+    .line 2124
     const-string v0, ""
 
     :goto_0
     return-object v0
 
-    .line 2113
+    .line 2120
     :pswitch_0
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->apkFileName:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2114
+    .line 2121
     :pswitch_1
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->expansionFileName:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2115
+    .line 2122
     :pswitch_2
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->patchFileName:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2112
+    .line 2119
     nop
 
     :pswitch_data_0
@@ -2742,7 +2742,7 @@
 
     const/16 v6, 0x2f
 
-    .line 2103
+    .line 2110
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -2771,7 +2771,7 @@
 
     move-result-object v3
 
-    .line 2104
+    .line 2111
     .local v3, "oldFilename":Ljava/lang/String;
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -2801,23 +2801,23 @@
 
     move-result-object v1
 
-    .line 2105
+    .line 2112
     .local v1, "newFilename":Ljava/lang/String;
     new-instance v2, Ljava/io/File;
 
     invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2106
+    .line 2113
     .local v2, "oldFile":Ljava/io/File;
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2107
+    .line 2114
     .local v0, "newFile":Ljava/io/File;
     invoke-virtual {v2, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    .line 2108
+    .line 2115
     const/4 v4, 0x1
 
     return v4
@@ -2828,40 +2828,40 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 2125
+    .line 2132
     packed-switch p1, :pswitch_data_0
 
-    .line 2130
+    .line 2137
     const-string v0, "UNKNOWN"
 
     :goto_0
     return-object v0
 
-    .line 2126
+    .line 2133
     :pswitch_0
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2127
+    .line 2134
     :pswitch_1
     sget-object v0, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2128
+    .line 2135
     :pswitch_2
     sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2129
+    .line 2136
     :pswitch_3
     sget-object v0, Landroid/os/Build;->HARDWARE:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2125
+    .line 2132
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -2875,7 +2875,7 @@
     .locals 1
 
     .prologue
-    .line 2770
+    .line 2777
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
@@ -2887,25 +2887,25 @@
     .locals 12
 
     .prologue
-    .line 2752
+    .line 2759
     const/4 v1, 0x0
 
-    .line 2753
+    .line 2760
     .local v1, "freeSize":I
     const-wide/16 v4, 0x0
 
-    .line 2754
+    .line 2761
     .local v4, "totalSize":J
     const-wide/16 v6, -0x1
 
-    .line 2756
+    .line 2763
     .local v6, "usedSize":J
     :try_start_0
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v2
 
-    .line 2757
+    .line 2764
     .local v2, "info":Ljava/lang/Runtime;
     invoke-virtual {v2}, Ljava/lang/Runtime;->freeMemory()J
 
@@ -2921,35 +2921,35 @@
 
     long-to-int v1, v8
 
-    .line 2758
+    .line 2765
     invoke-virtual {v2}, Ljava/lang/Runtime;->totalMemory()J
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v4
 
-    .line 2759
+    .line 2766
     int-to-long v8, v1
 
     sub-long v6, v4, v8
 
-    .line 2765
+    .line 2772
     .end local v2    # "info":Ljava/lang/Runtime;
     :goto_0
     const/4 v3, 0x0
 
     invoke-virtual {p0, v3}, Lcom/wardrumstudios/utils/WarMedia;->GetMemoryInfo(Z)I
 
-    .line 2766
+    .line 2773
     iget v3, p0, Lcom/wardrumstudios/utils/WarMedia;->availableMemory:I
 
     return v3
 
-    .line 2760
+    .line 2767
     :catch_0
     move-exception v0
 
-    .line 2761
+    .line 2768
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -2961,7 +2961,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 1913
+    .line 1920
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/wardrumstudios/utils/WarMedia;->getPreferences(I)Landroid/content/SharedPreferences;
@@ -2974,13 +2974,13 @@
 
     move-result-object v0
 
-    .line 1914
+    .line 1921
     .local v0, "value":Ljava/lang/String;
     iget-boolean v1, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v1, :cond_0
 
-    .line 1915
+    .line 1922
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3013,7 +3013,7 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1916
+    .line 1923
     :cond_0
     return-object v0
 .end method
@@ -3023,16 +3023,16 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 2135
+    .line 2142
     packed-switch p1, :pswitch_data_0
 
-    .line 2139
+    .line 2146
     const/4 v0, -0x1
 
     :goto_0
     return v0
 
-    .line 2136
+    .line 2143
     :pswitch_0
     invoke-direct {p0}, Lcom/wardrumstudios/utils/WarMedia;->getNumberOfProcessors()I
 
@@ -3040,7 +3040,7 @@
 
     goto :goto_0
 
-    .line 2137
+    .line 2144
     :pswitch_1
     iget-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->hasTouchScreen:Z
 
@@ -3055,7 +3055,7 @@
 
     goto :goto_0
 
-    .line 2135
+    .line 2142
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -3069,10 +3069,10 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1953
+    .line 1960
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->DeviceLocale:Ljava/lang/String;
 
-    .line 1954
+    .line 1961
     .local v0, "lang":Ljava/lang/String;
     const-string v2, "en"
 
@@ -3082,12 +3082,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 1975
+    .line 1982
     :cond_0
     :goto_0
     return v1
 
-    .line 1956
+    .line 1963
     :cond_1
     const-string v2, "fr"
 
@@ -3097,12 +3097,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 1957
+    .line 1964
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1958
+    .line 1965
     :cond_2
     const-string v2, "de"
 
@@ -3112,12 +3112,12 @@
 
     if-eqz v2, :cond_3
 
-    .line 1959
+    .line 1966
     const/4 v1, 0x2
 
     goto :goto_0
 
-    .line 1960
+    .line 1967
     :cond_3
     const-string v2, "it"
 
@@ -3127,12 +3127,12 @@
 
     if-eqz v2, :cond_4
 
-    .line 1961
+    .line 1968
     const/4 v1, 0x3
 
     goto :goto_0
 
-    .line 1962
+    .line 1969
     :cond_4
     const-string v2, "es"
 
@@ -3142,12 +3142,12 @@
 
     if-eqz v2, :cond_5
 
-    .line 1963
+    .line 1970
     const/4 v1, 0x4
 
     goto :goto_0
 
-    .line 1964
+    .line 1971
     :cond_5
     const-string v2, "ja"
 
@@ -3157,12 +3157,12 @@
 
     if-eqz v2, :cond_6
 
-    .line 1965
+    .line 1972
     const/4 v1, 0x5
 
     goto :goto_0
 
-    .line 1966
+    .line 1973
     :cond_6
     const-string v2, "ko"
 
@@ -3172,12 +3172,12 @@
 
     if-eqz v2, :cond_7
 
-    .line 1967
+    .line 1974
     const/4 v1, 0x6
 
     goto :goto_0
 
-    .line 1968
+    .line 1975
     :cond_7
     const-string v2, "sv"
 
@@ -3187,12 +3187,12 @@
 
     if-eqz v2, :cond_8
 
-    .line 1969
+    .line 1976
     const/4 v1, 0x7
 
     goto :goto_0
 
-    .line 1970
+    .line 1977
     :cond_8
     const-string v2, "no"
 
@@ -3218,13 +3218,13 @@
 
     if-eqz v2, :cond_a
 
-    .line 1971
+    .line 1978
     :cond_9
     const/16 v1, 0x8
 
     goto :goto_0
 
-    .line 1972
+    .line 1979
     :cond_a
     const-string v2, "ru"
 
@@ -3234,7 +3234,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1973
+    .line 1980
     const/16 v1, 0x9
 
     goto :goto_0
@@ -3246,7 +3246,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 2144
+    .line 2151
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3271,7 +3271,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2145
+    .line 2152
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3296,7 +3296,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2146
+    .line 2153
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3321,7 +3321,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2147
+    .line 2154
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3346,7 +3346,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2148
+    .line 2155
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3371,7 +3371,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2149
+    .line 2156
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3396,7 +3396,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2150
+    .line 2157
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3421,7 +3421,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2151
+    .line 2158
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3446,7 +3446,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2152
+    .line 2159
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3471,7 +3471,7 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2155
+    .line 2162
     iget-object v5, p0, Lcom/wardrumstudios/utils/WarMedia;->glVendor:Ljava/lang/String;
 
     const-string v6, "NVIDIA"
@@ -3484,7 +3484,7 @@
 
     const/4 v0, 0x2
 
-    .line 2156
+    .line 2163
     .local v0, "isTegra":I
     :goto_0
     invoke-direct {p0}, Lcom/wardrumstudios/utils/WarMedia;->getNumberOfProcessors()I
@@ -3493,13 +3493,13 @@
 
     mul-int/lit8 v2, v5, 0x4
 
-    .line 2157
+    .line 2164
     .local v2, "numProcs":I
     iget v5, p0, Lcom/wardrumstudios/utils/WarMedia;->availableMemory:I
 
     mul-int/lit8 v1, v5, 0x40
 
-    .line 2158
+    .line 2165
     .local v1, "mem":I
     iget-boolean v5, p0, Lcom/wardrumstudios/utils/WarMedia;->isPhone:Z
 
@@ -3514,7 +3514,7 @@
 
     add-int v3, v4, v1
 
-    .line 2159
+    .line 2166
     .local v3, "ret":I
     iget-boolean v4, p0, Lcom/wardrumstudios/utils/WarMedia;->FinalRelease:Z
 
@@ -3554,7 +3554,7 @@
 
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2160
+    .line 2167
     :cond_1
     return v3
 
@@ -3565,7 +3565,7 @@
     :cond_2
     move v0, v4
 
-    .line 2155
+    .line 2162
     goto :goto_0
 .end method
 
@@ -3688,80 +3688,80 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1980
+    .line 1987
     const-string v2, "currentLanguage"
 
     invoke-virtual {p0, v2}, Lcom/wardrumstudios/utils/WarMedia;->GetConfigSetting(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1981
+    .line 1988
     .local v0, "lang":Ljava/lang/String;
     const-string v2, "en"
 
     if-ne v0, v2, :cond_1
 
-    .line 1999
+    .line 2006
     :cond_0
     :goto_0
     return v1
 
-    .line 1983
+    .line 1990
     :cond_1
     const-string v2, "fr"
 
     if-ne v0, v2, :cond_2
 
-    .line 1984
+    .line 1991
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1985
+    .line 1992
     :cond_2
     const-string v2, "de"
 
     if-ne v0, v2, :cond_3
 
-    .line 1986
+    .line 1993
     const/4 v1, 0x2
 
     goto :goto_0
 
-    .line 1987
+    .line 1994
     :cond_3
     const-string v2, "it"
 
     if-ne v0, v2, :cond_4
 
-    .line 1988
+    .line 1995
     const/4 v1, 0x3
 
     goto :goto_0
 
-    .line 1989
+    .line 1996
     :cond_4
     const-string v2, "es"
 
     if-ne v0, v2, :cond_5
 
-    .line 1990
+    .line 1997
     const/4 v1, 0x4
 
     goto :goto_0
 
-    .line 1991
+    .line 1998
     :cond_5
     const-string v2, "ja"
 
     if-ne v0, v2, :cond_6
 
-    .line 1992
+    .line 1999
     const/4 v1, 0x5
 
     goto :goto_0
 
-    .line 1993
+    .line 2000
     :cond_6
     const-string v2, "ko"
 
@@ -3771,12 +3771,12 @@
 
     if-eqz v2, :cond_7
 
-    .line 1994
+    .line 2001
     const/4 v1, 0x6
 
     goto :goto_0
 
-    .line 1995
+    .line 2002
     :cond_7
     const-string v2, "sv"
 
@@ -3786,12 +3786,12 @@
 
     if-eqz v2, :cond_8
 
-    .line 1996
+    .line 2003
     const/4 v1, 0x7
 
     goto :goto_0
 
-    .line 1997
+    .line 2004
     :cond_8
     const-string v2, "no"
 
@@ -3817,7 +3817,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1998
+    .line 2005
     :cond_9
     const/16 v1, 0x8
 
@@ -3828,7 +3828,7 @@
     .locals 1
 
     .prologue
-    .line 2748
+    .line 2755
     iget v0, p0, Lcom/wardrumstudios/utils/WarMedia;->memoryThreshold:I
 
     return v0
@@ -4029,176 +4029,235 @@
 .end method
 
 .method public GetMemoryInfo(Z)I
-    .locals 8
+    .locals 10
     .param p1, "allProcesses"    # Z
 
     .prologue
-    const-wide/16 v6, 0x400
+    const-wide/16 v8, 0x400
 
     .line 1263
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     .line 1264
-    const-string v3, "activity"
+    const-string v4, "activity"
 
-    invoke-super {p0, v3}, Lcom/wardrumstudios/utils/WarGamepad;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-super {p0, v4}, Lcom/wardrumstudios/utils/WarGamepad;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/app/ActivityManager;
+    check-cast v4, Landroid/app/ActivityManager;
 
-    iput-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
+    iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
 
     .line 1265
-    new-instance v3, Landroid/app/ActivityManager$MemoryInfo;
+    new-instance v4, Landroid/app/ActivityManager$MemoryInfo;
 
-    invoke-direct {v3}, Landroid/app/ActivityManager$MemoryInfo;-><init>()V
+    invoke-direct {v4}, Landroid/app/ActivityManager$MemoryInfo;-><init>()V
 
-    iput-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+    iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+
+    .line 1267
+    :cond_0
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
+
+    if-nez v4, :cond_1
 
     .line 1268
-    :cond_0
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+    const-string v5, "GetMemoryInfo mgr NULL"
 
-    invoke-virtual {v3, v4}, Landroid/app/ActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
+    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1272
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+    .line 1269
+    const/4 v4, 0x0
 
-    iget-wide v4, v3, Landroid/app/ActivityManager$MemoryInfo;->threshold:J
+    .line 1317
+    :goto_0
+    return v4
 
-    div-long/2addr v4, v6
+    .line 1271
+    :cond_1
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
 
-    long-to-int v3, v4
+    iget-object v5, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
 
-    iput v3, p0, Lcom/wardrumstudios/utils/WarMedia;->memoryThreshold:I
-
-    .line 1273
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
-
-    iget-wide v4, v3, Landroid/app/ActivityManager$MemoryInfo;->availMem:J
-
-    div-long/2addr v4, v6
-
-    div-long/2addr v4, v6
-
-    long-to-int v3, v4
-
-    iput v3, p0, Lcom/wardrumstudios/utils/WarMedia;->availableMemory:I
-
-    .line 1274
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x10
-
-    if-lt v3, v4, :cond_1
+    invoke-virtual {v4, v5}, Landroid/app/ActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
 
     .line 1275
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
 
-    iget-wide v4, v3, Landroid/app/ActivityManager$MemoryInfo;->totalMem:J
+    iget-wide v4, v4, Landroid/app/ActivityManager$MemoryInfo;->threshold:J
 
-    div-long/2addr v4, v6
+    div-long/2addr v4, v8
 
-    div-long/2addr v4, v6
+    long-to-int v4, v4
 
-    long-to-int v3, v4
+    iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->memoryThreshold:I
 
-    iput v3, p0, Lcom/wardrumstudios/utils/WarMedia;->totalMemory:I
+    .line 1276
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
 
-    .line 1280
-    :goto_0
-    if-eqz p1, :cond_2
+    iget-wide v4, v4, Landroid/app/ActivityManager$MemoryInfo;->availMem:J
 
-    .line 1281
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
+    div-long/2addr v4, v8
 
-    invoke-virtual {v3}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+    div-long/2addr v4, v8
 
-    .line 1282
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
+    long-to-int v4, v4
 
-    invoke-virtual {v3}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+    iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->availableMemory:I
 
-    move-result-object v1
+    .line 1277
+    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 1284
-    .local v1, "l":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    const/16 v5, 0x10
 
-    move-result v3
+    if-lt v4, v5, :cond_2
 
-    new-array v2, v3, [I
+    .line 1278
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+
+    iget-wide v4, v4, Landroid/app/ActivityManager$MemoryInfo;->totalMem:J
+
+    div-long/2addr v4, v8
+
+    div-long/2addr v4, v8
+
+    long-to-int v4, v4
+
+    iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->totalMemory:I
+
+    .line 1283
+    :goto_1
+    if-eqz p1, :cond_4
 
     .line 1285
-    .local v2, "pids":[I
-    const/4 v0, 0x0
+    :try_start_0
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
 
-    .local v0, "i":I
-    :goto_1
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ge v0, v3, :cond_3
+    invoke-virtual {v4}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
 
     .line 1286
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
 
-    move-result-object v3
+    invoke-virtual {v4}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
 
-    check-cast v3, Landroid/app/ActivityManager$RunningAppProcessInfo;
+    move-result-object v2
 
-    iget v3, v3, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+    .line 1288
+    .local v2, "l":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    aput v3, v2, v0
+    move-result v4
 
-    .line 1285
-    add-int/lit8 v0, v0, 0x1
+    new-array v3, v4, [I
+
+    .line 1289
+    .local v3, "pids":[I
+    const/4 v1, 0x0
+
+    .local v1, "i":I
+    :goto_2
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_3
+
+    .line 1290
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/app/ActivityManager$RunningAppProcessInfo;
+
+    iget v4, v4, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+
+    aput v4, v3, v1
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1289
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    .line 1280
+    .end local v1    # "i":I
+    .end local v2    # "l":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
+    .end local v3    # "pids":[I
+    :cond_2
+    const/16 v4, 0x100
+
+    iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->totalMemory:I
 
     goto :goto_1
 
-    .line 1277
-    .end local v0    # "i":I
-    .end local v1    # "l":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
-    .end local v2    # "pids":[I
-    :cond_1
-    const/16 v3, 0x100
+    .line 1292
+    :catch_0
+    move-exception v0
 
-    iput v3, p0, Lcom/wardrumstudios/utils/WarMedia;->totalMemory:I
+    .line 1293
+    .local v0, "ex":Ljava/lang/Exception;
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "getRunningAppProcesses null "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 1317
+    .end local v0    # "ex":Ljava/lang/Exception;
+    :cond_3
+    :goto_3
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+
+    iget-wide v4, v4, Landroid/app/ActivityManager$MemoryInfo;->availMem:J
+
+    div-long/2addr v4, v8
+
+    div-long/2addr v4, v8
+
+    long-to-int v4, v4
 
     goto :goto_0
 
-    .line 1305
-    :cond_2
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->myPid:[I
-
-    if-eqz v3, :cond_3
-
-    .line 1306
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
-
+    .line 1312
+    :cond_4
     iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->myPid:[I
 
-    invoke-virtual {v3, v4}, Landroid/app/ActivityManager;->getProcessMemoryInfo([I)[Landroid/os/Debug$MemoryInfo;
+    if-eqz v4, :cond_3
 
-    .line 1310
-    :cond_3
-    iget-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->memInfo:Landroid/app/ActivityManager$MemoryInfo;
+    .line 1313
+    iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->mgr:Landroid/app/ActivityManager;
 
-    iget-wide v4, v3, Landroid/app/ActivityManager$MemoryInfo;->availMem:J
+    iget-object v5, p0, Lcom/wardrumstudios/utils/WarMedia;->myPid:[I
 
-    div-long/2addr v4, v6
+    invoke-virtual {v4, v5}, Landroid/app/ActivityManager;->getProcessMemoryInfo([I)[Landroid/os/Debug$MemoryInfo;
 
-    div-long/2addr v4, v6
-
-    long-to-int v3, v4
-
-    return v3
+    goto :goto_3
 .end method
 
 .method public GetPackageName(Ljava/lang/String;)Ljava/lang/String;
@@ -4206,12 +4265,12 @@
     .param p1, "appname"    # Ljava/lang/String;
 
     .prologue
-    .line 2456
+    .line 2463
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 2458
+    .line 2465
     .local v2, "pm":Landroid/content/pm/PackageManager;
     const/16 v3, 0x2000
 
@@ -4219,7 +4278,7 @@
 
     move-result-object v0
 
-    .line 2459
+    .line 2466
     .local v0, "appinfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     const/4 v1, 0x0
 
@@ -4231,7 +4290,7 @@
 
     if-ge v1, v3, :cond_1
 
-    .line 2461
+    .line 2468
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -4250,7 +4309,7 @@
 
     if-nez v3, :cond_0
 
-    .line 2462
+    .line 2469
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -4259,17 +4318,17 @@
 
     iget-object v3, v3, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
-    .line 2465
+    .line 2472
     :goto_1
     return-object v3
 
-    .line 2459
+    .line 2466
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 2465
+    .line 2472
     :cond_1
     const-string v3, ""
 
@@ -4280,12 +4339,12 @@
     .locals 6
 
     .prologue
-    .line 1943
+    .line 1950
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v1
 
-    .line 1944
+    .line 1951
     .local v1, "langLocal":Ljava/util/Locale;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -4295,7 +4354,7 @@
 
     move-result-object v0
 
-    .line 1945
+    .line 1952
     .local v0, "lang":Ljava/lang/String;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -4305,7 +4364,7 @@
 
     move-result-object v2
 
-    .line 1946
+    .line 1953
     .local v2, "locale":Ljava/lang/String;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -4317,12 +4376,12 @@
 
     iput-object v3, p0, Lcom/wardrumstudios/utils/WarMedia;->DeviceCountry:Ljava/lang/String;
 
-    .line 1947
+    .line 1954
     iget-boolean v3, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v3, :cond_0
 
-    .line 1948
+    .line 1955
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -4377,11 +4436,11 @@
 
     invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1949
+    .line 1956
     :cond_0
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->DeviceLocale:Ljava/lang/String;
 
-    .line 1950
+    .line 1957
     return-void
 .end method
 
@@ -4389,7 +4448,7 @@
     .locals 1
 
     .prologue
-    .line 2744
+    .line 2751
     iget v0, p0, Lcom/wardrumstudios/utils/WarMedia;->screenWidthInches:F
 
     return v0
@@ -4459,7 +4518,7 @@
     .locals 1
 
     .prologue
-    .line 2696
+    .line 2703
     iget v0, p0, Lcom/wardrumstudios/utils/WarMedia;->SpecialBuildType:I
 
     return v0
@@ -4469,7 +4528,7 @@
     .locals 1
 
     .prologue
-    .line 2740
+    .line 2747
     iget v0, p0, Lcom/wardrumstudios/utils/WarMedia;->totalMemory:I
 
     return v0
@@ -4480,12 +4539,12 @@
     .param p1, "appname"    # Ljava/lang/String;
 
     .prologue
-    .line 2469
+    .line 2476
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 2471
+    .line 2478
     .local v2, "pm":Landroid/content/pm/PackageManager;
     const/16 v3, 0x2000
 
@@ -4493,7 +4552,7 @@
 
     move-result-object v0
 
-    .line 2472
+    .line 2479
     .local v0, "appinfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     const/4 v1, 0x0
 
@@ -4505,7 +4564,7 @@
 
     if-ge v1, v3, :cond_1
 
-    .line 2473
+    .line 2480
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4564,7 +4623,7 @@
 
     invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2474
+    .line 2481
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -4583,20 +4642,20 @@
 
     if-nez v3, :cond_0
 
-    .line 2475
+    .line 2482
     const/4 v3, 0x1
 
-    .line 2478
+    .line 2485
     :goto_1
     return v3
 
-    .line 2472
+    .line 2479
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 2478
+    .line 2485
     :cond_1
     const/4 v3, 0x0
 
@@ -4607,7 +4666,7 @@
     .locals 1
 
     .prologue
-    .line 2487
+    .line 2494
     const/4 v0, 0x0
 
     return v0
@@ -4617,7 +4676,7 @@
     .locals 1
 
     .prologue
-    .line 2215
+    .line 2222
     iget-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->IsShowingKeyboard:Z
 
     return v0
@@ -4631,19 +4690,19 @@
 
     const/4 v0, 0x0
 
-    .line 1898
+    .line 1905
     iget-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->bMoviePlayerPaused:Z
 
     if-eqz v2, :cond_1
 
     move v0, v1
 
-    .line 1909
+    .line 1916
     :cond_0
     :goto_0
     return v0
 
-    .line 1901
+    .line 1908
     :cond_1
     iget v2, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
@@ -4651,12 +4710,12 @@
 
     if-ne v2, v3, :cond_2
 
-    .line 1902
+    .line 1909
     iget v0, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
     goto :goto_0
 
-    .line 1903
+    .line 1910
     :cond_2
     iget v2, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
@@ -4666,7 +4725,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1906
+    .line 1913
     :try_start_0
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
@@ -4682,7 +4741,7 @@
 
     goto :goto_0
 
-    .line 1907
+    .line 1914
     :catch_0
     move-exception v1
 
@@ -4693,15 +4752,15 @@
     .locals 1
 
     .prologue
-    .line 1476
+    .line 1483
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
     if-nez v0, :cond_0
 
-    .line 1477
+    .line 1484
     iget-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->vidViewIsActive:Z
 
-    .line 1479
+    .line 1486
     :goto_0
     return v0
 
@@ -4715,7 +4774,7 @@
     .locals 2
 
     .prologue
-    .line 1431
+    .line 1438
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -4747,7 +4806,7 @@
     .locals 1
 
     .prologue
-    .line 2121
+    .line 2128
     iget-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->IsAndroidTV:Z
 
     return v0
@@ -4757,7 +4816,7 @@
     .locals 0
 
     .prologue
-    .line 2493
+    .line 2500
     return-void
 .end method
 
@@ -4767,7 +4826,7 @@
     .param p2, "array"    # [B
 
     .prologue
-    .line 2496
+    .line 2503
     const-string v0, ""
 
     return-object v0
@@ -4778,21 +4837,21 @@
     .param p1, "isSubtitle"    # Z
 
     .prologue
-    .line 2597
+    .line 2604
     if-eqz p1, :cond_0
 
     const-string v0, ""
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->movieSubtitleText:Ljava/lang/String;
 
-    .line 2599
+    .line 2606
     :goto_0
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->DrawMovieText()V
 
-    .line 2600
+    .line 2607
     return-void
 
-    .line 2598
+    .line 2605
     :cond_0
     const-string v0, ""
 
@@ -4806,7 +4865,7 @@
     .param p1, "display"    # Z
 
     .prologue
-    .line 2624
+    .line 2631
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4829,17 +4888,17 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2625
+    .line 2632
     if-eqz p1, :cond_0
 
     iget-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieTextDisplayed:Z
 
     if-nez v0, :cond_0
 
-    .line 2626
+    .line 2633
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->DisplayMovieText()V
 
-    .line 2628
+    .line 2635
     :cond_0
     return-void
 .end method
@@ -4849,10 +4908,10 @@
     .param p1, "keep"    # Z
 
     .prologue
-    .line 2507
+    .line 2514
     iput-boolean p1, p0, Lcom/wardrumstudios/utils/WarMedia;->KeepAspectRatio:Z
 
-    .line 2508
+    .line 2515
     return-void
 .end method
 
@@ -4861,10 +4920,10 @@
     .param p1, "skippable"    # Z
 
     .prologue
-    .line 1485
+    .line 1492
     iput-boolean p1, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieIsSkippable:Z
 
-    .line 1486
+    .line 1493
     return-void
 .end method
 
@@ -4875,24 +4934,24 @@
     .param p3, "isSubtitle"    # Z
 
     .prologue
-    .line 2604
+    .line 2611
     if-eqz p3, :cond_1
 
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieSubtitleText:Ljava/lang/String;
 
-    .line 2612
+    .line 2619
     :goto_0
     if-eqz p2, :cond_3
 
-    .line 2613
+    .line 2620
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->DisplayMovieText()V
 
-    .line 2621
+    .line 2628
     :cond_0
     :goto_1
     return-void
 
-    .line 2606
+    .line 2613
     :cond_1
     if-nez p2, :cond_2
 
@@ -4901,25 +4960,25 @@
     :goto_2
     iput-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->DisplayMovieTextOnTap:Z
 
-    .line 2607
+    .line 2614
     iput-boolean p2, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextDisplayNow:Z
 
-    .line 2608
+    .line 2615
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieText:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2606
+    .line 2613
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_2
 
-    .line 2614
+    .line 2621
     :cond_3
     if-nez p2, :cond_0
 
-    .line 2615
+    .line 2622
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$22;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$22;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
@@ -4934,17 +4993,17 @@
     .param p1, "scale"    # I
 
     .prologue
-    .line 2523
+    .line 2530
     iput p1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextScale:I
 
-    .line 2524
+    .line 2531
     const v0, -0xff0100
 
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextScale:I
 
     invoke-virtual {p0, v0, v1}, Lcom/wardrumstudios/utils/WarMedia;->SetPaint(II)V
 
-    .line 2525
+    .line 2532
     return-void
 .end method
 
@@ -5005,7 +5064,7 @@
     .param p1, "slot"    # I
 
     .prologue
-    .line 2503
+    .line 2510
     const/4 v0, 0x0
 
     return v0
@@ -5015,7 +5074,7 @@
     .locals 12
 
     .prologue
-    .line 1928
+    .line 1935
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getBaseContext()Landroid/content/Context;
 
     move-result-object v5
@@ -5028,7 +5087,7 @@
 
     check-cast v2, Landroid/telephony/TelephonyManager;
 
-    .line 1931
+    .line 1938
     .local v2, "tm":Landroid/telephony/TelephonyManager;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -5052,7 +5111,7 @@
 
     move-result-object v3
 
-    .line 1932
+    .line 1939
     .local v3, "tmDevice":Ljava/lang/String;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -5076,7 +5135,7 @@
 
     move-result-object v4
 
-    .line 1933
+    .line 1940
     .local v4, "tmSerial":Ljava/lang/String;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -5106,7 +5165,7 @@
 
     move-result-object v0
 
-    .line 1935
+    .line 1942
     .local v0, "androidId":Ljava/lang/String;
     new-instance v1, Ljava/util/UUID;
 
@@ -5136,7 +5195,7 @@
 
     invoke-direct {v1, v6, v7, v8, v9}, Ljava/util/UUID;-><init>(JJ)V
 
-    .line 1937
+    .line 1944
     .local v1, "deviceUuid":Ljava/util/UUID;
     invoke-virtual {v1}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
@@ -5150,7 +5209,7 @@
     .param p1, "link"    # Ljava/lang/String;
 
     .prologue
-    .line 2482
+    .line 2489
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.VIEW"
@@ -5161,11 +5220,11 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 2483
+    .line 2490
     .local v0, "browserIntent":Landroid/content/Intent;
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->startActivity(Landroid/content/Intent;)V
 
-    .line 2484
+    .line 2491
     return-void
 .end method
 
@@ -5690,12 +5749,12 @@
     .param p2, "Volume"    # F
 
     .prologue
-    .line 1815
+    .line 1822
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->vidHolder:Landroid/view/SurfaceHolder;
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/wardrumstudios/utils/WarMedia;->PlayMovie(Ljava/lang/String;FLandroid/view/SurfaceHolder;)V
 
-    .line 1816
+    .line 1823
     return-void
 .end method
 
@@ -5708,27 +5767,27 @@
     .prologue
     const/4 v10, 0x0
 
-    .line 1821
+    .line 1828
     iput-object p3, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieHolder:Landroid/view/SurfaceHolder;
 
-    .line 1823
+    .line 1830
     const/4 v7, 0x1
 
     iput v7, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1824
+    .line 1831
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieFilename:Ljava/lang/String;
 
-    .line 1825
+    .line 1832
     iput v10, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieOffset:I
 
-    .line 1826
+    .line 1833
     iput v10, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieLength:I
 
-    .line 1827
+    .line 1834
     iput p2, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieVolume:F
 
-    .line 1829
+    .line 1836
     iget-boolean v7, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v7, :cond_0
@@ -5755,7 +5814,7 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1830
+    .line 1837
     :cond_0
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -5800,7 +5859,7 @@
 
     move-result-object v6
 
-    .line 1831
+    .line 1838
     .local v6, "newFile":Ljava/lang/String;
     iget-boolean v7, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
@@ -5828,17 +5887,17 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1832
+    .line 1839
     :cond_1
     new-instance v4, Ljava/io/File;
 
     invoke-direct {v4, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 1833
+    .line 1840
     .local v4, "file":Ljava/io/File;
     const/4 v0, 0x0
 
-    .line 1834
+    .line 1841
     .local v0, "afd":Landroid/content/res/AssetFileDescriptor;
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
@@ -5846,13 +5905,13 @@
 
     if-nez v7, :cond_4
 
-    .line 1838
+    .line 1845
     :try_start_0
     iget-boolean v7, p0, Lcom/wardrumstudios/utils/WarMedia;->AddMovieExtension:Z
 
     if-eqz v7, :cond_3
 
-    .line 1839
+    .line 1846
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -5879,7 +5938,7 @@
 
     move-result-object v2
 
-    .line 1842
+    .line 1849
     .local v2, "apkFilename":Ljava/lang/String;
     :goto_1
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -5904,7 +5963,7 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1843
+    .line 1850
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v7
@@ -5919,12 +5978,12 @@
 
     move-result-object v0
 
-    .line 1847
+    .line 1854
     .end local v2    # "apkFilename":Ljava/lang/String;
     :goto_2
     if-nez v0, :cond_4
 
-    .line 1848
+    .line 1855
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5947,14 +6006,14 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1849
+    .line 1856
     iput v10, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1894
+    .line 1901
     :goto_3
     return-void
 
-    .line 1830
+    .line 1837
     .end local v0    # "afd":Landroid/content/res/AssetFileDescriptor;
     .end local v4    # "file":Ljava/io/File;
     .end local v6    # "newFile":Ljava/lang/String;
@@ -5963,7 +6022,7 @@
 
     goto/16 :goto_0
 
-    .line 1841
+    .line 1848
     .restart local v0    # "afd":Landroid/content/res/AssetFileDescriptor;
     .restart local v4    # "file":Ljava/io/File;
     .restart local v6    # "newFile":Ljava/lang/String;
@@ -6000,37 +6059,37 @@
     .restart local v2    # "apkFilename":Ljava/lang/String;
     goto :goto_1
 
-    .line 1844
+    .line 1851
     .end local v2    # "apkFilename":Ljava/lang/String;
     :catch_0
     move-exception v3
 
-    .line 1845
+    .line 1852
     .local v3, "ex":Ljava/lang/Exception;
     const/4 v0, 0x0
 
     goto :goto_2
 
-    .line 1854
+    .line 1861
     .end local v3    # "ex":Ljava/lang/Exception;
     :cond_4
     move-object v5, p0
 
-    .line 1856
+    .line 1863
     .local v5, "myWarMedia":Lcom/wardrumstudios/utils/WarMedia;
     :try_start_2
     iget-object v7, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     if-eqz v7, :cond_5
 
-    .line 1857
+    .line 1864
     iget-object v7, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v7}, Landroid/media/MediaPlayer;->release()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 1860
+    .line 1867
     :cond_5
     :goto_4
     iget-wide v8, p0, Lcom/wardrumstudios/utils/WarMedia;->lastMovieStop:J
@@ -6043,21 +6102,21 @@
 
     if-lez v7, :cond_6
 
-    .line 1861
+    .line 1868
     const-wide/16 v8, 0x64
 
     invoke-virtual {p0, v8, v9}, Lcom/wardrumstudios/utils/WarMedia;->mSleep(J)V
 
     goto :goto_4
 
-    .line 1862
+    .line 1869
     :cond_6
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->SetVidView()V
 
-    .line 1863
+    .line 1870
     move-object v1, v0
 
-    .line 1864
+    .line 1871
     .local v1, "afdFinal":Landroid/content/res/AssetFileDescriptor;
     new-instance v7, Lcom/wardrumstudios/utils/WarMedia$18;
 
@@ -6067,7 +6126,7 @@
 
     goto :goto_3
 
-    .line 1858
+    .line 1865
     .end local v1    # "afdFinal":Landroid/content/res/AssetFileDescriptor;
     :catch_1
     move-exception v7
@@ -6083,7 +6142,7 @@
     .param p4, "length"    # I
 
     .prologue
-    .line 1736
+    .line 1743
     iget-object v5, p0, Lcom/wardrumstudios/utils/WarMedia;->vidHolder:Landroid/view/SurfaceHolder;
 
     move-object v0, p0
@@ -6098,7 +6157,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/wardrumstudios/utils/WarMedia;->PlayMovieInFile(Ljava/lang/String;FIILandroid/view/SurfaceHolder;)V
 
-    .line 1737
+    .line 1744
     return-void
 .end method
 
@@ -6111,7 +6170,7 @@
     .param p5, "myVidHolder"    # Landroid/view/SurfaceHolder;
 
     .prologue
-    .line 1743
+    .line 1750
     iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
     if-eqz v4, :cond_0
@@ -6126,38 +6185,38 @@
 
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
-    .line 1744
+    .line 1751
     :cond_0
     iput-object p5, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieHolder:Landroid/view/SurfaceHolder;
 
-    .line 1747
+    .line 1754
     const/4 v4, 0x1
 
     iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1748
+    .line 1755
     const/4 v4, 0x0
 
     iput-boolean v4, p0, Lcom/wardrumstudios/utils/WarMedia;->bMoviePlayerPaused:Z
 
-    .line 1749
+    .line 1756
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieFilename:Ljava/lang/String;
 
-    .line 1750
+    .line 1757
     iput p3, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieOffset:I
 
-    .line 1751
+    .line 1758
     iput p4, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieLength:I
 
-    .line 1752
+    .line 1759
     iput p2, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieVolume:F
 
-    .line 1753
+    .line 1760
     iget-boolean v4, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v4, :cond_1
 
-    .line 1754
+    .line 1761
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -6200,7 +6259,7 @@
 
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1756
+    .line 1763
     :cond_1
     const-string v4, "/"
 
@@ -6210,7 +6269,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 1757
+    .line 1764
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -6235,14 +6294,14 @@
 
     move-result-object v3
 
-    .line 1760
+    .line 1767
     .local v3, "tempFilename":Ljava/lang/String;
     :goto_0
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 1761
+    .line 1768
     .local v0, "f":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -6250,20 +6309,20 @@
 
     if-nez v4, :cond_2
 
-    .line 1762
+    .line 1769
     move-object v3, p1
 
-    .line 1764
+    .line 1771
     :cond_2
     move-object v2, v3
 
-    .line 1765
+    .line 1772
     .local v2, "newFile":Ljava/lang/String;
     iget-boolean v4, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v4, :cond_3
 
-    .line 1766
+    .line 1773
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -6306,25 +6365,25 @@
 
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1768
+    .line 1775
     :cond_3
     move-object v1, p0
 
-    .line 1770
+    .line 1777
     .local v1, "myWarMedia":Lcom/wardrumstudios/utils/WarMedia;
     :try_start_0
     iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     if-eqz v4, :cond_4
 
-    .line 1771
+    .line 1778
     iget-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v4}, Landroid/media/MediaPlayer;->release()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1774
+    .line 1781
     :cond_4
     :goto_1
     iget-wide v4, p0, Lcom/wardrumstudios/utils/WarMedia;->lastMovieStop:J
@@ -6337,14 +6396,14 @@
 
     if-lez v4, :cond_6
 
-    .line 1775
+    .line 1782
     const-wide/16 v4, 0x64
 
     invoke-virtual {p0, v4, v5}, Lcom/wardrumstudios/utils/WarMedia;->mSleep(J)V
 
     goto :goto_1
 
-    .line 1759
+    .line 1766
     .end local v0    # "f":Ljava/io/File;
     .end local v1    # "myWarMedia":Lcom/wardrumstudios/utils/WarMedia;
     .end local v2    # "newFile":Ljava/lang/String;
@@ -6385,24 +6444,24 @@
     .restart local v3    # "tempFilename":Ljava/lang/String;
     goto :goto_0
 
-    .line 1776
+    .line 1783
     .restart local v0    # "f":Ljava/io/File;
     .restart local v1    # "myWarMedia":Lcom/wardrumstudios/utils/WarMedia;
     .restart local v2    # "newFile":Ljava/lang/String;
     :cond_6
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->SetVidView()V
 
-    .line 1777
+    .line 1784
     new-instance v4, Lcom/wardrumstudios/utils/WarMedia$17;
 
     invoke-direct {v4, p0, v2, v1}, Lcom/wardrumstudios/utils/WarMedia$17;-><init>(Lcom/wardrumstudios/utils/WarMedia;Ljava/lang/String;Lcom/wardrumstudios/utils/WarMedia;)V
 
     invoke-virtual {p0, v4}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 1812
+    .line 1819
     return-void
 
-    .line 1772
+    .line 1779
     :catch_0
     move-exception v4
 
@@ -6423,7 +6482,7 @@
     .param p10, "forceSize"    # Z
 
     .prologue
-    .line 1634
+    .line 1641
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -6482,17 +6541,17 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1636
+    .line 1643
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieIsSkippable:Z
 
-    .line 1638
+    .line 1645
     move/from16 v0, p10
 
     iput-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->ForceSize:Z
 
-    .line 1639
+    .line 1646
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -6537,7 +6596,7 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1641
+    .line 1648
     iget-boolean v1, p0, Lcom/wardrumstudios/utils/WarMedia;->checkForMaxDisplaySize:Z
 
     if-eqz v1, :cond_0
@@ -6550,7 +6609,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 1643
+    .line 1650
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->baseDisplayWidth:I
 
     iput v1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewWidth:I
@@ -6563,38 +6622,38 @@
 
     iput p3, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewY:I
 
-    .line 1649
+    .line 1656
     :goto_0
     move/from16 v0, p9
 
     iput v0, p0, Lcom/wardrumstudios/utils/WarMedia;->movieLooping:I
 
-    .line 1650
+    .line 1657
     move-object v4, p1
 
-    .line 1651
+    .line 1658
     .local v4, "filename":Ljava/lang/String;
     move v5, p6
 
-    .line 1652
+    .line 1659
     .local v5, "volume":F
     move/from16 v6, p7
 
-    .line 1653
+    .line 1660
     .local v6, "offset":I
     move/from16 v3, p8
 
-    .line 1654
+    .line 1661
     .local v3, "length":I
     move-object v7, p0
 
-    .line 1655
+    .line 1662
     .local v7, "myWarmedia":Lcom/wardrumstudios/utils/WarMedia;
     const/4 v1, 0x1
 
     iput v1, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1656
+    .line 1663
     new-instance v1, Lcom/wardrumstudios/utils/WarMedia$16;
 
     move-object v2, p0
@@ -6603,10 +6662,10 @@
 
     invoke-virtual {p0, v1}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 1732
+    .line 1739
     return-void
 
-    .line 1645
+    .line 1652
     .end local v3    # "length":I
     .end local v4    # "filename":Ljava/lang/String;
     .end local v5    # "volume":F
@@ -6628,18 +6687,18 @@
     .locals 4
 
     .prologue
-    .line 2026
+    .line 2033
     const-string v2, "currentLanguage"
 
     invoke-virtual {p0, v2}, Lcom/wardrumstudios/utils/WarMedia;->GetConfigSetting(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2027
+    .line 2034
     .local v1, "lang":Ljava/lang/String;
     const-string v0, ""
 
-    .line 2028
+    .line 2035
     .local v0, "countyStr":Ljava/lang/String;
     const-string v2, ""
 
@@ -6649,7 +6708,7 @@
 
     if-nez v2, :cond_1
 
-    .line 2029
+    .line 2036
     const-string v2, "en"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -6658,7 +6717,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 2030
+    .line 2037
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DeviceCountry:Ljava/lang/String;
 
     const-string v3, "GB"
@@ -6671,7 +6730,7 @@
 
     const-string v0, "GB"
 
-    .line 2034
+    .line 2041
     :cond_0
     :goto_0
     new-instance v2, Ljava/util/Locale;
@@ -6680,16 +6739,16 @@
 
     iput-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->locale:Ljava/util/Locale;
 
-    .line 2035
+    .line 2042
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->locale:Ljava/util/Locale;
 
     invoke-static {v2}, Ljava/util/Locale;->setDefault(Ljava/util/Locale;)V
 
-    .line 2038
+    .line 2045
     :cond_1
     return-void
 
-    .line 2031
+    .line 2038
     :cond_2
     const-string v0, "US"
 
@@ -6703,7 +6762,7 @@
     .param p3, "numbytes"    # I
 
     .prologue
-    .line 2500
+    .line 2507
     return-void
 .end method
 
@@ -6712,18 +6771,18 @@
     .param p1, "enable"    # Z
 
     .prologue
-    .line 2774
+    .line 2781
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->myWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 2776
+    .line 2783
     :goto_0
     return-void
 
-    .line 2775
+    .line 2782
     :cond_0
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->myWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -6740,7 +6799,7 @@
     .param p4, "timedEvent"    # Z
 
     .prologue
-    .line 2737
+    .line 2744
     return-void
 .end method
 
@@ -6750,7 +6809,7 @@
     .param p2, "timedEvent"    # Z
 
     .prologue
-    .line 2730
+    .line 2737
     return-void
 .end method
 
@@ -6759,7 +6818,7 @@
     .param p1, "eventId"    # Ljava/lang/String;
 
     .prologue
-    .line 2733
+    .line 2740
     return-void
 .end method
 
@@ -6769,7 +6828,7 @@
     .param p2, "args"    # Ljava/lang/String;
 
     .prologue
-    .line 2868
+    .line 2875
     const/4 v0, 0x0
 
     return v0
@@ -6781,7 +6840,7 @@
     .param p2, "args"    # I
 
     .prologue
-    .line 2876
+    .line 2883
     const/4 v0, 0x0
 
     return v0
@@ -6793,7 +6852,7 @@
     .param p2, "args"    # Ljava/lang/String;
 
     .prologue
-    .line 2872
+    .line 2879
     const/4 v0, 0x0
 
     return v0
@@ -6805,7 +6864,7 @@
     .param p2, "value"    # Ljava/lang/String;
 
     .prologue
-    .line 1920
+    .line 1927
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/wardrumstudios/utils/WarMedia;->getPreferences(I)Landroid/content/SharedPreferences;
@@ -6816,19 +6875,19 @@
 
     move-result-object v0
 
-    .line 1921
+    .line 1928
     .local v0, "e":Landroid/content/SharedPreferences$Editor;
     invoke-interface {v0, p1, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1922
+    .line 1929
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1923
+    .line 1930
     iget-boolean v1, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v1, :cond_0
 
-    .line 1924
+    .line 1931
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -6861,7 +6920,7 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1925
+    .line 1932
     :cond_0
     return-void
 .end method
@@ -6871,20 +6930,20 @@
     .param p1, "newLang"    # I
 
     .prologue
-    .line 2042
+    .line 2049
     packed-switch p1, :pswitch_data_0
 
-    .line 2071
+    .line 2078
     const-string v0, "en"
 
-    .line 2075
+    .line 2082
     .local v0, "lStr":Ljava/lang/String;
     :goto_0
     iget-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v2, :cond_0
 
-    .line 2076
+    .line 2083
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -6917,7 +6976,7 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2077
+    .line 2084
     :cond_0
     const-string v2, "currentLanguage"
 
@@ -6925,13 +6984,13 @@
 
     move-result-object v1
 
-    .line 2078
+    .line 2085
     .local v1, "lang":Ljava/lang/String;
     iget-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v2, :cond_1
 
-    .line 2079
+    .line 2086
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -6954,7 +7013,7 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2082
+    .line 2089
     :cond_1
     new-instance v2, Ljava/util/Locale;
 
@@ -6962,102 +7021,102 @@
 
     iput-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->locale:Ljava/util/Locale;
 
-    .line 2083
+    .line 2090
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->locale:Ljava/util/Locale;
 
     invoke-static {v2}, Ljava/util/Locale;->setDefault(Ljava/util/Locale;)V
 
-    .line 2085
+    .line 2092
     const-string v2, "currentLanguage"
 
     invoke-virtual {p0, v2, v0}, Lcom/wardrumstudios/utils/WarMedia;->SetConfigSetting(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2087
+    .line 2094
     return-void
 
-    .line 2044
+    .line 2051
     .end local v0    # "lStr":Ljava/lang/String;
     .end local v1    # "lang":Ljava/lang/String;
     :pswitch_0
     const-string v0, "en"
 
-    .line 2045
+    .line 2052
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2047
+    .line 2054
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_1
     const-string v0, "fr"
 
-    .line 2048
+    .line 2055
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2050
+    .line 2057
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_2
     const-string v0, "de"
 
-    .line 2051
+    .line 2058
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2053
+    .line 2060
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_3
     const-string v0, "it"
 
-    .line 2054
+    .line 2061
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2056
+    .line 2063
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_4
     const-string v0, "es"
 
-    .line 2057
+    .line 2064
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2059
+    .line 2066
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_5
     const-string v0, "ja"
 
-    .line 2060
+    .line 2067
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2062
+    .line 2069
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_6
     const-string v0, "ko"
 
-    .line 2063
+    .line 2070
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2065
+    .line 2072
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_7
     const-string v0, "sv"
 
-    .line 2066
+    .line 2073
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2068
+    .line 2075
     .end local v0    # "lStr":Ljava/lang/String;
     :pswitch_8
     const-string v0, "no"
 
-    .line 2069
+    .line 2076
     .restart local v0    # "lStr":Ljava/lang/String;
     goto :goto_0
 
-    .line 2042
+    .line 2049
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -7077,15 +7136,15 @@
     .param p1, "lStr"    # Ljava/lang/String;
 
     .prologue
-    .line 2005
+    .line 2012
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->GetRealLocale()V
 
-    .line 2006
+    .line 2013
     iget-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v2, :cond_0
 
-    .line 2007
+    .line 2014
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -7108,7 +7167,7 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2008
+    .line 2015
     :cond_0
     const-string v2, "currentLanguage"
 
@@ -7116,13 +7175,13 @@
 
     move-result-object v1
 
-    .line 2009
+    .line 2016
     .local v1, "lang":Ljava/lang/String;
     iget-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v2, :cond_1
 
-    .line 2010
+    .line 2017
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -7145,11 +7204,11 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2013
+    .line 2020
     :cond_1
     const-string v0, ""
 
-    .line 2014
+    .line 2021
     .local v0, "countyStr":Ljava/lang/String;
     const-string v2, "en"
 
@@ -7159,7 +7218,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 2015
+    .line 2022
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->DeviceCountry:Ljava/lang/String;
 
     const-string v3, "GB"
@@ -7172,7 +7231,7 @@
 
     const-string v0, "GB"
 
-    .line 2018
+    .line 2025
     :cond_2
     :goto_0
     new-instance v2, Ljava/util/Locale;
@@ -7181,20 +7240,20 @@
 
     iput-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->locale:Ljava/util/Locale;
 
-    .line 2019
+    .line 2026
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->locale:Ljava/util/Locale;
 
     invoke-static {v2}, Ljava/util/Locale;->setDefault(Ljava/util/Locale;)V
 
-    .line 2021
+    .line 2028
     const-string v2, "currentLanguage"
 
     invoke-virtual {p0, v2, p1}, Lcom/wardrumstudios/utils/WarMedia;->SetConfigSetting(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2023
+    .line 2030
     return-void
 
-    .line 2016
+    .line 2023
     :cond_3
     const-string v0, "US"
 
@@ -7207,33 +7266,33 @@
     .param p2, "size"    # I
 
     .prologue
-    .line 2529
+    .line 2536
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mTextPaint:Landroid/graphics/Paint;
 
-    .line 2531
+    .line 2538
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mTextPaint:Landroid/graphics/Paint;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 2532
+    .line 2539
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mTextPaint:Landroid/graphics/Paint;
 
     int-to-float v1, p2
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTextSize(F)V
 
-    .line 2533
+    .line 2540
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mTextPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 2535
+    .line 2542
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mTextPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->ascent()F
@@ -7244,35 +7303,35 @@
 
     iput v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mAscent:I
 
-    .line 2536
+    .line 2543
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->tPaint:Landroid/graphics/Paint;
 
-    .line 2537
+    .line 2544
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->tPaint:Landroid/graphics/Paint;
 
     const/high16 v1, -0x10000
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 2538
+    .line 2545
     new-instance v0, Landroid/text/TextPaint;
 
     invoke-direct {v0}, Landroid/text/TextPaint;-><init>()V
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->textPaint:Landroid/text/TextPaint;
 
-    .line 2539
+    .line 2546
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->textPaint:Landroid/text/TextPaint;
 
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setColor(I)V
 
-    .line 2540
+    .line 2547
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->textPaint:Landroid/text/TextPaint;
 
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextScale:I
@@ -7281,21 +7340,21 @@
 
     invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 2541
+    .line 2548
     new-instance v0, Landroid/text/TextPaint;
 
     invoke-direct {v0}, Landroid/text/TextPaint;-><init>()V
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->sTextPaint:Landroid/text/TextPaint;
 
-    .line 2542
+    .line 2549
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->sTextPaint:Landroid/text/TextPaint;
 
     const/high16 v1, -0x1000000
 
     invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setColor(I)V
 
-    .line 2543
+    .line 2550
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->sTextPaint:Landroid/text/TextPaint;
 
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieTextScale:I
@@ -7304,7 +7363,7 @@
 
     invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 2544
+    .line 2551
     return-void
 .end method
 
@@ -7312,14 +7371,14 @@
     .locals 1
 
     .prologue
-    .line 1448
+    .line 1455
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$13;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$13;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
 
     invoke-virtual {p0, v0}, Lcom/wardrumstudios/utils/WarMedia;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 1456
+    .line 1463
     return-void
 .end method
 
@@ -7328,16 +7387,16 @@
     .param p1, "mp"    # Landroid/media/MediaPlayer;
 
     .prologue
-    .line 1325
+    .line 1332
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
     if-eqz v8, :cond_0
 
-    .line 1370
+    .line 1377
     :goto_0
     return-void
 
-    .line 1327
+    .line 1334
     :cond_0
     :try_start_0
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->vidView:Landroid/view/SurfaceView;
@@ -7346,7 +7405,7 @@
 
     move-result v5
 
-    .line 1328
+    .line 1335
     .local v5, "surfaceView_Width":I
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->vidView:Landroid/view/SurfaceView;
 
@@ -7354,7 +7413,7 @@
 
     move-result v4
 
-    .line 1330
+    .line 1337
     .local v4, "surfaceView_Height":I
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getVideoWidth()I
 
@@ -7362,7 +7421,7 @@
 
     int-to-float v7, v8
 
-    .line 1331
+    .line 1338
     .local v7, "video_Width":F
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getVideoHeight()I
 
@@ -7370,7 +7429,7 @@
 
     int-to-float v6, v8
 
-    .line 1333
+    .line 1340
     .local v6, "video_Height":F
     const/high16 v8, 0x3f800000    # 1.0f
 
@@ -7384,7 +7443,7 @@
 
     if-gtz v8, :cond_2
 
-    .line 1334
+    .line 1341
     :cond_1
     sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -7426,7 +7485,7 @@
 
     goto :goto_0
 
-    .line 1368
+    .line 1375
     .end local v4    # "surfaceView_Height":I
     .end local v5    # "surfaceView_Width":I
     .end local v6    # "video_Height":F
@@ -7436,7 +7495,7 @@
 
     goto :goto_0
 
-    .line 1338
+    .line 1345
     .restart local v4    # "surfaceView_Height":I
     .restart local v5    # "surfaceView_Width":I
     .restart local v6    # "video_Height":F
@@ -7446,23 +7505,23 @@
 
     div-float v3, v8, v7
 
-    .line 1339
+    .line 1346
     .local v3, "ratio_width":F
     int-to-float v8, v4
 
     div-float v2, v8, v6
 
-    .line 1340
+    .line 1347
     .local v2, "ratio_height":F
     div-float v0, v7, v6
 
-    .line 1343
+    .line 1350
     .local v0, "aspectratio":F
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
     if-nez v8, :cond_3
 
-    .line 1344
+    .line 1351
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->vidView:Landroid/view/SurfaceView;
 
     invoke-virtual {v8}, Landroid/view/SurfaceView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -7471,42 +7530,42 @@
 
     check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 1347
+    .line 1354
     .local v1, "layoutParams":Landroid/widget/FrameLayout$LayoutParams;
     :goto_1
     iget-boolean v8, p0, Lcom/wardrumstudios/utils/WarMedia;->ForceSize:Z
 
     if-eqz v8, :cond_4
 
-    .line 1348
+    .line 1355
     iget v8, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewWidth:I
 
     iput v8, v1, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    .line 1349
+    .line 1356
     iget v8, p0, Lcom/wardrumstudios/utils/WarMedia;->movieViewHeight:I
 
     iput v8, v1, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
-    .line 1363
+    .line 1370
     :goto_2
     const/16 v8, 0x11
 
     iput v8, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 1364
+    .line 1371
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
     if-nez v8, :cond_7
 
-    .line 1365
+    .line 1372
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->vidView:Landroid/view/SurfaceView;
 
     invoke-virtual {v8, v1}, Landroid/view/SurfaceView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     goto :goto_0
 
-    .line 1369
+    .line 1376
     .end local v0    # "aspectratio":F
     .end local v1    # "layoutParams":Landroid/widget/FrameLayout$LayoutParams;
     .end local v2    # "ratio_height":F
@@ -7520,7 +7579,7 @@
 
     goto :goto_0
 
-    .line 1345
+    .line 1352
     .restart local v0    # "aspectratio":F
     .restart local v2    # "ratio_height":F
     .restart local v3    # "ratio_width":F
@@ -7540,18 +7599,18 @@
     .restart local v1    # "layoutParams":Landroid/widget/FrameLayout$LayoutParams;
     goto :goto_1
 
-    .line 1350
+    .line 1357
     :cond_4
     iget-boolean v8, p0, Lcom/wardrumstudios/utils/WarMedia;->KeepAspectRatio:Z
 
     if-eqz v8, :cond_6
 
-    .line 1351
+    .line 1358
     cmpl-float v8, v3, v2
 
     if-lez v8, :cond_5
 
-    .line 1352
+    .line 1359
     int-to-float v8, v4
 
     mul-float/2addr v8, v0
@@ -7560,16 +7619,16 @@
 
     iput v8, v1, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    .line 1353
+    .line 1360
     iput v4, v1, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
     goto :goto_2
 
-    .line 1355
+    .line 1362
     :cond_5
     iput v5, v1, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    .line 1356
+    .line 1363
     int-to-float v8, v5
 
     div-float/2addr v8, v0
@@ -7580,16 +7639,16 @@
 
     goto :goto_2
 
-    .line 1359
+    .line 1366
     :cond_6
     iput v5, v1, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    .line 1360
+    .line 1367
     iput v4, v1, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
     goto :goto_2
 
-    .line 1367
+    .line 1374
     :cond_7
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->customMovieSurface:Landroid/view/SurfaceView;
 
@@ -7681,7 +7740,7 @@
 
     const/4 v4, 0x0
 
-    .line 2194
+    .line 2201
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -7694,11 +7753,11 @@
 
     if-ne v3, v5, :cond_0
 
-    .line 2211
+    .line 2218
     :goto_0
     return-void
 
-    .line 2196
+    .line 2203
     :cond_0
     const-string v3, "input_method"
 
@@ -7708,31 +7767,31 @@
 
     check-cast v1, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 2197
+    .line 2204
     .local v1, "myImm":Landroid/view/inputmethod/InputMethodManager;
     if-eqz p1, :cond_1
 
-    .line 2198
+    .line 2205
     const/4 v3, 0x2
 
     invoke-virtual {v1, v3, v4}, Landroid/view/inputmethod/InputMethodManager;->toggleSoftInput(II)V
 
-    .line 2199
+    .line 2206
     iput-boolean v5, p0, Lcom/wardrumstudios/utils/WarMedia;->IsShowingKeyboard:Z
 
     goto :goto_0
 
-    .line 2201
+    .line 2208
     :cond_1
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->getCurrentFocus()Landroid/view/View;
 
     move-result-object v2
 
-    .line 2202
+    .line 2209
     .local v2, "tbview":Landroid/view/View;
     if-eqz v2, :cond_2
 
-    .line 2203
+    .line 2210
     const-string v3, "input_method"
 
     invoke-virtual {p0, v3}, Lcom/wardrumstudios/utils/WarMedia;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -7741,7 +7800,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 2204
+    .line 2211
     .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
     invoke-virtual {v2}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
@@ -7749,22 +7808,22 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 2206
+    .line 2213
     .end local v0    # "imm":Landroid/view/inputmethod/InputMethodManager;
     :cond_2
     invoke-virtual {v1, v4, v4}, Landroid/view/inputmethod/InputMethodManager;->toggleSoftInput(II)V
 
-    .line 2207
+    .line 2214
     iput-boolean v4, p0, Lcom/wardrumstudios/utils/WarMedia;->IsShowingKeyboard:Z
 
-    .line 2208
+    .line 2215
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v4, "hideSystemUI"
 
     invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2209
+    .line 2216
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->hideSystemUI()V
 
     goto :goto_0
@@ -7801,28 +7860,28 @@
 
     const/4 v6, 0x0
 
-    .line 1492
+    .line 1499
     iput v6, p0, Lcom/wardrumstudios/utils/WarMedia;->movieLooping:I
 
-    .line 1493
+    .line 1500
     iput-boolean v6, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieIsSkippable:Z
 
-    .line 1494
+    .line 1501
     iput-boolean v6, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieTextDisplayed:Z
 
-    .line 1495
+    .line 1502
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
     const/4 v2, 0x2
 
     if-eq v1, v2, :cond_1
 
-    .line 1496
+    .line 1503
     iget-boolean v1, p0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
 
     if-eqz v1, :cond_0
 
-    .line 1497
+    .line 1504
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -7847,30 +7906,30 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1498
+    .line 1505
     :cond_0
     iput v6, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1502
+    .line 1509
     :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     if-eqz v1, :cond_2
 
-    .line 1503
+    .line 1510
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v1}, Landroid/media/MediaPlayer;->release()V
 
-    .line 1504
+    .line 1511
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1509
+    .line 1516
     :cond_2
     :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -7883,23 +7942,23 @@
 
     iput-wide v2, p0, Lcom/wardrumstudios/utils/WarMedia;->lastMovieStop:J
 
-    .line 1510
+    .line 1517
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->ClearVidView()V
 
-    .line 1511
+    .line 1518
     iput v6, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1512
+    .line 1519
     iput-boolean v6, p0, Lcom/wardrumstudios/utils/WarMedia;->bMoviePlayerPaused:Z
 
-    .line 1513
+    .line 1520
     return-void
 
-    .line 1506
+    .line 1513
     :catch_0
     move-exception v0
 
-    .line 1507
+    .line 1514
     .local v0, "ex":Ljava/lang/Exception;
     iput-object v4, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
@@ -8719,7 +8778,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1408
+    .line 1415
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -8728,39 +8787,39 @@
 
     if-eqz v0, :cond_1
 
-    .line 1409
+    .line 1416
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "onCompletion completed moviePlayer"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1410
+    .line 1417
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
-    .line 1412
+    .line 1419
     :try_start_0
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1414
+    .line 1421
     :goto_0
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->ClearVidView()V
 
-    .line 1415
+    .line 1422
     iget v0, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
 
-    .line 1416
+    .line 1423
     iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1417
+    .line 1424
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -8772,17 +8831,17 @@
 
     iput-wide v0, p0, Lcom/wardrumstudios/utils/WarMedia;->lastMovieStop:J
 
-    .line 1418
+    .line 1425
     iput-boolean v4, p0, Lcom/wardrumstudios/utils/WarMedia;->MovieTextDisplayed:Z
 
-    .line 1419
+    .line 1426
     iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->movieLooping:I
 
-    .line 1422
+    .line 1429
     :cond_1
     return-void
 
-    .line 1413
+    .line 1420
     :catch_0
     move-exception v0
 
@@ -9678,7 +9737,7 @@
     .prologue
     const/16 v6, 0x8
 
-    .line 2438
+    .line 2445
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -9709,13 +9768,13 @@
 
     move-result-object v0
 
-    .line 2439
+    .line 2446
     .local v0, "downloadSpeed":Ljava/lang/String;
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->mAverageSpeed:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2440
+    .line 2447
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -9746,18 +9805,18 @@
 
     move-result-object v1
 
-    .line 2441
+    .line 2448
     .local v1, "timeRemaining":Ljava/lang/String;
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->mTimeRemaining:Landroid/widget/TextView;
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2443
+    .line 2450
     iget-wide v2, p1, Lcom/google/android/vending/expansion/downloader/DownloadProgressInfo;->mOverallTotal:J
 
     iput-wide v2, p1, Lcom/google/android/vending/expansion/downloader/DownloadProgressInfo;->mOverallTotal:J
 
-    .line 2444
+    .line 2451
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->mPB:Landroid/widget/ProgressBar;
 
     iget-wide v4, p1, Lcom/google/android/vending/expansion/downloader/DownloadProgressInfo;->mOverallTotal:J
@@ -9768,7 +9827,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ProgressBar;->setMax(I)V
 
-    .line 2445
+    .line 2452
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->mPB:Landroid/widget/ProgressBar;
 
     iget-wide v4, p1, Lcom/google/android/vending/expansion/downloader/DownloadProgressInfo;->mOverallProgress:J
@@ -9779,7 +9838,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ProgressBar;->setProgress(I)V
 
-    .line 2446
+    .line 2453
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->mProgressPercent:Landroid/widget/TextView;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -9816,22 +9875,22 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2449
+    .line 2456
     iget-object v2, p0, Lcom/wardrumstudios/utils/WarMedia;->mProgressFraction:Landroid/widget/TextView;
 
     iget-wide v4, p1, Lcom/google/android/vending/expansion/downloader/DownloadProgressInfo;->mOverallProgress:J
 
     iget-wide v6, p1, Lcom/google/android/vending/expansion/downloader/DownloadProgressInfo;->mOverallTotal:J
 
-    .line 2450
+    .line 2457
     invoke-static {v4, v5, v6, v7}, Lcom/google/android/vending/expansion/downloader/Helpers;->getDownloadProgressString(JJ)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 2449
+    .line 2456
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2452
+    .line 2459
     return-void
 .end method
 
@@ -9844,39 +9903,39 @@
 
     const/4 v6, 0x0
 
-    .line 2257
+    .line 2264
     invoke-direct {p0, p1}, Lcom/wardrumstudios/utils/WarMedia;->setState(I)V
 
-    .line 2258
+    .line 2265
     const/4 v5, 0x1
 
-    .line 2259
+    .line 2266
     .local v5, "showDashboard":Z
     const/4 v4, 0x0
 
-    .line 2262
+    .line 2269
     .local v4, "showCellMessage":Z
     packed-switch p1, :pswitch_data_0
 
-    .line 2315
+    .line 2322
     :pswitch_0
     const/4 v3, 0x1
 
-    .line 2316
+    .line 2323
     .local v3, "paused":Z
     const/4 v1, 0x1
 
-    .line 2317
+    .line 2324
     .local v1, "indeterminate":Z
     const/4 v5, 0x1
 
-    .line 2319
+    .line 2326
     :goto_0
     if-eqz v5, :cond_3
 
     move v2, v6
 
-    .line 2320
+    .line 2327
     .local v2, "newDashboardVisibility":I
     :goto_1
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->mDashboard:Landroid/view/View;
@@ -9887,18 +9946,18 @@
 
     if-eq v8, v2, :cond_0
 
-    .line 2321
+    .line 2328
     iget-object v8, p0, Lcom/wardrumstudios/utils/WarMedia;->mDashboard:Landroid/view/View;
 
     invoke-virtual {v8, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 2323
+    .line 2330
     :cond_0
     if-eqz v4, :cond_4
 
     move v0, v6
 
-    .line 2324
+    .line 2331
     .local v0, "cellMessageVisibility":I
     :goto_2
     iget-object v6, p0, Lcom/wardrumstudios/utils/WarMedia;->mCellMessage:Landroid/view/View;
@@ -9909,21 +9968,21 @@
 
     if-eq v6, v0, :cond_1
 
-    .line 2325
+    .line 2332
     iget-object v6, p0, Lcom/wardrumstudios/utils/WarMedia;->mCellMessage:Landroid/view/View;
 
     invoke-virtual {v6, v0}, Landroid/view/View;->setVisibility(I)V
 
-    .line 2328
+    .line 2335
     :cond_1
     iget-object v6, p0, Lcom/wardrumstudios/utils/WarMedia;->mPB:Landroid/widget/ProgressBar;
 
     invoke-virtual {v6, v1}, Landroid/widget/ProgressBar;->setIndeterminate(Z)V
 
-    .line 2329
+    .line 2336
     invoke-direct {p0, v3}, Lcom/wardrumstudios/utils/WarMedia;->setButtonPausedState(Z)V
 
-    .line 2330
+    .line 2337
     .end local v0    # "cellMessageVisibility":I
     .end local v1    # "indeterminate":Z
     .end local v2    # "newDashboardVisibility":I
@@ -9932,118 +9991,118 @@
     :goto_3
     return-void
 
-    .line 2266
+    .line 2273
     :pswitch_1
     const/4 v3, 0x0
 
-    .line 2267
+    .line 2274
     .restart local v3    # "paused":Z
     const/4 v1, 0x1
 
-    .line 2268
+    .line 2275
     .restart local v1    # "indeterminate":Z
     goto :goto_0
 
-    .line 2271
+    .line 2278
     .end local v1    # "indeterminate":Z
     .end local v3    # "paused":Z
     :pswitch_2
     const/4 v5, 0x1
 
-    .line 2272
+    .line 2279
     const/4 v3, 0x0
 
-    .line 2273
+    .line 2280
     .restart local v3    # "paused":Z
     const/4 v1, 0x1
 
-    .line 2274
+    .line 2281
     .restart local v1    # "indeterminate":Z
     goto :goto_0
 
-    .line 2276
+    .line 2283
     .end local v1    # "indeterminate":Z
     .end local v3    # "paused":Z
     :pswitch_3
     const/4 v3, 0x0
 
-    .line 2277
+    .line 2284
     .restart local v3    # "paused":Z
     const/4 v5, 0x1
 
-    .line 2278
+    .line 2285
     const/4 v1, 0x0
 
-    .line 2279
+    .line 2286
     .restart local v1    # "indeterminate":Z
     goto :goto_0
 
-    .line 2285
+    .line 2292
     .end local v1    # "indeterminate":Z
     .end local v3    # "paused":Z
     :pswitch_4
     const/4 v3, 0x1
 
-    .line 2286
+    .line 2293
     .restart local v3    # "paused":Z
     const/4 v5, 0x1
 
-    .line 2287
-    const/4 v1, 0x0
-
-    .line 2288
-    .restart local v1    # "indeterminate":Z
-    goto :goto_0
-
-    .line 2291
-    .end local v1    # "indeterminate":Z
-    .end local v3    # "paused":Z
-    :pswitch_5
-    const/4 v5, 0x0
-
-    .line 2292
-    const/4 v3, 0x1
-
-    .line 2293
-    .restart local v3    # "paused":Z
-    const/4 v1, 0x0
-
     .line 2294
-    .restart local v1    # "indeterminate":Z
-    const/4 v4, 0x1
+    const/4 v1, 0x0
 
     .line 2295
+    .restart local v1    # "indeterminate":Z
     goto :goto_0
 
     .line 2298
     .end local v1    # "indeterminate":Z
     .end local v3    # "paused":Z
-    :pswitch_6
-    const/4 v3, 0x1
+    :pswitch_5
+    const/4 v5, 0x0
 
     .line 2299
+    const/4 v3, 0x1
+
+    .line 2300
     .restart local v3    # "paused":Z
     const/4 v1, 0x0
 
-    .line 2300
+    .line 2301
+    .restart local v1    # "indeterminate":Z
+    const/4 v4, 0x1
+
+    .line 2302
+    goto :goto_0
+
+    .line 2305
+    .end local v1    # "indeterminate":Z
+    .end local v3    # "paused":Z
+    :pswitch_6
+    const/4 v3, 0x1
+
+    .line 2306
+    .restart local v3    # "paused":Z
+    const/4 v1, 0x0
+
+    .line 2307
     .restart local v1    # "indeterminate":Z
     goto :goto_0
 
-    .line 2303
+    .line 2310
     .end local v1    # "indeterminate":Z
     .end local v3    # "paused":Z
     :pswitch_7
     const/4 v3, 0x1
 
-    .line 2304
+    .line 2311
     .restart local v3    # "paused":Z
     const/4 v1, 0x0
 
-    .line 2305
+    .line 2312
     .restart local v1    # "indeterminate":Z
     goto :goto_0
 
-    .line 2307
+    .line 2314
     .end local v1    # "indeterminate":Z
     .end local v3    # "paused":Z
     :pswitch_8
@@ -10053,17 +10112,17 @@
 
     if-eqz v6, :cond_2
 
-    .line 2308
+    .line 2315
     const/4 v5, 0x0
 
-    .line 2309
+    .line 2316
     const/4 v3, 0x0
 
-    .line 2310
+    .line 2317
     .restart local v3    # "paused":Z
     const/4 v1, 0x0
 
-    .line 2311
+    .line 2318
     .restart local v1    # "indeterminate":Z
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->validateXAPKZipFiles()V
 
@@ -10072,17 +10131,17 @@
     :cond_3
     move v2, v7
 
-    .line 2319
+    .line 2326
     goto :goto_1
 
     .restart local v2    # "newDashboardVisibility":I
     :cond_4
     move v0, v7
 
-    .line 2323
+    .line 2330
     goto :goto_2
 
-    .line 2262
+    .line 2269
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -10114,7 +10173,7 @@
     .param p3, "extra"    # I
 
     .prologue
-    .line 1426
+    .line 1433
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -10147,7 +10206,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1427
+    .line 1434
     const/4 v0, 0x1
 
     return v0
@@ -10328,7 +10387,7 @@
 
     const/4 v4, 0x0
 
-    .line 1374
+    .line 1381
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -10337,40 +10396,40 @@
 
     if-eqz v1, :cond_0
 
-    .line 1375
+    .line 1382
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
     if-eq v1, v5, :cond_1
 
-    .line 1377
+    .line 1384
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v2, "trying to start a requested to stop movie"
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1379
+    .line 1386
     :try_start_0
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 1381
+    .line 1388
     :goto_0
     iput-object v6, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
-    .line 1382
+    .line 1389
     iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1383
+    .line 1390
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->ClearVidView()V
 
-    .line 1405
+    .line 1412
     :cond_0
     :goto_1
     return-void
 
-    .line 1386
+    .line 1393
     :cond_1
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
@@ -10380,7 +10439,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/media/MediaPlayer;->setVolume(FF)V
 
-    .line 1387
+    .line 1394
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->movieLooping:I
 
     if-eqz v1, :cond_2
@@ -10389,35 +10448,35 @@
 
     invoke-virtual {v1, v5}, Landroid/media/MediaPlayer;->setLooping(Z)V
 
-    .line 1388
+    .line 1395
     :cond_2
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieMS:I
 
     if-lez v1, :cond_3
 
-    .line 1389
+    .line 1396
     invoke-virtual {p1, p0}, Landroid/media/MediaPlayer;->setOnSeekCompleteListener(Landroid/media/MediaPlayer$OnSeekCompleteListener;)V
 
-    .line 1390
+    .line 1397
     iget v1, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieMS:I
 
     invoke-virtual {p1, v1}, Landroid/media/MediaPlayer;->seekTo(I)V
 
-    .line 1403
+    .line 1410
     :goto_2
     iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->currentMovieMS:I
 
     goto :goto_1
 
-    .line 1392
+    .line 1399
     :cond_3
     invoke-virtual {p0, p1}, Lcom/wardrumstudios/utils/WarMedia;->SetVideoAspect(Landroid/media/MediaPlayer;)V
 
-    .line 1394
+    .line 1401
     :try_start_1
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->start()V
 
-    .line 1395
+    .line 1402
     const/4 v1, 0x2
 
     iput v1, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
@@ -10426,11 +10485,11 @@
 
     goto :goto_2
 
-    .line 1396
+    .line 1403
     :catch_0
     move-exception v0
 
-    .line 1397
+    .line 1404
     .local v0, "e":Ljava/lang/IllegalStateException;
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -10458,18 +10517,18 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1398
+    .line 1405
     iput-object v6, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
-    .line 1399
+    .line 1406
     iput v4, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1400
+    .line 1407
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->ClearVidView()V
 
     goto :goto_2
 
-    .line 1380
+    .line 1387
     .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v1
@@ -10486,21 +10545,21 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 2783
+    .line 2790
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "onRequestPermissionsResult"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2784
+    .line 2791
     packed-switch p1, :pswitch_data_0
 
-    .line 2798
+    .line 2805
     :goto_0
     return-void
 
-    .line 2787
+    .line 2794
     :pswitch_0
     array-length v0, p3
 
@@ -10510,15 +10569,15 @@
 
     if-nez v0, :cond_0
 
-    .line 2788
+    .line 2795
     iput-boolean v2, p0, Lcom/wardrumstudios/utils/WarMedia;->waitForPermissions:Z
 
-    .line 2789
+    .line 2796
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->localHasGameData()Z
 
     goto :goto_0
 
-    .line 2792
+    .line 2799
     :cond_0
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -10526,12 +10585,12 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2793
+    .line 2800
     invoke-virtual {p0}, Lcom/wardrumstudios/utils/WarMedia;->finish()V
 
     goto :goto_0
 
-    .line 2784
+    .line 2791
     :pswitch_data_0
     .packed-switch 0x1f41
         :pswitch_0
@@ -10727,41 +10786,41 @@
     .param p1, "mp"    # Landroid/media/MediaPlayer;
 
     .prologue
-    .line 1314
+    .line 1321
     iget-boolean v0, p0, Lcom/wardrumstudios/utils/WarMedia;->soundLog:Z
 
     if-eqz v0, :cond_0
 
-    .line 1315
+    .line 1322
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "onSeekComplete"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1316
+    .line 1323
     :cond_0
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->moviePlayer:Landroid/media/MediaPlayer;
 
     if-ne p1, v0, :cond_1
 
-    .line 1317
+    .line 1324
     invoke-virtual {p0, p1}, Lcom/wardrumstudios/utils/WarMedia;->SetVideoAspect(Landroid/media/MediaPlayer;)V
 
-    .line 1318
+    .line 1325
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->start()V
 
-    .line 1319
+    .line 1326
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/media/MediaPlayer;->setOnSeekCompleteListener(Landroid/media/MediaPlayer$OnSeekCompleteListener;)V
 
-    .line 1320
+    .line 1327
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/wardrumstudios/utils/WarMedia;->bIsPlayingMovie:I
 
-    .line 1322
+    .line 1329
     :cond_1
     return-void
 .end method
@@ -10771,14 +10830,14 @@
     .param p1, "m"    # Landroid/os/Messenger;
 
     .prologue
-    .line 2252
+    .line 2259
     invoke-static {p1}, Lcom/google/android/vending/expansion/downloader/DownloaderServiceMarshaller;->CreateProxy(Landroid/os/Messenger;)Lcom/google/android/vending/expansion/downloader/IDownloaderService;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mRemoteService:Lcom/google/android/vending/expansion/downloader/IDownloaderService;
 
-    .line 2253
+    .line 2260
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia;->mRemoteService:Lcom/google/android/vending/expansion/downloader/IDownloaderService;
 
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia;->mDownloaderClientStub:Lcom/google/android/vending/expansion/downloader/IStub;
@@ -10789,7 +10848,7 @@
 
     invoke-interface {v0, v1}, Lcom/google/android/vending/expansion/downloader/IDownloaderService;->onClientUpdated(Landroid/os/Messenger;)V
 
-    .line 2254
+    .line 2261
     return-void
 .end method
 
@@ -11029,7 +11088,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 2336
+    .line 2343
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -11054,25 +11113,25 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2337
+    .line 2344
     iget-boolean v1, p0, Lcom/wardrumstudios/utils/WarMedia;->IsInValidation:Z
 
     if-eqz v1, :cond_0
 
-    .line 2427
+    .line 2434
     :goto_0
     return-void
 
-    .line 2340
+    .line 2347
     :cond_0
     iput-boolean v4, p0, Lcom/wardrumstudios/utils/WarMedia;->IsInValidation:Z
 
-    .line 2341
+    .line 2348
     new-instance v0, Lcom/wardrumstudios/utils/WarMedia$19;
 
     invoke-direct {v0, p0}, Lcom/wardrumstudios/utils/WarMedia$19;-><init>(Lcom/wardrumstudios/utils/WarMedia;)V
 
-    .line 2426
+    .line 2433
     .local v0, "validationTask":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<Ljava/lang/Object;Lcom/google/android/vending/expansion/downloader/DownloadProgressInfo;Ljava/lang/Boolean;>;"
     new-array v1, v4, [Ljava/lang/Object;
 

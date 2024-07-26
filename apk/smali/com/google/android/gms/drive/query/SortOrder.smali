@@ -1,14 +1,20 @@
 .class public Lcom/google/android/gms/drive/query/SortOrder;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
+.super Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Class;
+    creator = "SortOrderCreator"
+.end annotation
+
+.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Reserved;
+    value = {
+        0x3e8
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/drive/query/SortOrder$1;,
         Lcom/google/android/gms/drive/query/SortOrder$Builder;
     }
 .end annotation
@@ -28,106 +34,140 @@
 
 
 # instance fields
-.field final KH:Ljava/util/List;
+.field private final zzlg:Ljava/util/List;
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        id = 0x1
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
             "<",
-            "Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;",
+            "Lcom/google/android/gms/drive/query/internal/zzf;",
             ">;"
         }
     .end annotation
 .end field
 
-.field final xJ:I
+.field private final zzlh:Z
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
+        defaultValue = "false"
+        id = 0x2
+    .end annotation
+.end field
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/drive/query/b;
+    new-instance v0, Lcom/google/android/gms/drive/query/zzc;
 
-    invoke-direct {v0}, Lcom/google/android/gms/drive/query/b;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/drive/query/zzc;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/drive/query/SortOrder;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
-.method constructor <init>(ILjava/util/List;)V
+.method constructor <init>(Ljava/util/List;Z)V
     .locals 0
-    .param p1, "versionCode"    # I
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/List",
-            "<",
-            "Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;",
-            ">;)V"
-        }
+    .param p1    # Ljava/util/List;
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x1
+        .end annotation
+    .end param
+    .param p2    # Z
+        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
+            id = 0x2
+        .end annotation
+    .end param
+    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
     .end annotation
 
-    .prologue
-    .local p2, "sortingFields":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;>;"
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/google/android/gms/drive/query/SortOrder;->xJ:I
-
-    iput-object p2, p0, Lcom/google/android/gms/drive/query/SortOrder;->KH:Ljava/util/List;
-
-    return-void
-.end method
-
-.method private constructor <init>(Ljava/util/List;)V
-    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/List",
             "<",
-            "Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;",
-            ">;)V"
+            "Lcom/google/android/gms/drive/query/internal/zzf;",
+            ">;Z)V"
         }
     .end annotation
 
-    .prologue
-    .local p1, "sortingFields":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;>;"
-    const/4 v0, 0x1
+    invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
 
-    invoke-direct {p0, v0, p1}, Lcom/google/android/gms/drive/query/SortOrder;-><init>(ILjava/util/List;)V
+    iput-object p1, p0, Lcom/google/android/gms/drive/query/SortOrder;->zzlg:Ljava/util/List;
 
-    return-void
-.end method
-
-.method synthetic constructor <init>(Ljava/util/List;Lcom/google/android/gms/drive/query/SortOrder$1;)V
-    .locals 0
-    .param p1, "x0"    # Ljava/util/List;
-    .param p2, "x1"    # Lcom/google/android/gms/drive/query/SortOrder$1;
-
-    .prologue
-    invoke-direct {p0, p1}, Lcom/google/android/gms/drive/query/SortOrder;-><init>(Ljava/util/List;)V
+    iput-boolean p2, p0, Lcom/google/android/gms/drive/query/SortOrder;->zzlh:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public toString()Ljava/lang/String;
+    .locals 6
 
-    const/4 v0, 0x0
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    return v0
+    const-string v1, "SortOrder[%s, %s]"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    const-string v4, ","
+
+    iget-object v5, p0, Lcom/google/android/gms/drive/query/SortOrder;->zzlg:Ljava/util/List;
+
+    invoke-static {v4, v5}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    iget-boolean v4, p0, Lcom/google/android/gms/drive/query/SortOrder;->zzlh:Z
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    aput-object v4, v2, v3
+
+    invoke-static {v0, v1, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+    .locals 4
 
-    .prologue
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/drive/query/b;->a(Lcom/google/android/gms/drive/query/SortOrder;Landroid/os/Parcel;I)V
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    iget-object v2, p0, Lcom/google/android/gms/drive/query/SortOrder;->zzlg:Ljava/util/List;
+
+    const/4 v3, 0x0
+
+    invoke-static {p1, v1, v2, v3}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeTypedList(Landroid/os/Parcel;ILjava/util/List;Z)V
+
+    const/4 v1, 0x2
+
+    iget-boolean v2, p0, Lcom/google/android/gms/drive/query/SortOrder;->zzlh:Z
+
+    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeBoolean(Landroid/os/Parcel;IZ)V
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
 
     return-void
 .end method

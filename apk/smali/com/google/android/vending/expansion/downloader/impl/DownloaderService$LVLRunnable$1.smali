@@ -247,7 +247,6 @@
 
     invoke-static {v13}, Lcom/google/android/vending/expansion/downloader/impl/DownloaderService;->access$100(Z)V
 
-    .line 859
     throw v0
 
     .line 814
@@ -492,7 +491,6 @@
 
     invoke-static {v2}, Lcom/google/android/vending/expansion/downloader/impl/DownloaderService;->access$100(Z)V
 
-    .line 889
     throw v0
 .end method
 
@@ -539,7 +537,6 @@
 
     invoke-static {v2}, Lcom/google/android/vending/expansion/downloader/impl/DownloaderService;->access$100(Z)V
 
-    .line 878
     throw v0
 
     .line 872

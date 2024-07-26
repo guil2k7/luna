@@ -1,33 +1,71 @@
-.class public abstract Lcom/google/android/gms/drive/events/DriveEventService;
-.super Landroid/app/IntentService;
+.class public Lcom/google/android/gms/drive/events/DriveEventService;
+.super Landroid/app/Service;
+
+# interfaces
+.implements Lcom/google/android/gms/drive/events/ChangeListener;
+.implements Lcom/google/android/gms/drive/events/CompletionListener;
+.implements Lcom/google/android/gms/drive/events/zzd;
+.implements Lcom/google/android/gms/drive/events/zzi;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/drive/events/DriveEventService$zzb;,
+        Lcom/google/android/gms/drive/events/DriveEventService$zza;
+    }
+.end annotation
 
 
 # static fields
-.field private static final Ie:Ljava/util/concurrent/LinkedBlockingDeque;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/concurrent/LinkedBlockingDeque",
-            "<",
-            "Lcom/google/android/gms/drive/events/DriveEvent;",
-            ">;"
-        }
+.field public static final ACTION_HANDLE_EVENT:Ljava/lang/String; = "com.google.android.gms.drive.events.HANDLE_EVENT"
+
+.field private static final zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+
+# instance fields
+.field private final name:Ljava/lang/String;
+
+.field private zzch:Ljava/util/concurrent/CountDownLatch;
+    .annotation build Ljavax/annotation/concurrent/GuardedBy;
+        value = "this"
+    .end annotation
+.end field
+
+.field zzci:Lcom/google/android/gms/drive/events/DriveEventService$zza;
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+    .end annotation
+
+    .annotation build Ljavax/annotation/concurrent/GuardedBy;
+        value = "this"
+    .end annotation
+.end field
+
+.field zzcj:Z
+    .annotation build Ljavax/annotation/concurrent/GuardedBy;
+        value = "this"
+    .end annotation
+.end field
+
+.field private zzck:I
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
     .end annotation
 .end field
 
 
-# instance fields
-.field private final mName:Ljava/lang/String;
-
-
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 3
 
-    new-instance v0, Ljava/util/concurrent/LinkedBlockingDeque;
+    new-instance v0, Lcom/google/android/gms/common/internal/GmsLogger;
 
-    invoke-direct {v0}, Ljava/util/concurrent/LinkedBlockingDeque;-><init>()V
+    const-string v1, "DriveEventService"
 
-    sput-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->Ie:Ljava/util/concurrent/LinkedBlockingDeque;
+    const-string v2, ""
+
+    invoke-direct {v0, v1, v2}, Lcom/google/android/gms/common/internal/GmsLogger;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    sput-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
 
     return-void
 .end method
@@ -43,297 +81,526 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
-    .locals 0
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 1
 
-    .prologue
-    invoke-direct {p0, p1}, Landroid/app/IntentService;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/gms/drive/events/DriveEventService;->mName:Ljava/lang/String;
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzcj:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzck:I
+
+    iput-object p1, p0, Lcom/google/android/gms/drive/events/DriveEventService;->name:Ljava/lang/String;
 
     return-void
 .end method
 
-.method private a(Lcom/google/android/gms/drive/events/DriveEvent;)V
-    .locals 5
+.method static synthetic zza(Lcom/google/android/gms/drive/events/DriveEventService;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/SecurityException;
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/google/android/gms/drive/events/DriveEventService;->zzv()V
+
+    return-void
+.end method
+
+.method static synthetic zza(Lcom/google/android/gms/drive/events/DriveEventService;Lcom/google/android/gms/internal/drive/zzfj;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/gms/drive/events/DriveEventService;->zza(Lcom/google/android/gms/internal/drive/zzfj;)V
+
+    return-void
+.end method
+
+.method private final zza(Lcom/google/android/gms/internal/drive/zzfj;)V
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
+
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/drive/zzfj;->zzak()Lcom/google/android/gms/drive/events/DriveEvent;
+
+    move-result-object v0
 
     :try_start_0
-    invoke-interface {p1}, Lcom/google/android/gms/drive/events/DriveEvent;->getType()I
+    invoke-interface {v0}, Lcom/google/android/gms/drive/events/DriveEvent;->getType()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    iget-object v1, p0, Lcom/google/android/gms/drive/events/DriveEventService;->mName:Ljava/lang/String;
+    :pswitch_0
+    sget-object v1, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, "DriveEventService"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Unhandled event: %s"
 
-    const-string v3, "Unrecognized event: "
+    const/4 v4, 0x1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    move-result-object v2
+    const/4 v5, 0x0
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    aput-object v0, v4, v5
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2, v3, v4}, Lcom/google/android/gms/common/internal/GmsLogger;->wfmt(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     :goto_0
     return-void
 
-    :pswitch_0
-    instance-of v1, p1, Lcom/google/android/gms/drive/events/ChangeEvent;
-
-    const-string v2, "Unexpected event type: %s"
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object p1, v3, v4
-
-    invoke-static {v1, v2, v3}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/String;[Ljava/lang/Object;)V
-
-    move-object v0, p1
-
+    :pswitch_1
     check-cast v0, Lcom/google/android/gms/drive/events/ChangeEvent;
 
-    move-object v1, v0
-
-    invoke-virtual {p0, v1}, Lcom/google/android/gms/drive/events/DriveEventService;->onChangeEvent(Lcom/google/android/gms/drive/events/ChangeEvent;)V
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/events/DriveEventService;->onChange(Lcom/google/android/gms/drive/events/ChangeEvent;)V
     :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    iget-object v2, p0, Lcom/google/android/gms/drive/events/DriveEventService;->mName:Ljava/lang/String;
+    sget-object v1, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    const-string v2, "DriveEventService"
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Error handling event in %s"
 
-    const-string v4, "Service does not implement listener for type:"
+    new-array v4, v8, [Ljava/lang/Object;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, p0, Lcom/google/android/gms/drive/events/DriveEventService;->name:Ljava/lang/String;
 
-    move-result-object v3
+    aput-object v5, v4, v7
 
-    invoke-interface {p1}, Lcom/google/android/gms/drive/events/DriveEvent;->getType()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v1, v2, v3, v0}, Lcom/google/android/gms/common/internal/GmsLogger;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 
-    :pswitch_1
+    :pswitch_2
     :try_start_1
-    instance-of v1, p1, Lcom/google/android/gms/drive/events/FileConflictEvent;
+    check-cast v0, Lcom/google/android/gms/drive/events/CompletionEvent;
 
-    const-string v2, "Unexpected event type: %s"
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/events/DriveEventService;->onCompletion(Lcom/google/android/gms/drive/events/CompletionEvent;)V
 
-    const/4 v3, 0x1
+    goto :goto_0
 
-    new-array v3, v3, [Ljava/lang/Object;
+    :pswitch_3
+    check-cast v0, Lcom/google/android/gms/drive/events/zzb;
 
-    const/4 v4, 0x0
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/drive/events/DriveEventService;->zza(Lcom/google/android/gms/drive/events/zzb;)V
 
-    aput-object p1, v3, v4
+    goto :goto_0
 
-    invoke-static {v1, v2, v3}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/String;[Ljava/lang/Object;)V
+    :pswitch_4
+    check-cast v0, Lcom/google/android/gms/drive/events/zzv;
 
-    move-object v0, p1
+    sget-object v1, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
 
-    check-cast v0, Lcom/google/android/gms/drive/events/FileConflictEvent;
+    const-string v2, "DriveEventService"
 
-    move-object v1, v0
+    const-string v3, "Unhandled transfer state event in %s: %s"
 
-    invoke-virtual {p0, v1}, Lcom/google/android/gms/drive/events/DriveEventService;->a(Lcom/google/android/gms/drive/events/FileConflictEvent;)V
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    iget-object v6, p0, Lcom/google/android/gms/drive/events/DriveEventService;->name:Ljava/lang/String;
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x1
+
+    aput-object v0, v4, v5
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/google/android/gms/common/internal/GmsLogger;->wfmt(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
     :try_end_1
-    .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 
-    :catch_1
-    move-exception v1
-
-    iget-object v2, p0, Lcom/google/android/gms/drive/events/DriveEventService;->mName:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error handling event: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_0
         :pswitch_1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_3
+        :pswitch_0
+        :pswitch_0
+        :pswitch_4
     .end packed-switch
 .end method
 
-.method static synthetic gi()Ljava/util/concurrent/LinkedBlockingDeque;
+.method static synthetic zzb(Lcom/google/android/gms/drive/events/DriveEventService;)Ljava/util/concurrent/CountDownLatch;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->Ie:Ljava/util/concurrent/LinkedBlockingDeque;
+    iget-object v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzch:Ljava/util/concurrent/CountDownLatch;
+
+    return-object v0
+.end method
+
+.method private final zzv()V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/SecurityException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/google/android/gms/drive/events/DriveEventService;->getCallingUid()I
+
+    move-result v0
+
+    iget v1, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzck:I
+
+    if-ne v0, v1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-static {p0, v0}, Lcom/google/android/gms/common/util/UidVerifier;->isGooglePlayServicesUid(Landroid/content/Context;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iput v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzck:I
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Ljava/lang/SecurityException;
+
+    const-string v1, "Caller is not GooglePlayServices"
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method static synthetic zzw()Lcom/google/android/gms/common/internal/GmsLogger;
+    .locals 1
+
+    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
 
     return-object v0
 .end method
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/drive/events/FileConflictEvent;)V
-    .locals 3
-
-    const-string v0, "DriveEventService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Unhandled FileConflictEvent: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
-.method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+.method protected getCallingUid()I
     .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
+    .annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+    .end annotation
 
-    .prologue
-    new-instance v0, Lcom/google/android/gms/drive/events/DriveEventService$1;
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    invoke-direct {v0, p0}, Lcom/google/android/gms/drive/events/DriveEventService$1;-><init>(Lcom/google/android/gms/drive/events/DriveEventService;)V
+    move-result v0
 
-    return-object v0
+    return v0
 .end method
 
-.method public onChangeEvent(Lcom/google/android/gms/drive/events/ChangeEvent;)V
-    .locals 3
-    .param p1, "event"    # Lcom/google/android/gms/drive/events/ChangeEvent;
+.method public final declared-synchronized onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+    .locals 4
 
-    .prologue
-    const-string v0, "DriveEventService"
+    const/4 v0, 0x0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    monitor-enter p0
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    :try_start_0
+    const-string v1, "com.google.android.gms.drive.events.HANDLE_EVENT"
 
-    const-string v2, "Unhandled ChangeEvent: "
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result v1
 
-    move-result-object v1
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
-.method protected final onHandleIntent(Landroid/content/Intent;)V
-    .locals 2
-    .param p1, "intent"    # Landroid/content/Intent;
-
-    .prologue
-    invoke-virtual {p0}, Lcom/google/android/gms/drive/events/DriveEventService;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->setExtrasClassLoader(Ljava/lang/ClassLoader;)V
-
-    const-string v0, "event"
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/drive/events/DriveEvent;
+    iget-object v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzci:Lcom/google/android/gms/drive/events/DriveEventService$zza;
 
     if-nez v0, :cond_0
 
-    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->Ie:Ljava/util/concurrent/LinkedBlockingDeque;
+    iget-boolean v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzcj:Z
 
-    invoke-virtual {v0}, Ljava/util/concurrent/LinkedBlockingDeque;->poll()Ljava/lang/Object;
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzcj:Z
+
+    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    new-instance v1, Ljava/util/concurrent/CountDownLatch;
+
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    iput-object v1, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzch:Ljava/util/concurrent/CountDownLatch;
+
+    new-instance v1, Lcom/google/android/gms/drive/events/zzh;
+
+    invoke-direct {v1, p0, v0}, Lcom/google/android/gms/drive/events/zzh;-><init>(Lcom/google/android/gms/drive/events/DriveEventService;Ljava/util/concurrent/CountDownLatch;)V
+
+    invoke-virtual {v1}, Lcom/google/android/gms/drive/events/zzh;->start()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const-wide/16 v2, 0x1388
+
+    :try_start_1
+    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-virtual {v0, v2, v3, v1}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+    const-string v1, "DriveEventService"
+
+    const-string v2, "Failed to synchronously initialize event handler."
+
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/GmsLogger;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_0
+    :try_start_2
+    new-instance v0, Lcom/google/android/gms/drive/events/DriveEventService$zzb;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/drive/events/DriveEventService$zzb;-><init>(Lcom/google/android/gms/drive/events/DriveEventService;Lcom/google/android/gms/drive/events/zzh;)V
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/drive/zzb;->asBinder()Landroid/os/IBinder;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/gms/drive/events/DriveEvent;
+    :cond_1
+    monitor-exit p0
 
-    :cond_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_3
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string v2, "Unable to start event handler"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public onChange(Lcom/google/android/gms/drive/events/ChangeEvent;)V
+    .locals 6
+
+    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+    const-string v1, "DriveEventService"
+
+    const-string v2, "Unhandled change event in %s: %s"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    iget-object v5, p0, Lcom/google/android/gms/drive/events/DriveEventService;->name:Ljava/lang/String;
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object p1, v3, v4
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/google/android/gms/common/internal/GmsLogger;->wfmt(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public onCompletion(Lcom/google/android/gms/drive/events/CompletionEvent;)V
+    .locals 6
+
+    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+    const-string v1, "DriveEventService"
+
+    const-string v2, "Unhandled completion event in %s: %s"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    iget-object v5, p0, Lcom/google/android/gms/drive/events/DriveEventService;->name:Ljava/lang/String;
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object p1, v3, v4
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/google/android/gms/common/internal/GmsLogger;->wfmt(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public declared-synchronized onDestroy()V
+    .locals 4
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzci:Lcom/google/android/gms/drive/events/DriveEventService$zza;
+
     if-eqz v0, :cond_1
 
-    invoke-direct {p0, v0}, Lcom/google/android/gms/drive/events/DriveEventService;->a(Lcom/google/android/gms/drive/events/DriveEvent;)V
+    iget-object v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzci:Lcom/google/android/gms/drive/events/DriveEventService$zza;
 
+    invoke-static {v0}, Lcom/google/android/gms/drive/events/DriveEventService$zza;->zza(Lcom/google/android/gms/drive/events/DriveEventService$zza;)Landroid/os/Message;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzci:Lcom/google/android/gms/drive/events/DriveEventService$zza;
+
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/drive/events/DriveEventService$zza;->sendMessage(Landroid/os/Message;)Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzci:Lcom/google/android/gms/drive/events/DriveEventService$zza;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    iget-object v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzch:Ljava/util/concurrent/CountDownLatch;
+
+    const-wide/16 v2, 0x1388
+
+    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-virtual {v0, v2, v3, v1}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+    const-string v1, "DriveEventService"
+
+    const-string v2, "Failed to synchronously quit event handler. Will quit itself"
+
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/common/internal/GmsLogger;->w(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_0
     :goto_0
-    return-void
+    const/4 v0, 0x0
+
+    :try_start_2
+    iput-object v0, p0, Lcom/google/android/gms/drive/events/DriveEventService;->zzch:Ljava/util/concurrent/CountDownLatch;
 
     :cond_1
-    const-string v0, "DriveEventService"
+    invoke-super {p0}, Landroid/app/Service;->onDestroy()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const-string v1, "The event queue is unexpectedly empty."
+    monitor-exit p0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+
+    :catch_0
+    move-exception v0
 
     goto :goto_0
+.end method
+
+.method public onUnbind(Landroid/content/Intent;)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public final zza(Lcom/google/android/gms/drive/events/zzb;)V
+    .locals 6
+
+    sget-object v0, Lcom/google/android/gms/drive/events/DriveEventService;->zzbx:Lcom/google/android/gms/common/internal/GmsLogger;
+
+    const-string v1, "DriveEventService"
+
+    const-string v2, "Unhandled changes available event in %s: %s"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    iget-object v5, p0, Lcom/google/android/gms/drive/events/DriveEventService;->name:Ljava/lang/String;
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object p1, v3, v4
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/google/android/gms/common/internal/GmsLogger;->wfmt(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    return-void
 .end method

@@ -3,10 +3,19 @@
 
 
 # annotations
+.annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
+.end annotation
+
+.annotation build Lcom/google/android/gms/common/util/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/games/Games$SignOutImpl;,
-        Lcom/google/android/gms/games/Games$BaseGamesApiMethodImpl;,
+        Lcom/google/android/gms/games/Games$zzd;,
+        Lcom/google/android/gms/games/Games$zzc;,
+        Lcom/google/android/gms/games/Games$GetServerAuthCodeResult;,
+        Lcom/google/android/gms/games/Games$zza;,
+        Lcom/google/android/gms/games/Games$zzb;,
         Lcom/google/android/gms/games/Games$GamesOptions;
     }
 .end annotation
@@ -22,23 +31,127 @@
             ">;"
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end field
 
 .field public static final Achievements:Lcom/google/android/gms/games/achievement/Achievements;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field private static final CLIENT_BUILDER:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/common/api/Api$AbstractClientBuilder",
+            "<",
+            "Lcom/google/android/gms/games/internal/zze;",
+            "Lcom/google/android/gms/games/Games$GamesOptions;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field static final CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/common/api/Api$ClientKey",
+            "<",
+            "Lcom/google/android/gms/games/internal/zze;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field public static final EXTRA_PLAYER_IDS:Ljava/lang/String; = "players"
 
+.field public static final EXTRA_STATUS:Ljava/lang/String; = "status"
+
 .field public static final Events:Lcom/google/android/gms/games/event/Events;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final GamesMetadata:Lcom/google/android/gms/games/GamesMetadata;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final Invitations:Lcom/google/android/gms/games/multiplayer/Invitations;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final Leaderboards:Lcom/google/android/gms/games/leaderboard/Leaderboards;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
-.field public static final MF:Lcom/google/android/gms/common/api/Scope;
+.field public static final Notifications:Lcom/google/android/gms/games/Notifications;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
-.field public static final MG:Lcom/google/android/gms/common/api/Api;
+.field public static final Players:Lcom/google/android/gms/games/Players;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final Quests:Lcom/google/android/gms/games/quest/Quests;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final RealTimeMultiplayer:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMultiplayer;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final Requests:Lcom/google/android/gms/games/request/Requests;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final SCOPE_GAMES:Lcom/google/android/gms/common/api/Scope;
+
+.field public static final SCOPE_GAMES_LITE:Lcom/google/android/gms/common/api/Scope;
+
+.field public static final Snapshots:Lcom/google/android/gms/games/snapshot/Snapshots;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final Stats:Lcom/google/android/gms/games/stats/Stats;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final TurnBasedMultiplayer:Lcom/google/android/gms/games/multiplayer/turnbased/TurnBasedMultiplayer;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final Videos:Lcom/google/android/gms/games/video/Videos;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field private static final zzak:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/common/api/Api$AbstractClientBuilder",
+            "<",
+            "Lcom/google/android/gms/games/internal/zze;",
+            "Lcom/google/android/gms/games/Games$GamesOptions;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static final zzal:Lcom/google/android/gms/common/api/Scope;
+
+.field private static final zzam:Lcom/google/android/gms/common/api/Api;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/android/gms/common/api/Api",
@@ -49,69 +162,34 @@
     .end annotation
 .end field
 
-.field public static final MH:Lcom/google/android/gms/games/multiplayer/Multiplayer;
+.field private static final zzan:Lcom/google/android/gms/internal/games/zze;
 
-.field public static final MI:Lcom/google/android/gms/games/internal/game/Acls;
+.field private static final zzao:Lcom/google/android/gms/games/multiplayer/Multiplayer;
 
-.field public static final Notifications:Lcom/google/android/gms/games/Notifications;
-
-.field public static final Players:Lcom/google/android/gms/games/Players;
-
-.field public static final Quests:Lcom/google/android/gms/games/quest/Quests;
-
-.field public static final RealTimeMultiplayer:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMultiplayer;
-
-.field public static final Requests:Lcom/google/android/gms/games/request/Requests;
-
-.field public static final SCOPE_GAMES:Lcom/google/android/gms/common/api/Scope;
-
-.field public static final Snapshots:Lcom/google/android/gms/games/snapshot/Snapshots;
-
-.field public static final TurnBasedMultiplayer:Lcom/google/android/gms/games/multiplayer/turnbased/TurnBasedMultiplayer;
-
-.field static final yE:Lcom/google/android/gms/common/api/Api$c;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/common/api/Api$c",
-            "<",
-            "Lcom/google/android/gms/games/internal/GamesClientImpl;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private static final yF:Lcom/google/android/gms/common/api/Api$b;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/common/api/Api$b",
-            "<",
-            "Lcom/google/android/gms/games/internal/GamesClientImpl;",
-            "Lcom/google/android/gms/games/Games$GamesOptions;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private static final zzap:Lcom/google/android/gms/internal/games/zzep;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 4
 
-    const/4 v6, 0x1
+    new-instance v0, Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    const/4 v5, 0x0
+    invoke-direct {v0}, Lcom/google/android/gms/common/api/Api$ClientKey;-><init>()V
 
-    new-instance v0, Lcom/google/android/gms/common/api/Api$c;
+    sput-object v0, Lcom/google/android/gms/games/Games;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    invoke-direct {v0}, Lcom/google/android/gms/common/api/Api$c;-><init>()V
+    new-instance v0, Lcom/google/android/gms/games/zzi;
 
-    sput-object v0, Lcom/google/android/gms/games/Games;->yE:Lcom/google/android/gms/common/api/Api$c;
+    invoke-direct {v0}, Lcom/google/android/gms/games/zzi;-><init>()V
 
-    new-instance v0, Lcom/google/android/gms/games/Games$1;
+    sput-object v0, Lcom/google/android/gms/games/Games;->CLIENT_BUILDER:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/Games$1;-><init>()V
+    new-instance v0, Lcom/google/android/gms/games/zzj;
 
-    sput-object v0, Lcom/google/android/gms/games/Games;->yF:Lcom/google/android/gms/common/api/Api$b;
+    invoke-direct {v0}, Lcom/google/android/gms/games/zzj;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/games/Games;->zzak:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
 
     new-instance v0, Lcom/google/android/gms/common/api/Scope;
 
@@ -121,19 +199,23 @@
 
     sput-object v0, Lcom/google/android/gms/games/Games;->SCOPE_GAMES:Lcom/google/android/gms/common/api/Scope;
 
+    new-instance v0, Lcom/google/android/gms/common/api/Scope;
+
+    const-string v1, "https://www.googleapis.com/auth/games_lite"
+
+    invoke-direct {v0, v1}, Lcom/google/android/gms/common/api/Scope;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Lcom/google/android/gms/games/Games;->SCOPE_GAMES_LITE:Lcom/google/android/gms/common/api/Scope;
+
     new-instance v0, Lcom/google/android/gms/common/api/Api;
 
-    sget-object v1, Lcom/google/android/gms/games/Games;->yF:Lcom/google/android/gms/common/api/Api$b;
+    const-string v1, "Games.API"
 
-    sget-object v2, Lcom/google/android/gms/games/Games;->yE:Lcom/google/android/gms/common/api/Api$c;
+    sget-object v2, Lcom/google/android/gms/games/Games;->CLIENT_BUILDER:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
 
-    new-array v3, v6, [Lcom/google/android/gms/common/api/Scope;
+    sget-object v3, Lcom/google/android/gms/games/Games;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    sget-object v4, Lcom/google/android/gms/games/Games;->SCOPE_GAMES:Lcom/google/android/gms/common/api/Scope;
-
-    aput-object v4, v3, v5
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Lcom/google/android/gms/common/api/Api$b;Lcom/google/android/gms/common/api/Api$c;[Lcom/google/android/gms/common/api/Scope;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Ljava/lang/String;Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;Lcom/google/android/gms/common/api/Api$ClientKey;)V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->API:Lcom/google/android/gms/common/api/Api;
 
@@ -143,107 +225,121 @@
 
     invoke-direct {v0, v1}, Lcom/google/android/gms/common/api/Scope;-><init>(Ljava/lang/String;)V
 
-    sput-object v0, Lcom/google/android/gms/games/Games;->MF:Lcom/google/android/gms/common/api/Scope;
+    sput-object v0, Lcom/google/android/gms/games/Games;->zzal:Lcom/google/android/gms/common/api/Scope;
 
     new-instance v0, Lcom/google/android/gms/common/api/Api;
 
-    sget-object v1, Lcom/google/android/gms/games/Games;->yF:Lcom/google/android/gms/common/api/Api$b;
+    const-string v1, "Games.API_1P"
 
-    sget-object v2, Lcom/google/android/gms/games/Games;->yE:Lcom/google/android/gms/common/api/Api$c;
+    sget-object v2, Lcom/google/android/gms/games/Games;->zzak:Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
 
-    new-array v3, v6, [Lcom/google/android/gms/common/api/Scope;
+    sget-object v3, Lcom/google/android/gms/games/Games;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
 
-    sget-object v4, Lcom/google/android/gms/games/Games;->MF:Lcom/google/android/gms/common/api/Scope;
+    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Ljava/lang/String;Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;Lcom/google/android/gms/common/api/Api$ClientKey;)V
 
-    aput-object v4, v3, v5
+    sput-object v0, Lcom/google/android/gms/games/Games;->zzam:Lcom/google/android/gms/common/api/Api;
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Lcom/google/android/gms/common/api/Api$b;Lcom/google/android/gms/common/api/Api$c;[Lcom/google/android/gms/common/api/Scope;)V
+    new-instance v0, Lcom/google/android/gms/internal/games/zzad;
 
-    sput-object v0, Lcom/google/android/gms/games/Games;->MG:Lcom/google/android/gms/common/api/Api;
-
-    new-instance v0, Lcom/google/android/gms/games/internal/api/GamesMetadataImpl;
-
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/GamesMetadataImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzad;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->GamesMetadata:Lcom/google/android/gms/games/GamesMetadata;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/AchievementsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzf;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/AchievementsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzf;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Achievements:Lcom/google/android/gms/games/achievement/Achievements;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/EventsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzt;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/EventsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzt;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/games/Games;->zzan:Lcom/google/android/gms/internal/games/zze;
+
+    new-instance v0, Lcom/google/android/gms/internal/games/zzv;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzv;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Events:Lcom/google/android/gms/games/event/Events;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/LeaderboardsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzam;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/LeaderboardsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzam;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Leaderboards:Lcom/google/android/gms/games/leaderboard/Leaderboards;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/InvitationsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzai;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/InvitationsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzai;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Invitations:Lcom/google/android/gms/games/multiplayer/Invitations;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/TurnBasedMultiplayerImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzdb;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/TurnBasedMultiplayerImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzdb;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->TurnBasedMultiplayer:Lcom/google/android/gms/games/multiplayer/turnbased/TurnBasedMultiplayer;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/RealTimeMultiplayerImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzbz;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/RealTimeMultiplayerImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzbz;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->RealTimeMultiplayer:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMultiplayer;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/MultiplayerImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzbc;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/MultiplayerImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzbc;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/games/Games;->MH:Lcom/google/android/gms/games/multiplayer/Multiplayer;
+    sput-object v0, Lcom/google/android/gms/games/Games;->zzao:Lcom/google/android/gms/games/multiplayer/Multiplayer;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/PlayersImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzbe;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/PlayersImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzbe;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Players:Lcom/google/android/gms/games/Players;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/NotificationsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzbd;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/NotificationsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzbd;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Notifications:Lcom/google/android/gms/games/Notifications;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/QuestsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzbo;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/QuestsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzbo;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Quests:Lcom/google/android/gms/games/quest/Quests;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/RequestsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzca;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/RequestsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzca;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Requests:Lcom/google/android/gms/games/request/Requests;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/SnapshotsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzci;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/SnapshotsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzci;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/games/Games;->Snapshots:Lcom/google/android/gms/games/snapshot/Snapshots;
 
-    new-instance v0, Lcom/google/android/gms/games/internal/api/AclsImpl;
+    new-instance v0, Lcom/google/android/gms/internal/games/zzcx;
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/internal/api/AclsImpl;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzcx;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/games/Games;->MI:Lcom/google/android/gms/games/internal/game/Acls;
+    sput-object v0, Lcom/google/android/gms/games/Games;->Stats:Lcom/google/android/gms/games/stats/Stats;
+
+    new-instance v0, Lcom/google/android/gms/internal/games/zzdy;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzdy;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/games/Games;->Videos:Lcom/google/android/gms/games/video/Videos;
+
+    new-instance v0, Lcom/google/android/gms/internal/games/zzcw;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/games/zzcw;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/games/Games;->zzap:Lcom/google/android/gms/internal/games/zzep;
 
     return-void
 .end method
@@ -256,76 +352,70 @@
     return-void
 .end method
 
-.method public static c(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
+.method public static getAchievementsClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/AchievementsClient;
     .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    if-eqz p0, :cond_0
+    const-string v0, "GoogleSignInAccount must not be null"
 
-    const/4 v0, 0x1
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :goto_0
-    const-string v1, "GoogleApiClient parameter is required."
+    new-instance v0, Lcom/google/android/gms/games/AchievementsClient;
 
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->b(ZLjava/lang/Object;)V
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
 
-    invoke-interface {p0}, Lcom/google/android/gms/common/api/GoogleApiClient;->isConnected()Z
+    move-result-object v1
 
-    move-result v0
-
-    const-string v1, "GoogleApiClient must be connected."
-
-    invoke-static {v0, v1}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
-
-    invoke-static {p0}, Lcom/google/android/gms/games/Games;->d(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
-
-    move-result-object v0
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/AchievementsClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
 
     return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
-.method public static d(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
-    .locals 3
+.method public static getAchievementsClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/AchievementsClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    sget-object v0, Lcom/google/android/gms/games/Games;->yE:Lcom/google/android/gms/common/api/Api$c;
+    const-string v0, "GoogleSignInAccount must not be null"
 
-    invoke-interface {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->a(Lcom/google/android/gms/common/api/Api$c;)Lcom/google/android/gms/common/api/Api$a;
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    new-instance v0, Lcom/google/android/gms/games/AchievementsClient;
 
-    check-cast v0, Lcom/google/android/gms/games/internal/GamesClientImpl;
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
 
-    if-eqz v0, :cond_0
+    move-result-object v1
 
-    const/4 v1, 0x1
-
-    :goto_0
-    const-string v2, "GoogleApiClient is not configured to use the Games Api. Pass Games.API into GoogleApiClient.Builder#addApi() to use this feature."
-
-    invoke-static {v1, v2}, Lcom/google/android/gms/internal/hn;->a(ZLjava/lang/Object;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/AchievementsClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
 
     return-object v0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
 .end method
 
 .method public static getAppId(Lcom/google/android/gms/common/api/GoogleApiClient;)Ljava/lang/String;
     .locals 1
-    .param p0, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    invoke-static {p0}, Lcom/google/android/gms/games/Games;->c(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/GamesClientImpl;->hj()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/zze;->zzan()Ljava/lang/String;
 
     move-result-object v0
 
@@ -334,30 +424,542 @@
 
 .method public static getCurrentAccountName(Lcom/google/android/gms/common/api/GoogleApiClient;)Ljava/lang/String;
     .locals 1
-    .param p0, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
+    .annotation build Landroid/support/annotation/RequiresPermission;
+        value = "android.permission.GET_ACCOUNTS"
+    .end annotation
 
-    .prologue
-    invoke-static {p0}, Lcom/google/android/gms/games/Games;->c(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/GamesClientImpl;->gU()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/zze;->zzq()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static getSdkVariant(Lcom/google/android/gms/common/api/GoogleApiClient;)I
-    .locals 1
-    .param p0, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
+.method public static getEventsClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/EventsClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    .prologue
-    invoke-static {p0}, Lcom/google/android/gms/games/Games;->c(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/EventsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/EventsClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getEventsClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/EventsClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/EventsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/EventsClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getGamesClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/GamesClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/GamesClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/GamesClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getGamesClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/GamesClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/GamesClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/GamesClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getGamesMetadataClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/GamesMetadataClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/GamesMetadataClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/GamesMetadataClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getGamesMetadataClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/GamesMetadataClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/GamesMetadataClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/GamesMetadataClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getGamesServerAuthCode(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;)Lcom/google/android/gms/common/api/PendingResult;
+    .locals 1
+    .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/common/api/GoogleApiClient;",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/google/android/gms/common/api/PendingResult",
+            "<",
+            "Lcom/google/android/gms/games/Games$GetServerAuthCodeResult;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const-string v0, "Please provide a valid serverClientId"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotEmpty(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+
+    new-instance v0, Lcom/google/android/gms/games/zzk;
+
+    invoke-direct {v0, p0, p1}, Lcom/google/android/gms/games/zzk;-><init>(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->execute(Lcom/google/android/gms/common/api/internal/BaseImplementation$ApiMethodImpl;)Lcom/google/android/gms/common/api/internal/BaseImplementation$ApiMethodImpl;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/GamesClientImpl;->hi()I
+    return-object v0
+.end method
+
+.method public static getInvitationsClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/InvitationsClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/InvitationsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/InvitationsClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getInvitationsClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/InvitationsClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/InvitationsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/InvitationsClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getLeaderboardsClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/LeaderboardsClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/LeaderboardsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/LeaderboardsClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getLeaderboardsClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/LeaderboardsClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/LeaderboardsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/LeaderboardsClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getNotificationsClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/NotificationsClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/NotificationsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/NotificationsClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getNotificationsClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/NotificationsClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/NotificationsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/NotificationsClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getPlayerStatsClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/PlayerStatsClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/PlayerStatsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/PlayerStatsClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getPlayerStatsClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/PlayerStatsClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/PlayerStatsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/PlayerStatsClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getPlayersClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/PlayersClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/PlayersClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/PlayersClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getPlayersClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/PlayersClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/PlayersClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/PlayersClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getRealTimeMultiplayerClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/RealTimeMultiplayerClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/RealTimeMultiplayerClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/RealTimeMultiplayerClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getRealTimeMultiplayerClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/RealTimeMultiplayerClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/RealTimeMultiplayerClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/RealTimeMultiplayerClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getSdkVariant(Lcom/google/android/gms/common/api/GoogleApiClient;)I
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/zze;->zzal()I
 
     move-result v0
 
@@ -366,55 +968,220 @@
 
 .method public static getSettingsIntent(Lcom/google/android/gms/common/api/GoogleApiClient;)Landroid/content/Intent;
     .locals 1
-    .param p0, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    invoke-static {p0}, Lcom/google/android/gms/games/Games;->c(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/GamesClientImpl;->hh()Landroid/content/Intent;
+    invoke-virtual {v0}, Lcom/google/android/gms/games/internal/zze;->zzaj()Landroid/content/Intent;
 
     move-result-object v0
 
     return-object v0
 .end method
 
+.method public static getSnapshotsClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/SnapshotsClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/SnapshotsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/SnapshotsClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getSnapshotsClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/SnapshotsClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/SnapshotsClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/SnapshotsClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getTurnBasedMultiplayerClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/TurnBasedMultiplayerClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/TurnBasedMultiplayerClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/TurnBasedMultiplayerClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getTurnBasedMultiplayerClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/TurnBasedMultiplayerClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/TurnBasedMultiplayerClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/TurnBasedMultiplayerClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getVideosClient(Landroid/app/Activity;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/VideosClient;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/VideosClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/VideosClient;-><init>(Landroid/app/Activity;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
+.method public static getVideosClient(Landroid/content/Context;Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/VideosClient;
+    .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const-string v0, "GoogleSignInAccount must not be null"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/android/gms/games/VideosClient;
+
+    invoke-static {p1}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/games/VideosClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/games/Games$GamesOptions;)V
+
+    return-object v0
+.end method
+
 .method public static setGravityForPopups(Lcom/google/android/gms/common/api/GoogleApiClient;I)V
     .locals 1
-    .param p0, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
-    .param p1, "gravity"    # I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    invoke-static {p0}, Lcom/google/android/gms/games/Games;->c(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/games/internal/GamesClientImpl;->cg(I)V
+    if-eqz v0, :cond_0
 
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/games/internal/zze;->zzj(I)V
+
+    :cond_0
     return-void
 .end method
 
 .method public static setViewForPopups(Lcom/google/android/gms/common/api/GoogleApiClient;Landroid/view/View;)V
     .locals 1
-    .param p0, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
-    .param p1, "gamesContentView"    # Landroid/view/View;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    .prologue
-    invoke-static {p1}, Lcom/google/android/gms/internal/hn;->f(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p0}, Lcom/google/android/gms/games/Games;->c(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/GamesClientImpl;
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/games/internal/GamesClientImpl;->f(Landroid/view/View;)V
+    if-eqz v0, :cond_0
 
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/games/internal/zze;->zza(Landroid/view/View;)V
+
+    :cond_0
     return-void
 .end method
 
 .method public static signOut(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/common/api/PendingResult;
     .locals 1
-    .param p0, "apiClient"    # Lcom/google/android/gms/common/api/GoogleApiClient;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -427,14 +1194,139 @@
         }
     .end annotation
 
-    .prologue
-    new-instance v0, Lcom/google/android/gms/games/Games$2;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    invoke-direct {v0}, Lcom/google/android/gms/games/Games$2;-><init>()V
+    new-instance v0, Lcom/google/android/gms/games/zzl;
 
-    invoke-interface {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->b(Lcom/google/android/gms/common/api/a$b;)Lcom/google/android/gms/common/api/a$b;
+    invoke-direct {v0, p0}, Lcom/google/android/gms/games/zzl;-><init>(Lcom/google/android/gms/common/api/GoogleApiClient;)V
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->execute(Lcom/google/android/gms/common/api/internal/BaseImplementation$ApiMethodImpl;)Lcom/google/android/gms/common/api/internal/BaseImplementation$ApiMethodImpl;
 
     move-result-object v0
 
     return-object v0
+.end method
+
+.method private static zza(Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;)Lcom/google/android/gms/games/Games$GamesOptions;
+    .locals 2
+    .param p0    # Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const/4 v1, 0x0
+
+    new-instance v0, Lcom/google/android/gms/games/Games$GamesOptions$Builder;
+
+    invoke-direct {v0, v1, v1}, Lcom/google/android/gms/games/Games$GamesOptions$Builder;-><init>(Lcom/google/android/gms/games/Games$GamesOptions;Lcom/google/android/gms/games/zzi;)V
+
+    iput-object p0, v0, Lcom/google/android/gms/games/Games$GamesOptions$Builder;->zzbb:Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
+
+    const v1, 0x101113
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/games/Games$GamesOptions$Builder;->setSdkVariant(I)Lcom/google/android/gms/games/Games$GamesOptions$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/games/Games$GamesOptions$Builder;->build()Lcom/google/android/gms/games/Games$GamesOptions;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static zza(Lcom/google/android/gms/common/api/GoogleApiClient;)Lcom/google/android/gms/games/internal/zze;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Lcom/google/android/gms/games/Games;->zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static zza(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
+    .locals 2
+
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    const-string v1, "GoogleApiClient parameter is required."
+
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+
+    invoke-virtual {p0}, Lcom/google/android/gms/common/api/GoogleApiClient;->isConnected()Z
+
+    move-result v0
+
+    const-string v1, "GoogleApiClient must be connected."
+
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
+
+    invoke-static {p0, p1}, Lcom/google/android/gms/games/Games;->zzb(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static zzb(Lcom/google/android/gms/common/api/GoogleApiClient;Z)Lcom/google/android/gms/games/internal/zze;
+    .locals 2
+
+    sget-object v0, Lcom/google/android/gms/games/Games;->API:Lcom/google/android/gms/common/api/Api;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->hasApi(Lcom/google/android/gms/common/api/Api;)Z
+
+    move-result v0
+
+    const-string v1, "GoogleApiClient is not configured to use the Games Api. Pass Games.API into GoogleApiClient.Builder#addApi() to use this feature."
+
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
+
+    sget-object v0, Lcom/google/android/gms/games/Games;->API:Lcom/google/android/gms/common/api/Api;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->hasConnectedApi(Lcom/google/android/gms/common/api/Api;)Z
+
+    move-result v0
+
+    if-eqz p1, :cond_0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "GoogleApiClient has an optional Games.API and is not connected to Games. Use GoogleApiClient.hasConnectedApi(Games.API) to guard this call."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/google/android/gms/games/Games;->CLIENT_KEY:Lcom/google/android/gms/common/api/Api$ClientKey;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->getClient(Lcom/google/android/gms/common/api/Api$AnyClientKey;)Lcom/google/android/gms/common/api/Api$Client;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/games/internal/zze;
+
+    :goto_0
+    return-object v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

@@ -14,16 +14,18 @@
 
 
 # instance fields
-.field private final KH:Ljava/util/List;
+.field private final zzlg:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
             "<",
-            "Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;",
+            "Lcom/google/android/gms/drive/query/internal/zzf;",
             ">;"
         }
     .end annotation
 .end field
+
+.field private zzlh:Z
 
 
 # direct methods
@@ -36,7 +38,11 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->KH:Ljava/util/List;
+    iput-object v0, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->zzlg:Ljava/util/List;
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->zzlh:Z
 
     return-void
 .end method
@@ -45,12 +51,10 @@
 # virtual methods
 .method public addSortAscending(Lcom/google/android/gms/drive/metadata/SortableMetadataField;)Lcom/google/android/gms/drive/query/SortOrder$Builder;
     .locals 4
-    .param p1, "sortField"    # Lcom/google/android/gms/drive/metadata/SortableMetadataField;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->KH:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->zzlg:Ljava/util/List;
 
-    new-instance v1, Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;
+    new-instance v1, Lcom/google/android/gms/drive/query/internal/zzf;
 
     invoke-interface {p1}, Lcom/google/android/gms/drive/metadata/SortableMetadataField;->getName()Ljava/lang/String;
 
@@ -58,7 +62,7 @@
 
     const/4 v3, 0x1
 
-    invoke-direct {v1, v2, v3}, Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v1, v2, v3}, Lcom/google/android/gms/drive/query/internal/zzf;-><init>(Ljava/lang/String;Z)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -67,12 +71,10 @@
 
 .method public addSortDescending(Lcom/google/android/gms/drive/metadata/SortableMetadataField;)Lcom/google/android/gms/drive/query/SortOrder$Builder;
     .locals 4
-    .param p1, "sortField"    # Lcom/google/android/gms/drive/metadata/SortableMetadataField;
 
-    .prologue
-    iget-object v0, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->KH:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->zzlg:Ljava/util/List;
 
-    new-instance v1, Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;
+    new-instance v1, Lcom/google/android/gms/drive/query/internal/zzf;
 
     invoke-interface {p1}, Lcom/google/android/gms/drive/metadata/SortableMetadataField;->getName()Ljava/lang/String;
 
@@ -80,7 +82,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v1, v2, v3}, Lcom/google/android/gms/drive/query/internal/FieldWithSortOrder;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v1, v2, v3}, Lcom/google/android/gms/drive/query/internal/zzf;-><init>(Ljava/lang/String;Z)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -92,11 +94,11 @@
 
     new-instance v0, Lcom/google/android/gms/drive/query/SortOrder;
 
-    iget-object v1, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->KH:Ljava/util/List;
+    iget-object v1, p0, Lcom/google/android/gms/drive/query/SortOrder$Builder;->zzlg:Ljava/util/List;
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/google/android/gms/drive/query/SortOrder;-><init>(Ljava/util/List;Lcom/google/android/gms/drive/query/SortOrder$1;)V
+    invoke-direct {v0, v1, v2}, Lcom/google/android/gms/drive/query/SortOrder;-><init>(Ljava/util/List;Z)V
 
     return-object v0
 .end method

@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 2686
+    .line 2693
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$24;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 2688
+    .line 2695
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$24;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-boolean v0, v0, Lcom/wardrumstudios/utils/WarMedia;->DoLog:Z
@@ -54,7 +54,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 2689
+    .line 2696
     :cond_0
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$24;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -70,7 +70,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 2690
+    .line 2697
     :cond_1
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$24;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
@@ -78,6 +78,6 @@
 
     iput-object v1, v0, Lcom/wardrumstudios/utils/WarMedia;->llSplashView:Landroid/widget/LinearLayout;
 
-    .line 2691
+    .line 2698
     return-void
 .end method

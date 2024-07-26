@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/wardrumstudios/utils/WarMedia;
 
     .prologue
-    .line 1541
+    .line 1548
     iput-object p1, p0, Lcom/wardrumstudios/utils/WarMedia$15;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .param p4, "height"    # I
 
     .prologue
-    .line 1559
+    .line 1566
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -78,7 +78,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1562
+    .line 1569
     return-void
 .end method
 
@@ -89,12 +89,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1545
+    .line 1552
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$15;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-static {v1, v3}, Lcom/wardrumstudios/utils/WarMedia;->access$1102(Lcom/wardrumstudios/utils/WarMedia;Z)Z
 
-    .line 1546
+    .line 1553
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$15;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v1, v1, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
@@ -103,7 +103,7 @@
 
     move-result-object v0
 
-    .line 1547
+    .line 1554
     .local v0, "canvas":Landroid/graphics/Canvas;
     const/4 v1, 0x0
 
@@ -111,37 +111,37 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 1548
+    .line 1555
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$15;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-object v1, v1, Lcom/wardrumstudios/utils/WarMedia;->movieTextHolder:Landroid/view/SurfaceHolder;
 
     invoke-interface {v1, v0}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
-    .line 1550
+    .line 1557
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$15;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     iget-boolean v1, v1, Lcom/wardrumstudios/utils/WarMedia;->movieViewCreated:Z
 
     if-nez v1, :cond_0
 
-    .line 1551
+    .line 1558
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v2, "movieTextSurface surfaceCreated firsttime"
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1552
+    .line 1559
     iget-object v1, p0, Lcom/wardrumstudios/utils/WarMedia$15;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     invoke-static {v1, v3}, Lcom/wardrumstudios/utils/WarMedia;->access$1202(Lcom/wardrumstudios/utils/WarMedia;Z)Z
 
-    .line 1556
+    .line 1563
     :goto_0
     return-void
 
-    .line 1554
+    .line 1561
     :cond_0
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -157,20 +157,20 @@
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
-    .line 1565
+    .line 1572
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "movieTextSurface surfaceDestroyed"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 1566
+    .line 1573
     iget-object v0, p0, Lcom/wardrumstudios/utils/WarMedia$15;->this$0:Lcom/wardrumstudios/utils/WarMedia;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/wardrumstudios/utils/WarMedia;->access$1302(Lcom/wardrumstudios/utils/WarMedia;Z)Z
 
-    .line 1568
+    .line 1575
     return-void
 .end method
