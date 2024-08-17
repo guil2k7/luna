@@ -5,7 +5,6 @@
 
 #pragma once
 
-#include "Pad.hh"
 #include "Ped.hh"
 
 namespace LunaEngine::Game {
@@ -24,17 +23,12 @@ public:
         return m_ID;
     }
 
-    inline CPad* GetPad() {
-        return &m_Pad;
-    }
-
     void _Initialize(int id);
 
 private:
     PADDING(8);
 
     int m_ID;
-    CPad m_Pad;
 };
 
 static_assert(sizeof (CPlayerPed) >= 1964 && sizeof (CPlayerPed) <= 1996);

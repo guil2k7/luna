@@ -23,7 +23,7 @@ public:
     }
 
     static inline CPlayerPed* GetPlayerPed(int id = 0) {
-        return reinterpret_cast<CPlayerInfo**>(GameAddress + GAME_ADDR_PLAYERS)[id]->PlayerPed;
+        return reinterpret_cast<CPlayerInfo**>(GameAddress + GAME_ADDR_PLAYERS)[id]->Ped;
     }
 };
 

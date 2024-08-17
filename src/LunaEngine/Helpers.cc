@@ -14,5 +14,5 @@ void LunaEngine::MakeNop(void* address, size_t size) {
     size /= 2;
 
     for (size_t i = 0; i < size; ++i)
-        reinterpret_cast<uint16_t*>(address)[i] = 0x46C0; // mov r8, r8
+        reinterpret_cast<uint16_t*>(address)[i] = 0x46C0; // MOV R8, R8
 }

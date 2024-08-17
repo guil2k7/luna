@@ -12,245 +12,159 @@
 using namespace LunaEngine;
 using namespace LunaEngine::Game;
 
-CPad* CPad::LocalPad = nullptr;
-CPad* CPad::CurrentPad = nullptr;
+CSimplePad* CSimplePad::CurrentPad = nullptr;
 
 static struct {
-    int (LUNA_THISCALL *GetPedWalkLeftRight)(CSAPad*);
-    int (LUNA_THISCALL *GetPedWalkUpDown)(CSAPad*);
-    bool (LUNA_THISCALL *GetSprint)(CSAPad*);
-    bool (LUNA_THISCALL *GetJump)(CSAPad*);
-    int (LUNA_THISCALL *JumpJustDown)(CSAPad*);
-    int (LUNA_THISCALL *GetAutoClimb)(CSAPad*);
-    bool (LUNA_THISCALL *DiveJustDown)(CSAPad*);
-    int (LUNA_THISCALL *SwimJumpJustDown)(CSAPad*);
-    int (LUNA_THISCALL *MeleeAttackJustDown)(CSAPad*);
-    int (LUNA_THISCALL *GetAbortClimb)(CSAPad*);
-    int (LUNA_THISCALL *DuckJustDown)(CSAPad*);
-    int (LUNA_THISCALL *GetBlock)(CSAPad*);
-    int (LUNA_THISCALL *GetSteeringLeftRight)(CSAPad*);
-    int (LUNA_THISCALL *GetSteeringUpDown)(CSAPad*);
-    int (LUNA_THISCALL *GetAccelerate)(CSAPad*);
-    int (LUNA_THISCALL *GetBrake)(CSAPad*);
-    int (LUNA_THISCALL *GetHandBrake)(CSAPad*);
-    int (LUNA_THISCALL *GetHorn)(CSAPad*);
-    int (LUNA_THISCALL *ExitVehicleJustDown)(CSAPad*, bool, void*, bool, void const*);
+    int (LUNA_THISCALL *GetPedWalkLeftRight)(CPad*);
+    int (LUNA_THISCALL *GetPedWalkUpDown)(CPad*);
+    bool (LUNA_THISCALL *GetSprint)(CPad*);
+    bool (LUNA_THISCALL *GetJump)(CPad*);
+    int (LUNA_THISCALL *JumpJustDown)(CPad*);
+    int (LUNA_THISCALL *GetAutoClimb)(CPad*);
+    bool (LUNA_THISCALL *DiveJustDown)(CPad*);
+    int (LUNA_THISCALL *SwimJumpJustDown)(CPad*);
+    int (LUNA_THISCALL *MeleeAttackJustDown)(CPad*);
+    int (LUNA_THISCALL *GetAbortClimb)(CPad*);
+    int (LUNA_THISCALL *DuckJustDown)(CPad*);
+    int (LUNA_THISCALL *GetBlock)(CPad*);
+    int (LUNA_THISCALL *GetSteeringLeftRight)(CPad*);
+    int (LUNA_THISCALL *GetSteeringUpDown)(CPad*);
+    int (LUNA_THISCALL *GetAccelerate)(CPad*);
+    int (LUNA_THISCALL *GetBrake)(CPad*);
+    int (LUNA_THISCALL *GetHandBrake)(CPad*);
+    int (LUNA_THISCALL *GetHorn)(CPad*);
+    int (LUNA_THISCALL *ExitVehicleJustDown)(CPad* self, bool checkTouch, void* vehicle, bool entering, CVector* vecVehicle);
 } trampoline;
 
-static LUNA_THISCALL int Hook_GetPedWalkLeftRight(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad)
-        CPad::CurrentPad->LeftRight = trampoline.GetPedWalkLeftRight(self);
+static LUNA_THISCALL int Hook_GetPedWalkLeftRight(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetPedWalkLeftRight(self);
 
-    return CPad::CurrentPad->LeftRight;
+    return CSimplePad::CurrentPad->LeftRight;
 }
 
-static LUNA_THISCALL int Hook_GetPedWalkUpDown(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad)
-        CPad::CurrentPad->UpDown = trampoline.GetPedWalkUpDown(self);
+static LUNA_THISCALL int Hook_GetPedWalkUpDown(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetPedWalkUpDown(self);
 
-    return CPad::CurrentPad->UpDown;
+    return CSimplePad::CurrentPad->UpDown;
 }
 
-static LUNA_THISCALL bool Hook_GetSprint(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        bool val = trampoline.GetSprint(self);
+static LUNA_THISCALL bool Hook_GetSprint(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetSprint(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_SPRINT;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_SPRINT);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_SPRINT);
 }
 
-static LUNA_THISCALL bool Hook_GetJump(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        bool val = trampoline.GetJump(self);
+static LUNA_THISCALL bool Hook_GetJump(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetJump(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_JUMP;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_JUMP);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
 }
 
-static LUNA_THISCALL int Hook_JumpJustDown(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.JumpJustDown(self);
+static LUNA_THISCALL int Hook_JumpJustDown(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.JumpJustDown(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_JUMP;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_JUMP);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
 }
 
-static LUNA_THISCALL int Hook_GetAutoClimb(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.GetAutoClimb(self);
+static LUNA_THISCALL int Hook_GetAutoClimb(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetAutoClimb(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_JUMP;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_JUMP);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
 }
 
-static bool LUNA_THISCALL Hook_DiveJustDown(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        bool val = trampoline.DiveJustDown(self);
+static bool LUNA_THISCALL Hook_DiveJustDown(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.DiveJustDown(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_SECONDARY_ATTACK;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_SECONDARY_ATTACK);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_SECONDARY_ATTACK);
 }
 
-static LUNA_THISCALL int Hook_SwimJumpJustDown(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.SwimJumpJustDown(self);
+static LUNA_THISCALL int Hook_SwimJumpJustDown(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.SwimJumpJustDown(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_JUMP;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_JUMP);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
 }
 
-static LUNA_THISCALL int Hook_MeleeAttackJustDown(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = CallFunction<int>(GameAddress + 0x40B00D, self);        
-        // int val = trampoline.MeleeAttackJustDown(self);
+static LUNA_THISCALL int Hook_MeleeAttackJustDown(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return CallMethod<int>(GameAddress + 0x40B00D, self);        
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_SECONDARY_ATTACK;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_SECONDARY_ATTACK);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_SECONDARY_ATTACK);
 }
 
-static LUNA_THISCALL int Hook_GetAbortClimb(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.GetAbortClimb(self);
+static LUNA_THISCALL int Hook_GetAbortClimb(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetAbortClimb(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_SECONDARY_ATTACK;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_SECONDARY_ATTACK);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_SECONDARY_ATTACK);
 }
 
-static LUNA_THISCALL int Hook_DuckJustDown(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.DuckJustDown(self);
+static LUNA_THISCALL int Hook_DuckJustDown(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.DuckJustDown(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_CROUCH;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_CROUCH);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_CROUCH);
 }
 
-static LUNA_THISCALL int Hook_GetBlock(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = CallFunction<int>(GameAddress + 0x40B321, self);
+static LUNA_THISCALL int Hook_GetBlock(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return CallMethod<int>(GameAddress + 0x40B321, self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_HANDBRAKE;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_HANDBRAKE);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_HANDBRAKE);
 }
 
-static LUNA_THISCALL int Hook_GetSteeringLeftRight(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad)
-        CPad::CurrentPad->LeftRight = trampoline.GetSteeringLeftRight(self);
+static LUNA_THISCALL int Hook_GetSteeringLeftRight(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetSteeringLeftRight(self);
 
-    return CPad::CurrentPad->LeftRight;
+    return CSimplePad::CurrentPad->LeftRight;
 }
 
-static LUNA_THISCALL int Hook_GetSteeringUpDown(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad)
-        CPad::CurrentPad->UpDown = trampoline.GetSteeringUpDown(self);
+static LUNA_THISCALL int Hook_GetSteeringUpDown(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetSteeringUpDown(self);
 
-    return CPad::CurrentPad->UpDown;
+    return CSimplePad::CurrentPad->UpDown;
 }
 
-static LUNA_THISCALL int Hook_GetAccelerate(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.GetAccelerate(self);
+static LUNA_THISCALL int Hook_GetAccelerate(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetAccelerate(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_SPRINT;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_SPRINT) ? 0xFF : 0;
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_SPRINT) ? 0xFF : 0;
 }
 
-static LUNA_THISCALL int Hook_GetBrake(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.GetBrake(self);
+static LUNA_THISCALL int Hook_GetBrake(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetBrake(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_JUMP;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_JUMP) ? 0xFF : 0;
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP) ? 0xFF : 0;
 }
 
-static LUNA_THISCALL int Hook_GetHandBrake(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.GetHandBrake(self);
+static LUNA_THISCALL int Hook_GetHandBrake(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetHandBrake(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_HANDBRAKE;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_HANDBRAKE) ? 0xFF : 0;
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_HANDBRAKE) ? 0xFF : 0;
 }
 
-static LUNA_THISCALL int Hook_GetHorn(CSAPad* self) {
-    if (CPad::CurrentPad == CPad::LocalPad) {
-        int val = trampoline.GetHorn(self);
+static LUNA_THISCALL int Hook_GetHorn(CPad* self) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.GetHorn(self);
 
-        if (val)
-            CPad::CurrentPad->Keys |= PAD_KEY_CROUCH;
-
-        return val;
-    }
-
-    return CPad::CurrentPad->IsKeyPressed(PAD_KEY_CROUCH);
+    return CSimplePad::CurrentPad->IsKeyPressed(SIMPLE_PAD_KEY_CROUCH);
 }
 
-static LUNA_THISCALL int Hook_ExitVehicleJustDown(CSAPad* self, bool param1, void* param2, bool param3, void const* param4) {
-    if (CPad::CurrentPad == CPad::LocalPad)
-        return trampoline.ExitVehicleJustDown(self, param1, param2, param3, param4);
+static LUNA_THISCALL int Hook_ExitVehicleJustDown(CPad* self, bool checkTouch, void* vehicle, bool entering, CVector* vecVehicle) {
+    if (CSimplePad::CurrentPad == nullptr)
+        return trampoline.ExitVehicleJustDown(self, checkTouch, vehicle, entering, vecVehicle);
 
     return 0;
 }

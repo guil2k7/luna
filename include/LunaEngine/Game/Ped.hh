@@ -23,18 +23,18 @@ protected:
     void** vtable;
 
 private:
-    // Offset: 4.
+    // Offset: 0x4.
     PADDING(16); // CSimpleTransform placement.
 
-    // Offset: 20. CMatrixLink
+    // Offset: 0x14. CMatrixLink
     CMatrix* m_Matrix;
     PADDING(1064);
 
-    // Offset: 1088.
+    // Offset: 0x440.
     uint8_t* m_Intelligence;
     PADDING(256);
 
-    // Offset: 1348.
+    // Offset: 0x544.
     float m_Health;
     float m_MaxHealth;
     PADDING(80);
@@ -43,18 +43,18 @@ public:
     CPed() = delete;
     ~CPed() = delete;
 
-    // Offset: 1436.
+    // Offset: 0x59C.
     ePedType PedType;
 
     inline bool IsPlayer() const {
         return PedType <= PED_TYPE_PLAYER_NETWORK;
     }
 
-    inline CTaskManager* TaskManager() {
+    inline CTaskManager* GetTaskManager() {
         return reinterpret_cast<CTaskManager*>(m_Intelligence + 4);
     }
 
-    inline CMatrix& Matrix() {
+    inline CMatrix& GetMatrix() {
         return **reinterpret_cast<CMatrix**>(
             reinterpret_cast<uint8_t*>(this) + 0x14);
     }

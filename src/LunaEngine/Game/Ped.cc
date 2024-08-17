@@ -12,6 +12,10 @@ using namespace LunaEngine::Game;
 void CPed::SetHealth(float value) {
     m_Health = std::min(value, m_Health);
 
-    if (value == 0.0f)
-        TaskManager()->SetTask(CTaskComplexDie::Create(), 4, false);
+    if (value == 0.0f) {
+        auto task = CTaskComplexDie::Create(
+            WEAPONTYPE_UNARMED, ANIM_STD_PED, ANIM_STD_KO_FRONT);
+
+        GetTaskManager()->SetTask(task, 4, false);
+    }
 }

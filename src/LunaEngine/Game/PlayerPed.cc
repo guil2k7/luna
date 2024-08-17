@@ -38,7 +38,7 @@ void CPlayerPed::SetupPlayerPed(int id) {
     trampoline.SetupPlayerPed(id);
 
     if (id > 1)
-        CWorld::Players()[id].PlayerPed->PedType = PED_TYPE_PLAYER_NETWORK;
+        CWorld::Players()[id].Ped->PedType = PED_TYPE_PLAYER_NETWORK;
 }
 
 CPlayerPed* CPlayerPed::Create(int id, bool groupCreated) {
@@ -61,18 +61,12 @@ void CPlayerPed::Destroy(CPlayerPed* instance) {
 
 void CPlayerPed::_Initialize(int id) {
     m_ID = id;
-
-    if (id == 0)
-        CPad::LocalPad = &m_Pad;
 }
 
 void CPlayerPed::ProcessControl() {
-    if (m_ID == 0)
-        m_Pad.Clear();
-
-    CPad::CurrentPad = &m_Pad;
+    CSimplePad::SetCurrentPadFromID(m_ID);
     trampoline.ProcessControl(this);
-    CPad::CurrentPad = CPad::LocalPad;
+    CSimplePad::CurrentPad = nullptr;
 }
 
 void CPlayerPed::InjectPatchesAndHooks() {
