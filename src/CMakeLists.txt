@@ -1,4 +1,4 @@
 include_directories(${LUNA_INCLUDE_DIRS})
 link_libraries(spdlog::spdlog)
 
-add_subdirectory(LunaEngine)
+add_subdirectory(Engine)

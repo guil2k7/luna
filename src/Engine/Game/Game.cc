@@ -1,0 +1,22 @@
+// Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
+// Distributed under the BSD 3-Clause License.
+// See LICENSE.txt in the root directory of this project
+// or at https://opensource.org/license/bsd-3-clause.
+
+#include <Luna/Engine/Game/Game.hh>
+#include <Luna/Engine/Game/Main.hh>
+#include <Luna/Engine/Helpers.hh>
+#include <Luna/Engine/Hooker.hh>
+
+using namespace Luna::Engine;
+using namespace Luna::Engine::Game;
+
+static int (LUNA_STDCALL *Trampoline_Init3)(char const*);
+
+static int CGame_Init3(char const* param1) {
+    return Trampoline_Init3(param1);
+}
+
+void CGame::InstallMods() {
+    Trampoline_Init3 = CHooker(GameAddress + 0x4831A9, CGame_Init3, true).Hook();
+}
