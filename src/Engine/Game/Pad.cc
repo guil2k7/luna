@@ -1,7 +1,4 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
-// Distributed under the BSD 3-Clause License.
-// See LICENSE.txt in the root directory of this project
-// or at https://opensource.org/license/bsd-3-clause.
 
 #include <Luna/Engine/Game/Pad.hh>
 #include <Luna/Engine/Game/Addresses.hh>
@@ -11,8 +8,6 @@
 
 using namespace Luna::Engine;
 using namespace Luna::Engine::Game;
-
-CSimplePad* CSimplePad::CurrentPad = nullptr;
 
 static struct {
     int (LUNA_THISCALL *GetPedWalkLeftRight)(CPad*);
@@ -35,6 +30,18 @@ static struct {
     int (LUNA_THISCALL *GetHorn)(CPad*);
     int (LUNA_THISCALL *ExitVehicleJustDown)(CPad* self, bool checkTouch, void* vehicle, bool entering, CVector* vecVehicle);
 } Trampoline;
+
+CSimplePad* CSimplePad::CurrentPad = nullptr;
+
+static CSimplePad* SimplePads = nullptr;
+
+CSimplePad* CSimplePad::GetFromID(int id) {
+    return &SimplePads[id];
+}
+
+void CSimplePad::SetCurrentFromID(int id) {
+    CurrentPad = &SimplePads[id];
+}
 
 static LUNA_THISCALL int Hook_GetPedWalkLeftRight(CPad* self) {
     if (CSimplePad::CurrentPad == nullptr)
@@ -167,6 +174,10 @@ static LUNA_THISCALL int Hook_ExitVehicleJustDown(CPad* self, bool checkTouch, v
         return Trampoline.ExitVehicleJustDown(self, checkTouch, vehicle, entering, vecVehicle);
 
     return 0;
+}
+
+void CPad::InitialiseMods() {
+    SimplePads = new CSimplePad[1000];
 }
 
 void CPad::InstallMods() {

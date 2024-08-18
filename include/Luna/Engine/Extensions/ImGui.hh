@@ -1,7 +1,4 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
-// Distributed under the BSD 3-Clause License.
-// See LICENSE.txt in the root directory of this project
-// or at https://opensource.org/license/bsd-3-clause.
 
 #pragma once
 
@@ -27,18 +24,19 @@ public:
     void Release() override;
     void Install();
 
+    inline void AddWidget(IImGuiWidget* widget) {
+        m_Widgets.push_back(widget);
+    }
+
 protected:
     // Hud events.
     void DrawAfterFade(Game::CHud* hud) override;
 
     // OsEvent events.
+    void OnPointerMove(int x, int y) override;
     void OnPointerButton(Game::eOsPointerState state, int x, int y) override;
     void OnKeyDown(Game::eOsKeyboardKey keyCode) override;
     void OnKeyUp(Game::eOsKeyboardKey keyCode) override;
-
-    inline void AddWidget(IImGuiWidget* widget) {
-        m_Widgets.push_back(widget);
-    }
 
 private:
     RwTexture* m_FontTexture;

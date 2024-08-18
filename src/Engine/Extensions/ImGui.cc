@@ -38,7 +38,6 @@ void CImGuiExtension::Initialise() {
     io.BackendPlatformName = "imgui_impl_rw";
 
     SetupStyle();
-    CreateFontsTexture();
 }
 
 void CImGuiExtension::Release() {
@@ -65,13 +64,13 @@ void CImGuiExtension::SetupStyle() {
     ImGuiStyle& style = ImGui::GetStyle();
 
     ImGui::StyleColorsDark(&style);
-    style.ScaleAllSizes(4.0f);
+    style.ScaleAllSizes(2.0f);
 
     ImGuiIO& io = ImGui::GetIO();
     io.FontGlobalScale = 2.0f;
 }
 
-void CImGuiExtension::DrawAfterFade(Game::CHud* hud) {
+void CImGuiExtension::DrawAfterFade(CHud* hud) {
     NewFrame();
     ImGui::NewFrame();
 
@@ -83,16 +82,21 @@ void CImGuiExtension::DrawAfterFade(Game::CHud* hud) {
     RenderDrawData(ImGui::GetDrawData());
 }
 
+void CImGuiExtension::OnPointerMove(int x, int y) {
+    ImGuiIO& io = ImGui::GetIO();
+    io.MousePos = ImVec2(x, y);
+}
+
 void CImGuiExtension::OnPointerButton(eOsPointerState state, int x, int y) {
     ImGuiIO& io = ImGui::GetIO();
     io.MousePos = ImVec2(x, y);
 
-    switch(state) {
-    case OSPS_BUTTON_RELEASED:
+    switch (state) {
+    case OSPS_BUTTON_UP:
         io.MouseDown[0] = false;
         break;
 
-    case OSPS_BUTTON_PRESSED:
+    case OSPS_BUTTON_DOWN:
         io.MouseDown[0] = true;
         break;
 
@@ -115,6 +119,9 @@ void CImGuiExtension::NewFrame() {
     ImGuiIO& io = ImGui::GetIO();
     io.DisplaySize = ImVec2(RsGlobal->maximumWidth, RsGlobal->maximumHeight);
 
+    if (m_FontTexture == nullptr)
+        CreateFontsTexture();
+
     if (io.WantTextInput && !IsKeyboardShown())
         ShowKeyboard();
     else if (!io.WantTextInput && IsKeyboardShown())
@@ -125,9 +132,6 @@ void CImGuiExtension::RenderDrawData(ImDrawData* drawData) {
     ImGuiIO& io = ImGui::GetIO();
 
     ReserveVertices(drawData->TotalVtxCount + 5000);
-    m_FontTexture = nullptr;
-    m_VertexBuf = nullptr;
-    m_VertexBufSize = 0;
 
     RwCamera* camera = RWSRCGLOBAL(curCamera);
     RwIm2DVertex* vtxDst = m_VertexBuf;

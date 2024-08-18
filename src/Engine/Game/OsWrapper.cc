@@ -1,7 +1,4 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
-// Distributed under the BSD 3-Clause License.
-// See LICENSE.txt in the root directory of this project
-// or at https://opensource.org/license/bsd-3-clause.
 
 #include <Luna/Engine/Game/OsWrapper.hh>
 #include <Luna/Engine/Game/Addresses.hh>
@@ -66,13 +63,13 @@ enum eOsEventType {
 
 static CContext* Context = nullptr;
 
-static AND_TouchPoint* GetPoint(int trackNum) {
-    return &reinterpret_cast<AND_TouchPoint*>(GameAddress + GAME_ADDR_POINTS)[trackNum];
-}
-
 static struct {
     void (LUNA_STDCALL *InputEvent)(eOsEventType, void*);
 } Trampoline;
+
+static AND_TouchPoint* GetPoint(int trackNum) {
+    return &reinterpret_cast<AND_TouchPoint*>(GameAddress + GAME_ADDR_POINTS)[trackNum];
+}
 
 static void Hook_InputEvent(eOsEventType type, void* data) {
     Trampoline.InputEvent(type, data);
@@ -83,6 +80,15 @@ static void Hook_InputEvent(eOsEventType type, void* data) {
 
         for (auto extension : Context->Extensions)
             extension->OnPointerButton(point->State, point->X, point->Y);
+
+        break;
+    }
+
+    case OSET_PointerMove: {
+        AND_TouchPoint* point = GetPoint(*reinterpret_cast<int*>(data));
+
+        for (auto extension : Context->Extensions)
+            extension->OnPointerMove(point->X, point->Y);
 
         break;
     }
@@ -125,4 +131,8 @@ void Game::ShowKeyboard() {
 
 void Game::HideKeyboard() {
     CallFunction<void, int>(GameAddress + GAME_ADDR_OS_KEYBOARDREQUEST, 0);
+}
+
+bool Game::IsKeyboardShown() {
+    return *reinterpret_cast<int*>(GameAddress + GAME_ADDR_KEYBOARDWASVISIBLE);
 }

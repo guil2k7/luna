@@ -1,12 +1,7 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
-// Distributed under the BSD 3-Clause License.
-// See LICENSE.txt in the root directory of this project
-// or at https://opensource.org/license/bsd-3-clause.
 
 #pragma once
 
-#include "Main.hh"
-#include "Addresses.hh"
 #include "../Extension.hh"
 
 namespace Luna::Engine::Game {
@@ -126,6 +121,7 @@ enum eOsKeyboardKey {
 class IOsEventExtension : public IExtension {
 public:
     virtual void OnPointerButton(eOsPointerState state, int x, int y) = 0;
+    virtual void OnPointerMove(int x, int y) = 0;
     virtual void OnKeyDown(eOsKeyboardKey keyCode) = 0;
     virtual void OnKeyUp(eOsKeyboardKey keyCode) = 0;
 };
@@ -140,9 +136,6 @@ public:
 
 void ShowKeyboard();
 void HideKeyboard();
-
-inline bool IsKeyboardShown() {
-    return *reinterpret_cast<int*>(GameAddress + GAME_ADDR_KEYBOARDWASVISIBLE);
-}
+bool IsKeyboardShown();
 
 } // namespace Luna::Engine::Game

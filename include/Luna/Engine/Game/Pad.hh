@@ -1,7 +1,4 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
-// Distributed under the BSD 3-Clause License.
-// See LICENSE.txt in the root directory of this project
-// or at https://opensource.org/license/bsd-3-clause.
 
 #pragma once
 
@@ -39,7 +36,8 @@ struct CSimplePad {
     int16_t LeftRight;
     uint16_t Keys;
 
-    static void SetCurrentPadFromID(int id);
+    static CSimplePad* GetFromID(int id);
+    static void SetCurrentFromID(int id);
 
     inline bool IsKeyPressed(eSimplePadKey key) const {
         return Keys & key;
@@ -73,10 +71,10 @@ struct CControllerState {
     int16_t ButtonCircle;
     int16_t ShockButtonL;
     int16_t ShockButtonR;
-    int16_t m_bChatIndicated;
-    int16_t m_bPedWalk;
-    int16_t m_bVehicleMouseLook;
-    int16_t m_bRadioTrackSkip;
+    bool ChatIndicated : 16;
+    bool PedWalk : 16;
+    bool VehicleMouseLook : 16;
+    bool RadioTrackSkip : 16;
 };
 
 class CPad {
@@ -130,6 +128,7 @@ public:
     bool SetTouchLayout : 8;
     CVector Accel;
 
+    static void InitialiseMods();
     static void InstallMods();
 };
 

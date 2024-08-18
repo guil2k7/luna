@@ -1,7 +1,4 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
-// Distributed under the BSD 3-Clause License.
-// See LICENSE.txt in the root directory of this project
-// or at https://opensource.org/license/bsd-3-clause.
 
 #include <Luna/Engine/Game/PlayerPed.hh>
 #include <Luna/Engine/Game/Pad.hh>
@@ -77,7 +74,7 @@ CPlayerInfo* CPlayerPed::GetPlayerInfoForThisPlayerPed() {
 }
 
 void CPlayerPed::ProcessControl() {
-    CSimplePad::SetCurrentPadFromID(m_ID);
+    CSimplePad::SetCurrentFromID(m_ID);
 
     Trampoline.ProcessControl(this);
 
