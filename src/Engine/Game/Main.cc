@@ -6,7 +6,7 @@
 #include <Luna/Engine/Game/Main.hh>
 #include <Luna/Engine/Game/Game.hh>
 #include <Luna/Engine/Game/Hud.hh>
-#include <Luna/Engine/Game/OSEvent.hh>
+#include <Luna/Engine/Game/OsWrapper.hh>
 #include <Luna/Engine/Game/Pad.hh>
 #include <Luna/Engine/Game/PlayerPed.hh>
 #include <Luna/Engine/Game/RW.hh>
@@ -20,13 +20,14 @@ uint8_t* Game::GameAddress = nullptr;
 void Game::InitialiseMods() {
     CRenderWare::LoadLibrary();
     CHud::InitialiseMods();
+    OsEvent::InitialiseMods();
 }
 
 void Game::InstallMods() {
     CGame::InstallMods();
     CHud::InstallMods();
+    OsEvent::InstallMods();
     CPad::InstallMods();
     CPlayerPed::InstallMods();
-    OSEvents::InstallMods();
     CWorld::InstallMods();
 }

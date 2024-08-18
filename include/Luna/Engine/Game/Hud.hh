@@ -5,15 +5,14 @@
 
 #pragma once
 
+#include "../Extension.hh"
+
 namespace Luna::Engine::Game {
 
 class CHud;
 
-class IHudExtension {
+class IHudExtension : public IExtension {
 public:
-    virtual void Initialise() = 0;
-    virtual void Release() = 0;
-
     virtual void DrawAfterFade(CHud* hud) = 0;
 };
 

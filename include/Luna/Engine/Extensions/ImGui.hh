@@ -6,6 +6,7 @@
 #pragma once
 
 #include "../Game/Hud.hh"
+#include "../Game/OsWrapper.hh"
 #include "../Game/RW/rwcore.h"
 #include "../Game/RW/rwplcore.h"
 #include <imgui.h>
@@ -18,14 +19,22 @@ public:
     virtual void Render() = 0;
 };
 
-class CImGuiExtension : public Game::IHudExtension {
+class CImGuiExtension : protected Game::IHudExtension, protected Game::IOsEventExtension {
 public:
     static CImGuiExtension* Get();
 
     void Initialise() override;
     void Release() override;
+    void Install();
 
+protected:
+    // Hud events.
     void DrawAfterFade(Game::CHud* hud) override;
+
+    // OsEvent events.
+    void OnPointerButton(Game::eOsPointerState state, int x, int y) override;
+    void OnKeyDown(Game::eOsKeyboardKey keyCode) override;
+    void OnKeyUp(Game::eOsKeyboardKey keyCode) override;
 
     inline void AddWidget(IImGuiWidget* widget) {
         m_Widgets.push_back(widget);

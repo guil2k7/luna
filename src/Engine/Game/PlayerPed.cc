@@ -12,14 +12,15 @@ using namespace Luna::Engine;
 using namespace Luna::Engine::Game;
 
 static struct {
-    void (LUNA_STDCALL *SetupPlayerPed)(int);
-    CPlayerPed* (LUNA_THISCALL *Constructor)(CPlayerPed*, int, bool);
-    CPlayerInfo* (LUNA_THISCALL *GetPlayerInfoForThisPlayerPed)(CPlayerPed*);
-    void (LUNA_THISCALL *ProcessControl)(CPlayerPed*);
+    void            (LUNA_STDCALL   *SetupPlayerPed)                (int);
+    CPlayerPed*     (LUNA_THISCALL  *Constructor)                   (CPlayerPed*, int, bool);
+    CPlayerInfo*    (LUNA_THISCALL  *GetPlayerInfoForThisPlayerPed) (CPlayerPed*);
+    void            (LUNA_THISCALL  *ProcessControl)                (CPlayerPed*);
 } Trampoline;
 
 void CPlayerPed::InstallMods() {
-    Trampoline.SetupPlayerPed = CHooker(GameAddress + GAME_ADDR_CPLAYERPED_SETUPPLAYERPED, CPlayerPed::SetupPlayerPed, true).Hook();
+    Trampoline.SetupPlayerPed = CHooker(
+        GameAddress + GAME_ADDR_CPLAYERPED_SETUPPLAYERPED, CPlayerPed::SetupPlayerPed, true).Hook();
 
     Trampoline.Constructor = CHooker<decltype(Trampoline.Constructor)>(
         GameAddress + GAME_ADDR_CPLAYERPED_CONSTRUCTOR,
@@ -60,7 +61,7 @@ void CPlayerPed::SetupPlayerPed(int id) {
     Trampoline.SetupPlayerPed(id);
 
     if (id > 1)
-        CWorld::Players()[id].Ped->PedType = PED_TYPE_PLAYER_NETWORK;
+        CWorld::Players()[id].Ped->m_PedType = PEDTYPE_PLAYER_NETWORK;
 }
 
 CPlayerPed* CPlayerPed::Constructor(int id, bool groupCreated) {

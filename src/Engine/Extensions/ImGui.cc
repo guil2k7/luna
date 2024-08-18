@@ -7,6 +7,8 @@ using namespace Luna::Engine;
 using namespace Luna::Engine::Extensions;
 using namespace Luna::Engine::Game;
 
+static ImGuiKey OsKeyCodeToImGui(eOsKeyboardKey keyCode);
+
 CImGuiExtension::CImGuiExtension() {
     m_FontTexture = nullptr;
     m_VertexBuf = nullptr;
@@ -54,6 +56,11 @@ void CImGuiExtension::Release() {
     m_Widgets = decltype(m_Widgets)();
 }
 
+void CImGuiExtension::Install() {
+    CHud::AddExtension(this);
+    OsEvent::AddExtension(this);
+}
+
 void CImGuiExtension::SetupStyle() {
     ImGuiStyle& style = ImGui::GetStyle();
 
@@ -76,15 +83,42 @@ void CImGuiExtension::DrawAfterFade(Game::CHud* hud) {
     RenderDrawData(ImGui::GetDrawData());
 }
 
+void CImGuiExtension::OnPointerButton(eOsPointerState state, int x, int y) {
+    ImGuiIO& io = ImGui::GetIO();
+    io.MousePos = ImVec2(x, y);
+
+    switch(state) {
+    case OSPS_BUTTON_RELEASED:
+        io.MouseDown[0] = false;
+        break;
+
+    case OSPS_BUTTON_PRESSED:
+        io.MouseDown[0] = true;
+        break;
+
+    default:
+        break;
+    }
+}
+
+void CImGuiExtension::OnKeyDown(eOsKeyboardKey keyCode) {
+    ImGuiIO& io = ImGui::GetIO();
+    io.AddKeyEvent(OsKeyCodeToImGui(keyCode), true);
+}
+
+void CImGuiExtension::OnKeyUp(eOsKeyboardKey keyCode) {
+    ImGuiIO& io = ImGui::GetIO();
+    io.AddKeyEvent(OsKeyCodeToImGui(keyCode), false);
+}
+
 void CImGuiExtension::NewFrame() {
     ImGuiIO& io = ImGui::GetIO();
     io.DisplaySize = ImVec2(RsGlobal->maximumWidth, RsGlobal->maximumHeight);
 
-    // if (io.WantTextInput && !IsKeyboardShown())
-    //     ShowKeyboard();
-    // else if (!io.WantTextInput && IsKeyboardShown())
-    //     HideKeyboard();
-
+    if (io.WantTextInput && !IsKeyboardShown())
+        ShowKeyboard();
+    else if (!io.WantTextInput && IsKeyboardShown())
+        HideKeyboard();
 }
 
 void CImGuiExtension::RenderDrawData(ImDrawData* drawData) {
@@ -232,21 +266,109 @@ void CImGuiExtension::ReserveVertices(size_t newSize) {
     m_VertexBufSize = newSize;
 }
 
-// void ImGui_ImplRW_ProcessTouchEvent(eTouchAction action, int x, int y) {
-//     ImGuiIO& io = ImGui::GetIO();
+static ImGuiKey OsKeyCodeToImGui(eOsKeyboardKey keyCode) {
+    static ImGuiKey MAP[KK_MAX] = {
+        ImGuiKey_Escape,
+        ImGuiKey_F1,
+        ImGuiKey_F2,
+        ImGuiKey_F3,
+        ImGuiKey_F4,
+        ImGuiKey_F5,
+        ImGuiKey_F6,
+        ImGuiKey_F7,
+        ImGuiKey_F8,
+        ImGuiKey_F9,
+        ImGuiKey_F10,
+        ImGuiKey_F11,
+        ImGuiKey_F12,
+        ImGuiKey_GraveAccent,
+        ImGuiKey_0,
+        ImGuiKey_1,
+        ImGuiKey_2,
+        ImGuiKey_3,
+        ImGuiKey_4,
+        ImGuiKey_5,
+        ImGuiKey_6,
+        ImGuiKey_7,
+        ImGuiKey_8,
+        ImGuiKey_9,
+        ImGuiKey_Minus,
+        ImGuiKey_Equal,
+        ImGuiKey_Backspace,
+        ImGuiKey_Tab,
+        ImGuiKey_Q,
+        ImGuiKey_W,
+        ImGuiKey_E,
+        ImGuiKey_R,
+        ImGuiKey_T,
+        ImGuiKey_Y,
+        ImGuiKey_U,
+        ImGuiKey_I,
+        ImGuiKey_O,
+        ImGuiKey_P,
+        ImGuiKey_LeftBracket,
+        ImGuiKey_RightBracket,
+        ImGuiKey_Backslash,
+        ImGuiKey_CapsLock,
+        ImGuiKey_A,
+        ImGuiKey_S,
+        ImGuiKey_D,
+        ImGuiKey_F,
+        ImGuiKey_G,
+        ImGuiKey_H,
+        ImGuiKey_J,
+        ImGuiKey_K,
+        ImGuiKey_L,
+        ImGuiKey_Semicolon,
+        ImGuiKey_Apostrophe,
+        ImGuiKey_Enter,
+        ImGuiKey_LeftShift,
+        ImGuiKey_Z,
+        ImGuiKey_X,
+        ImGuiKey_C,
+        ImGuiKey_V,
+        ImGuiKey_B,
+        ImGuiKey_N,
+        ImGuiKey_M,
+        ImGuiKey_Comma,
+        ImGuiKey_Period,
+        ImGuiKey_Slash,
+        ImGuiKey_RightShift,
+        ImGuiKey_LeftCtrl,
+        ImGuiKey_LeftAlt,
+        ImGuiKey_Space,
+        ImGuiKey_RightAlt,
+        ImGuiKey_RightCtrl,
+        ImGuiKey_PrintScreen,
+        ImGuiKey_Pause,
+        ImGuiKey_Insert,
+        ImGuiKey_Delete,
+        ImGuiKey_Home,
+        ImGuiKey_End,
+        ImGuiKey_PageUp,
+        ImGuiKey_PageDown,
+        ImGuiKey_UpArrow,
+        ImGuiKey_DownArrow,
+        ImGuiKey_LeftArrow,
+        ImGuiKey_RightArrow,
+        ImGuiKey_KeypadDivide,
+        ImGuiKey_KeypadMultiply,
+        ImGuiKey_KeypadSubtract,
+        ImGuiKey_Keypad7,
+        ImGuiKey_Keypad8,
+        ImGuiKey_Keypad9,
+        ImGuiKey_Equal,
+        ImGuiKey_Keypad4,
+        ImGuiKey_Keypad5,
+        ImGuiKey_Keypad6,
+        ImGuiKey_Keypad1,
+        ImGuiKey_Keypad2,
+        ImGuiKey_Keypad3,
+        ImGuiKey_Keypad0,
+        ImGuiKey_KeypadDecimal,
+        ImGuiKey_2 /* | ImGuiMod_Shift */,
+        ImGuiKey_Backspace,
+    };
 
-//     switch(action) {
-//     case TOUCH_ACTION_RELEASE:
-//         io.MouseDown[0] = false;
-//         break;
-
-//     case TOUCH_ACTION_PRESS:
-//         io.MousePos = ImVec2(x, y);
-//         io.MouseDown[0] = true;
-//         break;
-
-//     case TOUCH_ACTION_MOVE:
-//         io.MousePos = ImVec2(x, y);
-//         break;
-//     }
-// }
+    return MAP[keyCode];
+}

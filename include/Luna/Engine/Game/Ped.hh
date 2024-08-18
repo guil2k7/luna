@@ -13,41 +13,77 @@
 namespace Luna::Engine::Game {
 
 enum ePedType {
-    PED_TYPE_PLAYER1,
-    PED_TYPE_PLAYER2,
-    PED_TYPE_PLAYER_NETWORK,
+    PEDTYPE_PLAYER1,
+    PEDTYPE_PLAYER2,
+    PEDTYPE_PLAYER_NETWORK,
+    PEDTYPE_PLAYER_UNUSED,
+    PEDTYPE_CIVMALE,
+    PEDTYPE_CIVFEMALE,
+    PEDTYPE_COP,
+    PEDTYPE_GANG1,
+    PEDTYPE_GANG2,
+    PEDTYPE_GANG3,
+    PEDTYPE_GANG4,
+    PEDTYPE_GANG5,
+    PEDTYPE_GANG6,
+    PEDTYPE_GANG7,
+    PEDTYPE_GANG8,
+    PEDTYPE_GANG9,
+    PEDTYPE_GANG10,
+    PEDTYPE_DEALER,
+    PEDTYPE_MEDIC,
+    PEDTYPE_FIRE,
+    PEDTYPE_CRIMINAL,
+    PEDTYPE_BUM,
+    PEDTYPE_PROSTITUTE,
+    PEDTYPE_SPECIAL,
+    PEDTYPE_MISSION1,
+    PEDTYPE_MISSION2,
+    PEDTYPE_MISSION3,
+    PEDTYPE_MISSION4,
+    PEDTYPE_MISSION5,
+    PEDTYPE_MISSION6,
+    PEDTYPE_MISSION7,
+    PEDTYPE_MISSION8,
 };
 
 class CPed {
 protected:
+    // Offset: 0x0.
     void** vtable;
 
-private:
     // Offset: 0x4.
-    PADDING(16); // CSimpleTransform placement.
+    PADDING(16);
 
-    // Offset: 0x14. CMatrixLink
-    CMatrix* m_Matrix;
+    // Offset: 0x14.
+    CMatrix /* CMatrixLink*/ * m_Matrix;
     PADDING(1064);
 
     // Offset: 0x440.
     uint8_t* m_Intelligence;
+
     PADDING(256);
 
     // Offset: 0x544.
     float m_Health;
     float m_MaxHealth;
-    PADDING(80);
+    float m_Armour;
+
+    PADDING(76);
+
+    // Offset: 0x59C.
+    ePedType m_PedType;
 
 public:
     CPed() = delete;
     ~CPed() = delete;
 
-    // Offset: 0x59C.
-    ePedType PedType;
+    inline ePedType GetPedType() const {
+        return m_PedType;
+    }
 
     inline bool IsPlayer() const {
-        return PedType <= PED_TYPE_PLAYER_NETWORK;
+        return m_PedType <= PEDTYPE_PLAYER_UNUSED;
     }
 
     inline CTaskManager* GetTaskManager() {
@@ -69,8 +105,8 @@ private:
     PADDING(516);
 
     static void _Assertions() {
-        VALIDATE_OFFSET(CPed, PedType, 1436);
-        VALIDATE_OFFSET(CPed, m_MaxHealth, 1352);
+        VALIDATE_OFFSET(CPed, m_PedType, 0x59C);
+        VALIDATE_OFFSET(CPed, m_MaxHealth, 0x548);
     }
 };
 

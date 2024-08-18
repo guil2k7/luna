@@ -5,17 +5,12 @@
 
 #pragma once
 
-namespace Luna::Engine::Game {
+namespace Luna::Engine {
 
-enum eTouchAction : int {
-    TOUCH_ACTION_RELEASE = 1,
-    TOUCH_ACTION_PRESS,
-    TOUCH_ACTION_MOVE,
-};
-
-class OSEvents {
+class IExtension {
 public:
-    static void InstallMods();
+    virtual void Initialise() = 0;
+    virtual void Release() = 0;
 };
 
-} // namespace Luna::Engine::Game
+} // namespace Luna::Engine
