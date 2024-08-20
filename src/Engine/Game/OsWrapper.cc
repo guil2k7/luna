@@ -1,10 +1,8 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/OsWrapper.hh>
-#include <Luna/Engine/Game/Addresses.hh>
 #include <Luna/Engine/Game/Main.hh>
 #include <Luna/Engine/Helpers.hh>
-#include <Luna/Engine/Hooker.hh>
 #include <vector>
 
 using namespace Luna::Engine;
@@ -63,16 +61,12 @@ enum eOsEventType {
 
 static CContext* Context = nullptr;
 
-static struct {
-    void (LUNA_STDCALL *InputEvent)(eOsEventType, void*);
-} Trampoline;
-
 static AND_TouchPoint* GetPoint(int trackNum) {
-    return &reinterpret_cast<AND_TouchPoint*>(GameAddress + GAME_ADDR_POINTS)[trackNum];
+    return &reinterpret_cast<AND_TouchPoint*>(GameAddress + 0x6E707C)[trackNum];
 }
 
-static void Hook_InputEvent(eOsEventType type, void* data) {
-    Trampoline.InputEvent(type, data);
+static void Hook_ApplicationEvent(eOsEventType type, void* data) {
+    CallFunction<void>(GameAddress + 0x5F54B9, type, data);
 
     switch (type) {
     case OSET_PointerButton: {
@@ -113,7 +107,7 @@ void OsEvent::InitialiseMods() {
 }
 
 void OsEvent::InstallMods() {
-    Trampoline.InputEvent = CHooker(GameAddress + GAME_ADDR_LIB_INPUTEVENT, Hook_InputEvent, true).Hook();
+    TakeAndReplace(GameAddress + 0x683724, Hook_ApplicationEvent);
 }
 
 void OsEvent::InitialiseExtensions() {
@@ -126,13 +120,14 @@ void OsEvent::AddExtension(IOsEventExtension* extension) {
 }
 
 void Game::ShowKeyboard() {
-    CallFunction<void, int>(GameAddress + GAME_ADDR_OS_KEYBOARDREQUEST, 1);
+    // CallFunction<void, int>(GameAddress + GAME_ADDR_OS_KEYBOARDREQUEST, 1);
 }
 
 void Game::HideKeyboard() {
-    CallFunction<void, int>(GameAddress + GAME_ADDR_OS_KEYBOARDREQUEST, 0);
+    // CallFunction<void, int>(GameAddress + GAME_ADDR_OS_KEYBOARDREQUEST, 0);
 }
 
 bool Game::IsKeyboardShown() {
-    return *reinterpret_cast<int*>(GameAddress + GAME_ADDR_KEYBOARDWASVISIBLE);
+    // return *reinterpret_cast<int*>(GameAddress + GAME_ADDR_KEYBOARDWASVISIBLE);
+    return false;
 }

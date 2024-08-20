@@ -1,7 +1,7 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/Ped.hh>
-#include <Luna/Engine/Game/Task/CTaskComplexDie.hh>
+#include <Luna/Engine/Game/Task/TaskComplexDie.hh>
 #include <algorithm>
 
 using namespace Luna::Engine::Game;

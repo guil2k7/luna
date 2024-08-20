@@ -2,9 +2,6 @@
 
 #pragma once
 
-#include "../Main.hh"
-#include "../Addresses.hh"
-#include "../../Helpers.hh"
 #include <cstddef>
 
 namespace Luna::Engine::Game {
@@ -14,9 +11,7 @@ public:
     CTask() = delete;
     ~CTask() = delete;
 
-    inline static void* operator new(size_t size) {
-        return CallFunction<void*, size_t>(GameAddress + GAME_ADDR_CTASK_OPERATOR_NEW, size);
-    }
+    static void* operator new(size_t size);
 };
 
 } // namespace Luna::Engine::Game

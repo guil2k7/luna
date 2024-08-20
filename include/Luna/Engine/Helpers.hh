@@ -27,13 +27,16 @@ uint8_t _PADDING_1(_padding, __LINE__)[size]
 namespace Luna::Engine {
 
 template<typename C, typename R, typename... Args>
-inline void* GetMethodPointer(R (C::*method)(Args...)) {
-    union {
-        void* ptr;
-        R (C::*method)(Args...);
-    } repr { .method = method };
+using MethodAsFunction = R (LUNA_THISCALL*)(C*, Args...);
 
-    return repr.ptr;
+template<typename C, typename R, typename... Args>
+inline MethodAsFunction<C, R, Args...> GetMethodPointer(R (C::*method)(Args...)) {
+    union {
+        R (C::*from)(Args...);
+        MethodAsFunction<C, R, Args...> into;
+    } repr { .from = method };
+
+    return repr.into;
 }
 
 template<typename R, typename... Args>
@@ -57,6 +60,14 @@ inline void FlushCache(void* address, size_t size) {
 template<typename T>
 inline bool IsFunctionInThumbMode(T val) {
     return reinterpret_cast<uintptr_t>(val) & 1;
+}
+
+template<typename T>
+inline T TakeAndReplace(void* addr, T newValue) {
+    T val = *reinterpret_cast<T*>(addr);
+    *reinterpret_cast<T*>(addr) = newValue;
+
+    return val;
 }
 
 void MakeNop(void* address, size_t size);

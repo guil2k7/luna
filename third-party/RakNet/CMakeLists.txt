@@ -33,3 +33,6 @@ target_include_directories(raknet INTERFACE Include PRIVATE Include/RakNet)
 if(THREAD_SAFE)
     target_compile_definitions(raknet PRIVATE _RAKNET_THREADSAFE=1)
 endif()
+
+# TODO: Remove this.
+target_link_libraries(raknet PRIVATE spdlog)

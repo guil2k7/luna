@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Task.hh"
+#include "../../Helpers.hh"
 
 namespace Luna::Engine::Game {
 
@@ -15,13 +16,5 @@ private:
 };
 
 VALIDATE_SIZE(CTaskSimplePlayerOnFoot, 0x34);
-
-inline CTaskSimplePlayerOnFoot* CTaskSimplePlayerOnFoot::Create() {
-    auto self = CTask::operator new(sizeof (CTaskSimplePlayerOnFoot));
-
-    CallMethod<void*>(GameAddress + GAME_ADDR_CTASKSIMPLEPLAYERONFOOT_CONSTRUCTOR, self);
-
-    return reinterpret_cast<CTaskSimplePlayerOnFoot*>(self);
-}
 
 } // namespace Luna::Engine::Game

@@ -11,10 +11,7 @@ public:
     CTaskManager() = delete;
     ~CTaskManager() = delete;
 
-    inline void SetTask(CTask* task, int index, bool unk) {
-        CallMethod<void, CTask*, int, bool>(
-            GameAddress + GAME_ADDR_CTASKMANAGER_SETTASK, this, task, index, unk);
-    }
+    void SetTask(CTask* task, int index, bool unk);
 };
 
 } // namespace Luna::Engine::Game

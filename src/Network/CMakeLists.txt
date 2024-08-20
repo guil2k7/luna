@@ -1,7 +1,8 @@
 set(LUNA_SOURCE_FILES
+    Components/LocalPlayer.cc
+    Components/RemotePlayer.cc
+
     Client.cc
-    LocalPlayer.cc
-    RemotePlayer.cc
 )
 
 add_library(LunaNetwork STATIC ${LUNA_SOURCE_FILES})

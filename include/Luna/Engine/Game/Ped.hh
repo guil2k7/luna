@@ -102,6 +102,7 @@ private:
     PADDING(516);
 
     static void _Assertions() {
+        VALIDATE_OFFSET(CPed, m_Intelligence, 0x440);
         VALIDATE_OFFSET(CPed, m_PedType, 0x59C);
         VALIDATE_OFFSET(CPed, m_MaxHealth, 0x548);
     }

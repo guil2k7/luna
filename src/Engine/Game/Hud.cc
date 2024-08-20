@@ -1,10 +1,8 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/Hud.hh>
-#include <Luna/Engine/Game/Addresses.hh>
 #include <Luna/Engine/Game/Main.hh>
 #include <Luna/Engine/Helpers.hh>
-#include <Luna/Engine/Hooker.hh>
 #include <vector>
 
 using namespace Luna::Engine;
@@ -26,11 +24,10 @@ void CHud::InitialiseMods() {
 }
 
 void CHud::InstallMods() {
-    Trampoline_DrawAfterFade = CHooker<decltype(Trampoline_DrawAfterFade)>(
-        GameAddress + GAME_ADDR_CHUD_DRAWAFTERFADE,
-        GetMethodPointer(&CHud::DrawAfterFade),
-        true
-    ).Hook();
+    Trampoline_DrawAfterFade = TakeAndReplace(
+        GameAddress + 0x683C6C,
+        GetMethodPointer(&CHud::DrawAfterFade)
+    );
 }
 
 void CHud::InitialiseExtensions() {

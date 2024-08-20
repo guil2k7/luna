@@ -1,9 +1,9 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/PlayerPed.hh>
+#include <Luna/Engine/Game/Main.hh>
 #include <Luna/Engine/Game/Pad.hh>
 #include <Luna/Engine/Game/World.hh>
-#include <Luna/Engine/Hooker.hh>
 
 using namespace Luna::Engine;
 using namespace Luna::Engine::Game;
@@ -16,41 +16,40 @@ static struct {
 } Trampoline;
 
 void CPlayerPed::InstallMods() {
-    Trampoline.SetupPlayerPed = CHooker(
-        GameAddress + GAME_ADDR_CPLAYERPED_SETUPPLAYERPED, CPlayerPed::SetupPlayerPed, true).Hook();
+    Trampoline.SetupPlayerPed = TakeAndReplace(GameAddress + 0x67E7AC, CPlayerPed::SetupPlayerPed);
 
-    Trampoline.Constructor = CHooker<decltype(Trampoline.Constructor)>(
-        GameAddress + GAME_ADDR_CPLAYERPED_CONSTRUCTOR,
-        GetMethodPointer(&CPlayerPed::Constructor),
-        true
-    ).Hook();
+    Trampoline.Constructor = TakeAndReplace(
+        GameAddress + 0x67F260,
+        GetMethodPointer(&CPlayerPed::Constructor)
+    );
 
-    Trampoline.GetPlayerInfoForThisPlayerPed = CHooker<decltype(Trampoline.GetPlayerInfoForThisPlayerPed)>(
-        GameAddress + GAME_ADDR_CPLAYERPED_GETPLAYERINFOFORTHISPLAYERPED,
-        GetMethodPointer(&CPlayerPed::GetPlayerInfoForThisPlayerPed),
-        true
-    ).Hook();
+    // vtable
+    TakeAndReplace(
+        GameAddress + 0x68560C,
+        GetMethodPointer(&CPlayerPed::Constructor)
+    );
 
-    Trampoline.ProcessControl = CHooker<decltype(Trampoline.ProcessControl)>(
-        GameAddress + GAME_ADDR_CPLAYERPED_PROCESSCONTROL,
-        GetMethodPointer(&CPlayerPed::ProcessControl),
-        true
-    ).Hook();
+    Trampoline.GetPlayerInfoForThisPlayerPed = TakeAndReplace(
+        GameAddress + 0x680068,
+        GetMethodPointer(&CPlayerPed::GetPlayerInfoForThisPlayerPed)
+    );
+
+    // vtable
+    Trampoline.ProcessControl = TakeAndReplace(
+        GameAddress + 0x6792A4,
+        GetMethodPointer(&CPlayerPed::ProcessControl)
+    );
 }
 
 CPlayerPed* CPlayerPed::Create(int id, bool groupCreated) {
     CPlayerPed* instance = reinterpret_cast<CPlayerPed*>(::operator new(sizeof (CPlayerPed)));
-
-    CallMethod<CPlayerPed*, int, bool>(
-        GameAddress + GAME_ADDR_CPLAYERPED_CONSTRUCTOR,
-        instance, id, groupCreated
-    );
+    instance->Constructor(id, groupCreated);
 
     return instance;
 }
 
 void CPlayerPed::Destroy(CPlayerPed* instance) {
-    CallMethod<void>(GameAddress + GAME_ADDR_CPLAYERPED_DESTRUCTOR, instance);
+    CallMethod<void>(GameAddress + 0x4D3901, instance);
     ::operator delete(instance);
 }
 
@@ -58,7 +57,7 @@ void CPlayerPed::SetupPlayerPed(int id) {
     Trampoline.SetupPlayerPed(id);
 
     if (id > 1)
-        CWorld::Players()[id].Ped->m_PedType = PEDTYPE_PLAYER_NETWORK;
+        CWorld::GetPlayerPed(id)->m_PedType = PEDTYPE_PLAYER_NETWORK;
 }
 
 CPlayerPed* CPlayerPed::Constructor(int id, bool groupCreated) {
@@ -70,13 +69,11 @@ CPlayerPed* CPlayerPed::Constructor(int id, bool groupCreated) {
 }
 
 CPlayerInfo* CPlayerPed::GetPlayerInfoForThisPlayerPed() {
-    return &CWorld::Players()[m_ID];
+    return &CWorld::GetPlayers()[m_ID];
 }
 
 void CPlayerPed::ProcessControl() {
     CSimplePad::SetCurrentFromID(m_ID);
 
     Trampoline.ProcessControl(this);
-
-    CSimplePad::CurrentPad = nullptr;
 }

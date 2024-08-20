@@ -7,8 +7,8 @@
 #include <RakNet/MTUSize.h>
 #include <RakNet/PacketEnumerations.h>
 #include <RakNet/RakNetworkFactory.h>
-#include <malloc.h>
 #include <spdlog/spdlog.h>
+#include <malloc.h>
 
 using namespace Luna;
 using namespace Luna::Network;
@@ -16,8 +16,6 @@ using namespace Luna::Serde;
 
 #define CLIENT_VERSION_LEGACY_037   4057
 #define CLIENT_VERSION_LEGACY_03DL  4062
-
-CClient* Network::client = nullptr;
 
 static inline CBitDeserialiser CreateDeserialiserFromPacket(RakNet::Packet const* packet) {
     return CBitDeserialiser(packet->data + 1, packet->bitSize - 8);
@@ -28,12 +26,15 @@ CClient::CClient() {
 
     m_RakPeer = RakNet::RakNetworkFactory::GetRakPeerInterface();
     m_State = CLIENT_STATE_DISCONNECTED;
-    m_RpcHandlers = new CRpcEventHandler[256];
+
+    m_RpcHandlers = new CRpcHandler[256];
+    m_PacketHandlers = new CPacketHandler[256 - RakNet::ID_USER_PACKET_ENUM];
 }
 
 CClient::~CClient() {
     RakNet::RakNetworkFactory::DestroyRakPeerInterface(m_RakPeer);
 
+    delete[] m_RpcHandlers;
     delete[] m_RpcHandlers;
 }
 
@@ -55,7 +56,7 @@ void CClient::Connect() {
     m_State = CLIENT_STATE_CONNECTING;
 }
 
-void CClient::Process() {
+void CClient::Update() {
     if (m_State == CLIENT_STATE_DISCONNECTED)
         return;
 
@@ -116,19 +117,48 @@ bool CClient::SendRPC(PacketID id, ISerialisable const& data, RakNet::PacketPrio
     );
 }
 
-bool CClient::RegisterHandlerForRPC(RakNet::RPCID id, CRpcEventHandler handler) {
-    if (m_RpcHandlers[id].Callback != nullptr)
+bool CClient::RegisterHandlerForPacket(PacketID id, CPacketHandler handler) {
+    if (id < RakNet::ID_USER_PACKET_ENUM)
         return false;
 
-    m_RpcHandlers[id].Callback = handler.Callback;
-    m_RpcHandlers[id].UserData = handler.UserData;
+    id -= RakNet::ID_USER_PACKET_ENUM;
+
+    if (m_PacketHandlers[id].Callback != nullptr)
+        return false;
+
+    m_PacketHandlers[id] = handler;
 
     return true;
 }
 
+bool CClient::RegisterHandlerForRPC(RakNet::RPCID id, CRpcHandler handler) {
+    if (m_RpcHandlers[id].Callback != nullptr)
+        return false;
+
+    m_RpcHandlers[id] = handler;
+
+    return true;
+}
+
+inline CPacketHandler* CClient::GetPacketHandler(PacketID packetID) {
+    size_t index = packetID - RakNet::ID_USER_PACKET_ENUM;
+
+    if (m_PacketHandlers[index].Callback == nullptr)
+        return nullptr;
+
+    return &m_PacketHandlers[index];
+}
+
+inline CRpcHandler* CClient::GetRpcHandler(RakNet::RPCID rpcID) {
+    if (m_RpcHandlers[rpcID].Callback == nullptr)
+        return nullptr;
+
+    return &m_RpcHandlers[rpcID];
+}
+
 void CClient::RetryConnect() {
     m_RakPeer->Connect(m_ConnectionParams.Host.data(), m_ConnectionParams.Port, nullptr, 0);
-    m_State = CLIENT_STATE_CONNECTING;
+    m_State = CLIENT_STATE_RETRYING;
 }
 
 void CClient::ProcessPacket(RakNet::Packet const* packet) {
@@ -137,15 +167,9 @@ void CClient::ProcessPacket(RakNet::Packet const* packet) {
         return;
     }
 
-    for (auto handler : m_PacketHandlers) {
-        if (handler->OnReceivePacket(
-            *this,
-            packet->data[0],
-            packet->data + 1,
-            packet->bitSize - 8
-        )) {
-            break;
-        }
+    if (packet->data[0] >= RakNet::ID_USER_PACKET_ENUM) {
+        ProcessUserPacket(packet);
+        return;
     }
 
     switch (packet->data[0]) {
@@ -185,6 +209,23 @@ void CClient::ProcessConnectionRequestAccepted(RakNet::Packet const* packet) {
     m_OurID = data.PlayerIndex;
 }
 
+void CClient::ProcessUserPacket(RakNet::Packet const* packet) {
+    PacketID packetID = packet->data[0];
+    CPacketHandler* handler = GetPacketHandler(packetID);
+
+    if (handler != nullptr) {
+        try {
+            handler->Callback(handler->UserData, *this, packet->data + 1, packet->bitSize - 8);
+        }
+        catch (std::exception& exception) {
+            spdlog::info("An exception occurred while processing a user packet ({}): {}", packetID, exception.what());
+        }
+    }
+    else {
+        spdlog::info("No packet handler found for ID: {}.", packetID);
+    }
+}
+
 void CClient::ProcessRPC(RakNet::Packet const* packet) {
     RakNet::BitStream bitStream(packet->data, BitsToBytes(packet->bitSize), false);
 
@@ -213,10 +254,13 @@ void CClient::ProcessRPC(RakNet::Packet const* packet) {
         bitStream.ReadBits(data, dataSizeInBits, false);
     }
 
-    if (m_RpcHandlers[rpcID].Callback != nullptr) {
+    CRpcHandler* handler = GetRpcHandler(rpcID);
+
+    if (handler != nullptr) {
+        spdlog::info("Processing RPC ID: {} ...", rpcID);
+
         try {
-            m_RpcHandlers[rpcID].Callback(
-                m_RpcHandlers[rpcID].UserData, *this, data, dataSizeInBits);
+            handler->Callback(handler->UserData, *this, data, dataSizeInBits);
         }
         catch (std::exception& exception) {
             spdlog::info("An exception occurred while processing a RPC ({}): {}", rpcID, exception.what());

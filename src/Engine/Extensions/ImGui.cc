@@ -92,11 +92,11 @@ void CImGuiExtension::OnPointerButton(eOsPointerState state, int x, int y) {
     io.MousePos = ImVec2(x, y);
 
     switch (state) {
-    case OSPS_BUTTON_UP:
+    case OSPS_BUTTON_RELEASED:
         io.MouseDown[0] = false;
         break;
 
-    case OSPS_BUTTON_DOWN:
+    case OSPS_BUTTON_PRESSED:
         io.MouseDown[0] = true;
         break;
 

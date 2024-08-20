@@ -1,4 +1,9 @@
 set(LUNA_SOURCE_FILES ${LUNA_SOURCE_FILES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Task/Task.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/Task/TaskComplexDie.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/Task/TaskManager.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/Task/TaskSimplePlayerOnFoot.cc
+
     ${CMAKE_CURRENT_SOURCE_DIR}/Game.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/Hud.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/Main.cc

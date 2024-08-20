@@ -826,11 +826,7 @@ Packet* RakPeer::Receive( void )
 {
 	Packet *packet = ReceiveIgnoreRPC();
 
-	#ifndef NDEBUG
-	if (packet) {
-	    RakAssert(packet->data[0] != ID_RPC_REPLY);
-	}
-	#endif
+	// RakAssert(packet && packet->data[0] != ID_RPC_REPLY);
 
     return packet;
 }

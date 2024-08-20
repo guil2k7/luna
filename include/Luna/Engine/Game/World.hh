@@ -13,8 +13,16 @@ public:
     CWorld() = delete;
     ~CWorld() = delete;
 
-    static CPlayerInfo* Players();
-    static CPlayerPed* GetPlayerPed(int id = 0);
+    static inline CPlayerInfo* GetPlayers() {
+        return Players;
+    }
+
+    static inline CPlayerPed* GetPlayerPed(int id = 0) {
+        return Players[id].Ped;
+    }
+
+private:
+    static CPlayerInfo* Players;
 };
 
 } // namespace Luna::Engine::Game

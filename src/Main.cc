@@ -5,6 +5,12 @@
 #include <Luna/Engine/Game/PlayerPed.hh>
 #include <Luna/Engine/Game/World.hh>
 
+#include <Luna/Network/Client.hh>
+#include <Luna/Network/Components/LocalPlayer.hh>
+#include <Luna/Network/Components/RemotePlayer.hh>
+
+#include <imgui_stdlib.h>
+
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/android_sink.h>
 
@@ -13,53 +19,62 @@
 using namespace Luna;
 using namespace Luna::Engine::Game;
 using namespace Luna::Engine::Extensions;
+using namespace Luna::Network;
+
+static CClient* Client = nullptr;
+
+static char const* CLIENT_STATES[] = {
+    "UNDEFINED",
+    "DISCONNECTED",
+    "CONNECTED",
+    "CONNECTING",
+    "RETRYING",
+};
+
+class CClientUpdater final : public IHudExtension {
+public:
+    void Initialise() {
+
+    }
+
+    void Release() {
+
+    }
+
+    void DrawAfterFade(CHud* hud) {
+        Client->Update();
+    }
+};
 
 class CDebugMenu final : public IImGuiWidget {
 public:
     CDebugMenu() {
-        strcpy(host, "192.168.1.14");
+        m_ConnectionParams.Nickname = "guil2k7_from_luna";
+        m_ConnectionParams.Host = "192.168.1.11";
+        m_ConnectionParams.Port = 7777;
     }
 
     void Render() {
-        ImGui::Begin("Debug Menu");
+        ImGui::Begin("Luna");
 
-        ImGui::InputText("IP or Host", host, sizeof host);
+        ImGui::Text("Connection State: %s", CLIENT_STATES[Client->GetState()]);
 
-        if (ImGui::Button("Connect")) {
-            // CConnectionParams connectionParams;
+        if (Client->GetState() == CLIENT_STATE_DISCONNECTED) {
+            ImGui::InputText("Nickname", &m_ConnectionParams.Nickname);
+            ImGui::InputText("Host", &m_ConnectionParams.Host);
+            ImGui::InputInt("Port", &m_ConnectionParams.Port);
 
-            // connectionParams.Nickname = "LunaMultiplayer";
-            // connectionParams.Host = std::string_view(host);
-            // connectionParams.Port = 7777;
-
-            // client->SetConnectionParams(connectionParams);
-            // client->Connect();
-        }
-
-        if (!gameMenu) {
-            if (ImGui::Button("In Game?"))
-                gameMenu = true;
-        }
-        else {
-            RenderGameMenu();
+            if (ImGui::Button("Connect")) {
+                Client->SetConnectionParams(m_ConnectionParams);
+                Client->Connect();
+            }
         }
 
         ImGui::End();
     }
 
-    void RenderGameMenu() {
-        CPlayerPed* mainPlayer = CWorld::GetPlayerPed();
-
-        ImGui::Text("Health: %.3f", mainPlayer->GetHealth());
-
-        if (ImGui::Button("Kill"))
-            mainPlayer->SetHealth(0.0f);
-    }
-
 private:
-    int id = 0;
-    bool gameMenu = false;
-    char host[128];
+    CConnectionParams m_ConnectionParams;
 };
 
 extern "C" jint JNI_OnLoad(JavaVM* vm, void* reserved) {
@@ -68,15 +83,21 @@ extern "C" jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 
     spdlog::set_default_logger(logger);
 
-    spdlog::info("Luna is loaded!");
+    spdlog::info("Luna is injected!");
     spdlog::info("  Version: {}.{}.{}", LUNA_VERSION_MAJOR, LUNA_VERSION_MINOR, LUNA_VERSION_PATCH);
 
     InitialiseMods();
     InstallMods();
 
+    Client = new CClient();
+    (new CLocalPlayerComponent)->Install(*Client);
+    (new CRemotePlayerComponent)->Install(*Client);
+
     auto imGuiExtension = CImGuiExtension::Get();
     imGuiExtension->Install();
     imGuiExtension->AddWidget(new CDebugMenu());
+
+    CHud::AddExtension(new CClientUpdater());
 
     InitialiseExtensions();
 

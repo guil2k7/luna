@@ -102,10 +102,13 @@ struct CRequestClass final : public Serde::ISerialisable {
     uint16_t ID;
 };
 
-struct CRequestSpawn final : public Serde::ISerialisable {
+struct CRequestSpawn final : public Serde::ISerialisable, Serde::IDeserialisable {
     LUNA_DEFINE_PACKET(true, 129)
 
     void Serialise(Serde::ISerialiser& serialiser) const;
+    void Deserialise(Serde::IDeserialiser& deserialiser);
+
+    int Allow;
 };
 
 struct CInitGame final : public Serde::IDeserialisable {

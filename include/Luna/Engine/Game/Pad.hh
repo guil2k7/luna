@@ -30,8 +30,6 @@ enum eSimplePadKey {
 
 /* NOTSA */
 struct CSimplePad {
-    static CSimplePad* CurrentPad;
-
     int16_t UpDown;
     int16_t LeftRight;
     uint16_t Keys;

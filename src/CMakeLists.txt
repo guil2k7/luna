@@ -14,6 +14,6 @@ set(LUNA_SOURCE_FILES
 add_library(Luna SHARED ${LUNA_SOURCE_FILES})
 target_link_libraries(Luna PRIVATE
     LunaEngine
-    # LunaSerde
-    # LunaNetwork
+    LunaSerde
+    LunaNetwork
 )

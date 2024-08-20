@@ -5,6 +5,7 @@
 #include "Task.hh"
 #include "../AnimManagerData.hh"
 #include "../WeaponInfo.hh"
+#include "../../Helpers.hh"
 
 namespace Luna::Engine::Game {
 
@@ -27,22 +28,5 @@ private:
 };
 
 VALIDATE_SIZE(CTaskComplexDie, 0x28);
-
-inline CTaskComplexDie* CTaskComplexDie::Create(
-    eWeaponType meansOfDeath, eAssocGroupID animGroup, eAnimationID animID,
-    float blendDelta, float animSpeed,
-    bool beingKilledByStealth, bool fallingToDeath,
-    int fallToDeathDir, bool fallToDeathOverRailing
-) {
-    auto self = CTask::operator new(sizeof (CTaskComplexDie));
-
-    CallMethod<void*, int, int, int, float, float, bool, bool, int, bool>(
-        GameAddress + GAME_ADDR_CTASKCOMPLEXDIE_CONSTRUCTOR, self,
-        meansOfDeath, animGroup, animID, blendDelta, animSpeed,
-        beingKilledByStealth, fallingToDeath, fallToDeathDir, fallingToDeath
-    );
-
-    return reinterpret_cast<CTaskComplexDie*>(self);
-}
 
 } // namespace Luna::Engine::Game

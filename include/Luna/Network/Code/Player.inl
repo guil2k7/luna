@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "../SerdeImplementations.hh"
+#include "../SerdeImpls.hh"
 
 namespace Luna::Network::Code {
 
@@ -115,6 +115,10 @@ inline void CRequestClass::Serialise(Serde::ISerialiser& serialiser) const {
 
 inline void CRequestSpawn::Serialise(Serde::ISerialiser& serialiser) const {
     // Nothing to serialise.
+}
+
+inline void CRequestSpawn::Deserialise(Serde::IDeserialiser& deserialiser) {
+    Allow = deserialiser.DeserialiseU8();
 }
 
 inline void CInitGame::Deserialise(Serde::IDeserialiser& deserialiser) {

@@ -7,6 +7,8 @@ set(SOURCE_FILES
     imconfig.h
     imgui_draw.cpp
     imgui_internal.h
+    imgui_stdlib.cpp
+    imgui_stdlib.h
     imgui_tables.cpp
     imgui_widgets.cpp
     imgui.cpp
