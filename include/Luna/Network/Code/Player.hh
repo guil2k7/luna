@@ -102,6 +102,20 @@ struct CRequestClass final : public Serde::ISerialisable {
     uint16_t ID;
 };
 
+struct CRequestClassResponse final : public Serde::IDeserialisable {
+    LUNA_DEFINE_PACKET(true, 128)
+
+    void Deserialise(Serde::IDeserialiser& deserialiser);
+
+    uint8_t Selectable;
+    uint8_t TeamID;
+    uint32_t ModelID;
+    Engine::Game::CVector Spawn;
+    float ZAngle;
+    uint32_t Weapons[3];
+    uint32_t Ammos[3];
+};
+
 struct CRequestSpawn final : public Serde::ISerialisable, Serde::IDeserialisable {
     LUNA_DEFINE_PACKET(true, 129)
 

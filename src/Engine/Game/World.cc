@@ -1,7 +1,7 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/World.hh>
-#include <Luna/Engine/Game/Main.hh>
+#include <Luna/Engine/Main.hh>
 
 using namespace Luna::Engine;
 using namespace Luna::Engine::Game;

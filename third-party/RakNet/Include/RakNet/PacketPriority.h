@@ -30,6 +30,8 @@ enum PacketPriority
 	NUMBER_OF_PRIORITIES
 };
 
+constexpr PacketPriority DEFAULT_PRIORITY = MEDIUM_PRIORITY;
+
 /// These enumerations are used to describe how packets are delivered.
 /// \note  Note to self: I write this with 3 bits in the stream.  If I add more remember to change that
 enum PacketReliability

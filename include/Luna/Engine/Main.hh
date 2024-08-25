@@ -4,7 +4,7 @@
 
 #include <cstdint>
 
-namespace Luna::Engine::Game {
+namespace Luna::Engine {
 
 extern uint8_t* GameAddress;
 
@@ -12,4 +12,4 @@ void InitialiseMods();
 void InstallMods();
 void InitialiseExtensions();
 
-} // namespace Luna::Engine::Game
+} // namespace Luna::Engine

@@ -1,6 +1,6 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
-#include <Luna/Engine/Game/Main.hh>
+#include <Luna/Engine/Main.hh>
 #include <Luna/Engine/Game/Game.hh>
 #include <Luna/Engine/Game/Hud.hh>
 #include <Luna/Engine/Game/OsWrapper.hh>
@@ -9,13 +9,16 @@
 #include <Luna/Engine/Game/RW.hh>
 #include <Luna/Engine/Game/World.hh>
 #include <Luna/Engine/Memory.hh>
+#include <Luna/Engine/Extensions/ImGui.hh>
 #include <spdlog/spdlog.h>
 #include <dlfcn.h>
 
+using namespace Luna;
 using namespace Luna::Engine;
+using namespace Luna::Engine::Extensions;
 using namespace Luna::Engine::Game;
 
-uint8_t* Game::GameAddress = nullptr;
+uint8_t* Engine::GameAddress = nullptr;
 
 static void GetGameAddress() {
     static void* libGTASAHandle;
@@ -45,7 +48,7 @@ static void RemoveWriteProtections() {
     ModifyMemoryProtection(GameAddress + 0x1A1780, 0x5E84E7 - 0x1A1780, PROTECTION_READ | PROTECTION_WRITE | PROTECTION_EXEC);
 }
 
-void Game::InitialiseMods() {
+void Engine::InitialiseMods() {
     GetGameAddress();
     RemoveWriteProtections();
 
@@ -55,7 +58,7 @@ void Game::InitialiseMods() {
     CPad::InitialiseMods();
 }
 
-void Game::InstallMods() {
+void Engine::InstallMods() {
     CGame::InstallMods();
     CHud::InstallMods();
     OsEvent::InstallMods();
@@ -64,7 +67,11 @@ void Game::InstallMods() {
     CWorld::InstallMods();
 }
 
-void Game::InitialiseExtensions() {
+void Engine::InitialiseExtensions() {
     CHud::InitialiseExtensions();
     OsEvent::InitialiseExtensions();
+
+    auto imGui = CImGuiExtension::Get();
+    imGui->Install();
+    imGui->Initialise();
 }

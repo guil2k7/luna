@@ -1,7 +1,4 @@
 set(LUNA_SOURCE_FILES
-    Components/LocalPlayer.cc
-    Components/RemotePlayer.cc
-
     Client.cc
 )
 

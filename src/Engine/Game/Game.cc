@@ -1,18 +1,46 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/Game.hh>
-#include <Luna/Engine/Game/Main.hh>
+#include <Luna/Engine/Main.hh>
 #include <Luna/Engine/Helpers.hh>
+#include <vector>
 
 using namespace Luna::Engine;
 using namespace Luna::Engine::Game;
 
-static int (LUNA_STDCALL *Trampoline_Init3)(char const*);
+struct CContext {
+    std::vector<IGameExtension*> Extensions;
 
-static int CGame_Init3(char const* param1) {
-    return Trampoline_Init3(param1);
+    CContext() {
+        Extensions.reserve(4);
+    }
+};
+
+static CContext* Context = nullptr;
+static bool (LUNA_STDCALL *Trampoline_Init3)(char const*);
+
+void CGame::InitialiseMods() {
+    Context = new CContext();
 }
 
 void CGame::InstallMods() {
-    Trampoline_Init3 = TakeAndReplace(GameAddress + 0x684308, CGame_Init3);
+    Trampoline_Init3 = TakeAndReplace(GameAddress + 0x684308, CGame::Init3);
+}
+
+void CGame::InitialiseExtensions() {
+    for (auto extension : Context->Extensions)
+        extension->Initialise();
+}
+
+void CGame::AddExtension(IGameExtension *extension) {
+    Context->Extensions.push_back(extension);
+}
+
+bool CGame::Init3(char const* datFile) {
+    bool returnValue = Trampoline_Init3(datFile);
+
+    for (auto extension : Context->Extensions)
+        extension->Init3();
+
+    return returnValue;
 }

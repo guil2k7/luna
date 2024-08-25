@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "../Main.hh"
 #include "Vector.hh"
 #include "../Helpers.hh"
 #include <cstdint>
@@ -29,13 +30,10 @@ enum eSimplePadKey {
 };
 
 /* NOTSA */
-struct CSimplePad {
+struct CNetworkPad {
     int16_t UpDown;
     int16_t LeftRight;
     uint16_t Keys;
-
-    static CSimplePad* GetFromID(int id);
-    static void SetCurrentFromID(int id);
 
     inline bool IsKeyPressed(eSimplePadKey key) const {
         return Keys & key;
@@ -125,6 +123,13 @@ public:
     bool SetSteeringMode : 8;
     bool SetTouchLayout : 8;
     CVector Accel;
+
+    static CNetworkPad* GetNetworkPadFromID(int id);
+    static void SetCurrentFromID(int id);
+
+    static inline CPad* GetPlayerPad() {
+        return reinterpret_cast<CPad*>(GameAddress + 0x969B1C);
+    }
 
     static void InitialiseMods();
     static void InstallMods();

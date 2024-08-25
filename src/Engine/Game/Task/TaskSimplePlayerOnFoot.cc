@@ -1,7 +1,7 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/Task/TaskSimplePlayerOnFoot.hh>
-#include <Luna/Engine/Game/Main.hh>
+#include <Luna/Engine/Main.hh>
 #include <Luna/Engine/Helpers.hh>
 
 using namespace Luna::Engine;

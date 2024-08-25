@@ -1,5 +1,5 @@
 #include <Luna/Engine/Game/RW.hh>
-#include <Luna/Engine/Game/Main.hh>
+#include <Luna/Engine/Main.hh>
 
 using namespace Luna::Engine;
 using namespace Luna::Engine::Game;

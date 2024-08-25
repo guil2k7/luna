@@ -121,6 +121,24 @@ inline void CRequestSpawn::Deserialise(Serde::IDeserialiser& deserialiser) {
     Allow = deserialiser.DeserialiseU8();
 }
 
+inline void CRequestClassResponse::Deserialise(Serde::IDeserialiser& deserialiser) {
+    Selectable = deserialiser.DeserialiseU8();
+    TeamID = deserialiser.DeserialiseU8();
+    ModelID = deserialiser.DeserialiseU32();
+    deserialiser.Deserialise(Spawn);
+
+    // Unknown.
+    deserialiser.DeserialiseU8();
+
+    ZAngle = deserialiser.DeserialiseF32();
+
+    for (size_t i = 0; i < 3; ++i)
+        Weapons[i] = deserialiser.DeserialiseU32();
+
+    for (size_t i = 0; i < 3; ++i)
+        Ammos[i] = deserialiser.DeserialiseU32();
+}
+
 inline void CInitGame::Deserialise(Serde::IDeserialiser& deserialiser) {
     ZoneNames = deserialiser.DeserialiseBool();
     UseCJWalk = deserialiser.DeserialiseBool();

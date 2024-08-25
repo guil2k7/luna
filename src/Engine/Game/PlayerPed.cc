@@ -1,7 +1,7 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Game/PlayerPed.hh>
-#include <Luna/Engine/Game/Main.hh>
+#include <Luna/Engine/Main.hh>
 #include <Luna/Engine/Game/Pad.hh>
 #include <Luna/Engine/Game/World.hh>
 
@@ -73,7 +73,7 @@ CPlayerInfo* CPlayerPed::GetPlayerInfoForThisPlayerPed() {
 }
 
 void CPlayerPed::ProcessControl() {
-    CSimplePad::SetCurrentFromID(m_ID);
+    CPad::SetCurrentFromID(m_ID);
 
     Trampoline.ProcessControl(this);
 }

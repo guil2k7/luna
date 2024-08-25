@@ -1,5 +1,6 @@
 set(LUNA_SOURCE_FILES
     Helpers.cc
+    Main.cc
     Memory.cc
 )
 
