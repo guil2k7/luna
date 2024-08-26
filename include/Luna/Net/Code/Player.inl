@@ -4,7 +4,7 @@
 
 #include "../SerdeImpls.hh"
 
-namespace Luna::Network::Code {
+namespace Luna::Net::Code {
 
 inline void CStatsUpdate::Serialise(Serde::ISerialiser& serialiser) const {
     serialiser.SerialiseI32(Money);
@@ -478,4 +478,4 @@ inline void CSetCameraLookAt::Deserialise(Serde::IDeserialiser& deserialiser) {
     CutType = deserialiser.DeserialiseU8();
 }
 
-} // namespace Luna::Network::Code
+} // namespace Luna::Net::Code

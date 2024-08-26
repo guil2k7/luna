@@ -1,17 +1,17 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
-#include <Luna/Multiplayer/RemotePlayer.hh>
+#include <Luna/NetGame/RemotePlayer.hh>
 #include <Luna/Engine/Game/PlayerPed.hh>
 #include <Luna/Engine/Game/Pad.hh>
 #include <Luna/Engine/Game/World.hh>
-#include <Luna/Network/Code/Player.hh>
+#include <Luna/Net/Code/Player.hh>
 #include <Luna/Serde/BitSerde.hh>
 
 using namespace Luna;
 using namespace Luna::Engine;
 using namespace Luna::Engine::Game;
-using namespace Luna::Network;
-using namespace Luna::Multiplayer;
+using namespace Luna::Net;
+using namespace Luna::NetGame;
 
 void CRemotePlayer::ProcessServerJoin(void* userData, CClient& client, uint8_t const* rawData, size_t bitSize) {
     Serde::CBitDeserialiser deserialiser(rawData, bitSize);

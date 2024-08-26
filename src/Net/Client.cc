@@ -1,7 +1,7 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
-#include <Luna/Network/Client.hh>
-#include <Luna/Network/Code/Core.hh>
+#include <Luna/Net/Client.hh>
+#include <Luna/Net/Code/Core.hh>
 #include <Luna/Serde/BitSerde.hh>
 #include <RakNet/BitStream.h>
 #include <RakNet/MTUSize.h>
@@ -11,7 +11,7 @@
 #include <malloc.h>
 
 using namespace Luna;
-using namespace Luna::Network;
+using namespace Luna::Net;
 using namespace Luna::Serde;
 
 #define CLIENT_VERSION_LEGACY_037   4057

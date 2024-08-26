@@ -1,4 +1,5 @@
 set(LUNA_SOURCE_FILES
+    Core.cc
     Class.cc
     LocalPlayer.cc
     Main.cc

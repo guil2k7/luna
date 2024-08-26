@@ -2,16 +2,22 @@
 
 #pragma once
 
-#include "../Network/Client.hh"
+#include "../Net/Client.hh"
 
-namespace Luna::Multiplayer {
+namespace Luna::NetGame {
 
+class CCore;
 class CClassManager;
 class CLocalPlayer;
 class CRemotePlayer;
 
-struct CMultiplayerContext {
-    Network::CClient* Client;
+class CMultiplayerContext {
+public:
+    virtual ~CMultiplayerContext() = default;
+
+    Net::CClient* Client;
+
+    CCore* Core;
     CClassManager* ClassManager;
     CLocalPlayer* LocalPlayer;
     CRemotePlayer* RemotePlayer;
@@ -21,4 +27,4 @@ extern CMultiplayerContext* Context;
 
 void Initialise();
 
-} // namespace Luna::Multiplayer
+} // namespace Luna::NetGame

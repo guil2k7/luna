@@ -1,18 +1,19 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
-#include <Luna/Multiplayer/Class.hh>
-#include <Luna/Multiplayer/Main.hh>
+#include <Luna/NetGame/Class.hh>
+#include <Luna/NetGame/Main.hh>
 #include <Luna/Engine/Game/Pad.hh>
 #include <Luna/Engine/Game/PlayerPed.hh>
 #include <Luna/Engine/Game/World.hh>
-#include <Luna/Network/Client.hh>
-#include <Luna/Network/Code/Player.hh>
+#include <Luna/Net/Client.hh>
+#include <Luna/Net/Code/Player.hh>
 #include <Luna/Serde/BitSerde.hh>
+#include <imgui.h>
 
 using namespace Luna::Engine;
 using namespace Luna::Engine::Game;
-using namespace Luna::Multiplayer;
-using namespace Luna::Network;
+using namespace Luna::NetGame;
+using namespace Luna::Net;
 using namespace Luna::Serde;
 
 void CSpawnScreen::RequestNextClass() {
@@ -21,10 +22,7 @@ void CSpawnScreen::RequestNextClass() {
     if (CurrentClassID == MaxClassID)
         CurrentClassID = 0;
 
-    Code::CRequestClass data;
-    data.ID = CurrentClassID;
-
-    Context->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::RELIABLE_ORDERED);
+    RequestCurrentClass();
 }
 
 void CSpawnScreen::RequestPreviousClass() {
@@ -33,15 +31,19 @@ void CSpawnScreen::RequestPreviousClass() {
     else
         CurrentClassID -= 1;
 
+    RequestCurrentClass();
+}
+
+void CSpawnScreen::RequestCurrentClass() {
     Code::CRequestClass data;
     data.ID = CurrentClassID;
 
-    Context->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::RELIABLE_ORDERED);
+    Context->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::RELIABLE_SEQUENCED);
 }
 
 void CSpawnScreen::RequestSpawn() {
     Code::CRequestSpawn data;
-    Context->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::RELIABLE_ORDERED);
+    Context->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::RELIABLE_SEQUENCED);
 }
 
 void CSpawnScreen::Render() {
@@ -90,14 +92,14 @@ void CClassManager::ProcessRequestSpawnResponse(
 
     CClassManager* manager = static_cast<CClassManager*>(userData);
 
-    if (data.Allow == 2)
+    if (data.Allow > 0)
         manager->OnSpawn();
     else
         manager->OnSpawnFail();
 }
 
 void CClassManager::Install() {
-    Context->Client->RegisterHandlerForRPC(Code::CRequestClass::PACKET_ID, {ProcessClassRequestResponse, this});
+    Context->Client->RegisterHandlerForRPC(Code::CRequestClassResponse::PACKET_ID, {ProcessClassRequestResponse, this});
     Context->Client->RegisterHandlerForRPC(Code::CRequestSpawn::PACKET_ID, {ProcessRequestSpawnResponse, this});
 
     Context->ClassManager = this;
@@ -116,6 +118,8 @@ void CClassManager::HandleClassSelection() {
     pad->DisablePlayerControls = 1;
 
     m_SpawnScreen.CurrentClassID = 0;
+    m_SpawnScreen.RequestCurrentClass();
+
     m_ShowSpawnScreen = true;
 }
 
@@ -123,9 +127,16 @@ void CClassManager::OnClassChange(CClass& klass) {
     
 }
 
+void CClassManager::ConfirmSpawn() {
+    Code::CSendSpawn data;
+    Context->Client->Send(data, RakNet::HIGH_PRIORITY, RakNet::RELIABLE_SEQUENCED);
+}
+
 void CClassManager::OnSpawn() {
     CPad* pad = CPad::GetPlayerPad();
     pad->DisablePlayerControls = 0;
+
+    ConfirmSpawn();
 }
 
 void CClassManager::OnSpawnFail() {

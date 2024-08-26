@@ -53,6 +53,7 @@ void Engine::InitialiseMods() {
     RemoveWriteProtections();
 
     CRenderWare::LoadLibrary();
+    CGame::InitialiseMods();
     CHud::InitialiseMods();
     OsEvent::InitialiseMods();
     CPad::InitialiseMods();
@@ -68,6 +69,7 @@ void Engine::InstallMods() {
 }
 
 void Engine::InitialiseExtensions() {
+    CGame::InitialiseExtensions();
     CHud::InitialiseExtensions();
     OsEvent::InitialiseExtensions();
 

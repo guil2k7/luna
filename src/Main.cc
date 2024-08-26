@@ -1,7 +1,7 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Engine/Main.hh>
-#include <Luna/Multiplayer/Main.hh>
+#include <Luna/NetGame/Main.hh>
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/android_sink.h>
 #include <jni.h>
@@ -23,9 +23,10 @@ extern "C" jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 
     Engine::InitialiseMods();
     Engine::InstallMods();
-    Engine::InitialiseExtensions();
 
-    Multiplayer::Initialise();
+    NetGame::Initialise();
+
+    Engine::InitialiseExtensions();
 
     return JNI_VERSION_1_4;
 }

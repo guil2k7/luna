@@ -10,7 +10,7 @@
 #include <string>
 #include <cstdint>
 
-namespace Luna::Network::Code {
+namespace Luna::Net::Code {
 
 enum eServerQuitReason : uint8_t {
     SERVER_QUIT_REASON_TIMEOUT,
@@ -641,6 +641,6 @@ struct CSetCameraLookAt final : public Serde::IDeserialisable {
     uint8_t CutType;
 };
 
-} // namespace Luna::Network::Code
+} // namespace Luna::Net::Code
 
 #include "Player.inl"

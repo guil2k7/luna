@@ -2,7 +2,7 @@
 
 #pragma once
 
-namespace Luna::Network::Code {
+namespace Luna::Net::Code {
 
 inline void CConnectionRequestAccepted::Deserialise(Serde::IDeserialiser& deserialiser) {
     deserialiser.SkipBytes(6);
@@ -26,4 +26,4 @@ inline void CClientLogin::Serialise(Serde::ISerialiser& serialiser) const {
     serialiser.SerialiseU32(ClientChallengeResponse);
 }
 
-} // namespace Luna::Network::Code
+} // namespace Luna::Net::Code

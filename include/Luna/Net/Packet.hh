@@ -4,7 +4,7 @@
 
 #include <cstdint>
 
-namespace Luna::Network {
+namespace Luna::Net {
 
 typedef uint8_t PacketID;
 
@@ -22,4 +22,4 @@ inline constexpr PacketID GetPacketID() {
     return T::PACKET_ID;
 }
 
-} // namespace Luna::Network
+} // namespace Luna::Net

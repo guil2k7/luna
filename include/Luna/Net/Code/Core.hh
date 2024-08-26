@@ -8,7 +8,7 @@
 #include <string_view>
 #include <cstdint>
 
-namespace Luna::Network::Code {
+namespace Luna::Net::Code {
 
 struct CConnectionRequestAccepted final : public Serde::IDeserialisable {
     LUNA_DEFINE_PACKET(false, 34)
@@ -32,6 +32,6 @@ struct CClientLogin final : public Serde::ISerialisable {
     std::string_view ClientVersionString;
 };
 
-} // namespace Luna::Network::Code
+} // namespace Luna::Net::Code
 
 #include "Core.inl"

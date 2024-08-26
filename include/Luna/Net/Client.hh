@@ -7,7 +7,7 @@
 #include <RakNet/RakPeerInterface.h>
 #include <string>
 
-namespace Luna::Network {
+namespace Luna::Net {
 
 class CClient;
 
@@ -93,4 +93,4 @@ inline bool CClient::Send(T const& packet, RakNet::PacketPriority priority, RakN
     }
 }
 
-} // namespace Luna::Network
+} // namespace Luna::Net
