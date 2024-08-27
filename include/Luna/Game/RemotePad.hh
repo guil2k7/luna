@@ -28,15 +28,19 @@ enum eRemotePadKey {
 struct CRemotePad {
     int id;
 
-    int16_t UpDown;
-    int16_t LeftRight;
-    uint16_t Keys;
+    int16_t UpDown = 0;
+    int16_t LeftRight = 0;
+    uint16_t Keys = 0;
 
     inline bool IsKeyPressed(eRemotePadKey key) const {
         return Keys & key;
     }
 
-    inline void Clear() {
+    inline void PressKey(eRemotePadKey key) {
+        Keys |= key;
+    }
+
+    inline void ClearKeys() {
         UpDown = 0;
         LeftRight = 0;
         Keys = 0;

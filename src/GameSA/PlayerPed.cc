@@ -79,4 +79,6 @@ void CPlayerPed::ProcessControl() {
     CPad::SetRemotePadAsCurrent(&m_RemotePad);
 
     Trampoline.ProcessControl(this);
+
+    m_RemotePad.ClearKeys();
 }

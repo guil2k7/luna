@@ -145,6 +145,8 @@ void CClassManager::OnSpawn() {
     pad->DisablePlayerControls = 0;
 
     ConfirmSpawn();
+
+    m_ShowSpawnScreen = false;
 }
 
 void CClassManager::OnSpawnFail() {

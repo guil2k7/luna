@@ -19,7 +19,7 @@ static struct {
     bool (LUNA_THISCALL *SwimJumpJustDown)(CPad*);
     int (LUNA_THISCALL *MeleeAttackJustDown)(CPad*);
     bool (LUNA_THISCALL *GetAbortClimb)(CPad*);
-    int (LUNA_THISCALL *DuckJustDown)(CPad*);
+    bool (LUNA_THISCALL *DuckJustDown)(CPad*);
     int (LUNA_THISCALL *GetBlock)(CPad*);
     int (LUNA_THISCALL *GetSteeringLeftRight)(CPad*);
     int (LUNA_THISCALL *GetSteeringUpDown)(CPad*);
@@ -52,7 +52,7 @@ static LUNA_THISCALL int Hook_GetPedWalkUpDown(CPad* self) {
 static LUNA_THISCALL bool Hook_GetSprint(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.GetSprint(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_SPRINT;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_SPRINT);
             return true;
         }
 
@@ -65,7 +65,7 @@ static LUNA_THISCALL bool Hook_GetSprint(CPad* self) {
 static LUNA_THISCALL bool Hook_GetJump(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.GetJump(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_JUMP;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_JUMP);
             return true;
         }
 
@@ -78,7 +78,7 @@ static LUNA_THISCALL bool Hook_GetJump(CPad* self) {
 static LUNA_THISCALL bool Hook_JumpJustDown(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.JumpJustDown(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_JUMP;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_JUMP);
             return true;
         }
 
@@ -91,7 +91,7 @@ static LUNA_THISCALL bool Hook_JumpJustDown(CPad* self) {
 static LUNA_THISCALL bool Hook_GetAutoClimb(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.GetAutoClimb(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_JUMP;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_JUMP);
             return true;
         }
 
@@ -104,7 +104,7 @@ static LUNA_THISCALL bool Hook_GetAutoClimb(CPad* self) {
 static bool LUNA_THISCALL Hook_DiveJustDown(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.DiveJustDown(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_SECONDARY_ATTACK;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_SECONDARY_ATTACK);
             return true;
         }
 
@@ -117,7 +117,7 @@ static bool LUNA_THISCALL Hook_DiveJustDown(CPad* self) {
 static LUNA_THISCALL bool Hook_SwimJumpJustDown(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.SwimJumpJustDown(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_JUMP;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_JUMP);
             return true;
         }
 
@@ -132,7 +132,7 @@ static LUNA_THISCALL int Hook_MeleeAttackJustDown(CPad* self) {
         int val = Trampoline.MeleeAttackJustDown(self);
 
         if (val != 0)
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_SECONDARY_ATTACK;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_SECONDARY_ATTACK);
 
         return val;
     }
@@ -143,7 +143,7 @@ static LUNA_THISCALL int Hook_MeleeAttackJustDown(CPad* self) {
 static LUNA_THISCALL bool Hook_GetAbortClimb(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.GetAbortClimb(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_SECONDARY_ATTACK;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_SECONDARY_ATTACK);
             return true;
         }
 
@@ -153,10 +153,10 @@ static LUNA_THISCALL bool Hook_GetAbortClimb(CPad* self) {
     return CurrentRemotePad->IsKeyPressed(REMOTE_PAD_KEY_SECONDARY_ATTACK);
 }
 
-static LUNA_THISCALL int Hook_DuckJustDown(CPad* self) {
+static LUNA_THISCALL bool Hook_DuckJustDown(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.DuckJustDown(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_CROUCH;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_CROUCH);
             return true;
         }
 
@@ -169,7 +169,7 @@ static LUNA_THISCALL int Hook_DuckJustDown(CPad* self) {
 static LUNA_THISCALL int Hook_GetBlock(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.GetBlock(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_HANDBRAKE;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_HANDBRAKE);
             return true;
         }
 
@@ -198,7 +198,7 @@ static LUNA_THISCALL int Hook_GetAccelerate(CPad* self) {
         int val = Trampoline.GetAccelerate(self);
 
         if (val != 0)
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_SPRINT;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_SPRINT);
 
         return val;
     }
@@ -211,7 +211,7 @@ static LUNA_THISCALL int Hook_GetBrake(CPad* self) {
         int val = Trampoline.GetBrake(self);
 
         if (val != 0)
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_JUMP;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_JUMP);
 
         return val;
     }
@@ -224,7 +224,7 @@ static LUNA_THISCALL int Hook_GetHandBrake(CPad* self) {
         int val = Trampoline.GetHandBrake(self);
 
         if (val != 0)
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_HANDBRAKE;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_HANDBRAKE);
 
         return val;
     }
@@ -235,7 +235,7 @@ static LUNA_THISCALL int Hook_GetHandBrake(CPad* self) {
 static LUNA_THISCALL bool Hook_GetHorn(CPad* self) {
     if (CurrentRemotePad->id == 0) {
         if (Trampoline.GetHorn(self)) {
-            CurrentRemotePad->Keys |= REMOTE_PAD_KEY_CROUCH;
+            CurrentRemotePad->PressKey(REMOTE_PAD_KEY_CROUCH);
             return true;
         }
 
