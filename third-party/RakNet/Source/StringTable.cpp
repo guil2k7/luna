@@ -10,7 +10,7 @@ using namespace RakNet;
 StringTable* StringTable::instance=0;
 int StringTable::referenceCount=0;
 
-int StrAndBoolComp( char *const &key, const StrAndBool &data )
+int RakNet::StrAndBoolComp( char *const &key, const StrAndBool &data )
 {
 	return strcmp(key,(const char*)data.str);
 }

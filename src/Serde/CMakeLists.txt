@@ -1,7 +1,7 @@
-set(LUNA_SOURCE_FILES
-    Deserialiser.cc
-    BitDeserialiser.cc
-    BitSerialiser.cc
-)
+set(LUNA_SOURCE_FILES ${LUNA_SOURCE_FILES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Deserialiser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/BitDeserialiser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/BitSerialiser.cc
 
-add_library(LunaSerde STATIC ${LUNA_SOURCE_FILES})
+    PARENT_SCOPE
+)
