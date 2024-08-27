@@ -12,12 +12,12 @@ static struct {
     int (LUNA_THISCALL *GetPedWalkUpDown)(CPad*);
     bool (LUNA_THISCALL *GetSprint)(CPad*);
     bool (LUNA_THISCALL *GetJump)(CPad*);
-    int (LUNA_THISCALL *JumpJustDown)(CPad*);
-    int (LUNA_THISCALL *GetAutoClimb)(CPad*);
+    bool (LUNA_THISCALL *JumpJustDown)(CPad*);
+    bool (LUNA_THISCALL *GetAutoClimb)(CPad*);
     bool (LUNA_THISCALL *DiveJustDown)(CPad*);
-    int (LUNA_THISCALL *SwimJumpJustDown)(CPad*);
+    bool (LUNA_THISCALL *SwimJumpJustDown)(CPad*);
     int (LUNA_THISCALL *MeleeAttackJustDown)(CPad*);
-    int (LUNA_THISCALL *GetAbortClimb)(CPad*);
+    bool (LUNA_THISCALL *GetAbortClimb)(CPad*);
     int (LUNA_THISCALL *DuckJustDown)(CPad*);
     int (LUNA_THISCALL *GetBlock)(CPad*);
     int (LUNA_THISCALL *GetSteeringLeftRight)(CPad*);
@@ -25,159 +25,228 @@ static struct {
     int (LUNA_THISCALL *GetAccelerate)(CPad*);
     int (LUNA_THISCALL *GetBrake)(CPad*);
     int (LUNA_THISCALL *GetHandBrake)(CPad*);
-    int (LUNA_THISCALL *GetHorn)(CPad*);
-    int (LUNA_THISCALL *ExitVehicleJustDown)(CPad* self, bool checkTouch, void* vehicle, bool entering, CVector* vecVehicle);
+    bool (LUNA_THISCALL *GetHorn)(CPad*);
 } Trampoline;
 
-static CNetworkPad* CurrentNetworkPad = nullptr;
-static int CurrentNetworkPadID = 0;
+static CBasicPad* CurrentBasicPad = nullptr;
+static CBasicPad* MainPlayerBasicPad = nullptr;
 
-static CNetworkPad* NetworkPads = nullptr;
-
-CNetworkPad* CPad::GetNetworkPadFromID(int id) {
-    return &NetworkPads[id];
+void CPad::SetCurrent(CBasicPad* pad) {
+    CurrentBasicPad = pad;
 }
 
-void CPad::SetCurrentFromID(int id) {
-    CurrentNetworkPad = &NetworkPads[id];
-    CurrentNetworkPadID = id;
+void CPad::SetMainPlayerPad(CBasicPad *pad) {
+    MainPlayerBasicPad = pad;
 }
 
 static LUNA_THISCALL int Hook_GetPedWalkLeftRight(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetPedWalkLeftRight(self);
+    if (CurrentBasicPad == MainPlayerBasicPad)
+        MainPlayerBasicPad->LeftRight = Trampoline.GetPedWalkLeftRight(self);
 
-    return CurrentNetworkPad->LeftRight;
+    return CurrentBasicPad->LeftRight;
 }
 
 static LUNA_THISCALL int Hook_GetPedWalkUpDown(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetPedWalkUpDown(self);
+    if (CurrentBasicPad == MainPlayerBasicPad)
+        MainPlayerBasicPad->UpDown = Trampoline.GetPedWalkUpDown(self);
 
-    return CurrentNetworkPad->UpDown;
+    return CurrentBasicPad->UpDown;
 }
 
 static LUNA_THISCALL bool Hook_GetSprint(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetSprint(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.GetSprint(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_SPRINT;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_SPRINT);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_SPRINT);
 }
 
 static LUNA_THISCALL bool Hook_GetJump(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetJump(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.GetJump(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_JUMP;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_JUMP);
 }
 
-static LUNA_THISCALL int Hook_JumpJustDown(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.JumpJustDown(self);
+static LUNA_THISCALL bool Hook_JumpJustDown(CPad* self) {
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.JumpJustDown(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_JUMP;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_JUMP);
 }
 
-static LUNA_THISCALL int Hook_GetAutoClimb(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetAutoClimb(self);
+static LUNA_THISCALL bool Hook_GetAutoClimb(CPad* self) {
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.GetAutoClimb(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_JUMP;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_JUMP);
 }
 
 static bool LUNA_THISCALL Hook_DiveJustDown(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.DiveJustDown(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.DiveJustDown(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_SECONDARY_ATTACK;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_SECONDARY_ATTACK);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_SECONDARY_ATTACK);
 }
 
-static LUNA_THISCALL int Hook_SwimJumpJustDown(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.SwimJumpJustDown(self);
+static LUNA_THISCALL bool Hook_SwimJumpJustDown(CPad* self) {
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.SwimJumpJustDown(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_JUMP;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_JUMP);
 }
 
 static LUNA_THISCALL int Hook_MeleeAttackJustDown(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.MeleeAttackJustDown(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        int val = Trampoline.MeleeAttackJustDown(self);
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_SECONDARY_ATTACK);
+        if (val != 0)
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_SECONDARY_ATTACK;
+
+        return val;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_SECONDARY_ATTACK);
 }
 
-static LUNA_THISCALL int Hook_GetAbortClimb(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetAbortClimb(self);
+static LUNA_THISCALL bool Hook_GetAbortClimb(CPad* self) {
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.GetAbortClimb(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_SECONDARY_ATTACK;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_SECONDARY_ATTACK);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_SECONDARY_ATTACK);
 }
 
 static LUNA_THISCALL int Hook_DuckJustDown(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.DuckJustDown(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.DuckJustDown(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_CROUCH;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_CROUCH);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_CROUCH);
 }
 
 static LUNA_THISCALL int Hook_GetBlock(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetBlock(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.GetBlock(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_HANDBRAKE;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_HANDBRAKE);
+        return false;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_HANDBRAKE);
 }
 
 static LUNA_THISCALL int Hook_GetSteeringLeftRight(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetSteeringLeftRight(self);
+    if (CurrentBasicPad == MainPlayerBasicPad)
+        MainPlayerBasicPad->LeftRight = Trampoline.GetSteeringLeftRight(self);
 
-    return CurrentNetworkPad->LeftRight;
+    return CurrentBasicPad->LeftRight;
 }
 
 static LUNA_THISCALL int Hook_GetSteeringUpDown(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetSteeringUpDown(self);
+    if (CurrentBasicPad == MainPlayerBasicPad)
+        MainPlayerBasicPad->UpDown = Trampoline.GetSteeringUpDown(self);
 
-    return CurrentNetworkPad->UpDown;
+    return CurrentBasicPad->UpDown;
 }
 
 static LUNA_THISCALL int Hook_GetAccelerate(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetAccelerate(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        int val = Trampoline.GetAccelerate(self);
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_SPRINT) ? 0xFF : 0;
+        if (val != 0)
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_SPRINT;
+
+        return val;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_SPRINT) ? 0xFF : 0;
 }
 
 static LUNA_THISCALL int Hook_GetBrake(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetBrake(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        int val = Trampoline.GetBrake(self);
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_JUMP) ? 0xFF : 0;
+        if (val != 0)
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_JUMP;
+
+        return val;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_JUMP) ? 0xFF : 0;
 }
 
 static LUNA_THISCALL int Hook_GetHandBrake(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetHandBrake(self);
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        int val = Trampoline.GetHandBrake(self);
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_HANDBRAKE) ? 0xFF : 0;
+        if (val != 0)
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_HANDBRAKE;
+
+        return val;
+    }
+
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_HANDBRAKE) ? 0xFF : 0;
 }
 
-static LUNA_THISCALL int Hook_GetHorn(CPad* self) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.GetHorn(self);
+static LUNA_THISCALL bool Hook_GetHorn(CPad* self) {
+    if (CurrentBasicPad == MainPlayerBasicPad) {
+        if (Trampoline.GetHorn(self)) {
+            MainPlayerBasicPad->Keys |= BASIC_PAD_KEY_CROUCH;
+            return true;
+        }
 
-    return CurrentNetworkPad->IsKeyPressed(SIMPLE_PAD_KEY_CROUCH);
-}
+        return false;
+    }
 
-static LUNA_THISCALL int Hook_ExitVehicleJustDown(CPad* self, bool checkTouch, void* vehicle, bool entering, CVector* vecVehicle) {
-    if (CurrentNetworkPadID == 0)
-        return Trampoline.ExitVehicleJustDown(self, checkTouch, vehicle, entering, vecVehicle);
-
-    return 0;
-}
-
-void CPad::InitialiseMods() {
-    NetworkPads = new CNetworkPad[1000];
+    return CurrentBasicPad->IsKeyPressed(BASIC_PAD_KEY_CROUCH);
 }
 
 void CPad::InstallMods() {
@@ -199,5 +268,4 @@ void CPad::InstallMods() {
     Trampoline.GetBrake = TakeAndReplace(GameAddress + 0x67EBD4, Hook_GetBrake);
     Trampoline.GetHandBrake = TakeAndReplace(GameAddress + 0x680530, Hook_GetHandBrake);
     Trampoline.GetHorn = TakeAndReplace(GameAddress + 0x683020, Hook_GetHorn);
-    Trampoline.ExitVehicleJustDown = TakeAndReplace(GameAddress + 0x67EB80, Hook_ExitVehicleJustDown);
 }

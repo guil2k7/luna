@@ -11,7 +11,7 @@ public:
     void Install();
 
 private:
-    static void ProcessOnFootSync(void* UserData, Net::CClient& client, uint8_t const* rawData, size_t bitSize);
+    static void ProcessFootSync(void* UserData, Net::CClient& client, uint8_t const* rawData, size_t bitSize);
     static void ProcessServerJoin(void* UserData, Net::CClient& client, uint8_t const* rawData, size_t bitSize);
 };
 

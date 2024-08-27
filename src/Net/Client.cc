@@ -1,7 +1,6 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <Luna/Net/Client.hh>
-#include <Luna/Net/Code/Core.hh>
 #include <Luna/Serde/BitSerde.hh>
 #include <RakNet/BitStream.h>
 #include <RakNet/MTUSize.h>
@@ -17,8 +16,68 @@ using namespace Luna::Serde;
 #define CLIENT_VERSION_LEGACY_037   4057
 #define CLIENT_VERSION_LEGACY_03DL  4062
 
+struct CClientLogin final : public Serde::ISerialisable {
+    LUNA_DEFINE_PACKET(true, 25)
+
+    void Serialise(Serde::ISerialiser& serialiser) const override {
+        serialiser.SerialiseU32(ClientVersion);
+        serialiser.SerialiseU8(Modded);
+        serialiser.SerialiseU8(Nickname.length());
+        serialiser.SerialiseBytes(reinterpret_cast<uint8_t const*>(Nickname.data()), Nickname.length());
+        serialiser.SerialiseU32(ClientChallengeResponse);
+        serialiser.SerialiseU8(Auth.length());
+        serialiser.SerialiseBytes(reinterpret_cast<uint8_t const*>(Auth.data()), Auth.length());
+        serialiser.SerialiseU8(ClientVersionString.length());
+        serialiser.SerialiseBytes(reinterpret_cast<uint8_t const*>(ClientVersionString.data()), ClientVersionString.length());
+
+        // Official clients send the challenge again at the end,
+        // while other clients do not.
+        serialiser.SerialiseU32(ClientChallengeResponse);
+    }
+
+    uint32_t ClientVersion;
+    uint8_t Modded;
+    std::string_view Nickname;
+    uint32_t ClientChallengeResponse;
+    std::string_view Auth;
+    std::string_view ClientVersionString;
+};
+
+struct CConnectionRequestAccepted final : public Serde::IDeserialisable {
+    LUNA_DEFINE_PACKET(false, 34)
+
+    void Deserialise(Serde::IDeserialiser& deserialiser) override {
+        deserialiser.SkipBytes(6);
+        
+        PlayerIndex = deserialiser.DeserialiseU16();
+        SampToken = deserialiser.DeserialiseU32();
+    }
+
+    RakNet::PlayerIndex PlayerIndex;
+    uint32_t SampToken;
+};
+
 static inline CBitDeserialiser CreateDeserialiserFromPacket(RakNet::Packet const* packet) {
     return CBitDeserialiser(packet->data + 1, packet->bitSize - 8);
+}
+
+static int GetPacketID(RakNet::Packet const* packet) {
+    if (packet->data[0] == RakNet::ID_TIMESTAMP)
+        return packet->data[1 + 4];
+
+    return packet->data[0];
+}
+
+static int SkipPacketID(RakNet::BitStream& bitStream) {
+    uint8_t packetID;
+    bitStream.Read<uint8_t>(packetID);
+
+    if (packetID == RakNet::ID_TIMESTAMP) {
+        bitStream.IgnoreBits(sizeof (RakNet::RakNetTime) * 8);
+        bitStream.Read<uint8_t>(packetID);
+    }
+
+    return packetID;
 }
 
 CClient::CClient() {
@@ -67,7 +126,7 @@ void CClient::Update() {
             ProcessPacket(packet);
         }
         catch (std::exception& exception) {
-            spdlog::info("An exception occurred while processing a packet (ID: {}): {}", packet->data[0], exception.what());
+            spdlog::info("An exception occurred while processing the packet {}: {}", packet->data[0], exception.what());
         }
 
         m_RakPeer->DeallocatePacket(packet);
@@ -85,7 +144,7 @@ bool CClient::SendPacket(PacketID id, ISerialisable const& data, RakNet::PacketP
         serialiser.Serialise(data);
     }
     catch (CSerdeException& exception) {
-        spdlog::info("{}", exception.what());
+        spdlog::info("An exception occurred while sending the packet {}: {}", id, exception.what());
     }
 
     return m_RakPeer->Send(
@@ -105,7 +164,7 @@ bool CClient::SendRPC(PacketID id, ISerialisable const& data, RakNet::PacketPrio
         serialiser.Serialise(data);
     }
     catch (CSerdeException& exception) {
-        spdlog::info("{}", exception.what());
+        spdlog::info("An exception occurred while sending the RPC {}: {}", id, exception.what());
     }
 
     return m_RakPeer->RPC(
@@ -162,23 +221,24 @@ void CClient::RetryConnect() {
 }
 
 void CClient::ProcessPacket(RakNet::Packet const* packet) {
-    if (packet->data[0] == RakNet::ID_RPC) {
+    int packetID = ::GetPacketID(packet);
+
+    if (packetID == RakNet::ID_RPC) {
         ProcessRPC(packet);
         return;
     }
 
-    if (packet->data[0] >= RakNet::ID_USER_PACKET_ENUM) {
+    if (packetID >= RakNet::ID_USER_PACKET_ENUM) {
         ProcessUserPacket(packet);
         return;
     }
 
-    switch (packet->data[0]) {
+    switch (packetID) {
     case RakNet::ID_CONNECTION_REQUEST_ACCEPTED:
         ProcessConnectionRequestAccepted(packet);
         break;
 
     case RakNet::ID_CONNECTION_ATTEMPT_FAILED:
-        spdlog::info("Connection attempt failed. Retrying...");
         RetryConnect();
         break;
 
@@ -186,16 +246,20 @@ void CClient::ProcessPacket(RakNet::Packet const* packet) {
     case RakNet::ID_DISCONNECTION_NOTIFICATION:
         m_State = CLIENT_STATE_DISCONNECTED;
         break;
+
+    default:
+        spdlog::info("No packet handler found for ID: {}.", packetID);
+        break;
     }
 }
 
 void CClient::ProcessConnectionRequestAccepted(RakNet::Packet const* packet) {
     auto deserialiser = CreateDeserialiserFromPacket(packet);
 
-    Code::CConnectionRequestAccepted data;
+    CConnectionRequestAccepted data;
     deserialiser.Deserialise(data);
 
-    Code::CClientLogin response;
+    CClientLogin response;
     response.ClientVersion = CLIENT_VERSION_LEGACY_037;
     response.Modded = 1;
     response.Nickname = m_ConnectionParams.Nickname;
@@ -218,11 +282,11 @@ void CClient::ProcessUserPacket(RakNet::Packet const* packet) {
             handler->Callback(handler->UserData, *this, packet->data + 1, packet->bitSize - 8);
         }
         catch (std::exception& exception) {
-            spdlog::info("An exception occurred while processing a user packet ({}): {}", packetID, exception.what());
+            spdlog::info("An exception occurred while processing the user packet {}: {}", packetID, exception.what());
         }
     }
     else {
-        spdlog::info("No packet handler found for ID: {}.", packetID);
+        spdlog::info("No user packet handler found for ID: {}.", packetID);
     }
 }
 
@@ -239,7 +303,7 @@ void CClient::ProcessRPC(RakNet::Packet const* packet) {
 
     #if 0
     if (dataSizeInBits > 8192) {
-        spdlog::info("RPC ({}) data size is very large: {} bits.", rpcID, dataSizeInBits);
+        spdlog::info("RPC {} data size is very large: {} bits.", rpcID, dataSizeInBits);
         return;
     }
     #endif
@@ -257,13 +321,11 @@ void CClient::ProcessRPC(RakNet::Packet const* packet) {
     CRpcHandler* handler = GetRpcHandler(rpcID);
 
     if (handler != nullptr) {
-        spdlog::info("Processing RPC ID: {} ...", rpcID);
-
         try {
             handler->Callback(handler->UserData, *this, data, dataSizeInBits);
         }
         catch (std::exception& exception) {
-            spdlog::info("An exception occurred while processing a RPC ({}): {}", rpcID, exception.what());
+            spdlog::info("An exception occurred while processing the RPC {}: {}", rpcID, exception.what());
         }
     }
     else {

@@ -10,7 +10,7 @@ typedef uint8_t PacketID;
 
 #define LUNA_DEFINE_PACKET(isRPC, id) \
 static constexpr bool PACKET_IS_RPC = isRPC; \
-static constexpr PacketID PACKET_ID = id;
+static constexpr Luna::Net::PacketID PACKET_ID = id;
 
 template<typename T>
 inline constexpr bool IsRPC() {

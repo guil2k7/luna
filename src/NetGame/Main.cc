@@ -16,10 +16,10 @@ using namespace Luna::Net;
 using namespace Luna::Engine::Extensions;
 using namespace Luna::Engine::Game;
 
-CMultiplayerContext* NetGame::Context = nullptr;
+CNetGameContext* NetGame::Context = nullptr;
 
-class CMultiplayerExtension final :
-    public CMultiplayerContext,
+class CNetGameExtension final :
+    public CNetGameContext,
     public IGameExtension,
     public IHudExtension,
     public IImGuiWidget
@@ -37,7 +37,7 @@ public:
     void DrawAfterFade(CHud* hud) override;
 };
 
-void CMultiplayerExtension::Install() {
+void CNetGameExtension::Install() {
     Client = new CClient();
 
     auto core = new CCore();
@@ -56,11 +56,11 @@ void CMultiplayerExtension::Install() {
     CImGuiExtension::Get()->AddWidget(this);
 }
 
-void CMultiplayerExtension::Render() {
+void CNetGameExtension::Render() {
     ClassManager->Render();
 }
 
-void CMultiplayerExtension::Init3() {
+void CNetGameExtension::Init3() {
     CConnectionParams connectionParams;
     connectionParams.Nickname = "guil2k7_Luna";
     connectionParams.Host = "192.168.1.11";
@@ -70,12 +70,12 @@ void CMultiplayerExtension::Init3() {
     Client->Connect();
 }
 
-void CMultiplayerExtension::DrawAfterFade(CHud* hud) {
+void CNetGameExtension::DrawAfterFade(CHud* hud) {
     Client->Update();
 }
 
 void NetGame::Initialise() {
-    auto context = new CMultiplayerExtension();
+    auto context = new CNetGameExtension();
     Context = context;
 
     context->Install();

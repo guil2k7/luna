@@ -11,9 +11,9 @@ class CClassManager;
 class CLocalPlayer;
 class CRemotePlayer;
 
-class CMultiplayerContext {
+class CNetGameContext {
 public:
-    virtual ~CMultiplayerContext() = default;
+    virtual ~CNetGameContext() = default;
 
     Net::CClient* Client;
 
@@ -23,7 +23,7 @@ public:
     CRemotePlayer* RemotePlayer;
 };
 
-extern CMultiplayerContext* Context;
+extern CNetGameContext* Context;
 
 void Initialise();
 

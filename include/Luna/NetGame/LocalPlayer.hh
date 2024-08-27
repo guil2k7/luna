@@ -12,6 +12,8 @@ public:
 
 private:
     static void ProcessSetPlayerPos(void* UserData, Net::CClient& client, uint8_t const* rawData, size_t bitSize);
+
+    void SendFootSync();
 };
 
 } // namespace Luna::NetGame

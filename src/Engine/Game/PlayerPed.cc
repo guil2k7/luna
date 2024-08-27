@@ -56,8 +56,14 @@ void CPlayerPed::Destroy(CPlayerPed* instance) {
 void CPlayerPed::SetupPlayerPed(int id) {
     Trampoline.SetupPlayerPed(id);
 
-    if (id > 1)
-        CWorld::GetPlayerPed(id)->m_PedType = PEDTYPE_PLAYER_NETWORK;
+    CPlayerPed* player = CWorld::GetPlayerPed(id);
+
+    if (id == 0) {
+        CPad::SetMainPlayerPad(&player->m_Pad);
+    }
+    else if (id > 1) {
+        player->m_PedType = PEDTYPE_PLAYER2;
+    }
 }
 
 CPlayerPed* CPlayerPed::Constructor(int id, bool groupCreated) {
@@ -73,7 +79,7 @@ CPlayerInfo* CPlayerPed::GetPlayerInfoForThisPlayerPed() {
 }
 
 void CPlayerPed::ProcessControl() {
-    CPad::SetCurrentFromID(m_ID);
+    CPad::SetCurrent(&m_Pad);
 
     Trampoline.ProcessControl(this);
 }

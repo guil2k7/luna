@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "../Main.hh"
 #include "Vector.hh"
 #include "../Helpers.hh"
 #include <cstdint>
@@ -10,32 +9,32 @@
 namespace Luna::Engine::Game {
 
 /* NOTSA */
-enum eSimplePadKey {
-    SIMPLE_PAD_KEY_ACTION           = 1 << 0,
-    SIMPLE_PAD_KEY_CROUCH           = 1 << 1,
-    SIMPLE_PAD_KEY_FIRE             = 1 << 2,
-    SIMPLE_PAD_KEY_SPRINT           = 1 << 3,
-    SIMPLE_PAD_KEY_SECONDARY_ATTACK = 1 << 4,
-    SIMPLE_PAD_KEY_JUMP             = 1 << 5,
-    SIMPLE_PAD_KEY_LOOK_RIGHT       = 1 << 6,
-    SIMPLE_PAD_KEY_HANDBRAKE        = 1 << 7,
-    SIMPLE_PAD_KEY_LOOK_LEFT        = 1 << 8,
-    SIMPLE_PAD_KEY_SUBMISSION       = 1 << 9,
-    SIMPLE_PAD_KEY_LOOK_BEHIND      = 1 << 10,
-    SIMPLE_PAD_KEY_WALK             = 1 << 11,
-    SIMPLE_PAD_KEY_ANALOG_UP        = 1 << 12,
-    SIMPLE_PAD_KEY_ANALOG_DOWN      = 1 << 13,
-    SIMPLE_PAD_KEY_ANALOG_LEFT      = 1 << 14,
-    SIMPLE_PAD_KEY_ANALOG_RIGHT     = 1 << 15,
+enum eBasicPadKey {
+    BASIC_PAD_KEY_ACTION           = 1 << 0,
+    BASIC_PAD_KEY_CROUCH           = 1 << 1,
+    BASIC_PAD_KEY_FIRE             = 1 << 2,
+    BASIC_PAD_KEY_SPRINT           = 1 << 3,
+    BASIC_PAD_KEY_SECONDARY_ATTACK = 1 << 4,
+    BASIC_PAD_KEY_JUMP             = 1 << 5,
+    BASIC_PAD_KEY_LOOK_RIGHT       = 1 << 6,
+    BASIC_PAD_KEY_HANDBRAKE        = 1 << 7,
+    BASIC_PAD_KEY_LOOK_LEFT        = 1 << 8,
+    BASIC_PAD_KEY_SUBMISSION       = 1 << 9,
+    BASIC_PAD_KEY_LOOK_BEHIND      = 1 << 10,
+    BASIC_PAD_KEY_WALK             = 1 << 11,
+    BASIC_PAD_KEY_ANALOG_UP        = 1 << 12,
+    BASIC_PAD_KEY_ANALOG_DOWN      = 1 << 13,
+    BASIC_PAD_KEY_ANALOG_LEFT      = 1 << 14,
+    BASIC_PAD_KEY_ANALOG_RIGHT     = 1 << 15,
 };
 
 /* NOTSA */
-struct CNetworkPad {
+struct CBasicPad {
     int16_t UpDown;
     int16_t LeftRight;
     uint16_t Keys;
 
-    inline bool IsKeyPressed(eSimplePadKey key) const {
+    inline bool IsKeyPressed(eBasicPadKey key) const {
         return Keys & key;
     }
 
@@ -124,14 +123,9 @@ public:
     bool SetTouchLayout : 8;
     CVector Accel;
 
-    static CNetworkPad* GetNetworkPadFromID(int id);
-    static void SetCurrentFromID(int id);
+    static void SetCurrent(CBasicPad* pad);
+    static void SetMainPlayerPad(CBasicPad* pad);
 
-    static inline CPad* GetPlayerPad() {
-        return reinterpret_cast<CPad*>(GameAddress + 0x969B1C);
-    }
-
-    static void InitialiseMods();
     static void InstallMods();
 };
 

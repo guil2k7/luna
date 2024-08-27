@@ -4,19 +4,17 @@
 
 #include "../Net/Client.hh"
 
-namespace Luna::Net::Code {
-
-class CRequestClassResponse;
-
-} // namespace Luna::Net::Code
-
 namespace Luna::NetGame {
 
-typedef Net::Code::CRequestClassResponse CClass;
+namespace Packets {
+    class CRequestClassResponse;
+}
+
+typedef Packets::CRequestClassResponse CClass;
 
 class CSpawnScreen {
 public:
-    CSpawnScreen() : CurrentClassID(0), MaxClassID(0) {}
+    CSpawnScreen() : CurrentClassID(0), NumberOfClasses(0) {}
 
     void RequestNextClass();
     void RequestPreviousClass();
@@ -27,7 +25,7 @@ public:
     void Render();
 
     int CurrentClassID;
-    int MaxClassID;
+    int NumberOfClasses;
 };
 
 class CClassManager {
@@ -39,8 +37,8 @@ public:
 
     void HandleClassSelection();
 
-    inline void SetMaxClassID(int id) {
-        m_SpawnScreen.MaxClassID = id;
+    inline void SetNumberOfClasses(int num) {
+        m_SpawnScreen.NumberOfClasses = num;
     }
 
 private:

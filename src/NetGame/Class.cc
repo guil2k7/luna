@@ -6,7 +6,7 @@
 #include <Luna/Engine/Game/PlayerPed.hh>
 #include <Luna/Engine/Game/World.hh>
 #include <Luna/Net/Client.hh>
-#include <Luna/Net/Code/Player.hh>
+#include <Luna/NetGame/Packets/Class.hh>
 #include <Luna/Serde/BitSerde.hh>
 #include <imgui.h>
 
@@ -19,7 +19,7 @@ using namespace Luna::Serde;
 void CSpawnScreen::RequestNextClass() {
     CurrentClassID += 1;
 
-    if (CurrentClassID == MaxClassID)
+    if (CurrentClassID == NumberOfClasses)
         CurrentClassID = 0;
 
     RequestCurrentClass();
@@ -27,7 +27,7 @@ void CSpawnScreen::RequestNextClass() {
 
 void CSpawnScreen::RequestPreviousClass() {
     if (CurrentClassID < 1)
-        CurrentClassID = MaxClassID;
+        CurrentClassID = NumberOfClasses - 1;
     else
         CurrentClassID -= 1;
 
@@ -35,14 +35,14 @@ void CSpawnScreen::RequestPreviousClass() {
 }
 
 void CSpawnScreen::RequestCurrentClass() {
-    Code::CRequestClass data;
+    Packets::CRequestClass data;
     data.ID = CurrentClassID;
 
     Context->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::RELIABLE_SEQUENCED);
 }
 
 void CSpawnScreen::RequestSpawn() {
-    Code::CRequestSpawn data;
+    Packets::CRequestSpawn data;
     Context->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::RELIABLE_SEQUENCED);
 }
 
@@ -57,15 +57,23 @@ void CSpawnScreen::Render() {
     if (ImGui::Button("<<"))
         RequestNextClass();
 
-    ImGui::SameLine(0, 0);
+    ImGui::SameLine(0, 5.0f);
 
     if (ImGui::Button("Spawn"))
         RequestSpawn();
 
-    ImGui::SameLine(0, 0);
+    ImGui::SameLine(0, 5.0f);
 
     if (ImGui::Button(">>"))
         RequestNextClass();
+
+    ImGuiIO& io = ImGui::GetIO();
+    ImVec2 windowSize = ImGui::GetWindowSize();
+    
+    ImGui::SetWindowPos(ImVec2(
+        (io.DisplaySize.x - windowSize.x) / 2.0f,
+        (io.DisplaySize.y * 0.90f) - windowSize.y
+    ));
 
     ImGui::End();
 }
@@ -75,7 +83,7 @@ void CClassManager::ProcessClassRequestResponse(
 {
     CBitDeserialiser deserialiser(rawData, bitSize);
 
-    Code::CRequestClassResponse data;
+    Packets::CRequestClassResponse data;
     data.Deserialise(deserialiser);
 
     CClassManager* manager = static_cast<CClassManager*>(userData);
@@ -87,7 +95,7 @@ void CClassManager::ProcessRequestSpawnResponse(
 {
     CBitDeserialiser deserialiser(rawData, bitSize);
 
-    Code::CRequestSpawn data;
+    Packets::CRequestSpawnResponse data;
     data.Deserialise(deserialiser);
 
     CClassManager* manager = static_cast<CClassManager*>(userData);
@@ -99,8 +107,8 @@ void CClassManager::ProcessRequestSpawnResponse(
 }
 
 void CClassManager::Install() {
-    Context->Client->RegisterHandlerForRPC(Code::CRequestClassResponse::PACKET_ID, {ProcessClassRequestResponse, this});
-    Context->Client->RegisterHandlerForRPC(Code::CRequestSpawn::PACKET_ID, {ProcessRequestSpawnResponse, this});
+    Context->Client->RegisterHandlerForRPC(Packets::CRequestClassResponse::PACKET_ID, {ProcessClassRequestResponse, this});
+    Context->Client->RegisterHandlerForRPC(Packets::CRequestSpawn::PACKET_ID, {ProcessRequestSpawnResponse, this});
 
     Context->ClassManager = this;
 }
@@ -128,7 +136,7 @@ void CClassManager::OnClassChange(CClass& klass) {
 }
 
 void CClassManager::ConfirmSpawn() {
-    Code::CSendSpawn data;
+    Packets::CSendSpawn data;
     Context->Client->Send(data, RakNet::HIGH_PRIORITY, RakNet::RELIABLE_SEQUENCED);
 }
 

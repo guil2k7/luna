@@ -2195,9 +2195,7 @@ RakPeer::RemoteSystemStruct *RakPeer::GetRemoteSystemFromPlayerID( const PlayerI
 		index = remoteSystemLookup.GetIndexFromKey(playerID, &objectExists);
 		if (objectExists)
 		{
-#ifndef NDEBUG
 			RakAssert(remoteSystemList[ remoteSystemLookup[index].index ].playerId==playerID);
-#endif
 			return remoteSystemList + remoteSystemLookup[index].index;
 		}
 	}
@@ -3328,7 +3326,7 @@ void RakNet::ProcessNetworkPacket( const unsigned int binaryAddress, const unsig
 		unsigned char c[3];
 
 		c[0] = ID_OPEN_CONNECTION_REQUEST;
-		*(uint16_t*)&c[1] = *(uint16_t*)&data[1] ^ 0x6969; // Petarded [S04E06]
+		*(uint16_t*)&c[1] = *(uint16_t*)&data[1] ^ 0x6969;
 
 		for (unsigned i=0; i < rakPeer->messageHandlerList.Size(); i++)
 			rakPeer->messageHandlerList[i]->OnDirectSocketSend((char*)&c, 24, playerId);
