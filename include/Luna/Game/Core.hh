@@ -11,7 +11,7 @@ public:
     void Install();
 
 private:
-    static void ProcessInitGame(void* UserData, Net::CClient& client, uint8_t const* rawData, size_t bitSize);
+    static void ProcessInitGame(void* userData, Net::CClient& client, uint8_t const* rawData, size_t bitSize);
 };
 
 } // namespace Luna::Game

@@ -2,11 +2,10 @@
 
 #pragma once
 
+#include "dma.hh"
 #include <cstdint>
 
 namespace Luna::GameSA {
-
-typedef char16_t GxtChar;
 
 class CMessages {
 public:

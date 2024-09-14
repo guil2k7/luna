@@ -7,6 +7,9 @@
 
 namespace Luna::GameSA {
 
+constexpr size_t MIN_CPLAYERPED_SIZE = 1964;
+constexpr size_t MAX_CPLAYERPED_SIZE = 1996;
+
 class CPlayerInfo;
 
 class CPlayerPed : public CPed {
@@ -24,19 +27,17 @@ public:
         return m_ID;
     }
 
-    inline Game::CRemotePad& GetRemotePad() {
-        return m_RemotePad;
-    }
-
 private:
     CPlayerPed* Constructor(int id, bool groupCreated);
 
     PADDING(8);
 
     int m_ID;
+
+protected:
     Game::CRemotePad m_RemotePad;
 };
 
-static_assert(sizeof (CPlayerPed) >= 1964 && sizeof (CPlayerPed) <= 1996);
+static_assert(sizeof (CPlayerPed) >= MIN_CPLAYERPED_SIZE && sizeof (CPlayerPed) <= MAX_CPLAYERPED_SIZE);
 
 } // namespace Luna::GameSA

@@ -14,7 +14,7 @@ using namespace Luna::GameSA;
 using namespace Luna::Net;
 using namespace Luna::Serde;
 
-void CLocalPlayer::ProcessSetPlayerPos(void* userData, CClient& client, uint8_t const* rawData, size_t bitSize) {
+void CLocalPlayerManager::ProcessSetPlayerPos(void* userData, CClient& client, uint8_t const* rawData, size_t bitSize) {
     CBitDeserialiser deserialiser(rawData, bitSize);
 
     Packets::CSetPlayerPos data;
@@ -23,31 +23,46 @@ void CLocalPlayer::ProcessSetPlayerPos(void* userData, CClient& client, uint8_t 
     CWorld::GetPlayerPed()->GetMatrix().Position = data.Position;
 }
 
-// void CLocalPlayer::SendFootSync() {
-//     CPlayerPed* player = CWorld::GetPlayerPed();
-//     CPad* pad = CPad::GetMainPlayerPad();
+void CLocalPlayerManager::Process() {
+    auto now = std::chrono::steady_clock::now();
 
-//     Packets::CFootSync data;
-//     data.LeftRight = pad->NewState.LeftStickX;
-//     data.UpDown = pad->NewState.LeftStickY;
+    if (now > m_LastFootSync + FootSyncRate) {
+        SendFootSync();
+        m_LastFootSync = now;
+    }
+}
 
-//     // serialiser.SerialiseU16(LeftRight);
-//     // serialiser.SerialiseU16(UpDown);
-//     // serialiser.SerialiseU16(Keys);
-//     // serialiser.Serialise(Position);
-//     // serialiser.Serialise(Rotation);
-//     // serialiser.SerialiseU8(Health);
-//     // serialiser.SerialiseU8(Armour);
-//     // serialiser.SerialiseU8(WeaponAdditionalKey);
-//     // serialiser.SerialiseU8(SpecialAction);
-//     // serialiser.Serialise(Velocity);
-//     // serialiser.Serialise(SurfingOffset);
-//     // serialiser.SerialiseU16(SurfingID);
-//     // serialiser.SerialiseU16(AnimationID);
-//     // serialiser.SerialiseU16(AnimationFlags);
-// }
+void CLocalPlayerManager::SendFootSync() {
+    CPlayerPed* player = CWorld::GetPlayerPed();
+    CPad* pad = CPad::GetMainPlayerPad();
 
-void CLocalPlayer::Install() {
+    Packets::CFootSync data;
+    data.LeftRight = pad->NewState.LeftStickX;
+    data.UpDown = pad->NewState.LeftStickY;
+    data.Position = player->GetMatrix().Position;
+    data.Health = player->GetHealth();
+    data.Armour = player->GetArmour();
+    data.Velocity = player->GetCurrentVelocity();
+
+    CLuna::Instance->Client->Send(data, RakNet::DEFAULT_PRIORITY, RakNet::UNRELIABLE_SEQUENCED);
+
+    // serialiser.SerialiseU16(LeftRight);
+    // serialiser.SerialiseU16(UpDown);
+    // serialiser.SerialiseU16(Keys);
+    // serialiser.Serialise(Position);
+    // serialiser.Serialise(Rotation);
+    // serialiser.SerialiseU8(Health);
+    // serialiser.SerialiseU8(Armour);
+    // serialiser.SerialiseU8(WeaponAdditionalKey);
+    // serialiser.SerialiseU8(SpecialAction);
+    // serialiser.Serialise(Velocity);
+    // serialiser.Serialise(SurfingOffset);
+    // serialiser.SerialiseU16(SurfingID);
+    // serialiser.SerialiseU16(AnimationID);
+    // serialiser.SerialiseU16(AnimationFlags);
+}
+
+void CLocalPlayerManager::Install() {
     CLuna::Instance->Client->RegisterHandlerForRPC(Packets::CSetPlayerPos::PACKET_ID, {
         ProcessSetPlayerPos,
         static_cast<void*>(this)

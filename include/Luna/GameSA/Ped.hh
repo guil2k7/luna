@@ -66,7 +66,11 @@ protected:
     float m_MaxHealth;
     float m_Armour;
 
-    PADDING(76);
+    PADDING(4);
+
+    CVector m_CurrentVelocity;
+
+    PADDING(60);
 
     // Offset: 0x59C.
     ePedType m_PedType;
@@ -92,10 +96,18 @@ public:
             reinterpret_cast<uint8_t*>(this) + 0x14);
     }
 
+    inline CVector& GetCurrentVelocity() {
+        return m_CurrentVelocity;
+    }
+
     void SetHealth(float value);
 
     inline float GetHealth() const {
         return m_Health;
+    }
+
+    inline float GetArmour() const {
+        return m_Armour;
     }
 
 private:

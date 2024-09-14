@@ -49,14 +49,6 @@ inline R CallMethod(void* address, void* self, Args... args) {
     return reinterpret_cast<R (LUNA_THISCALL *)(void*, Args...)>(address)(self, args...);
 }
 
-/// Flushes the contents of the instruction cache.
-inline void FlushCache(void* address, size_t size) {
-    __builtin___clear_cache(
-        reinterpret_cast<char*>(address),
-        &reinterpret_cast<char*>(address)[size]
-    );
-}
-
 template<typename T>
 inline bool IsFunctionInThumbMode(T val) {
     return reinterpret_cast<uintptr_t>(val) & 1;

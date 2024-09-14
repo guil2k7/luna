@@ -37,4 +37,5 @@ void CLuna::Initialise() {
 
 void CLuna::Update() {
     Client->Update();
+    LocalPlayer->Process();
 }

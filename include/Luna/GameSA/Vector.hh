@@ -38,6 +38,34 @@ public:
         y = 0.0f;
         z = 0.0f;
     }
+
+    inline CVector GetOffset(CVector const& that) const {
+        CVector offset;
+
+        offset.x = x - that.x;
+        offset.y = y - that.y;
+        offset.z = z - that.z;
+
+        return offset;
+    }
+
+    inline CVector GetAbsoluteOffset(CVector const& that) const {
+        CVector offset = GetOffset(that);
+
+        if (offset.x < 0.0f) offset.x = -offset.x;
+        if (offset.y < 0.0f) offset.y = -offset.y;
+        if (offset.z < 0.0f) offset.z = -offset.z;
+
+        return offset;
+    }
+
+    inline CVector& operator *=(CVector const& that) {
+        x *= that.x;
+        y *= that.y;
+        z *= that.z;
+
+        return *this;
+    }
 };
 
 } // namespace Luna::GameSA

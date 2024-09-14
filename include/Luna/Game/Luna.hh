@@ -9,8 +9,9 @@ namespace Luna::Game {
 
 class CCore;
 class CClassManager;
-class CLocalPlayer;
-class CRemotePlayer;
+class CLocalPlayerManager;
+class CRemotePlayerManager;
+class CTextDrawManager;
 
 class CLuna final : public IGuiWidget {
 public:
@@ -20,8 +21,9 @@ public:
 
     CCore* Core;
     CClassManager* ClassManager;
-    CLocalPlayer* LocalPlayer;
-    CRemotePlayer* RemotePlayer;
+    CLocalPlayerManager* LocalPlayer;
+    CRemotePlayerManager* RemotePlayer;
+    CTextDrawManager* TextDraw;
 
     CLuna(Net::CClient* Client);
     ~CLuna();

@@ -18,8 +18,8 @@ void Game::Initialise() {
 
     auto core = new CCore();
     auto classManager = new CClassManager();
-    auto localPlayer = new CLocalPlayer();
-    auto remotePlayer = new CRemotePlayer();
+    auto localPlayer = new CLocalPlayerManager();
+    auto remotePlayer = new CRemotePlayerManager();
 
     core->Install();
     classManager->Install();

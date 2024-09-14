@@ -3,24 +3,28 @@
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
 
 namespace Luna::Core {
 
-inline size_t AlignValue(size_t value, size_t alignment) {
-    if (value < alignment)
-        return alignment;
-    
-    return (value + alignment - 1) / alignment * alignment;
-}
-
 enum eProtection {
-    PROTECTION_READ = 1,
+    PROTECTION_READ = 1 << 0,
     PROTECTION_WRITE = 1 << 1,
     PROTECTION_EXEC = 1 << 2,
 };
 
-bool ModifyMemoryProtection(void* address, size_t size, int flags);
-void* AllocMemory(size_t size, int flags);
-void ReleaseMemory(void* addr, size_t size);
+void* VirtualAlloc(size_t size, int flags);
+void VirtualRelease(void* pointer, size_t size);
+bool VirtualModifyProtection(void* pointer, size_t size, int flags);
+
+/// Flushes the contents of the instruction cache.
+inline void FlushCache(void* address, size_t size) {
+    __builtin___clear_cache(
+        reinterpret_cast<char*>(address),
+        &reinterpret_cast<char*>(address)[size]
+    );
+}
+
+void MemCopy(uint8_t const* source, uint8_t* destination, size_t nbytes);
 
 } // namespace Luna::Core
