@@ -1,7 +1,0 @@
-set(LUNA_SOURCE_FILES ${LUNA_SOURCE_FILES}
-    ${CMAKE_CURRENT_SOURCE_DIR}/Deserialiser.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/BitDeserialiser.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/BitSerialiser.cc
-
-    PARENT_SCOPE
-)
