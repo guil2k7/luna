@@ -3,7 +3,6 @@
 #pragma once
 
 #include "ped.hh"
-#include "../netgame/remotePad.hh"
 
 namespace luna::game {
 
@@ -16,26 +15,45 @@ class PlayerPed : public Ped {
 public:
     static void installMods();
 
-    static PlayerPed* create(int id, bool groupCreated);
-    static void destroy(PlayerPed* instance);
     static void setupPlayerPed(int id);
 
+    inline PlayerPed(int id, bool forReply) {
+        initialise(id, forReply);
+    }
+
+    inline virtual ~PlayerPed() override {
+        core::callMethod<void>(g_gameAddress + 0x4D3901, this);
+    }
+
+    inline virtual void processControl() override {
+        return core::callMethod<void>(g_gameAddress + 0x4D47E9, this);
+    }
+
+    inline virtual void setMoveAnim() override {
+        return core::callMethod<void>(g_gameAddress + 0x4DA6D9, this);
+    }
+
+    inline virtual bool save() override {
+        return core::callMethod<bool>(g_gameAddress + 0x495163, this);
+    }
+
+    inline virtual bool load() override {
+        return core::callMethod<bool>(g_gameAddress + 0x4951E9, this);
+    }
+
     PlayerInfo* playerInfo();
-    void processControl();
 
     inline int id() const {
         return m_id;
     }
 
 private:
-    PlayerPed* constructor(int id, bool groupCreated);
+    /// Initialises the player ped and returns it.
+    PlayerPed* initialise(int id, bool forReply);
 
     PADDING(8);
 
     int m_id;
-
-protected:
-    netgame::RemotePad m_remotePad;
 };
 
 static_assert(sizeof(PlayerPed) >= MIN_PLAYERPED_SIZE && sizeof(PlayerPed) <= MAX_PLAYERPED_SIZE);

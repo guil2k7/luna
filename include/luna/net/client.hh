@@ -25,19 +25,6 @@ struct ConnectionParams {
     int port;
 };
 
-typedef void (*PacketHandlerCallback)(void* userData, Client& client, uint8_t const* data, size_t bitSize);
-typedef void (*RpcHandlerCallback)(void* userData, Client& client, uint8_t const* data, size_t bitSize);
-
-struct PacketHandler {
-    PacketHandlerCallback callback = nullptr;
-    void* userData = nullptr;
-};
-
-struct RpcHandler {
-    RpcHandlerCallback callback = nullptr;
-    void* userData = nullptr;
-};
-
 class Client {
 public:
     Client();
@@ -53,8 +40,10 @@ public:
     template <typename T>
     bool send(T const& packet, RakNet::PacketPriority priority, RakNet::PacketReliability reliability);
 
-    bool registerHandlerForPacket(PacketID id, PacketHandler handler);
-    bool registerHandlerForRPC(RakNet::RPCID id, RpcHandler handler);
+    template<typename T>
+    inline bool registerHandlerForPacket(T* packet) {
+        return registerHandlerForPacket(isRPC<T>(), packetID<T>(), packet);
+    }
 
     inline ClientState state() const {
         return m_state;
@@ -65,8 +54,7 @@ public:
     }
 
 private:
-    PacketHandler* getPacketHandler(PacketID packetID);
-    RpcHandler* getRpcHandler(RakNet::RPCID rpcID);
+    bool registerHandlerForPacket(bool isRPC, PacketID id, Packet* packet);
 
     void retryConnect();
     void processPacket(RakNet::Packet const* packet);
@@ -79,8 +67,9 @@ private:
     ClientState m_state;
     ConnectionParams m_connectionParams;
     uint16_t m_ourID;
-    PacketHandler* m_packetHandlers;
-    RpcHandler* m_rpcHandlers;
+
+    Packet** m_packets;
+    Packet** m_rpcs;
 };
 
 template <typename T>

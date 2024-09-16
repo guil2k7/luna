@@ -10,12 +10,13 @@ static ImGuiKey osKeyCodeToImGui(OsKeyboardKey keyCode);
 
 Gui* Gui::s_instance = nullptr;
 
-Gui::Gui() {
-    m_fontTexture = nullptr;
-    m_vertexBuf = nullptr;
-    m_vertexBufSize = 0;
-    m_widgets.reserve(8);
-}
+Gui::Gui()
+    : m_fontTexture(nullptr)
+    , m_vertexBuf(nullptr)
+    , m_vertexBufSize(0)
+    , m_widgetsTail(nullptr)
+    , m_widgetsTop(nullptr)
+{}
 
 Gui::~Gui() {
     if (m_fontTexture != nullptr)
@@ -55,6 +56,31 @@ void Gui::release() {
     s_instance = nullptr;
 }
 
+void Gui::addWidget(GuiWidget* widget) {
+    widget->m_previousWidget = m_widgetsTop;
+    widget->m_nextWidget = nullptr;
+
+    m_widgetsTop->m_nextWidget = widget;
+    m_widgetsTop = widget;
+
+    if (m_widgetsTail == nullptr)
+        m_widgetsTail = m_widgetsTop;
+}
+
+void Gui::removeWidget(GuiWidget* widget) {
+    if (widget->m_previousWidget != nullptr)
+        widget->m_previousWidget->m_nextWidget = widget->m_nextWidget;
+
+    if (widget->m_nextWidget != nullptr)
+        widget->m_nextWidget->m_previousWidget = widget->m_previousWidget;
+
+    if (widget == m_widgetsTop)
+        m_widgetsTop = widget->m_previousWidget;
+
+    if (widget == m_widgetsTail)
+        m_widgetsTail = widget->m_nextWidget;
+}
+
 void Gui::setupStyle() {
     ImGuiStyle& style = ImGui::GetStyle();
 
@@ -69,7 +95,7 @@ void Gui::render() {
     newFrame();
     ImGui::NewFrame();
 
-    for (auto widget : m_widgets)
+    for (GuiWidget* widget = m_widgetsTail; widget != nullptr; widget = widget->m_nextWidget)
         widget->render();
 
     ImGui::EndFrame();

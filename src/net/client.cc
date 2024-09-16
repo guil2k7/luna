@@ -16,10 +16,14 @@ using namespace luna::serde;
 #define CLIENT_VERSION_LEGACY_037 4057
 #define CLIENT_VERSION_LEGACY_03DL 4062
 
-struct ClientLogin final : public serde::ISerialisable {
-    LUNA_DEFINE_PACKET(true, 25)
+struct ClientLogin final : public Packet {
+    LUNA_DEFINE_PACKET(true, 25);
 
-    void serialise(serde::ISerialiser& serialiser) const {
+    Packet* create() const override {
+        return new ClientLogin();
+    }
+
+    void serialise(ISerialiser& serialiser) const override {
         serialiser.serialiseU32(clientVersion);
         serialiser.serialiseU8(modded);
         serialiser.serialiseU8(nickname.length());
@@ -30,9 +34,12 @@ struct ClientLogin final : public serde::ISerialisable {
         serialiser.serialiseU8(clientVersionString.length());
         serialiser.serialiseBytes(reinterpret_cast<uint8_t const*>(clientVersionString.data()), clientVersionString.length());
 
-        // Official clients send the challenge again at the end,
-        // while other clients do not.
+        // Official clients send the challenge again at the end, while other clients do not.
         serialiser.serialiseU32(clientChallengeResponse);
+    }
+
+    bool execute(Client& client) override {
+        return false;
     }
 
     uint32_t clientVersion;
@@ -43,10 +50,14 @@ struct ClientLogin final : public serde::ISerialisable {
     std::string_view clientVersionString;
 };
 
-struct CConnectionRequestAccepted final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(false, 34)
+struct ConnectionRequestAccepted final : public Packet {
+    LUNA_DEFINE_PACKET(false, 34);
 
-    void deserialise(serde::IDeserialiser& deserialiser) {
+    inline Packet* create() const override {
+        return new ConnectionRequestAccepted();
+    }
+
+    void deserialise(IDeserialiser& deserialiser) override {
         deserialiser.skipBytes(6);
 
         playerIndex = deserialiser.deserialiseU16();
@@ -68,33 +79,23 @@ static int RakNetGetPacketID(RakNet::Packet const* packet) {
     return packet->data[0];
 }
 
-static int RakNetSkipPacketID(RakNet::BitStream& bitStream) {
-    uint8_t packetID;
-    bitStream.Read<uint8_t>(packetID);
-
-    if (packetID == RakNet::ID_TIMESTAMP) {
-        bitStream.IgnoreBits(sizeof(RakNet::RakNetTime) * 8);
-        bitStream.Read<uint8_t>(packetID);
-    }
-
-    return packetID;
-}
-
 Client::Client() {
     static_assert(sizeof(RakNet::RPCID) == 1);
 
     m_rakPeer = RakNet::RakNetworkFactory::GetRakPeerInterface();
     m_state = CLIENT_STATE_DISCONNECTED;
 
-    m_rpcHandlers = new RpcHandler[256];
-    m_packetHandlers = new PacketHandler[256 - RakNet::ID_USER_PACKET_ENUM];
+    m_packets = new Packet*[256];
+    m_rpcs = new Packet*[256];
 }
 
 Client::~Client() {
     RakNet::RakNetworkFactory::DestroyRakPeerInterface(m_rakPeer);
 
-    delete[] m_packetHandlers;
-    delete[] m_rpcHandlers;
+    // Should I delete the packet instances?
+
+    delete[] m_packets;
+    delete[] m_rpcs;
 }
 
 bool Client::setConnectionParams(ConnectionParams const& params) {
@@ -122,11 +123,7 @@ void Client::update() {
     RakNet::Packet* packet = m_rakPeer->Receive();
 
     while (packet != nullptr) {
-        try {
-            processPacket(packet);
-        } catch (std::exception& exception) {
-            spdlog::info("An exception occurred while processing the packet {}: {}", packet->data[0], exception.what());
-        }
+        processPacket(packet);
 
         m_rakPeer->DeallocatePacket(packet);
         packet = m_rakPeer->Receive();
@@ -136,78 +133,50 @@ void Client::update() {
 bool Client::sendPacket(PacketID id, ISerialisable const& data, RakNet::PacketPriority priority, RakNet::PacketReliability reliability) {
     uint8_t buffer[MAXIMUM_MTU_SIZE];
 
-    serde::BitSerialiser serialiser(&buffer[0], MAXIMUM_MTU_SIZE);
-
-    try {
-        serialiser.serialiseU8(id);
-        serialiser.serialise(data);
-    } catch (SerdeException& exception) {
-        spdlog::info("An exception occurred while sending the packet {}: {}", id, exception.what());
-    }
+    BitSerialiser serialiser(&buffer[0], MAXIMUM_MTU_SIZE);
+    serialiser.serialiseU8(id);
+    serialiser.serialise(data);
 
     return m_rakPeer->Send(
         reinterpret_cast<char const*>(buffer),
         serialiser.offsetInBytes(),
         priority, reliability,
-        0, m_serverAddr, false);
+        0, m_serverAddr, false
+    );
 }
 
 bool Client::sendRPC(PacketID id, ISerialisable const& data, RakNet::PacketPriority priority, RakNet::PacketReliability reliability) {
     uint8_t buffer[MAXIMUM_MTU_SIZE];
 
     BitSerialiser serialiser(&buffer[0], MAXIMUM_MTU_SIZE);
-
-    try {
-        serialiser.serialise(data);
-    } catch (SerdeException& exception) {
-        spdlog::info("An exception occurred while sending the RPC {}: {}", id, exception.what());
-    }
+    serialiser.serialise(data);
 
     return m_rakPeer->RPC(
         id,
         reinterpret_cast<char const*>(buffer),
         serialiser.offsetInBits(),
         priority, reliability,
-        0, m_serverAddr, false, false);
+        0, m_serverAddr, false, false
+    );
 }
 
-bool Client::registerHandlerForPacket(PacketID id, PacketHandler handler) {
-    if (id < RakNet::ID_USER_PACKET_ENUM)
-        return false;
+bool Client::registerHandlerForPacket(bool isRPC, PacketID id, Packet* packet) {
+    if (isRPC) {
+        if (id < RakNet::ID_USER_PACKET_ENUM)
+            return false;
 
-    id -= RakNet::ID_USER_PACKET_ENUM;
+        if (m_packets[id] != nullptr)
+            return false;
 
-    if (m_packetHandlers[id].callback != nullptr)
-        return false;
+        m_packets[id] = packet;
+    } else {
+        if (m_rpcs[id] != nullptr)
+            return false;
 
-    m_packetHandlers[id] = handler;
+        m_rpcs[id] = packet;
+    }
 
     return true;
-}
-
-bool Client::registerHandlerForRPC(RakNet::RPCID id, RpcHandler handler) {
-    if (m_rpcHandlers[id].callback != nullptr)
-        return false;
-
-    m_rpcHandlers[id] = handler;
-
-    return true;
-}
-
-inline PacketHandler* Client::getPacketHandler(PacketID packetID) {
-    size_t index = packetID - RakNet::ID_USER_PACKET_ENUM;
-
-    if (m_packetHandlers[index].callback == nullptr)
-        return nullptr;
-
-    return &m_packetHandlers[index];
-}
-
-inline RpcHandler* Client::getRpcHandler(RakNet::RPCID rpcID) {
-    if (m_rpcHandlers[rpcID].callback == nullptr)
-        return nullptr;
-
-    return &m_rpcHandlers[rpcID];
 }
 
 void Client::retryConnect() {
@@ -251,7 +220,7 @@ void Client::processPacket(RakNet::Packet const* packet) {
 void Client::processConnectionRequestAccepted(RakNet::Packet const* packet) {
     auto deserialiser = createDeserialiserFromPacket(packet);
 
-    CConnectionRequestAccepted data;
+    ConnectionRequestAccepted data;
     deserialiser.deserialise(data);
 
     ClientLogin response;
@@ -268,57 +237,86 @@ void Client::processConnectionRequestAccepted(RakNet::Packet const* packet) {
     m_ourID = data.playerIndex;
 }
 
-void Client::processUserPacket(RakNet::Packet const* packet) {
-    PacketID packetID = packet->data[0];
-    PacketHandler* handler = getPacketHandler(packetID);
+void Client::processUserPacket(RakNet::Packet const* rakPacket) {
+    PacketID packetID;
 
-    if (handler != nullptr) {
-        try {
-            handler->callback(handler->userData, *this, packet->data + 1, packet->bitSize - 8);
-        } catch (std::exception& exception) {
-            spdlog::info("An exception occurred while processing the user packet {}: {}", packetID, exception.what());
-        }
+    uint32_t dataSizeInBits;
+    uint8_t const* data;
+
+    if (rakPacket->data[0] == RakNet::ID_TIMESTAMP) {
+        packetID = rakPacket->data[1 + 4];
+
+        data = &rakPacket->data[1 + 4 + 1];
+        dataSizeInBits = rakPacket->bitSize - 8 - 32 - 8;
     } else {
+        packetID = rakPacket->data[0];
+
+        data = &rakPacket->data[1];
+        dataSizeInBits = rakPacket->bitSize - 8;
+    }
+
+    Packet* packet = m_packets[packetID];
+
+    if (packet == nullptr) {
         spdlog::info("No user packet handler found for ID: {}.", packetID);
+        return;
+    } 
+
+    BitDeserialiser deserialiser(data, dataSizeInBits);
+
+    packet->deserialise(deserialiser);
+
+    if (packet->execute(*this)) {
+        packet = packet->create();
+        m_packets[packetID] = packet;
     }
 }
 
-void Client::processRPC(RakNet::Packet const* packet) {
-    RakNet::BitStream bitStream(packet->data, bitsToBytes(packet->bitSize), false);
+void Client::processRPC(RakNet::Packet const* rakPacket) {
+    BitDeserialiser deserialiser(rakPacket->data, rakPacket->bitSize);
 
     RakNet::RPCID rpcID;
     uint32_t dataSizeInBits;
     uint8_t* data;
 
-    bitStream.IgnoreBits(8);
-    bitStream.Read<RakNet::RPCID>(rpcID);
-    bitStream.ReadCompressed<uint32_t>(dataSizeInBits);
+    if (rakPacket->data[0] == RakNet::ID_TIMESTAMP)
+        deserialiser.skipBytes(1 + 4 + 1);
+    else
+        deserialiser.skipBytes(1);
 
-#if 0
+    rpcID = deserialiser.deserialiseU8();
+
+    Packet* packet = m_rpcs[rpcID];
+
+    if (packet == nullptr) {
+        spdlog::info("No RPC handler found for ID: {}.", rpcID);
+        return;
+    }
+
+    deserialiser.deserialiseBytesCompressed(
+        reinterpret_cast<uint8_t*>(&dataSizeInBits),
+        sizeof (dataSizeInBits)
+    );
+
+    #if 0
     if (dataSizeInBits > 8192) {
         spdlog::info("RPC {} data size is very large: {} bits.", rpcID, dataSizeInBits);
         return;
     }
-#endif
+    #endif
 
-    if (bitStream.GetReadOffset() % 8 == 0) {
-        data = packet->data + bitsToBytes(bitStream.GetReadOffset());
+    if (deserialiser.offsetInBits() % 8 == 0) {
+        data = rakPacket->data + deserialiser.offsetInBytes();
     } else {
-        // We have to copy into a new data chunk because
-        // the user data is not byte aligned.
+        // We have to copy into a new data chunk because the user data is not byte aligned.
         data = reinterpret_cast<uint8_t*>(alloca(bitsToBytes(dataSizeInBits)));
-        bitStream.ReadBits(data, dataSizeInBits, false);
+        deserialiser.deserialiseBits(data, dataSizeInBits, false);
     }
 
-    RpcHandler* handler = getRpcHandler(rpcID);
+    packet->deserialise(deserialiser);
 
-    if (handler != nullptr) {
-        try {
-            handler->callback(handler->userData, *this, data, dataSizeInBits);
-        } catch (std::exception& exception) {
-            spdlog::info("An exception occurred while processing the RPC {}: {}", rpcID, exception.what());
-        }
-    } else {
-        spdlog::info("No RPC handler found for ID: {}.", rpcID);
+    if (packet->execute(*this)) {
+        packet = packet->create();
+        m_rpcs[rpcID] = packet;
     }
 }

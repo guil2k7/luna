@@ -5,26 +5,34 @@
 #include "../game/osWrapper.hh"
 #include "../game/rw/rwcore.h"
 #include "../game/rw/rwplcore.h"
-#include <vector>
 #include <imgui.h>
 
 namespace luna::netgame {
 
+class Gui;
+
 class GuiWidget {
+    friend class Gui; 
+
 public:
     virtual void render() = 0;
+
+private:
+    GuiWidget* m_nextWidget = nullptr;
+    GuiWidget* m_previousWidget = nullptr;
 };
 
 class Gui {
 public:
-    static Gui* s_instance;
-
     static void initialise();
     static void release();
 
-    inline void addWidget(GuiWidget* widget) {
-        m_widgets.push_back(widget);
+    static inline Gui* get() {
+        return s_instance;
     }
+
+    void addWidget(GuiWidget* widget);
+    void removeWidget(GuiWidget* widget);
 
     void render();
 
@@ -34,10 +42,7 @@ public:
     void onKeyUp(game::OsKeyboardKey keyCode);
 
 private:
-    RwTexture* m_fontTexture;
-    RwIm2DVertex* m_vertexBuf;
-    size_t m_vertexBufSize;
-    std::vector<GuiWidget*> m_widgets;
+    static Gui* s_instance;
 
     Gui();
     ~Gui();
@@ -49,6 +54,13 @@ private:
 
     void createFontsTexture();
     void reserveVertices(size_t newSize);
+
+    RwTexture* m_fontTexture;
+    RwIm2DVertex* m_vertexBuf;
+    size_t m_vertexBufSize;
+
+    GuiWidget* m_widgetsTail;
+    GuiWidget* m_widgetsTop;
 };
 
 } // namespace luna::gameSA

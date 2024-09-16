@@ -15,7 +15,7 @@ TaskComplexDie* TaskComplexDie::create(
     auto self = Task::operator new(sizeof(TaskComplexDie));
 
     callMethod<void*, int, int, int, float, float, bool, bool, int, bool>(
-        GAME_ADDRESS + 0x4FB5E1, self,
+        g_gameAddress + 0x4FB5E1, self,
         meansOfDeath, animGroup, animID, blendDelta, animSpeed,
         beingKilledByStealth, fallingToDeath, fallToDeathDir, fallingToDeath);
 

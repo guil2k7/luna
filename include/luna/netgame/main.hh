@@ -2,7 +2,11 @@
 
 #pragma once
 
+#include "../net/client.hh"
+
 namespace luna::netgame {
+
+extern net::Client* g_client;
 
 void initialise();
 

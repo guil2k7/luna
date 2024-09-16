@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "matrix.hh"
+#include "physical.hh"
 #include "task/taskManager.hh"
 #include "../core/helpers.hh"
 #include <cstdint>
@@ -44,16 +44,8 @@ enum PedType {
     PEDTYPE_MISSION8,
 };
 
-class Ped {
+class Ped : public Physical {
 protected:
-    // Offset: 0x0.
-    void** vtable;
-
-    // Offset: 0x4.
-    PADDING(16);
-
-    // Offset: 0x14.
-    Matrix* m_matrix; // MatrixLink*
     PADDING(1064);
 
     // Offset: 0x440.
@@ -76,8 +68,80 @@ protected:
     PedType m_pedType;
 
 public:
-    Ped() = delete;
-    ~Ped() = delete;
+    inline static void* operator new(size_t size) {
+        return core::callFunction<void*>(g_gameAddress + 0x4AF931, size);   
+    }
+
+    inline static void operator delete(void* ptr) {
+        core::callFunction<void*>(g_gameAddress + 0x4AF901, ptr);   
+    }
+
+    inline static void* operator new(size_t, void* ptr) {
+        return ptr;
+    }
+
+    inline virtual ~Ped() override {
+        core::callMethod<void>(g_gameAddress + 0x4AF6A5, this);
+    }
+
+    inline virtual void deleteRwObject() override {
+        Entity::deleteRwObject();
+    }
+
+    inline virtual void processControl() override {
+        return core::callMethod<void>(g_gameAddress + 0x4B2541, this);
+    }
+
+    inline virtual void teleport(Vector newCoors, bool clearOrientation) override {
+        return core::callMethod<void, Vector, uint8_t>(g_gameAddress + 0x4B7231, this, newCoors, clearOrientation);
+    }
+
+    inline virtual void specialEntityPreCollisionStuff(
+        Physical* physical, bool doingShift, bool* skipTestEntirely,
+        bool* skipCol, bool* forceBuildingCol, bool *forceSoftCol) override
+    {
+        return core::callMethod<void>(g_gameAddress + 0x4B6C9D, this, physical, doingShift, skipTestEntirely, skipCol, forceBuildingCol, forceSoftCol);
+    }
+
+    inline virtual uint8_t specialEntityCalcCollisionSteps(bool* doPreCheckAtFullSpeed, bool* doPreCheckAtHalfSpeed) override {
+        return core::callMethod<uint8_t>(g_gameAddress + 0x4B6E59, this, doPreCheckAtFullSpeed, doPreCheckAtHalfSpeed);
+    }
+
+    inline virtual void preRender() override {
+        return core::callMethod<void>(g_gameAddress + 0x4B5973, this);
+    }
+
+    inline virtual void render() override {
+        return core::callMethod<void>(g_gameAddress + 0x4B6965, this);
+    }
+
+    inline virtual bool setupLighting() override {
+        return core::callMethod<bool>(g_gameAddress + 0x420645, this);
+    }
+
+    inline virtual void removeLighting(bool reset) override {
+        return core::callMethod<void>(g_gameAddress + 0x4206F5, this, reset);
+    }
+
+    inline virtual void flagToDestroyWhenNextProcessed() override {
+        return core::callMethod<void>(g_gameAddress + 0x4B7771, this);
+    }
+
+    inline virtual int processEntityCollision(Entity* entity, void* colPoints) override {
+        return core::callMethod<int>(g_gameAddress + 0x4B339D, this, entity, colPoints);
+    }
+
+    inline virtual void setMoveAnim() {
+        return core::callMethod<void>(g_gameAddress + 0x4B0C39, this);
+    }
+
+    inline virtual bool save() {
+        return core::callMethod<bool>(g_gameAddress + 0x494FD5, this);
+    }
+
+    inline virtual bool load() {
+        return core::callMethod<bool>(g_gameAddress + 0x495139, this);
+    }
 
     inline PedType pedType() const {
         return m_pedType;
@@ -89,11 +153,6 @@ public:
 
     inline TaskManager* taskManager() {
         return reinterpret_cast<TaskManager*>(m_intelligence + 4);
-    }
-
-    inline Matrix& matrix() {
-        return **reinterpret_cast<Matrix**>(
-            reinterpret_cast<uint8_t*>(this) + 0x14);
     }
 
     inline Vector& currentVelocity() {

@@ -13,7 +13,7 @@ public:
     }
 };
 
-void BitDeserialiser::deserialiseBits(uint8_t* dest, size_t lengthInBits) {
+void BitDeserialiser::deserialiseBits(uint8_t* dest, size_t lengthInBits, bool alignBitsToRight) {
     if (m_offsetInBits + lengthInBits > m_dataSizeInBits)
         throw NoBitsLeftException();
 
@@ -32,7 +32,8 @@ void BitDeserialiser::deserialiseBits(uint8_t* dest, size_t lengthInBits) {
             readBits += 8;
             bitsToRead -= 8;
         } else {
-            dest[readBits >> 3] >>= bitsToRead;
+            if (alignBitsToRight)
+                dest[readBits >> 3] >>= bitsToRead;
 
             m_offsetInBits += bitsToRead;
             readBits += bitsToRead;
@@ -52,6 +53,27 @@ void BitDeserialiser::deserialiseBytes(uint8_t* dest, size_t length) {
 
     memcpy(dest, m_data + (m_offsetInBits >> 3), length);
     m_offsetInBits += length * 8;
+}
+
+void BitDeserialiser::deserialiseBytesCompressed(uint8_t* dest, size_t length) {
+    int currentByte = (length >> 3) - 1;
+
+    uint8_t byteMatch = 0;
+    uint8_t halfByteMatch = 0;
+
+    while (currentByte > 0) {
+        if (deserialiseBool())
+            dest[currentByte--] = byteMatch;
+        else
+            return deserialiseBits(dest, (currentByte + 1) << 3);
+    }
+
+    if (deserialiseBool()) {
+        deserialiseBits(dest + currentByte, 4);
+        dest[currentByte] |= halfByteMatch;
+    } else {
+        deserialiseBits(dest + currentByte, 8);
+    }
 }
 
 void BitDeserialiser::skipBytes(size_t count) {

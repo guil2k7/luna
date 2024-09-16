@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "entity.hh"
 #include "playerInfo.hh"
 
 namespace luna::game {
@@ -12,6 +13,14 @@ public:
 
     World() = delete;
     ~World() = delete;
+
+    inline static void add(Entity* entity) {
+        core::callFunction<void>(g_gameAddress + 0x433419, entity);
+    }
+
+    inline static void remove(Entity* entity) {
+        core::callFunction<void>(g_gameAddress + 0x43330D, entity);
+    }
 
     inline static PlayerInfo* players() {
         return s_players;

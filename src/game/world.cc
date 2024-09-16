@@ -13,5 +13,5 @@ PlayerInfo* World::s_players = nullptr;
 void World::installMods() {
     s_players = new PlayerInfo[MAX_PLAYERS];
 
-    *reinterpret_cast<PlayerInfo**>(GAME_ADDRESS + 0x6883C0) = s_players;
+    *reinterpret_cast<PlayerInfo**>(g_gameAddress + 0x6883C0) = s_players;
 }

@@ -8,5 +8,5 @@ using namespace luna::core;
 using namespace luna::game;
 
 void TaskManager::setTask(Task* task, int index, bool unk) {
-    callMethod<void, Task*, int, bool>(GAME_ADDRESS + 0x54397B, this, task, index, unk);
+    callMethod<void, Task*, int, bool>(g_gameAddress + 0x54397B, this, task, index, unk);
 }

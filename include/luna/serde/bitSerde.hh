@@ -20,7 +20,7 @@ public:
         : m_data(data)
         , m_capacity(capacity)
         , m_offsetInBits(0)
-    { }
+    {}
 
     void serialiseBits(uint8_t const* bits, size_t lengthInBits);
     void serialiseBytes(uint8_t const* bytes, size_t length);
@@ -86,10 +86,11 @@ public:
         : m_data(data)
         , m_dataSizeInBits(lengthInBits)
         , m_offsetInBits(0)
-    { }
+    {}
 
-    void deserialiseBits(uint8_t* dest, size_t lengthInBits);
+    void deserialiseBits(uint8_t* dest, size_t lengthInBits, bool alignBitsToRight = true);
     void deserialiseBytes(uint8_t* dest, size_t length);
+    void deserialiseBytesCompressed(uint8_t* dest, size_t length);
     void skipBytes(size_t count);
     bool deserialiseBool();
 

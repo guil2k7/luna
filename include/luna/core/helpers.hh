@@ -13,10 +13,13 @@
 #endif
 
 #define VALIDATE_SIZE(a, b) \
-    static_assert(sizeof(a) == b, "size of `" #a "` != " #b);
+    static_assert(sizeof(a) == b, "size of `" #a "` != " #b)
 
 #define VALIDATE_OFFSET(a, b, c) \
-    static_assert(offsetof(a, b) == c, "offset of `" #a "` != " #c);
+    static_assert(offsetof(a, b) == c, "offset of `" #a "` != " #c)
+
+#define VALIDATE_OFFSET_VIRTUAL(a, b) \
+    LUNA_ASSERT(getVirtualOffset(a) == (b))
 
 #define _PADDING_2(a, b) a##b
 #define _PADDING_1(a, b) _PADDING_2(a, b)
@@ -30,10 +33,20 @@ template <typename C, typename R, typename... Args>
 using MethodAsFunction = R(LUNA_THISCALL*)(C*, Args...);
 
 template <typename C, typename R, typename... Args>
-inline MethodAsFunction<C, R, Args...> getMethodPointer(R (C::*method)(Args...)) {
+constexpr MethodAsFunction<C, R, Args...> getMethodPointer(R (C::*method)(Args...)) {
     union {
         R(C::*from)(Args...);
         MethodAsFunction<C, R, Args...> into;
+    } repr { .from = method };
+
+    return repr.into;
+}
+
+template <typename C, typename R, typename... Args>
+constexpr size_t getVirtualOffset(R (C::*method)(Args...)) {
+    union {
+        R(C::*from)(Args...);
+        size_t into;
     } repr { .from = method };
 
     return repr.into;

@@ -17,20 +17,28 @@ enum ServerQuitReason : uint8_t {
     SERVER_QUIT_REASON_KICK_OR_BAN,
 };
 
-struct StatsUpdate final : public serde::ISerialisable {
-    LUNA_DEFINE_PACKET(false, 205)
+struct StatsUpdate final : public net::Packet {
+    LUNA_DEFINE_PACKET(false, 205);
 
-    void serialise(serde::ISerialiser& serialiser) const;
+    inline net::Packet* create() const override {
+        return new StatsUpdate();        
+    }
+
+    void serialise(serde::ISerialiser& serialiser) const override;
 
     int32_t money;
     int32_t drunkLevel;
 };
 
-struct FootSync final : public serde::ISerialisable, serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(false, 207)
+struct FootSync final : public net::Packet {
+    LUNA_DEFINE_PACKET(false, 207);
 
-    void serialise(serde::ISerialiser& serialiser) const;
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new FootSync();        
+    }
+
+    void serialise(serde::ISerialiser& serialiser) const override;
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     uint16_t leftRight;
@@ -57,18 +65,26 @@ struct FootSync final : public serde::ISerialisable, serde::IDeserialisable {
     game::Vector surfingOffset;
 };
 
-struct SetPlayerFacingAngle final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 19)
+struct SetPlayerFacingAngle final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 19);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerFacingAngle();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float angle;
 };
 
-struct ServerJoin final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 137)
+struct ServerJoin final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 137);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ServerJoin();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     uint32_t color;
@@ -78,19 +94,29 @@ struct ServerJoin final : public serde::IDeserialisable {
     // Additional Information: Keeping color parameter as 0 will make random color on each client.
 };
 
-struct ServerQuit final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 138)
+struct ServerQuit final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 138);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ServerQuit();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     ServerQuitReason reason;
 };
 
-struct InitGame final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 139)
+class InitGame final : public net::Packet {
+public:
+    LUNA_DEFINE_PACKET(true, 139);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new InitGame();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     bool zoneNames;
     bool useCjWalk;
@@ -118,26 +144,35 @@ struct InitGame final : public serde::IDeserialisable {
     uint32_t multiplier;
     uint32_t lagCompMode;
     std::string hostName;
-    // uint8_t VehicleModels;
     uint32_t vehicleFriendlyFire;
+    // uint8_t vehicleModels[212];
 
-    // Additional Information: vehicleModels is an array of used vehicle models with size 212.
+private:
+    void handleClassSelection(net::Client& client);
 };
 
-struct UpdateScoresAndPings final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 155)
+struct UpdateScoresAndPings final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 155);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new UpdateScoresAndPings();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     int32_t score;
     uint32_t ping;
 };
 
-struct ClientCheck final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 103)
+struct ClientCheck final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 103);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ClientCheck();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t type;
     uint32_t address;
@@ -145,18 +180,26 @@ struct ClientCheck final : public serde::IDeserialisable {
     uint16_t count;
 };
 
-struct GameModeRestart final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 40)
+struct GameModeRestart final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 40);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new GameModeRestart();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     // Additional Information: This RPC reconnects a player to the server showing him "The server is restarting..." message.
 };
 
-struct ApplyPlayerAnimation final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 86)
+struct ApplyPlayerAnimation final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 86);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ApplyPlayerAnimation();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     std::string animLib;
@@ -169,26 +212,38 @@ struct ApplyPlayerAnimation final : public serde::IDeserialisable {
     uint32_t time;
 };
 
-struct ClearPlayerAnimation final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 87)
+struct ClearPlayerAnimation final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 87);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ClearPlayerAnimation();        
+    }
 
-    uint16_t playerID;
-};
-
-struct DeathBroadcast final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 166)
-
-    void deserialise(serde::IDeserialiser& deserialiser);
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
 };
 
-struct SetPlayerName final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 11)
+struct DeathBroadcast final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 166);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new DeathBroadcast();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
+
+    uint16_t playerID;
+};
+
+struct SetPlayerName final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 11);
+
+    inline net::Packet* create() const override {
+        return new SetPlayerName();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     std::string name;
@@ -197,72 +252,105 @@ struct SetPlayerName final : public serde::IDeserialisable {
     // Additional Information: Keep success parameter as 1.
 };
 
-struct SetPlayerPos final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 12)
+struct SetPlayerPos final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 12);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerPos();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     game::Vector position;
 };
 
-struct SetPlayerPosFindZ final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 13)
+struct SetPlayerPosFindZ final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 13);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerPosFindZ();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float x;
     float y;
     float z;
 };
 
-struct SetPlayerSkillLevel final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 34)
+struct SetPlayerSkillLevel final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 34);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerSkillLevel();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     uint32_t skillID;
     uint16_t level;
 };
 
-struct SetPlayerSkin final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 153)
+struct SetPlayerSkin final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 153);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerSkin();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint32_t playerID;
     uint32_t skinID;
 };
 
-struct SetPlayerTime final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 29)
+struct SetPlayerTime final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 29);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerTime();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t hour;
     uint8_t minute;
 };
 
-struct SetPlayerSpecialAction final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 88)
+struct SetPlayerSpecialAction final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 88);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerSpecialAction();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t actionID;
 };
 
-struct SetWeather final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 152)
+struct SetWeather final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 152);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetWeather();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t weatherID;
 };
 
-struct SetWorldBounds final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 17)
+struct SetWorldBounds final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 17);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetWorldBounds();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float maxX;
     float minX;
@@ -270,53 +358,77 @@ struct SetWorldBounds final : public serde::IDeserialisable {
     float minY;
 };
 
-struct SetPlayerVelocity final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 90)
+struct SetPlayerVelocity final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 90);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerVelocity();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float x;
     float y;
     float z;
 };
 
-struct TogglePlayerControllable final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 15)
+struct TogglePlayerControllable final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 15);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new TogglePlayerControllable();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     bool moveable;
 };
 
-struct TogglePlayerSpectating final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 124)
+struct TogglePlayerSpectating final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 124);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new TogglePlayerSpectating();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     bool spectating;
 };
 
-struct ToggleClock final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 30)
+struct ToggleClock final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 30);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ToggleClock();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     bool toggle;
 };
 
-struct SetPlayerTeam final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 69)
+struct SetPlayerTeam final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 69);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerTeam();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     uint8_t teamID;
 };
 
-struct PlaySound final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 16)
+struct PlaySound final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 16);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new PlaySound();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint32_t soundID;
     float x;
@@ -324,39 +436,59 @@ struct PlaySound final : public serde::IDeserialisable {
     float z;
 };
 
-struct GivePlayerMoney final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 18)
+struct GivePlayerMoney final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 18);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new GivePlayerMoney();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     int32_t money;
 };
 
-struct ResetPlayerMoney final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 20)
+struct ResetPlayerMoney final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 20);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ResetPlayerMoney();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 };
 
-struct ResetPlayerWeapons final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 21)
+struct ResetPlayerWeapons final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 21);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ResetPlayerWeapons();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 };
 
-struct GivePlayerWeapon final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 22)
+struct GivePlayerWeapon final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 22);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new GivePlayerWeapon();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint32_t weaponID;
     uint32_t bullets;
 };
 
-struct PlayAudioStream final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 41)
+struct PlayAudioStream final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 41);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new PlayAudioStream();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     std::string url;
     float x;
@@ -366,10 +498,14 @@ struct PlayAudioStream final : public serde::IDeserialisable {
     bool usePos;
 };
 
-struct PlayCrimeReport final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 112)
+struct PlayCrimeReport final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 112);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new PlayCrimeReport();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t suspectID;
     uint32_t inVehicle;
@@ -381,55 +517,83 @@ struct PlayCrimeReport final : public serde::IDeserialisable {
     float z;
 };
 
-struct StopAudioStream final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 42)
+struct StopAudioStream final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 42);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new StopAudioStream();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 };
 
-struct SetPlayerHealth final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 14)
+struct SetPlayerHealth final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 14);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerHealth();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float health;
 };
 
-struct SetPlayerArmour final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 66)
+struct SetPlayerArmour final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 66);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerArmour();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float armour;
 };
 
-struct SetWeaponAmmo final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 145)
+struct SetWeaponAmmo final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 145);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetWeaponAmmo();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t weaponID;
     uint16_t ammo;
 };
 
-struct SetCameraBehind final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 162)
+struct SetCameraBehind final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 162);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetCameraBehind();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 };
 
-struct SetArmedWeapon final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 67)
+struct SetArmedWeapon final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 67);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetArmedWeapon();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint32_t weaponID;
 };
 
-struct WorldPlayerAdd final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 32)
+struct WorldPlayerAdd final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 32);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new WorldPlayerAdd();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     uint8_t team;
@@ -443,18 +607,26 @@ struct WorldPlayerAdd final : public serde::IDeserialisable {
     uint16_t skillLevel[11];
 };
 
-struct WorldPlayerRemove final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 163)
+struct WorldPlayerRemove final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 163);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new WorldPlayerRemove();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
 };
 
-struct InterpolateCamera final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 82)
+struct InterpolateCamera final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 82);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new InterpolateCamera();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     bool posSet;
     float fromPosX;
@@ -467,10 +639,14 @@ struct InterpolateCamera final : public serde::IDeserialisable {
     uint8_t cutType;
 };
 
-struct CreateExplosion final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 79)
+struct CreateExplosion final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 79);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new CreateExplosion();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float x;
     float y;
@@ -479,543 +655,168 @@ struct CreateExplosion final : public serde::IDeserialisable {
     float radius;
 };
 
-struct SendDeathMessage final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 55)
+struct SendDeathMessage final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 55);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SendDeathMessage();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t killerID;
     uint16_t playerID;
     uint8_t reason;
 };
 
-struct SendGameTimeUpdate final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 60)
+struct SendGameTimeUpdate final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 60);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SendGameTimeUpdate();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     int32_t time;
 };
 
-struct SendClientMessage final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 93)
+struct SendClientMessage final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 93);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SendClientMessage();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint32_t color;
     std::string message;
 };
 
-struct SetShopName final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 33)
+struct SetShopName final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 33);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetShopName();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     std::string name;
 };
 
-struct SetPlayerDrunkLevel final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 35)
+struct SetPlayerDrunkLevel final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 35);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerDrunkLevel();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     int32_t drunkLevel;
 };
 
-struct SetPlayerFightingStyle final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 89)
+struct SetPlayerFightingStyle final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 89);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerFightingStyle();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     uint8_t fightStyle;
 };
 
-struct SetInterior final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 156)
+struct SetInterior final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 156);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetInterior();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t interiorID;
 };
 
-struct SetPlayerColor final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 72)
+struct SetPlayerColor final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 72);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerColor();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint16_t playerID;
     uint32_t color;
 };
 
-struct ForceClassSelection final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 74)
+struct ForceClassSelection final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 74);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ForceClassSelection();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 };
 
-struct ToggleWidescreen final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 111)
+struct ToggleWidescreen final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 111);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new ToggleWidescreen();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t enable;
 };
 
-struct SetPlayerWantedLevel final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 133)
+struct SetPlayerWantedLevel final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 133);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetPlayerWantedLevel();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     uint8_t wantedLevel;
 };
 
-struct SetCameraPos final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 157)
+struct SetCameraPos final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 157);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetCameraPos();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float lookPosX;
     float lookPosY;
     float lookPosZ;
 };
 
-struct SetCameraLookAt final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 158)
+struct SetCameraLookAt final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 158);
 
-    void deserialise(serde::IDeserialiser& deserialiser);
+    inline net::Packet* create() const override {
+        return new SetCameraLookAt();        
+    }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
 
     float lookPosX;
     float lookPosY;
     float lookPosZ;
     uint8_t cutType;
 };
-
-/* ======== IMPLEMENTATION ======== */
-
-inline void StatsUpdate::serialise(serde::ISerialiser& serialiser) const {
-    serialiser.serialiseI32(money);
-    serialiser.serialiseI32(drunkLevel);
-}
-
-inline void FootSync::serialise(serde::ISerialiser& serialiser) const {
-    serialiser.serialiseU16(leftRight);
-    serialiser.serialiseU16(upDown);
-    serialiser.serialiseU16(keys);
-    serialiser.serialise(position);
-    serialiser.serialise(rotation);
-    serialiser.serialiseU8(health);
-    serialiser.serialiseU8(armour);
-    serialiser.serialiseU8(weaponAdditionalKey);
-    serialiser.serialiseU8(specialAction);
-    serialiser.serialise(velocity);
-    serialiser.serialise(surfingOffset);
-    serialiser.serialiseU16(surfingID);
-    serialiser.serialiseU16(animationID);
-    serialiser.serialiseU16(animationFlags);
-}
-
-inline void FootSync::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-
-    if (deserialiser.deserialiseBool())
-        leftRight = deserialiser.deserialiseI16();
-    else
-        leftRight = 0;
-
-    if (deserialiser.deserialiseBool())
-        upDown = deserialiser.deserialiseI16();
-    else
-        upDown = 0;
-
-    keys = deserialiser.deserialiseU16();
-
-    deserialiser.deserialise(position);
-
-    deserialiser.deserialiseNormQuat(
-        rotation.w,
-        rotation.x,
-        rotation.y,
-        rotation.z);
-
-    uint8_t healthArmourCompressed = deserialiser.deserialiseU8();
-    uint8_t healthCompressed = (healthArmourCompressed >> 4) & 0xF;
-    uint8_t armourCompressed = healthArmourCompressed & 0xF;
-
-    if (healthCompressed == 0xF)
-        health = 100.0f;
-    else
-        health = static_cast<float>(healthCompressed * 7);
-
-    if (armourCompressed == 0xF)
-        armour = 100.0f;
-    else
-        armour = static_cast<float>(armourCompressed * 7);
-
-    weaponAdditionalKey = deserialiser.deserialiseU8();
-    specialAction = deserialiser.deserialiseU8();
-
-    deserialiser.deserialiseCompressedVec(
-        velocity.x,
-        velocity.y,
-        velocity.z);
-
-    if (deserialiser.deserialiseBool()) {
-        surfingID = deserialiser.deserialiseU16();
-        deserialiser.deserialise(surfingOffset);
-    } else {
-        surfingID = 0xFFFF;
-    }
-}
-
-inline void SetPlayerFacingAngle::deserialise(serde::IDeserialiser& deserialiser) {
-    angle = deserialiser.deserialiseF32();
-}
-
-inline void ServerJoin::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    color = deserialiser.deserialiseU32();
-    isNpc = deserialiser.deserialiseU8();
-
-    uint8_t playerNameLength = deserialiser.deserialiseU8();
-    playerName.resize(playerNameLength);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(playerName.data()), playerNameLength);
-}
-
-inline void ServerQuit::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    reason = static_cast<ServerQuitReason>(deserialiser.deserialiseU8());
-}
-
-inline void InitGame::deserialise(serde::IDeserialiser& deserialiser) {
-    zoneNames = deserialiser.deserialiseBool();
-    useCjWalk = deserialiser.deserialiseBool();
-    allowWeapons = deserialiser.deserialiseBool();
-    limitGlobalChatRadius = deserialiser.deserialiseBool();
-    globalChatRadius = deserialiser.deserialiseF32();
-    stuntBonus = deserialiser.deserialiseBool();
-    nameTagDistance = deserialiser.deserialiseF32();
-    disableEnterExits = deserialiser.deserialiseBool();
-    nameTagLos = deserialiser.deserialiseBool();
-    manualVehEngineAndLights = deserialiser.deserialiseBool();
-    spawnsAvailable = deserialiser.deserialiseU32();
-    playerID = deserialiser.deserialiseU16();
-    showNameTags = deserialiser.deserialiseBool();
-    showPlayerMarkers = deserialiser.deserialiseU32();
-    worldTime = deserialiser.deserialiseU8();
-    weather = deserialiser.deserialiseU8();
-    gravity = deserialiser.deserialiseF32();
-    lanMode = deserialiser.deserialiseBool();
-    deathDropMoney = deserialiser.deserialiseU32();
-    instagib = deserialiser.deserialiseBool();
-    onfootRate = deserialiser.deserialiseU32();
-    inCarRate = deserialiser.deserialiseU32();
-    weaponRate = deserialiser.deserialiseU32();
-    multiplier = deserialiser.deserialiseU32();
-    lagCompMode = deserialiser.deserialiseU32();
-
-    uint8_t hostNameLength = deserialiser.deserialiseU8();
-
-    hostName.resize(hostNameLength);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(hostName.data()), hostNameLength);
-
-    deserialiser.skipBytes(212); // VehicleModels
-    vehicleFriendlyFire = deserialiser.deserialiseU32();
-}
-
-inline void UpdateScoresAndPings::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    score = deserialiser.deserialiseI32();
-    ping = deserialiser.deserialiseU32();
-}
-
-inline void ClientCheck::deserialise(serde::IDeserialiser& deserialiser) {
-    type = deserialiser.deserialiseU8();
-    address = deserialiser.deserialiseU32();
-    offset = deserialiser.deserialiseU16();
-    count = deserialiser.deserialiseU16();
-}
-
-inline void GameModeRestart::deserialise(serde::IDeserialiser& deserialiser) {
-    // Nothing to deserialise.
-}
-
-inline void ApplyPlayerAnimation::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-
-    uint8_t animLibLength = deserialiser.deserialiseU8();
-    animLib.resize(animLibLength);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(animLib.data()), animLibLength);
-
-    uint8_t animNameLength = deserialiser.deserialiseU8();
-    animName.resize(animNameLength);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(animName.data()), animNameLength);
-
-    delta = deserialiser.deserialiseF32();
-    loop = deserialiser.deserialiseBool();
-    lockx = deserialiser.deserialiseBool();
-    locky = deserialiser.deserialiseBool();
-    freeze = deserialiser.deserialiseBool();
-    time = deserialiser.deserialiseU32();
-}
-
-inline void ClearPlayerAnimation::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-}
-
-inline void DeathBroadcast::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-}
-
-inline void SetPlayerName::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    uint8_t nameLength = deserialiser.deserialiseU8();
-
-    name.resize(nameLength);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(name.data()), nameLength);
-
-    success = deserialiser.deserialiseU8();
-}
-
-inline void SetPlayerPos::deserialise(serde::IDeserialiser& deserialiser) {
-    deserialiser.deserialise(position);
-}
-
-inline void SetPlayerPosFindZ::deserialise(serde::IDeserialiser& deserialiser) {
-    x = deserialiser.deserialiseF32();
-    y = deserialiser.deserialiseF32();
-    z = deserialiser.deserialiseF32();
-}
-
-inline void SetPlayerSkillLevel::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    skillID = deserialiser.deserialiseU32();
-    level = deserialiser.deserialiseU16();
-}
-
-inline void SetPlayerSkin::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU32();
-    skinID = deserialiser.deserialiseU32();
-}
-
-inline void SetPlayerTime::deserialise(serde::IDeserialiser& deserialiser) {
-    hour = deserialiser.deserialiseU8();
-    minute = deserialiser.deserialiseU8();
-}
-
-inline void SetPlayerSpecialAction::deserialise(serde::IDeserialiser& deserialiser) {
-    actionID = deserialiser.deserialiseU8();
-}
-
-inline void SetWeather::deserialise(serde::IDeserialiser& deserialiser) {
-    weatherID = deserialiser.deserialiseU8();
-}
-
-inline void SetWorldBounds::deserialise(serde::IDeserialiser& deserialiser) {
-    maxX = deserialiser.deserialiseF32();
-    minX = deserialiser.deserialiseF32();
-    maxY = deserialiser.deserialiseF32();
-    minY = deserialiser.deserialiseF32();
-}
-
-inline void SetPlayerVelocity::deserialise(serde::IDeserialiser& deserialiser) {
-    x = deserialiser.deserialiseF32();
-    y = deserialiser.deserialiseF32();
-    z = deserialiser.deserialiseF32();
-}
-
-inline void TogglePlayerControllable::deserialise(serde::IDeserialiser& deserialiser) {
-    moveable = deserialiser.deserialiseU8();
-}
-
-inline void TogglePlayerSpectating::deserialise(serde::IDeserialiser& deserialiser) {
-    spectating = deserialiser.deserialiseU32();
-}
-
-inline void ToggleClock::deserialise(serde::IDeserialiser& deserialiser) {
-    toggle = deserialiser.deserialiseU8();
-}
-
-inline void SetPlayerTeam::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    teamID = deserialiser.deserialiseU8();
-}
-
-inline void PlaySound::deserialise(serde::IDeserialiser& deserialiser) {
-    soundID = deserialiser.deserialiseU32();
-    x = deserialiser.deserialiseF32();
-    y = deserialiser.deserialiseF32();
-    z = deserialiser.deserialiseF32();
-}
-
-inline void GivePlayerMoney::deserialise(serde::IDeserialiser& deserialiser) {
-    money = deserialiser.deserialiseI32();
-}
-
-inline void ResetPlayerMoney::deserialise(serde::IDeserialiser& deserialiser) {
-    // Nothing to deserialise.
-}
-
-inline void ResetPlayerWeapons::deserialise(serde::IDeserialiser& deserialiser) {
-    // Nothing to deserialise.
-}
-
-inline void GivePlayerWeapon::deserialise(serde::IDeserialiser& deserialiser) {
-    weaponID = deserialiser.deserialiseU32();
-    bullets = deserialiser.deserialiseU32();
-}
-
-inline void PlayAudioStream::deserialise(serde::IDeserialiser& deserialiser) {
-    uint8_t urlLength = deserialiser.deserialiseU8();
-
-    url.resize(urlLength);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(url.data()), urlLength);
-    x = deserialiser.deserialiseF32();
-    y = deserialiser.deserialiseF32();
-    z = deserialiser.deserialiseF32();
-    radius = deserialiser.deserialiseF32();
-    usePos = deserialiser.deserialiseU8();
-}
-
-inline void PlayCrimeReport::deserialise(serde::IDeserialiser& deserialiser) {
-    suspectID = deserialiser.deserialiseU16();
-    inVehicle = deserialiser.deserialiseU32();
-    vehicleModel = deserialiser.deserialiseU32();
-    vehicleColor = deserialiser.deserialiseU32();
-    crime = deserialiser.deserialiseU32();
-    x = deserialiser.deserialiseF32();
-    y = deserialiser.deserialiseF32();
-    z = deserialiser.deserialiseF32();
-}
-
-inline void StopAudioStream::deserialise(serde::IDeserialiser& deserialiser) {
-    // Nothing to deserialise.
-}
-
-inline void SetPlayerHealth::deserialise(serde::IDeserialiser& deserialiser) {
-    health = deserialiser.deserialiseF32();
-}
-
-inline void SetPlayerArmour::deserialise(serde::IDeserialiser& deserialiser) {
-    armour = deserialiser.deserialiseF32();
-}
-
-inline void SetWeaponAmmo::deserialise(serde::IDeserialiser& deserialiser) {
-    weaponID = deserialiser.deserialiseU8();
-    ammo = deserialiser.deserialiseU16();
-}
-
-inline void SetCameraBehind::deserialise(serde::IDeserialiser& deserialiser) {
-    // Nothing to deserialise.
-}
-
-inline void SetArmedWeapon::deserialise(serde::IDeserialiser& deserialiser) {
-    weaponID = deserialiser.deserialiseU32();
-}
-
-inline void WorldPlayerAdd::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    team = deserialiser.deserialiseU8();
-    skinID = deserialiser.deserialiseU32();
-    posX = deserialiser.deserialiseF32();
-    posY = deserialiser.deserialiseF32();
-    posZ = deserialiser.deserialiseF32();
-    facingAngle = deserialiser.deserialiseF32();
-    playerColor = deserialiser.deserialiseU32();
-    fightingStyle = deserialiser.deserialiseU8();
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(skillLevel), 22);
-}
-
-inline void WorldPlayerRemove::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-}
-
-inline void InterpolateCamera::deserialise(serde::IDeserialiser& deserialiser) {
-    posSet = deserialiser.deserialiseBool();
-    fromPosX = deserialiser.deserialiseF32();
-    fromPosY = deserialiser.deserialiseF32();
-    fromPosZ = deserialiser.deserialiseF32();
-    toPosX = deserialiser.deserialiseF32();
-    toPosY = deserialiser.deserialiseF32();
-    toPosZ = deserialiser.deserialiseF32();
-    time = deserialiser.deserialiseU32();
-    cutType = deserialiser.deserialiseU8();
-}
-
-inline void CreateExplosion::deserialise(serde::IDeserialiser& deserialiser) {
-    x = deserialiser.deserialiseF32();
-    y = deserialiser.deserialiseF32();
-    z = deserialiser.deserialiseF32();
-    type = deserialiser.deserialiseU32();
-    radius = deserialiser.deserialiseF32();
-}
-
-inline void SendDeathMessage::deserialise(serde::IDeserialiser& deserialiser) {
-    killerID = deserialiser.deserialiseU16();
-    playerID = deserialiser.deserialiseU16();
-    reason = deserialiser.deserialiseU8();
-}
-
-inline void SendGameTimeUpdate::deserialise(serde::IDeserialiser& deserialiser) {
-    time = deserialiser.deserialiseI32();
-}
-
-inline void SendClientMessage::deserialise(serde::IDeserialiser& deserialiser) {
-    color = deserialiser.deserialiseU32();
-    uint32_t messageLength = deserialiser.deserialiseU32();
-
-    message.resize(messageLength);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(message.data()), messageLength);
-}
-
-inline void SetShopName::deserialise(serde::IDeserialiser& deserialiser) {
-    uint32_t length = deserialiser.deserialiseU32();
-
-    name.resize(length);
-    deserialiser.deserialiseBytes(reinterpret_cast<uint8_t*>(name.data()), length);
-}
-
-inline void SetPlayerDrunkLevel::deserialise(serde::IDeserialiser& deserialiser) {
-    drunkLevel = deserialiser.deserialiseI32();
-}
-
-inline void SetPlayerFightingStyle::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    fightStyle = deserialiser.deserialiseU8();
-}
-
-inline void SetInterior::deserialise(serde::IDeserialiser& deserialiser) {
-    interiorID = deserialiser.deserialiseU8();
-}
-
-inline void SetPlayerColor::deserialise(serde::IDeserialiser& deserialiser) {
-    playerID = deserialiser.deserialiseU16();
-    color = deserialiser.deserialiseU32();
-}
-
-inline void ForceClassSelection::deserialise(serde::IDeserialiser& deserialiser) {
-    // Nothing to deserialise.
-}
-
-inline void ToggleWidescreen::deserialise(serde::IDeserialiser& deserialiser) {
-    enable = deserialiser.deserialiseU8();
-}
-
-inline void SetPlayerWantedLevel::deserialise(serde::IDeserialiser& deserialiser) {
-    wantedLevel = deserialiser.deserialiseU8();
-}
-
-inline void SetCameraPos::deserialise(serde::IDeserialiser& deserialiser) {
-    lookPosX = deserialiser.deserialiseF32();
-    lookPosY = deserialiser.deserialiseF32();
-    lookPosZ = deserialiser.deserialiseF32();
-}
-
-inline void SetCameraLookAt::deserialise(serde::IDeserialiser& deserialiser) {
-    lookPosX = deserialiser.deserialiseF32();
-    lookPosY = deserialiser.deserialiseF32();
-    lookPosZ = deserialiser.deserialiseF32();
-    cutType = deserialiser.deserialiseU8();
-}
 
 } // namespace luna::netcode

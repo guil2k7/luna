@@ -2,24 +2,21 @@
 
 #pragma once
 
-#include "luna.hh"
-#include <chrono>
+#include "remotePad.hh"
+#include "../game/playerPed.hh"
 
 namespace luna::netgame {
 
-class LocalPlayerManager {
+class LocalPlayer : public game::PlayerPed {
 public:
-    void install();
-    void process();
+    LocalPlayer(int id, bool forReply);
 
-    std::chrono::milliseconds footSyncRate;
+    void processControl() override;
 
-private:
-    static void processSetPlayerPos(void* userData, net::Client& client, uint8_t const* rawData, size_t bitSize);
-
-    void sendFootSync();
-
-    std::chrono::time_point<std::chrono::steady_clock> m_lastFootSync;
+protected:
+    RemotePad m_remotePad;
 };
+
+static_assert(sizeof(LocalPlayer) <= game::MAX_PLAYERPED_SIZE);
 
 } // namespace luna::netgame

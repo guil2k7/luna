@@ -54,27 +54,27 @@ enum OsEventType {
 };
 
 static void onPointerMove(int x, int y) {
-    Gui::s_instance->onPointerMove(x, y);
+    Gui::get()->onPointerMove(x, y);
 }
 
 static void onPointerButton(OsPointerState state, int x, int y) {
-    Gui::s_instance->onPointerButton(state, x, y);
+    Gui::get()->onPointerButton(state, x, y);
 }
 
 static void onKeyDown(OsKeyboardKey keyCode) {
-    Gui::s_instance->onKeyDown(keyCode);
+    Gui::get()->onKeyDown(keyCode);
 }
 
 static void onKeyUp(OsKeyboardKey keyCode) {
-    Gui::s_instance->onKeyUp(keyCode);
+    Gui::get()->onKeyUp(keyCode);
 }
 
 static ANDTouchPoint* getPoint(int trackNum) {
-    return &reinterpret_cast<ANDTouchPoint*>(GAME_ADDRESS + 0x6E707C)[trackNum];
+    return &reinterpret_cast<ANDTouchPoint*>(g_gameAddress + 0x6E707C)[trackNum];
 }
 
 static void hook_ApplicationEvent(OsEventType type, void* data) {
-    callFunction<void>(GAME_ADDRESS + 0x5F54B9, type, data);
+    callFunction<void>(g_gameAddress + 0x5F54B9, type, data);
 
     switch (type) {
     case OSET_POINTER_BUTTON: {
@@ -103,18 +103,18 @@ static void hook_ApplicationEvent(OsEventType type, void* data) {
 }
 
 void OsEvent::installMods() {
-    takeAndReplace(GAME_ADDRESS + 0x683724, hook_ApplicationEvent);
+    takeAndReplace(g_gameAddress + 0x683724, hook_ApplicationEvent);
 }
 
 void game::showKeyboard() {
-    // callFunction<void, int>(GAME_ADDRESS + GAME_ADDR_OS_KEYBOARDREQUEST, 1);
+    // callFunction<void, int>(g_gameAddress + GAME_ADDR_OS_KEYBOARDREQUEST, 1);
 }
 
 void game::hideKeyboard() {
-    // callFunction<void, int>(GAME_ADDRESS + GAME_ADDR_OS_KEYBOARDREQUEST, 0);
+    // callFunction<void, int>(g_gameAddress + GAME_ADDR_OS_KEYBOARDREQUEST, 0);
 }
 
 bool game::isKeyboardShown() {
-    // return *reinterpret_cast<int*>(GAME_ADDRESS + GAME_ADDR_KEYBOARDWASVISIBLE);
+    // return *reinterpret_cast<int*>(g_gameAddress + GAME_ADDR_KEYBOARDWASVISIBLE);
     return false;
 }

@@ -9,36 +9,27 @@
 
 namespace luna::netcode {
 
-struct RequestClass final : public serde::ISerialisable {
-    LUNA_DEFINE_PACKET(true, 128)
+struct RequestClass final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 128);
 
-    void serialise(serde::ISerialiser& serialiser) const {
-        serialiser.serialiseU16(id);
+    inline net::Packet* create() const override {
+        return new RequestClass();
     }
 
-    int id;
+    void serialise(serde::ISerialiser& serialiser) const override;
+
+    int classID;
 };
 
-struct RequestClassResponse final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 128)
+struct RequestClassResponse final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 128);
 
-    void deserialise(serde::IDeserialiser& deserialiser) {
-        selectable = deserialiser.deserialiseU8();
-        teamID = deserialiser.deserialiseU8();
-        modelID = deserialiser.deserialiseU32();
-        deserialiser.deserialise(spawn);
-
-        // Unknown.
-        deserialiser.deserialiseU8();
-
-        zAngle = deserialiser.deserialiseF32();
-
-        for (size_t i = 0; i < 3; ++i)
-            weapons[i] = deserialiser.deserialiseU32();
-
-        for (size_t i = 0; i < 3; ++i)
-            ammos[i] = deserialiser.deserialiseU32();
+    inline net::Packet* create() const override {
+        return new RequestClassResponse();
     }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     uint8_t selectable;
     uint8_t teamID;
@@ -49,26 +40,42 @@ struct RequestClassResponse final : public serde::IDeserialisable {
     uint32_t ammos[3];
 };
 
-struct RequestSpawn final : public serde::ISerialisable {
-    LUNA_DEFINE_PACKET(true, 129)
+struct RequestSpawn final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 129);
 
-    void serialise(serde::ISerialiser& serialiser) const { }
+    inline net::Packet* create() const override {
+        return new RequestSpawn();
+    }
+
+    void serialise(serde::ISerialiser& serialiser) const override;
 };
 
-struct RequestSpawnResponse final : public serde::IDeserialisable {
-    LUNA_DEFINE_PACKET(true, 129)
+class RequestSpawnResponse final : public net::Packet {
+public:
+    LUNA_DEFINE_PACKET(true, 129);
 
-    void deserialise(serde::IDeserialiser& deserialiser) {
-        allow = deserialiser.deserialiseU8();
+    inline net::Packet* create() const override {
+        return new RequestSpawnResponse();
     }
+
+    void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
+
+private:
+    void onSpawn(net::Client& client);
+    void onSpawnFail(net::Client& client);
 
     int allow;
 };
 
-struct SendSpawn final : public serde::ISerialisable {
-    LUNA_DEFINE_PACKET(true, 52)
+struct SendSpawn final : public net::Packet {
+    LUNA_DEFINE_PACKET(true, 52);
 
-    void serialise(serde::ISerialiser& serialiser) const { }
+    inline net::Packet* create() const override {
+        return new SendSpawn();
+    }
+
+    void serialise(serde::ISerialiser& serialiser) const override;
 };
 
 } // namespace luna::netcode

@@ -8,5 +8,5 @@ using namespace luna::core;
 using namespace luna::game;
 
 void* Task::operator new(size_t size) {
-    return callFunction<void*, size_t>(GAME_ADDRESS + 0x4E6A71, size);
+    return callFunction<void*, size_t>(g_gameAddress + 0x4E6A71, size);
 }

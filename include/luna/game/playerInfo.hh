@@ -3,6 +3,7 @@
 #pragma once
 
 #include "animManagerData.hh"
+#include "main.hh"
 #include "vector.hh"
 #include "../core/helpers.hh"
 
@@ -86,6 +87,10 @@ struct PlayerPedData {
 
 class PlayerInfo {
 public:
+    PlayerInfo() {
+        core::callMethod<PlayerInfo*>(g_gameAddress + 0x418DE1, this);
+    }
+
     PlayerPed* ped;
     PlayerPedData pedData;
     Vehicle* remoteVehicle;

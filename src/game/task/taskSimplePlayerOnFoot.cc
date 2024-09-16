@@ -10,7 +10,7 @@ using namespace luna::game;
 TaskSimplePlayerOnFoot* TaskSimplePlayerOnFoot::create() {
     auto self = Task::operator new(sizeof(TaskSimplePlayerOnFoot));
 
-    callMethod<void*>(GAME_ADDRESS + 0x547551, self);
+    callMethod<void*>(g_gameAddress + 0x547551, self);
 
     return reinterpret_cast<TaskSimplePlayerOnFoot*>(self);
 }

@@ -5,6 +5,7 @@ set(LUNA_LINK_LIBRARIES spdlog::spdlog raknet imgui)
 add_subdirectory(core)
 add_subdirectory(game)
 add_subdirectory(net)
+add_subdirectory(netcode)
 add_subdirectory(netgame)
 add_subdirectory(serde)
 

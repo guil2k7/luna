@@ -1,13 +1,14 @@
 // Copyright 2024 Maicol Castro (maicolcastro.abc@gmail.com).
 
 #include <luna/core/helpers.hh>
+#include <luna/core/exceptions.hh>
 #include <cassert>
 
 using namespace luna;
 using namespace luna::core;
 
 void core::makeNop(void* address, size_t size) {
-    assert((size % 2) == 0);
+    LUNA_ASSERT((size % 2) == 0);
 
     size /= 2;
 

@@ -41,7 +41,7 @@ class Pad {
 public:
     ControllerState newState;
     ControllerState oldState;
-    int currentPadID;
+    int _currentPadID;
     int16_t steeringLeftRightBuffer[10];
     int32_t drunkDrivingBufferUsed;
     ControllerState pcTempKeyState;
@@ -91,7 +91,7 @@ public:
     static void setRemotePadAsCurrent(netgame::RemotePad* pad);
 
     inline static Pad* mainPlayerPad() {
-        return reinterpret_cast<Pad*>(GAME_ADDRESS + 0x969B1C);
+        return reinterpret_cast<Pad*>(g_gameAddress + 0x969B1C);
     }
 
     static void installMods();

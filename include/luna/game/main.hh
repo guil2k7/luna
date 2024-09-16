@@ -6,7 +6,7 @@
 
 namespace luna::game {
 
-extern uint8_t* GAME_ADDRESS;
+extern uint8_t* g_gameAddress;
 
 void initialiseMods();
 void installMods();
