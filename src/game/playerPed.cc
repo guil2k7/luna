@@ -41,9 +41,10 @@ void PlayerPed::setupPlayerPed(int id) {
     PlayerPed* player;
 
     if (id == 0) {
-        auto localPlayer
-            = new (Ped::operator new(sizeof (netgame::LocalPlayer))) netgame::LocalPlayer(id, false);
+        auto localPlayer = reinterpret_cast<netgame::LocalPlayer*>(
+            Ped::operator new(sizeof (netgame::LocalPlayer)));
 
+        localPlayer->initialise(id, false);
         player = localPlayer;
     }
     else {

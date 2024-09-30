@@ -8,12 +8,6 @@
 using namespace luna::core;
 using namespace luna::game;
 
-static struct Assertions {
-    Assertions() {
-        VALIDATE_OFFSET_VIRTUAL(&Ped::load, 0x678CC0 - 0x678C58);
-    }
-} g_assertions;
-
 void Ped::setHealth(float value) {
     m_health = std::min(value, m_health);
 

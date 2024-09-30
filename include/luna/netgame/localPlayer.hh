@@ -9,14 +9,15 @@ namespace luna::netgame {
 
 class LocalPlayer : public game::PlayerPed {
 public:
-    LocalPlayer(int id, bool forReply);
+    /// Initialises the player ped and returns it.
+    LocalPlayer* initialise(int id, bool forReply);
 
-    void processControl() override;
+    void processControl();
 
 protected:
     RemotePad m_remotePad;
 };
 
-static_assert(sizeof(LocalPlayer) <= game::MAX_PLAYERPED_SIZE);
+static_assert(sizeof (LocalPlayer) <= game::MAX_PLAYERPED_SIZE);
 
 } // namespace luna::netgame

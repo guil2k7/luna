@@ -14,32 +14,10 @@ class PlayerInfo;
 class PlayerPed : public Ped {
 public:
     static void installMods();
-
     static void setupPlayerPed(int id);
 
-    inline PlayerPed(int id, bool forReply) {
-        initialise(id, forReply);
-    }
-
-    inline virtual ~PlayerPed() override {
-        core::callMethod<void>(g_gameAddress + 0x4D3901, this);
-    }
-
-    inline virtual void processControl() override {
-        return core::callMethod<void>(g_gameAddress + 0x4D47E9, this);
-    }
-
-    inline virtual void setMoveAnim() override {
-        return core::callMethod<void>(g_gameAddress + 0x4DA6D9, this);
-    }
-
-    inline virtual bool save() override {
-        return core::callMethod<bool>(g_gameAddress + 0x495163, this);
-    }
-
-    inline virtual bool load() override {
-        return core::callMethod<bool>(g_gameAddress + 0x4951E9, this);
-    }
+    /// Initialises the player ped and returns it.
+    PlayerPed* initialise(int id, bool forReply);
 
     PlayerInfo* playerInfo();
 
@@ -48,9 +26,6 @@ public:
     }
 
 private:
-    /// Initialises the player ped and returns it.
-    PlayerPed* initialise(int id, bool forReply);
-
     PADDING(8);
 
     int m_id;

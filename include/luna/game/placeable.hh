@@ -13,17 +13,26 @@ struct SimpleTransform {
     float heading;
 };
 
+class Placeable;
+
+struct PlaceableVtable {
+    void (LUNA_THISCALL *destructorWithoutDelete)(void* thiz);
+    void (LUNA_THISCALL *destructorWithDelete)(void* thiz);
+};
+
 class Placeable {
 public:
-    inline virtual ~Placeable() {
-        core::callMethod<void>(g_gameAddress + 0x41872D, this);
-    }
-
     inline Matrix* matrix() {
         return m_matrix;
     }
 
+    inline PlaceableVtable* vtable() const {
+        return reinterpret_cast<PlaceableVtable*>(m_vtable);
+    }
+
 protected:
+    void* m_vtable;
+
     SimpleTransform m_transform;
     Matrix* m_matrix;
 };

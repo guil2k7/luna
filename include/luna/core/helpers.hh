@@ -43,6 +43,16 @@ constexpr MethodAsFunction<C, R, Args...> getMethodPointer(R (C::*method)(Args..
 }
 
 template <typename C, typename R, typename... Args>
+constexpr MethodAsFunction<void, R, Args...> getMethodPointer2(R (C::*method)(Args...)) {
+    union {
+        R(C::*from)(Args...);
+        MethodAsFunction<void, R, Args...> into;
+    } repr { .from = method };
+
+    return repr.into;
+}
+
+template <typename C, typename R, typename... Args>
 constexpr size_t getVirtualOffset(R (C::*method)(Args...)) {
     union {
         R(C::*from)(Args...);
