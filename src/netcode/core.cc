@@ -2,10 +2,12 @@
 
 #include <luna/netcode/core.hh>
 #include <luna/game/pad.hh>
-#include <luna/game/playerPed.hh>
 #include <luna/game/world.hh>
 #include <luna/net/client.hh>
-#include <luna/netgame/spawnScreen.hh>
+#include <luna/netgame/classManager.hh>
+#include <luna/netgame/localPlayer.hh>
+#include <luna/netgame/remotePlayer.hh>
+#include <luna/netgame/definitions.hh>
 
 using namespace luna::game;
 using namespace luna::net;
@@ -438,6 +440,8 @@ void SetCameraLookAt::deserialise(IDeserialiser& deserialiser) {
     cutType = deserialiser.deserialiseU8();
 }
 
+/* ---------------------------------------------------------------- */
+
 bool InitGame::execute(net::Client& client) {
     handleClassSelection(client);
 
@@ -445,20 +449,138 @@ bool InitGame::execute(net::Client& client) {
 }
 
 void InitGame::handleClassSelection(Client& client) {
-    PlayerPed* player = World::getPlayerPed();
+    LocalPlayer* player = LocalPlayer::s_instance;
     Pad* pad = Pad::mainPlayerPad();
 
     player->setHealth(100.0f);
     pad->disablePlayerControls = 1;
 
-    SpawnScreen::s_instance->numberOfClasses = spawnsAvailable;
-    SpawnScreen::s_instance->currentClassID = 0;
-    SpawnScreen::s_instance->requestCurrentClass();
-    SpawnScreen::s_instance->show();
+    ClassManager::s_instance->numberOfClasses = spawnsAvailable;
+    ClassManager::s_instance->currentClassID = 0;
+    ClassManager::s_instance->requestCurrentClass();
+    ClassManager::s_instance->show();
 }
 
 bool SetPlayerPos::execute(Client& client) {
-    World::getPlayerPed()->matrix()->position = position;
-    
+    LocalPlayer::s_instance->matrix()->position = position;
+
+    return false;
+}
+
+bool SetPlayerSkin::execute(Client& client) {
+    if (playerID == client.ourID()) {
+        LocalPlayer::s_instance->setModelIndex(skinID);
+    } else {
+        LUNA_ASSERT(playerID < MAX_PLAYERS);
+
+        RemotePlayer* player = static_cast<RemotePlayer*>(
+            World::players()[playerID + 2].ped);
+
+        player->setModelIndex(skinID);
+    }
+
+    return false;
+}
+
+bool FootSync::execute(Client& client) {
+    LUNA_ASSERT(playerID < MAX_PLAYERS);
+
+    RemotePlayer* player = static_cast<RemotePlayer*>(
+        World::players()[playerID + 2].ped);
+
+    player->setRemoteData(*this);
+
+    return false;
+}
+
+bool SetPlayerFacingAngle::execute(Client& client) {
+    LocalPlayer::s_instance->matrix()->setRotateZOnly(angle);
+
+    return false;
+}
+
+bool SetPlayerHealth::execute(Client& client) {
+    LocalPlayer::s_instance->setHealth(health);
+
+    return false;
+}
+
+bool SetPlayerArmour::execute(Client& client) {
+    LocalPlayer::s_instance->armour = armour;
+
+    return false;
+}
+
+bool ServerJoin::execute(Client& client) {
+    LUNA_ASSERT(playerID < MAX_PLAYERS);
+
+    RemotePlayer* player = RemotePlayer::create(playerID + 2);
+
+    PlayerInfo* info = player->info();
+    info->ped = player;
+    info->playerState = 0;
+
+    return false;
+}
+
+bool ServerQuit::execute(Client& client) {
+    LUNA_ASSERT(playerID < MAX_PLAYERS);
+
+    PlayerInfo* info = &World::players()[playerID + 2];
+    RemotePlayer* player = static_cast<RemotePlayer*>(info->ped);
+
+    World::remove(player);
+    RemotePlayer::release(player);
+
+    info->clear();
+
+    return false;
+}
+
+bool SetPlayerVelocity::execute(Client& client) {
+    LocalPlayer::s_instance->currentVelocity = Vector(x, y, z);
+
+    return false;
+}
+
+bool TogglePlayerControllable::execute(Client& client) {
+    Pad* pad = Pad::mainPlayerPad();
+
+    pad->disablePlayerControls = !moveable;
+    pad->disablePlayerEnterCar = !moveable;
+    pad->disablePlayerDuck = !moveable;
+    pad->disablePlayerFireWeapon = !moveable;
+    pad->disablePlayerFireWeaponWithL1 = !moveable;
+    pad->disablePlayerCycleWeapon = !moveable;
+    pad->disablePlayerJump = !moveable;
+
+    return false;
+}
+
+bool WorldPlayerAdd::execute(Client& client) {
+    LUNA_ASSERT(playerID < MAX_PLAYERS);
+
+    PlayerInfo* info = &World::players()[playerID + 2];
+    PlayerPed* ped = info->ped;
+
+    if (ped == nullptr)
+        return false;
+
+    ped->matrix()->position = Vector(posX, posY, posZ);
+    ped->matrix()->setRotateZOnly(facingAngle);
+
+    World::add(info->ped);
+
+    return false;
+}
+
+bool WorldPlayerRemove::execute(Client& client) {
+    LUNA_ASSERT(playerID < MAX_PLAYERS);
+
+    PlayerInfo* info = &World::players()[playerID + 2];
+
+    if (info->ped != nullptr)
+        World::remove(info->ped);
+
     return false;
 }

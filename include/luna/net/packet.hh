@@ -26,6 +26,7 @@ public:
         throw core::NotImplemented();
     }
 
+    /// Returns true to take the own of this packet.
     virtual bool execute(Client& client) {
         throw core::NotImplemented();
     }

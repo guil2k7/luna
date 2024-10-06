@@ -62,12 +62,17 @@ protected:
     // Offset: 0x544.
     float m_health;
     float m_maxHealth;
-    float m_armour;
 
+public:
+    float armour;
+
+protected:
     PADDING(4);
 
-    Vector m_currentVelocity;
+public:
+    Vector currentVelocity;
 
+protected:
     PADDING(60);
 
     // Offset: 0x59C.
@@ -82,10 +87,6 @@ public:
         core::callFunction<void*>(g_gameAddress + 0x4AF901, ptr);   
     }
 
-    inline static void* operator new(size_t, void* ptr) {
-        return ptr;
-    }
-
     inline PedType pedType() const {
         return m_pedType;
     }
@@ -98,18 +99,10 @@ public:
         return reinterpret_cast<TaskManager*>(m_intelligence + 4);
     }
 
-    inline Vector& currentVelocity() {
-        return m_currentVelocity;
-    }
-
     void setHealth(float value);
 
     inline float health() const {
         return m_health;
-    }
-
-    inline float armour() const {
-        return m_armour;
     }
 
     inline PedVtable* vtable() const {

@@ -414,7 +414,7 @@ int SocketLayer::SendTo( SOCKET s, const char *data, int length, unsigned int bi
 	sa.sin_addr.s_addr = binaryAddress;
 	sa.sin_family = AF_INET;
 
-	uint8_t obfuscatedData[MAXIMUM_MTU_SIZE];
+	uint8_t obfuscatedData[length + 1];
 	SAMP::Obfuscate(obfuscatedData, (const uint8_t*)data, length, port);
 
 	do

@@ -2319,7 +2319,7 @@ bool RakPeer::ParseAuthPacket(PlayerID playerId, uint8_t const* data, size_t siz
 	response[0] = ID_AUTH_KEY;
 	response[1] = 40;
 
-	SAMP::GenerateAuthKey((char*)&response[2], (char const*)&data[2], inputLength);
+	SAMP::GenerateAuthResponse((char*)&response[2], (char const*)&data[2], inputLength);
 
 	SendImmediate( (char*)&response, sizeof(response)*8, SYSTEM_PRIORITY, RELIABLE, 0, playerId, false, false, GetTime() );
 
@@ -3225,7 +3225,12 @@ void RakNet::ProcessNetworkPacket( const unsigned int binaryAddress, const unsig
 		return;
 	}
 	// Connecting to a system we are already connected to.
-	else if ((unsigned char)(data)[0] == (unsigned char) ID_CONNECTION_ATTEMPT_FAILED && length <= sizeof(unsigned char)*2)
+	else if (
+		(
+			(unsigned char)(data)[0] == (unsigned char) ID_CONNECTION_ATTEMPT_FAILED
+			|| (unsigned char)(data)[0] == (unsigned char) ID_CONNECTION_BANNED
+		)
+		&& length <= sizeof(unsigned char)*2)
 	{
 		// Remove the connection attempt from the buffered commands
 		RakPeer::RequestedConnectionStruct *rcsFirst, *rcs;
@@ -3263,7 +3268,7 @@ void RakNet::ProcessNetworkPacket( const unsigned int binaryAddress, const unsig
 		{
 			// Tell user of connection attempt failed
 			packet=AllocPacket(sizeof( char ));
-			packet->data[ 0 ] = ID_CONNECTION_ATTEMPT_FAILED; // Attempted a connection and couldn't
+			packet->data[ 0 ] = data[0];
 			packet->bitSize = ( sizeof( char ) * 8);
 			packet->playerId = playerId;
 			packet->playerIndex = 65535;
@@ -3316,7 +3321,6 @@ void RakNet::ProcessNetworkPacket( const unsigned int binaryAddress, const unsig
 				SocketLayer::Instance()->SendTo( rakPeer->connectionSocket, (char*)&c, 2, playerId.binaryAddress, playerId.port );
 			}
 		}
-
 	}
 	else if ((unsigned char)(data)[0] == ID_OPEN_CONNECTION_COOKIE && length == sizeof(unsigned char)*3)
 	{
@@ -3362,6 +3366,7 @@ void RakNet::ProcessNetworkPacket( const unsigned int binaryAddress, const unsig
 			( (unsigned char)data[0] == ID_OPEN_CONNECTION_COOKIE && length <= 3 ) ||
 			( (unsigned char)data[0] == ID_OPEN_CONNECTION_REPLY && length <= 2 ) ||
 			( (unsigned char)data[0] == ID_CONNECTION_ATTEMPT_FAILED && length <= 2 ) ||
+			( (unsigned char)data[0] == ID_CONNECTION_BANNED && length <= 2 ) ||
 			( ((unsigned char)data[0] == ID_PING_OPEN_CONNECTIONS || (unsigned char)data[0] == ID_PING || (unsigned char)data[0] == ID_PONG) && length >= sizeof(unsigned char)+sizeof(RakNetTime) ) ||
 			( (unsigned char)data[0] == ID_ADVERTISE_SYSTEM && length<MAX_OFFLINE_DATA_LENGTH )
 			) )

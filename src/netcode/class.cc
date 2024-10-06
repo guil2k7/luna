@@ -2,9 +2,9 @@
 
 #include <luna/netcode/class.hh>
 #include <luna/game/pad.hh>
-#include <luna/game/playerPed.hh>
 #include <luna/net/client.hh>
-#include <luna/netgame/spawnScreen.hh>
+#include <luna/netgame/classManager.hh>
+#include <luna/netgame/localPlayer.hh>
 
 using namespace luna::game;
 using namespace luna::net;
@@ -20,10 +20,9 @@ void RequestClassResponse::deserialise(IDeserialiser& deserialiser) {
     selectable = deserialiser.deserialiseU8();
     teamID = deserialiser.deserialiseU8();
     modelID = deserialiser.deserialiseU32();
-    deserialiser.deserialise(spawn);
 
-    // Unknown.
-    deserialiser.deserialiseU8();
+    deserialiser.deserialiseU8(); // Unknown.
+    deserialiser.deserialise(spawn);
 
     zAngle = deserialiser.deserialiseF32();
 
@@ -35,8 +34,9 @@ void RequestClassResponse::deserialise(IDeserialiser& deserialiser) {
 }
 
 bool RequestClassResponse::execute(Client& client) {
-    // TODO
-    return false;
+    ClassManager::s_instance->setCurrentClass(this);
+
+    return true;
 }
 
 void RequestSpawnResponse::deserialise(IDeserialiser& deserialiser) {
@@ -53,14 +53,7 @@ bool RequestSpawnResponse::execute(Client& client) {
 }
 
 void RequestSpawnResponse::onSpawn(Client& client) {
-    Pad* pad = Pad::mainPlayerPad();
-    pad->disablePlayerControls = 0;
-
-    // Confirm spawn.
-    SendSpawn data;
-    client.send(data, RakNet::HIGH_PRIORITY, RakNet::RELIABLE_SEQUENCED);
-
-    SpawnScreen::s_instance->hide();
+    ClassManager::s_instance->spawn();
 }
 
 void RequestSpawnResponse::onSpawnFail(Client& client) {

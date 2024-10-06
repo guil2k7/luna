@@ -60,7 +60,9 @@ void Gui::addWidget(GuiWidget* widget) {
     widget->m_previousWidget = m_widgetsTop;
     widget->m_nextWidget = nullptr;
 
-    m_widgetsTop->m_nextWidget = widget;
+    if (m_widgetsTop != nullptr)
+        m_widgetsTop->m_nextWidget = widget;
+
     m_widgetsTop = widget;
 
     if (m_widgetsTail == nullptr)

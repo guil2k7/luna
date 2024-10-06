@@ -4,12 +4,13 @@
 #include <luna/game/main.hh>
 #include <luna/core/helpers.hh>
 #include <luna/netgame/gui.hh>
+#include <luna/netgame/main.hh>
 
 using namespace luna::core;
 using namespace luna::netgame;
 using namespace luna::game;
 
-static void(LUNA_THISCALL* g_trampoline_DrawAfterFade)(Hud*);
+static void (LUNA_THISCALL* g_trampoline_DrawAfterFade)(Hud*);
 
 void Hud::installMods() {
     g_trampoline_DrawAfterFade = takeAndReplace(
@@ -21,5 +22,6 @@ void Hud::installMods() {
 void Hud::drawAfterFade() {
     g_trampoline_DrawAfterFade(this);
 
+    g_client->update();
     Gui::get()->render();
 }

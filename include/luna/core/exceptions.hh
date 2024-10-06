@@ -24,7 +24,11 @@ inline void assertion_failed(char const* expr, char const* filename, int line) {
     throw std::logic_error(std::move(error));
 }
 
+#ifdef NDEBUG
+#define LUNA_ASSERT(expr) (void)0
+#else
 #define LUNA_ASSERT(expr) \
     ((expr) ? (void)0 : luna::core::assertion_failed(#expr, __FILE__, __LINE__))
+#endif
 
 } // namespace luna::core

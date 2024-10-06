@@ -91,6 +91,65 @@ public:
         core::callMethod<PlayerInfo*>(g_gameAddress + 0x418DE1, this);
     }
 
+    inline void clear() {
+        remoteVehicle = nullptr;
+        ped = nullptr;
+        specCar = nullptr;
+        carDensityForCurrentZone = 0;
+        roadDensityAroundPlayer = 1.0;
+        playerState = 0;
+        afterRemoteVehicleExplosion = false;
+        createRemoteVehicleExplosion = false;
+        fadeAfterRemoteVehicleExplosion = false;
+        taxiTimerScore = 0;
+        tryingToExitCar = 0;
+        taxiTimer = 0;
+        score = 0;
+        displayScore = 0;
+        collectablesPickedUp = 0;
+        totalNumCollectables = 3;
+        bestBikeWheelieTimeMs = 0;
+        bestBikeWheelieDistM = 0.0;
+        bestBikeStoppieTimeMs = 0;
+        bestBikeStoppieDistM = 0.0;
+        tempBufferCounter = 0;
+        bestCarTwoWheelsTimeMs = 0;
+        bestCarTwoWheelsDistM = 0.0;
+        bestBikeWheelieTimeMs = 0;
+        bikeRearWheelCounter = 0;
+        bikeRearWheelDist = 0.0;
+        bikeFrontWheelCounter = 0;
+        bikeFrontWheelDist = 0.0;
+        timesStuckInARow = 0;
+        carTwoWheelCounter = 0;
+        carTwoWheelDist = 0.0;
+        carLess3WheelCounter = 0;
+        lastTimeEnergyLost = 0;
+        lastTimeArmourLost = 0;
+        lastTimeBigGunFired = 0;
+        timesUpsideDownInARow = 0;
+        vehicleTimeCounter = 0;
+        doesNotGetTired = false;
+        fastReload = false;
+        fireProof = false;
+        havocCaused = 0;
+        canDoDriveBy = true;
+        maxHealth = 100;
+        maxArmour = 100;
+        getOutOfJailFree = false;
+        freeHealthCare = false;
+        timeOfLastCarExplosionCaused = 0;
+        explosionMultiplier = 0;
+        timeLastEaten = 0;
+        lastBustMessageNumber = 1;
+        currentChaseValue = 0.0;
+        bustedAudioStatus = 0;
+        getOject = false;
+        requireParachuteTimer = 0;
+        requireParachuteTimer = 0;
+        parachuteReferenced = false;
+    }
+
     PlayerPed* ped;
     PlayerPedData pedData;
     Vehicle* remoteVehicle;

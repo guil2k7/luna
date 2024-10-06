@@ -2,17 +2,37 @@
 
 #include <luna/netgame/main.hh>
 #include <luna/netgame/gui.hh>
-#include <luna/netgame/spawnScreen.hh>
+#include <luna/netgame/classManager.hh>
+#include <luna/netgame/localPlayer.hh>
+#include <luna/netgame/remotePlayer.hh>
+#include <luna/netcode/core.hh>
 
 using namespace luna;
 using namespace luna::netgame;
 using namespace luna::net;
+using namespace luna::netcode;
 
 Client* netgame::g_client = nullptr;
+
+static void registerNetworkCode() {
+    ClassManager::registerNetworkCode();
+    LocalPlayer::registerNetworkCode();
+    RemotePlayer::registerNetworkCode();
+
+    g_client->registerHandlerForPacket(new InitGame());
+}
 
 void netgame::initialise() {
     Gui::initialise();
 
     g_client = new Client();
-    SpawnScreen::s_instance = new SpawnScreen();
+    g_client->setConnectionParams({
+        .nickname = "guil2k7",
+        .host = "192.168.1.12",
+        .port = 7777,
+    });
+
+    ClassManager::s_instance = new ClassManager();
+
+    registerNetworkCode();
 }

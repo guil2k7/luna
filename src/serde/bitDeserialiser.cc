@@ -46,17 +46,17 @@ void BitDeserialiser::deserialiseBytes(uint8_t* dest, size_t length) {
     if ((m_offsetInBits % 8) != 0)
         return deserialiseBits(dest, length * 8);
 
-#ifndef NDEBUG
+    #ifndef NDEBUG
     if (m_offsetInBits + length * 8 > m_dataSizeInBits)
         throw NoBitsLeftException();
-#endif
+    #endif
 
     memcpy(dest, m_data + (m_offsetInBits >> 3), length);
     m_offsetInBits += length * 8;
 }
 
 void BitDeserialiser::deserialiseBytesCompressed(uint8_t* dest, size_t length) {
-    int currentByte = (length >> 3) - 1;
+    int currentByte = length - 1;
 
     uint8_t byteMatch = 0;
     uint8_t halfByteMatch = 0;
@@ -84,7 +84,7 @@ void BitDeserialiser::skipBytes(size_t count) {
 }
 
 bool BitDeserialiser::deserialiseBool() {
-    if (m_offsetInBits + 1 > m_dataSizeInBits)
+    if (m_offsetInBits >= m_dataSizeInBits)
         throw NoBitsLeftException();
 
     bool value = static_cast<bool>(m_data[m_offsetInBits >> 3] & (0x80 >> (m_offsetInBits % 8)));

@@ -1,6 +1,6 @@
 #include "SAMP.h"
-#include "RakAssert.h"
 #include <cstring>
+#include <string_view>
 
 #define ROTL(value, shift) ((value << shift) | (value >> (sizeof (value) * 8 - shift)))
 #define ROTR(value, shift) ((value >> shift) | (value << (sizeof (value) * 8 - shift)))
@@ -32,7 +32,6 @@ static void SHA1(uint32_t* out, char const* string, size_t stringLength) {
         (55 - (stringLength % 56)) + 8 * (((stringLength + 8) / 64));
 
     size_t const bufferSize = stringLength + complement + 8 + 1;
-
     uint8_t buffer[bufferSize];
 
     memcpy(buffer, string, stringLength);
@@ -50,7 +49,7 @@ static void SHA1(uint32_t* out, char const* string, size_t stringLength) {
         for (size_t j = 0; j < 16; ++j)
             w[j] = Swap32(*reinterpret_cast<uint32_t*>(&buffer[i * 64 + j * 4]));
 
-        memset(&w[16], 0, 64 * 4);
+        memset(&w[16], 0, sizeof (uint32_t) * 64);
 
         for (size_t j = 16; j < 80; ++j)
             w[j] = ROTL((w[j - 3] ^ w[j - 8] ^ w[j - 14] ^ w[j - 16]), 1);
@@ -104,28 +103,28 @@ static void SHA1(uint32_t* out, char const* string, size_t stringLength) {
     out[4] = h4;
 }
 
-static uint8_t const AUTH_HASH_TRANSFORM_TABLE[100] = {
-    0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D,
-    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x80,
-    0x08, 0x06, 0x00, 0x00, 0x00, 0xE4, 0xB5, 0xB7, 0x0A, 0x00, 0x00, 0x00,
-    0x09, 0x70, 0x48, 0x59, 0x73, 0x00, 0x00, 0x0B, 0x13, 0x00, 0x00, 0x0B,
-    0x13, 0x01, 0x00, 0x9A, 0x9C, 0x18, 0x00, 0x00, 0x00, 0x04, 0x67, 0x41,
-    0x4D, 0x41, 0x00, 0x00, 0xB1, 0x8E, 0x7C, 0xFB, 0x51, 0x93, 0x00, 0x00,
-    0x00, 0x20, 0x63, 0x48, 0x52, 0x4D, 0x00, 0x00, 0x7A, 0x25, 0x00, 0x00,
-    0x80, 0x83, 0x00, 0x00, 0xF9, 0xFF, 0x00, 0x00, 0x80, 0xE9, 0x00, 0x00,
-    0x75, 0x30, 0x00, 0x00
-};
-
 static uint8_t TransformAuthSHA1(uint8_t value, uint8_t salt) {
+    static uint8_t const TABLE[100] = {
+        0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D,
+        0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x80,
+        0x08, 0x06, 0x00, 0x00, 0x00, 0xE4, 0xB5, 0xB7, 0x0A, 0x00, 0x00, 0x00,
+        0x09, 0x70, 0x48, 0x59, 0x73, 0x00, 0x00, 0x0B, 0x13, 0x00, 0x00, 0x0B,
+        0x13, 0x01, 0x00, 0x9A, 0x9C, 0x18, 0x00, 0x00, 0x00, 0x04, 0x67, 0x41,
+        0x4D, 0x41, 0x00, 0x00, 0xB1, 0x8E, 0x7C, 0xFB, 0x51, 0x93, 0x00, 0x00,
+        0x00, 0x20, 0x63, 0x48, 0x52, 0x4D, 0x00, 0x00, 0x7A, 0x25, 0x00, 0x00,
+        0x80, 0x83, 0x00, 0x00, 0xF9, 0xFF, 0x00, 0x00, 0x80, 0xE9, 0x00, 0x00,
+        0x75, 0x30, 0x00, 0x00
+    };
+
     uint8_t result = value;
 
-    for (size_t i = 0; i < sizeof (AUTH_HASH_TRANSFORM_TABLE); ++i)
-        result ^= AUTH_HASH_TRANSFORM_TABLE[i] ^ salt;
+    for (size_t i = 0; i < 100; ++i)
+        result ^= TABLE[i] ^ salt;
 
     return result;
 }
 
-static uint8_t const CANIMMANAGER_ADDANIMATION[20] = {
+static uint8_t const ANIMMANAGER_ADDANIMATION[20] = {
     0xFF, 0x25, 0x34, 0x39,
     0x4D, 0x00, 0x90, 0x90,
     0x90, 0x90, 0x56, 0x57,
@@ -133,7 +132,7 @@ static uint8_t const CANIMMANAGER_ADDANIMATION[20] = {
     0x14, 0x8D, 0x0C, 0x80
 };
 
-static char HexDigitToChar(int digit) {
+static inline char HexDigitToChar(int digit) {
     if (digit > 9)
         return digit - 10 + 'A';
 
@@ -141,16 +140,18 @@ static char HexDigitToChar(int digit) {
 }
 
 static void StringifyHash(char* output, uint8_t const* hash) {
-    for (size_t i = 0, j = 0; i < 20; ++i) {
+    for (size_t i = 0; i < 20; ++i) {
         uint8_t byte = hash[i];
 
         *output++ = HexDigitToChar((byte >> 4) & 0xF);
         *output++ = HexDigitToChar(byte & 0xF);
     }
+
+    *output = '\0';
 }
 
-void RakNet::SAMP::GenerateAuthKey(char* output, char const* input, size_t inputLength) {
-    uint8_t hash[20];
+void RakNet::SAMP::GenerateAuthResponse(char* output, char const* input, size_t inputLength) {
+    uint8_t hash[sizeof (uint32_t) * 5];
     SHA1(reinterpret_cast<uint32_t*>(&hash), input, inputLength);
 
     size_t i = 0;
@@ -168,7 +169,7 @@ void RakNet::SAMP::GenerateAuthKey(char* output, char const* input, size_t input
         hash[i] = TransformAuthSHA1(hash[i], 0xDB);
 
     for (i = 0; i < 20; ++i)
-        hash[i] ^= CANIMMANAGER_ADDANIMATION[i];
+        hash[i] ^= ANIMMANAGER_ADDANIMATION[i];
 
     StringifyHash(output, hash);
 }

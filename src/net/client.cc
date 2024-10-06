@@ -2,7 +2,6 @@
 
 #include <luna/net/client.hh>
 #include <luna/serde/bitSerde.hh>
-#include <malloc.h>
 #include <RakNet/BitStream.h>
 #include <RakNet/MTUSize.h>
 #include <RakNet/PacketEnumerations.h>
@@ -162,6 +161,11 @@ bool Client::sendRPC(PacketID id, ISerialisable const& data, RakNet::PacketPrior
 
 bool Client::registerHandlerForPacket(bool isRPC, PacketID id, Packet* packet) {
     if (isRPC) {
+        if (m_rpcs[id] != nullptr)
+            return false;
+
+        m_rpcs[id] = packet;
+    } else {
         if (id < RakNet::ID_USER_PACKET_ENUM)
             return false;
 
@@ -169,11 +173,6 @@ bool Client::registerHandlerForPacket(bool isRPC, PacketID id, Packet* packet) {
             return false;
 
         m_packets[id] = packet;
-    } else {
-        if (m_rpcs[id] != nullptr)
-            return false;
-
-        m_rpcs[id] = packet;
     }
 
     return true;
@@ -203,6 +202,7 @@ void Client::processPacket(RakNet::Packet const* packet) {
         break;
 
     case RakNet::ID_CONNECTION_ATTEMPT_FAILED:
+    case RakNet::ID_CONNECTION_BANNED:
         retryConnect();
         break;
 
@@ -277,7 +277,6 @@ void Client::processRPC(RakNet::Packet const* rakPacket) {
 
     RakNet::RPCID rpcID;
     uint32_t dataSizeInBits;
-    uint8_t* data;
 
     if (rakPacket->data[0] == RakNet::ID_TIMESTAMP)
         deserialiser.skipBytes(1 + 4 + 1);
@@ -304,14 +303,6 @@ void Client::processRPC(RakNet::Packet const* rakPacket) {
         return;
     }
     #endif
-
-    if (deserialiser.offsetInBits() % 8 == 0) {
-        data = rakPacket->data + deserialiser.offsetInBytes();
-    } else {
-        // We have to copy into a new data chunk because the user data is not byte aligned.
-        data = reinterpret_cast<uint8_t*>(alloca(bitsToBytes(dataSizeInBits)));
-        deserialiser.deserialiseBits(data, dataSizeInBits, false);
-    }
 
     packet->deserialise(deserialiser);
 

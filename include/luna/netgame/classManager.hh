@@ -4,15 +4,22 @@
 
 #include "gui.hh"
 
+namespace luna::netcode {
+    class RequestClassResponse;
+} // namespace luna::netcode 
+
 namespace luna::netgame {
 
-class SpawnScreen final : public GuiWidget {
+class ClassManager final : public GuiWidget {
 public:
-    static SpawnScreen* s_instance;
+    static ClassManager* s_instance;
 
-    SpawnScreen()
+    static void registerNetworkCode();
+
+    ClassManager()
         : currentClassID(0)
         , numberOfClasses(0)
+        , m_currentClass(nullptr)
     {}
     
     inline void show() {
@@ -27,11 +34,16 @@ public:
     void requestPreviousClass();
     void requestCurrentClass();
     void requestSpawn();
+    void setCurrentClass(netcode::RequestClassResponse* currentClass);
+    bool spawn();
 
     void render() override;
 
     int currentClassID;
     int numberOfClasses;
+
+private:
+    netcode::RequestClassResponse* m_currentClass;
 };
 
 } // namespace luna::netgame

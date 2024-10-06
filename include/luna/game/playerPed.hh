@@ -3,26 +3,42 @@
 #pragma once
 
 #include "ped.hh"
+#include "world.hh"
 
 namespace luna::game {
 
 constexpr size_t MIN_PLAYERPED_SIZE = 1964;
 constexpr size_t MAX_PLAYERPED_SIZE = 1996;
 
-class PlayerInfo;
+typedef PedVtable PlayerPedVtable;
 
 class PlayerPed : public Ped {
 public:
     static void installMods();
-    static void setupPlayerPed(int id);
 
-    /// Initialises the player ped and returns it.
-    PlayerPed* initialise(int id, bool forReply);
+    /// Returns the player info.
+    inline PlayerInfo* info() {
+        return &World::players()[m_id];
+    }
 
-    PlayerInfo* playerInfo();
+    inline void processControl() {
+        core::callMethod<void>(g_gameAddress + 0x4D47E9, this);
+    }
 
     inline int id() const {
         return m_id;
+    }
+
+protected:
+    static void setupPlayerPed(int id);
+
+    /// Initialises the player object and returns it.
+    PlayerPed* initialise(int id, bool forReply);
+
+    /// Releases the memory used by the player.
+    inline void deinitialise() {
+        // PlayerPed::~PlayerPed()
+        core::callMethod<void>(g_gameAddress + 0x4D3901, this);
     }
 
 private:

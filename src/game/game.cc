@@ -3,9 +3,11 @@
 #include <luna/game/game.hh>
 #include <luna/game/main.hh>
 #include <luna/core/helpers.hh>
+#include <luna/netgame/main.hh>
 
 using namespace luna::core;
 using namespace luna::game;
+using namespace luna::netgame;
 
 static bool(LUNA_STDCALL* g_trampoline_Init3)(char const*);
 
@@ -15,6 +17,8 @@ void Game::installMods() {
 
 bool Game::init3(char const* datFile) {
     bool retValue = g_trampoline_Init3(datFile);
+
+    g_client->connect();
 
     return retValue;
 }

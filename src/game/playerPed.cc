@@ -5,9 +5,12 @@
 #include <luna/game/pad.hh>
 #include <luna/game/world.hh>
 #include <luna/netgame/localPlayer.hh>
+#include <luna/netgame/remotePlayer.hh>
+#include <luna/core/exceptions.hh>
 
 using namespace luna::core;
 using namespace luna::game;
+using namespace luna::netgame;
 
 static struct {
     void (LUNA_STDCALL* setupPlayerPed)(int);
@@ -33,41 +36,22 @@ void PlayerPed::installMods() {
 
     g_trampoline.getPlayerInfoForThisPlayerPed = takeAndReplace(
         g_gameAddress + 0x680068,
-        getMethodPointer(&PlayerPed::playerInfo)
+        getMethodPointer(&PlayerPed::info)
     );
 }
 
-void PlayerPed::setupPlayerPed(int id) {
-    PlayerPed* player;
 
-    if (id == 0) {
-        auto localPlayer = reinterpret_cast<netgame::LocalPlayer*>(
-            Ped::operator new(sizeof (netgame::LocalPlayer)));
+// PlayerPed* PlayerPed::create(int id, bool forReply) {
+//     auto player = reinterpret_cast<PlayerPed*>(Ped::operator new(sizeof (PlayerPed)));
+//     player->initialise(id, forReply);
 
-        localPlayer->initialise(id, false);
-        player = localPlayer;
-    }
-    else {
-        player = static_cast<PlayerPed*>(Ped::operator new(sizeof (PlayerPed)));
-        player->initialise(id, false);
-    }
+//     return player;
+// }
 
-    PlayerInfo& info = World::players()[id];
-    info.ped = player;
-    info.playerState = 0;
-
-    if (id >= 1)
-        player->m_pedType = PEDTYPE_PLAYER2;
-
-    if (player->m_matrix == nullptr) {
-        player->m_transform.heading = 0.0f;
-    }
-    else {
-        player->m_matrix->resetOrientation();
-    }
-
-    World::add(player);
-}
+// void PlayerPed::release(PlayerPed* player) {
+//     player->deinitialise();
+//     Ped::operator delete(player);
+// }
 
 PlayerPed* PlayerPed::initialise(int id, bool forReply) {
     g_trampoline.constructor(this, id, forReply);
@@ -77,6 +61,24 @@ PlayerPed* PlayerPed::initialise(int id, bool forReply) {
     return this;
 }
 
-PlayerInfo* PlayerPed::playerInfo() {
-    return &World::players()[m_id];
+void PlayerPed::setupPlayerPed(int id) {
+    PlayerPed* player;
+
+    if (id == 0) {
+        LocalPlayer::s_instance = LocalPlayer::create(id);
+        player = LocalPlayer::s_instance;
+    } else {
+        player = RemotePlayer::create(id);
+    }
+
+    PlayerInfo* info = player->info();
+    info->ped = player;
+    info->playerState = 0;
+
+    if (player->m_matrix == nullptr)
+        player->m_transform.heading = 0.0f;
+    else
+        player->m_matrix->resetOrientation();
+
+    World::add(player);
 }

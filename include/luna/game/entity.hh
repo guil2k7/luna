@@ -46,6 +46,10 @@ public:
     Entity() = delete;
     ~Entity() = delete;
 
+    inline void setModelIndex(uint32_t index) {
+        vtable()->setModelIndex(this, index);
+    }
+
     inline EntityVtable* vtable() const {
         return reinterpret_cast<EntityVtable*>(m_vtable);
     }

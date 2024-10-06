@@ -1,8 +1,9 @@
 set(LUNA_SOURCE_FILES ${LUNA_SOURCE_FILES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/classManager.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/gui.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/localPlayer.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/spawnScreen.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/remotePlayer.cc
 
     PARENT_SCOPE
 )

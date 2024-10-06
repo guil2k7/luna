@@ -39,6 +39,7 @@ struct FootSync final : public net::Packet {
 
     void serialise(serde::ISerialiser& serialiser) const override;
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     uint16_t playerID;
     uint16_t leftRight;
@@ -73,6 +74,7 @@ struct SetPlayerFacingAngle final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     float angle;
 };
@@ -85,6 +87,7 @@ struct ServerJoin final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     uint16_t playerID;
     uint32_t color;
@@ -102,6 +105,7 @@ struct ServerQuit final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     uint16_t playerID;
     ServerQuitReason reason;
@@ -301,6 +305,7 @@ struct SetPlayerSkin final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     uint32_t playerID;
     uint32_t skinID;
@@ -366,6 +371,7 @@ struct SetPlayerVelocity final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     float x;
     float y;
@@ -380,6 +386,7 @@ struct TogglePlayerControllable final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     bool moveable;
 };
@@ -535,6 +542,7 @@ struct SetPlayerHealth final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     float health;
 };
@@ -547,6 +555,7 @@ struct SetPlayerArmour final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     float armour;
 };
@@ -594,6 +603,7 @@ struct WorldPlayerAdd final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     uint16_t playerID;
     uint8_t team;
@@ -615,6 +625,7 @@ struct WorldPlayerRemove final : public net::Packet {
     }
 
     void deserialise(serde::IDeserialiser& deserialiser) override;
+    bool execute(net::Client& client) override;
 
     uint16_t playerID;
 };
